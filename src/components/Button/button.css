@@ -1,0 +1,49 @@
+.cmn-btn a {
+    display: inline-block;
+    font-weight: 500;
+    color: #fff;
+    background-color: #ff8310;
+    padding: 12px 20px;
+    z-index: 1;
+    text-decoration:none!important;
+  }
+  .cmn-btn a i {
+    display: inline-block;
+    font-size: 21px;
+    position: relative;
+    top: 4px;
+    margin-right: 5px;
+  }
+  .cmn-btn .banner-btn-left {
+    margin-right: 20px;
+    position: relative;
+  }
+  .cmn-btn .banner-btn-left:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0%;
+    left: 0;
+    bottom: 0;
+    background-color: #333;
+    border-radius: 50% 50% 0 0;
+    opacity: 0;
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+    z-index: -1;
+  }
+  .cmn-btn .banner-btn-left:hover:before {
+    opacity: 1;
+    height: 100%;
+    border-radius: 0;
+  }
+  .cmn-btn .banner-btn-right {
+    background-color: transparent;
+    padding: 0;
+  }
+  .cmn-btn .banner-btn-right:hover {
+    color: #ff8310;
+  }
+  .cmn-btn .banner-btn-right i {
+    color: #ff8310;
+  }

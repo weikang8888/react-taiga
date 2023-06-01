@@ -14,8 +14,8 @@ import QualityCar from "../../assets/image/quality-car.png";
 import FeatureImage from "../../assets/image/feature-bg.jpg";
 import FeatureShape from "../../assets/image/feature-shape.png";
 import "./homepage.css";
-import "../../css/bootstrap.min.css";
-// import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "../../bootstrap/bootstrap.min.css";
+import "../../bootstrap/";
 import HompageWorks from "./HomepageWorks";
 
 const Homepage = () => {

@@ -1,0 +1,43 @@
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+  }
+  .section-title .sub-title {
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    display: block;
+    z-index: 1;
+    padding-top: 7px;
+    margin-bottom: 20px;
+  }
+  .section-title .sub-title:before {
+    position: absolute;
+    content: "";
+    width: 120px;
+    height: 35px;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #ff8310;
+    z-index: -1;
+    -webkit-transform: skewX(-28deg);
+    transform: skewX(-28deg);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-title h2 {
+    font-weight: 600;
+    font-size: 38px;
+    margin-bottom: 0;
+  }
+  .section-title p {
+    margin-bottom: 0;
+    margin-top: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }

@@ -12,7 +12,7 @@ const Template: Story<typeof TitleSection> = (args) => (
 );
 
 export const TitleSectionStory = Template.bind({});
-TitleSectionStory.storyName = "Title_Section";
+TitleSectionStory.storyName = "TitleSections";
 TitleSectionStory.args = {
   subtitle: "process",
   title: "Our Working Process",

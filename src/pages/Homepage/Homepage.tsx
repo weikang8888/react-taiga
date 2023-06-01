@@ -2,7 +2,9 @@ import React, { useState } from "react";
 
 import Header from "../../components/Header/Header";
 import CarouselBg from "../../assets/image/carousel-bg-2.jpg";
+import Tyre from "../../assets/image/banner-black-tyre.png";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Homepage = () => {
   return (
@@ -40,7 +42,7 @@ const Homepage = () => {
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img
                         className="img-fluid"
-                        src="static/picture/banner-black-tyre.png"
+                        src={Tyre}
                         alt="website template image"
                       />
                     </div>
@@ -51,7 +53,7 @@ const Homepage = () => {
             <div className="carousel-item">
               <img
                 className="w-100 h-100"
-                src="static/image/carousel-bg-2.jpg"
+                src={CarouselBg}
                 alt="website template image"
               />
               <div className="carousel-caption d-flex align-items-center">
@@ -74,7 +76,7 @@ const Homepage = () => {
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img
                         className="img-fluid"
-                        src="static/picture/banner-black-tyre.png"
+                        src={Tyre}
                         alt="website template image"
                       />
                     </div>
@@ -105,6 +107,7 @@ const Homepage = () => {
           </button>
         </div>
       </div>
+      
     </>
   );
 };

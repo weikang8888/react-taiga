@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../../assets/image/tiger.png";
 import Button from "../Button/Button";
+import "./header.css";
 
 const Header = (props) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -154,7 +155,7 @@ const Header = (props) => {
                 </a>
               </li>
             </ul>
-            <Button text="Get A Quote"/>
+            <Button text="Get A Quote" />
           </div>
         </div>
       </nav>

@@ -1,3 +1,10 @@
+@import "../../assets/font/font.css";
+body {
+  font-family: poppins, sans-serif !important;
+  color: #858584;
+  background-color: #fff;
+  font-size: 15px;
+}
 img {
   max-width: 100%;
 }
@@ -92,6 +99,11 @@ img {
 }
 .pt-100 {
   padding-top: 100px;
+}
+
+.ptb-100 {
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 @-webkit-keyframes process-type {
   0% {
@@ -391,7 +403,7 @@ img {
   position: relative;
   overflow: hidden;
 }
-.feature-area .feature-img img{
+.feature-area .feature-img {
   position: relative;
   background-image: url(../../assets/image/feature-bg.jpg);
   background-size: cover;
@@ -483,13 +495,13 @@ img {
   font-size: 14px;
   max-width: 380px;
 }
-.parts-area {
+.products-area {
   background-color: #f6f4f4;
 }
-.parts-view {
+.products-view {
   text-align: center;
 }
-.parts-view a {
+.products-view a {
   display: inline-block;
   color: #ff8310;
   border: 1px solid #ff8310;
@@ -497,11 +509,11 @@ img {
   font-size: 15px;
   padding: 12px 20px;
 }
-.parts-view a:hover {
+.products-view a:hover {
   background-color: #ff8310;
   color: #fff;
 }
-.parts-item {
+.products-item {
   margin-bottom: 30px;
   text-align: center;
   background-color: #fff;
@@ -509,27 +521,27 @@ img {
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
 }
-.parts-item:hover {
+.products-item:hover {
   -webkit-transform: translate(0, -10px);
   transform: translate(0, -10px);
 }
-.parts-item .parts-top {
+.products-item .products-top {
   padding-bottom: 25px;
   border-bottom: 1px solid #ff8310;
   margin-bottom: 20px;
 }
-.parts-item h3 {
+.products-item h3 {
   font-weight: 600;
   font-size: 20px;
   margin-bottom: 8px;
 }
-.parts-item span {
+.products-item span {
   display: block;
   font-weight: 600;
   font-size: 22px;
   color: #ff8310;
   margin-bottom: 14px;
 }
-.parts-item .cmn-btn .banner-btn-left {
+.products-item .cmn-btn .banner-btn-left {
   margin-right: 0;
 }

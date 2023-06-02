@@ -5,13 +5,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 interface ButtonMainProps {
   text: string;
+  buttonDiv?: string;
+  buttonA?: string;
 }
 
-const ButtonMain: React.FC<ButtonMainProps> = ({ text }) => {
+const ButtonMain: React.FC<ButtonMainProps> = ({
+  text,
+  buttonDiv = "cmn-btn",
+  buttonA = "banner-btn-left",
+}) => {
   return (
-    <div className="cmn-btn">
-      <a className="banner-btn-left" href="sign-in.html">
-        <i className="bx bxs-user-plus"></i>
+    <div className={buttonDiv}>
+      <a className={buttonA} href="sign-in.html">
         {text}
       </a>
     </div>

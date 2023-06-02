@@ -2,10 +2,8 @@
   position: relative;
 }
 .nav-item .dropdown-menu {
-  -webkit-transform: rotate(6deg);
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.35);
   transform: rotate(6deg);
-  -webkit-transition: all 0.7s ease;
   transition: all 0.7s ease;
   top: 120px;
   left: 50px;
@@ -20,7 +18,7 @@
 .nav-item .dropdown-menu li a.active {
   color: #ff8310;
 }
-.nav-item:hover ul {
+.nav-item:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
   -webkit-transform: rotate(0deg);
@@ -28,6 +26,6 @@
   left: 0;
   top: 40px;
 }
-.nav-item:hover .ul {
+.nav-item:hover .dropdown-menu {
   display: block !important;
 }

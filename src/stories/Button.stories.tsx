@@ -8,7 +8,7 @@ export default {
 } as Meta<typeof Button>;
 
 const Template: Story<typeof Button> = (args) => (
-  <Button text="Learn More" {...args} />
+  <Button {...args} />
 );
 
 export const ButtonMainStory = Template.bind({});

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../../assets/image/tiger.png";
 import Button from "../Button/Button";
@@ -30,9 +32,7 @@ const Header = (props) => {
   const logoImgClassName = isScrolled
     ? "navbar-logo-height navbar-logo-height-75"
     : "navbar-logo-height";
-  const dropdownMenuClassName = isScrolled
-    ? "dropdown-menu bg-black"
-    : "dropdown-menu";
+  const dropdownMenuClassName = isScrolled ? "bg-black" : "";
 
   return (
     <>
@@ -64,97 +64,68 @@ const Header = (props) => {
         </div>
         <div className="text-end">
           <div className="collapse navbar-collapse" id="navbarCollapse">
-            <ul className="navbar-nav ml-auto p-4 p-lg-0">
-              <li className="nav-item px-2">
-                <a href="index.html" className="nav-link active">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item px-2">
-                <a href="about.html" className="nav-link">
-                  About
-                </a>
-              </li>
-              <li className="nav-item px-2">
-                <a
-                  href="javascript:void(0)"
-                  className="nav-link dropdown-toggle">
-                  Services
-                </a>
-                <ul className={dropdownMenuClassName}>
-                  <li className="nav-item">
-                    <a href="service/pressure-check.html" className="nav-link">
-                      Pressure Check
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      href="service/suspension-service.html"
-                      className="nav-link">
-                      Suspension Service
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="service/wheel-alignment.html" className="nav-link">
-                      Wheel Alignment
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="service/brake-service.html" className="nav-link">
-                      Brake Service
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="service/tyre-balancing.html" className="nav-link">
-                      Tyre Balancing
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      href="service/engine-oil-service.html"
-                      className="nav-link">
-                      Engine Oil Service
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item px-2">
-                <a href="product.html" className="nav-link dropdown-toggle">
-                  Products
-                </a>
-              </li>
-              <li className="nav-item px-2">
-                <a
-                  href="javascript:void(0)"
-                  className="nav-link dropdown-toggle">
-                  Pages
-                </a>
-                <ul className={dropdownMenuClassName}>
-                  <li className="nav-item">
-                    <a href="service/pressure-check.html" className="nav-link">
-                      FAQ
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      href="service/suspension-service.html"
-                      className="nav-link">
-                      Privacy Policy
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="service/wheel-alignment.html" className="nav-link">
-                      Term &amp; Conditions
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item px-2">
-                <a href="contact.html" className="nav-link">
-                  Contact
-                </a>
-              </li>
-            </ul>
+            <nav>
+              <ul className="navbar-nav ml-auto p-4 p-lg-0">
+                <li className="nav-item px-2">
+                  <NavLink to="/" className="nav-link">
+                    Home
+                  </NavLink>
+                </li>
+                <li className="nav-item px-2">
+                  <NavLink to="/about" className="nav-link">
+                    About
+                  </NavLink>
+                </li>
+                <li className="nav-item px-2">
+                  <NavLink to="/services" className="nav-link dropdown-toggle">
+                    Services
+                  </NavLink>
+                  <ul className="dropdown-menu">
+                    <li className="nav-item">
+                      <Link to="/services/pressure-check" className="nav-link">
+                        Pressure Check
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        to="/services/suspension-service"
+                        className="nav-link">
+                        Suspension Service
+                      </Link>
+                    </li>
+                    {/* Add more service links here */}
+                  </ul>
+                </li>
+                <li className="nav-item px-2">
+                  <NavLink to="/products" className="nav-link dropdown-toggle">
+                    Products
+                  </NavLink>
+                </li>
+                <li className="nav-item px-2">
+                  <NavLink to="/pages" className="nav-link dropdown-toggle">
+                    Pages
+                  </NavLink>
+                  <ul className="dropdown-menu">
+                    <li className="nav-item">
+                      <Link to="/pages/faq" className="nav-link">
+                        FAQ
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to="/pages/privacy-policy" className="nav-link">
+                        Privacy Policy
+                      </Link>
+                    </li>
+                    {/* Add more page links here */}
+                  </ul>
+                </li>
+                <li className="nav-item px-2">
+                  <NavLink to="/contact" className="nav-link">
+                    Contact
+                  </NavLink>
+                </li>
+              </ul>
+            </nav>
             <Button text="Get A Quote" />
           </div>
         </div>

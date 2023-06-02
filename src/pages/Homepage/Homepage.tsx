@@ -15,8 +15,9 @@ import FeatureImage from "../../assets/image/feature-bg.jpg";
 import FeatureShape from "../../assets/image/feature-shape.png";
 import "./homepage.css";
 import "../../bootstrap/bootstrap.min.css";
-import "../../bootstrap/";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import HompageWorks from "./HomepageWorks";
+import HomepageParts from "./HomepageParts";
 
 const Homepage = () => {
   return (
@@ -263,6 +264,18 @@ const Homepage = () => {
           </div>
         </div>
       </div>
+
+      <section className="products-area ptb-100">
+        <div className="container">
+          <TitleSection
+            subtitle="products"
+            title="Products On Sale"
+            description=""
+          />
+          <HomepageParts />
+          <ButtonMain text={"View More"} buttonDiv="products-view" buttonA="" />
+        </div>
+      </section>
     </>
   );
 };

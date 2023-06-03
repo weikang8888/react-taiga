@@ -1,0 +1,162 @@
+@import "../../static/css/boxicons.css";
+
+footer {
+  background-color: #000;
+  position: relative;
+}
+footer .footer-img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0px;
+  opacity: 0.2;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer-item {
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+.footer-item .footer-logo a {
+  display: block;
+}
+.footer-item .footer-logo a img {
+  margin-bottom: 25px;
+}
+.footer-item .footer-logo p {
+  color: #fff;
+  margin-bottom: 25px;
+}
+.footer-item .footer-logo ul {
+  margin: 0;
+  padding: 0;
+}
+.footer-item .footer-logo ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 12px;
+}
+.footer-item .footer-logo ul li:last-child {
+  margin-right: 0;
+}
+.footer-item .footer-logo ul li a {
+  display: block;
+  color: #fff;
+  font-size: 24px;
+}
+.footer-item .footer-logo ul li a:hover {
+  color: #ff8310;
+}
+.footer-item .footer-service h3 {
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #fff;
+  display: inline-block;
+}
+.footer-item .footer-service ul {
+  margin: 0;
+  padding: 0;
+}
+.footer-item .footer-service ul li {
+  list-style-type: none;
+  display: block;
+  margin-bottom: 15px;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+.footer-item .footer-service ul li:hover {
+  margin-left: 10px;
+}
+.footer-item .footer-service ul li:hover a {
+  color: #ff8310;
+}
+.footer-item .footer-service ul li:last-child {
+  margin-bottom: 0;
+}
+.footer-item .footer-service ul li a {
+  display: block;
+  color: #fff;
+  font-size: 15px;
+}
+.footer-item .footer-service ul li a i {
+  display: inline-block;
+  font-size: 21px;
+  position: relative;
+  top: 4px;
+}
+.footer-item .footer-find ul li {
+  color: #fff;
+  font-size: 15px;
+  position: relative;
+  padding-left: 27px;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  margin-bottom: 17px;
+}
+.footer-item .footer-find ul li:last-child {
+  margin-bottom: 0;
+}
+.footer-item .footer-find ul li:hover {
+  color: #ff8310;
+}
+.footer-item .footer-find ul li:hover i {
+  color: #ff8310;
+}
+.footer-item .footer-find ul li i {
+  margin-right: 4px;
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 20px;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+.copyright-area {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid #ffffff47;
+  margin-top: 70px;
+}
+.copyright-area .copyright-item p {
+  font-size: 15px;
+  color: #fff;
+  margin-bottom: 0;
+}
+.copyright-area .copyright-item p a {
+  color: #ff8310;
+  display: inline-block;
+  font-weight: 600;
+}
+.copyright-area .copyright-item p a:hover {
+  color: #fff;
+}
+.copyright-area .copyright-item ul {
+  margin: 0;
+  padding: 0;
+}
+.copyright-area .copyright-item ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.copyright-area .copyright-item ul li span {
+  display: inline-block;
+  color: #fff;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.copyright-area .copyright-item ul li a {
+  display: block;
+  color: #fff;
+  font-size: 15px;
+}
+.copyright-area .copyright-item ul li a:hover {
+  color: #ff8310;
+}
+.copyright-area .copyright-right {
+  text-align: right;
+}
+

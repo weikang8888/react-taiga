@@ -18,7 +18,8 @@ import "../../bootstrap/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import HompageWorks from "./HomepageWorks";
 import HomepageParts from "./HomepageParts";
-import HomepagePartner from "./HomepagePartner";
+import Footer from "../../components/Footer/Footer";
+// import HomepagePartner from "./HomepagePartner";
 
 const Homepage = () => {
   return (
@@ -278,7 +279,7 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section className="our-partner pt-5">
+      {/* <section className="our-partner pt-5">
         <div className="container">
           <TitleSection
             subtitle={"partner"}
@@ -287,7 +288,9 @@ const Homepage = () => {
           />
           <HomepagePartner />
         </div>
-      </section>
+      </section> */}
+
+      <Footer />
     </>
   );
 };

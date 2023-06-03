@@ -1,14 +1,6 @@
 .nav-item {
   position: relative;
 }
-.nav-item .dropdown-menu {
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.35);
-  transform: rotate(6deg);
-  transition: all 0.7s ease;
-  top: 120px;
-  left: 50px;
-  border-radius: 0;
-}
 .nav-item .dropdown-menu li a {
   color: #333;
   font-weight: 500;
@@ -17,6 +9,14 @@
 .nav-item .dropdown-menu li a:focus,
 .nav-item .dropdown-menu li a.active {
   color: #ff8310;
+}
+.nav-item .dropdown-menu {
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.35);
+  transform: rotate(6deg);
+  transition: all 0.7s ease;
+  top: 120px;
+  left: 50px;
+  border-radius: 0;
 }
 .nav-item:hover .dropdown-menu {
   opacity: 1;

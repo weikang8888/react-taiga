@@ -80,7 +80,7 @@ const Header = (props) => {
                   <NavLink to="/services" className="nav-link dropdown-toggle">
                     Services
                   </NavLink>
-                  <ul className="dropdown-menu">
+                  <ul className={`dropdown-menu ${dropdownMenuClassName}`}>
                     <li className="nav-item">
                       <Link to="/services/pressure-check" className="nav-link">
                         Pressure Check
@@ -105,7 +105,7 @@ const Header = (props) => {
                   <NavLink to="/pages" className="nav-link dropdown-toggle">
                     Pages
                   </NavLink>
-                  <ul className="dropdown-menu">
+                  <ul className={`dropdown-menu ${dropdownMenuClassName}`}>
                     <li className="nav-item">
                       <Link to="/pages/faq" className="nav-link">
                         FAQ

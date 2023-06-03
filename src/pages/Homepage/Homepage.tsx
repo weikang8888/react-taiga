@@ -18,6 +18,7 @@ import "../../bootstrap/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import HompageWorks from "./HomepageWorks";
 import HomepageParts from "./HomepageParts";
+import HomepagePartner from "./HomepagePartner";
 
 const Homepage = () => {
   return (
@@ -274,6 +275,17 @@ const Homepage = () => {
           />
           <HomepageParts />
           <ButtonMain text={"View More"} buttonDiv="products-view" buttonA="" />
+        </div>
+      </section>
+
+      <section className="our-partner pt-5">
+        <div className="container">
+          <TitleSection
+            subtitle={"partner"}
+            title={"Our Partner"}
+            description={""}
+          />
+          <HomepagePartner />
         </div>
       </section>
     </>

@@ -172,14 +172,9 @@ const Footer = () => {
               <div className="col-lg-7">
                 <div className="copyright-item">
                   <p>
-                    Copyright @
-                    <script
-                      data-cfasync="false"
-                      src="static/js/email-decode.min.js"></script>
-                    <script>document.write(new Date().getFullYear());</script>
-                    Audeck. Designed By
+                    Copyright @ 2023 Audeck. Designed By 
                     <a href="https://hibootstrap.com/" target="_blank">
-                      HiBootstrap
+                      Kitar Teliti
                     </a>
                   </p>
                 </div>

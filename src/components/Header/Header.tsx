@@ -37,20 +37,20 @@ const Header = (props) => {
   return (
     <>
       <div
-        className={`container-fluid p-0 fixed-top px-5 text-end top-0 ${firstDivClassName}`}
+        className={`container-fluid p-0 fixed-top text-end top-0 ${firstDivClassName}`}
         style={props.style}>
         <div className="row gx-0 d-none d-lg-flex">
           <div className="px-5 text-end text-white">
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
-              <small className="fa fa-map-marker-alt text-primary me-2"></small>
+              <small className="bx bx-map-pin text-primary me-2 fs-5"></small>
               <small>123 Street, New York, USA</small>
             </div>
-            <div className="h-100 d-inline-flex align-items-center py-3">
-              <small className="far fa-clock text-primary me-2"></small>
+            <div className="h-100 d-inline-flex align-items-center py-3 me-4">
+              <small className="bx bx-time text-primary me-2 fs-5"></small>
               <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
             </div>
-            <div className="h-100 d-inline-flex align-items-center py-3 me-4">
-              <small className="fa fa-phone-alt text-primary me-2"></small>
+            <div className="h-100 d-inline-flex align-items-center py-3">
+              <small className="bx bx-phone text-primary me-2 fs-5"></small>
               <small>+012 345 6789</small>
             </div>
           </div>

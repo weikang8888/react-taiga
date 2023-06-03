@@ -14,7 +14,7 @@ import QualityCar from "../../assets/image/quality-car.png";
 import FeatureImage from "../../assets/image/feature-bg.jpg";
 import FeatureShape from "../../assets/image/feature-shape.png";
 import "./homepage.css";
-import "../../bootstrap/bootstrap.min.css";
+import "../../static/bootstrap/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import HompageWorks from "./HomepageWorks";
 import HomepageParts from "./HomepageParts";

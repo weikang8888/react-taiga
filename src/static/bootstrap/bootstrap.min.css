@@ -7160,8 +7160,7 @@ fieldset:disabled .btn {
   color: var(--bs-orange);
 }
 .text-primary {
-  --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+  color: var(--bs-orange)!important;
 }
 .text-secondary {
   --bs-text-opacity: 1;

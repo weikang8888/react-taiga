@@ -8,6 +8,7 @@ import "./header.css";
 
 const Header = (props) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { location, hideFirstDiv, logoHeight } = props;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +28,6 @@ const Header = (props) => {
     };
   }, []);
 
-  const { hideFirstDiv, logoHeight } = props;
   const hideFirstDivClassName = hideFirstDiv ? "d-none" : "";
   const logoHeightClassName = logoHeight ? "navbar-logo-height-75" : "";
   const logoImgClassName = isScrolled

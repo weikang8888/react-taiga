@@ -1,0 +1,173 @@
+body {
+  font-family: poppins, sans-serif;
+  color: #858584;
+  background-color: #fff;
+  font-size: 15px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.3;
+  color: #333;
+}
+.quality-area-four {
+  background-color: transparent;
+  position: relative;
+}
+.quality-area-four .quality-shape {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.quality-area-four:before {
+  display: none;
+}
+.quality-area-four:after {
+  display: none;
+}
+.quality-area-four .quality-img {
+  position: relative;
+  bottom: 0;
+  max-width: 100%;
+}
+.quality-area-four .quality-img img {
+  position: relative;
+}
+.quality-area-four .quality-img img:nth-child(1) {
+  height: unset;
+}
+.quality-area-four .quality-img .video-wrap {
+  position: absolute;
+  top: 180px;
+  right: -48px;
+  left: unset;
+  display: inline-block;
+  text-align: center;
+}
+.quality-area-four .quality-img .video-wrap a {
+  z-index: 10;
+  display: block;
+  width: 100px;
+  height: 100px;
+  line-height: 115px;
+  border-radius: 50%;
+  position: relative;
+  font-size: 60px;
+  text-align: center;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+.quality-area-four .quality-img .video-wrap a:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: #ff8310;
+  border-radius: 50%;
+  z-index: -1;
+  -webkit-animation: pulse-border 1500ms ease-out infinite;
+  animation: pulse-border 1500ms ease-out infinite;
+}
+.quality-area-four .quality-img .video-wrap a:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: #ff8310;
+  border-radius: 50%;
+  z-index: -1;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+.quality-area-four .quality-img .video-wrap a:hover {
+  color: #fff;
+}
+.quality-area-four .quality-img .video-wrap a:hover:before {
+  background-color: #333;
+}
+.quality-area-four .quality-img .video-wrap a:hover:after {
+  background-color: #333;
+}
+@keyframes pulse-border {
+  0% {
+    -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0)
+      scale(1.5);
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+    opacity: 0;
+  }
+}
+.quality-area-four .quality-content {
+  max-width: 455px;
+  margin-left: 95px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.quality-area-four .quality-content .section-title h2 {
+  color: #333;
+}
+.quality-area-four .quality-content .section-title p {
+  color: #858584;
+}
+.why-choose-hp-2 {
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(../../assets/about/why-choose-hp-2-bg.jpg);
+}
+.statistics-section .statistics-content span {
+  font-weight: 700;
+  font-size: 55px;
+}
+.statistics-section .statistics-content p {
+  font-size: 16px;
+  margin-top: -10px;
+}
+.why-choose-us-area .single-item {
+  margin-bottom: 50px;
+  padding-left: 100px;
+  position: relative;
+}
+.why-choose-us-area .single-item .icon-holder {
+  background: #f6f6f6 none repeat scroll 0 0;
+  color: #343434;
+  display: block;
+  height: 80px;
+  left: 0;
+  padding: 28px 0;
+  position: absolute;
+  text-align: center;
+  top: 4px;
+  width: 80px;
+  transition: all 500ms ease 0s;
+}
+.why-choose-us-area .single-item .icon-holder:hover {
+  background-color: #ff8310;
+}
+.why-choose-us-area .single-item .content {
+  padding-left: 10px;
+}

@@ -1,6 +1,5 @@
 import React from "react";
 
-import Header from "../../components/Header/Header";
 import TitleSection from "../../components/TitleSection/TitleSection";
 import HomepageService from "./HomepageService";
 import ButtonMain from "../../components/Button/Button";
@@ -18,14 +17,12 @@ import "../../static/bootstrap/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import HompageWorks from "./HomepageWorks";
 import HomepageParts from "./HomepageParts";
-import Footer from "../../components/Footer/Footer";
 import HomepagePartner from "./HomepagePartner";
 // import HomepagePartner from "./HomepagePartner";
 
 const Homepage = () => {
   return (
     <>
-      <Header style={{ background: "transparent", top: "30px" }} />
       <div className="container-fluid p-0 mb-5">
         <div
           id="header-carousel"
@@ -291,7 +288,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 };

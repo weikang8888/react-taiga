@@ -27,17 +27,20 @@ const Header = (props) => {
     };
   }, []);
 
-  const firstDivClassName = isScrolled ? "d-none" : "";
-  const secondDivClassName = isScrolled ? "bg-black top-0" : "";
+  const { hideFirstDiv, logoHeight } = props;
+  const hideFirstDivClassName = hideFirstDiv ? "d-none" : "";
+  const logoHeightClassName = logoHeight ? "navbar-logo-height-75" : "";
   const logoImgClassName = isScrolled
-    ? "navbar-logo-height navbar-logo-height-75"
+    ? `${logoHeightClassName} navbar-logo-height-75`
     : "navbar-logo-height";
+  const firstDivClassName = isScrolled ? "d-none" : hideFirstDivClassName;
+  const secondDivClassName = isScrolled ? "bg-black top-0" : "";
   const dropdownMenuClassName = isScrolled ? "bg-black" : "";
 
   return (
     <>
       <div
-        className={`container-fluid p-0 fixed-top text-end top-0 ${firstDivClassName}`}
+        className={`container-fluid p-0 fixed-top text-end top-0 ${firstDivClassName} ${hideFirstDivClassName}`}
         style={props.style}>
         <div className="row gx-0 d-none d-lg-flex">
           <div className="px-5 text-end text-white">
@@ -56,11 +59,16 @@ const Header = (props) => {
           </div>
         </div>
       </div>
+
       <nav
         className={`navbar navbar-expand-lg navbar-light shadow fixed-top p-0 justify-content-between w-100 ${secondDivClassName}`}
         style={props.style}>
         <div className="align-items-center px-4 px-lg-5">
-          <img src={Logo} alt="My Logo" className={logoImgClassName} />
+          <img
+            src={Logo}
+            alt="My Logo"
+            className={`${logoImgClassName} ${logoHeightClassName}`}
+          />
         </div>
         <div className="text-end">
           <div className="collapse navbar-collapse" id="navbarCollapse">

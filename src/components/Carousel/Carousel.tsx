@@ -1,16 +1,16 @@
 import React from "react";
 
 interface CarouselOption {
-  classsNameDiv: string;
-  carouselImage: string;
+  classNameDiv: string;
+  carouselImages: string[];
 }
-const Carousel = ({ classsNameDiv, carouselImage }: CarouselOption) => {
+
+const Carousel = ({ classNameDiv, carouselImages }: CarouselOption) => {
   return (
-    <div className="owl-carousel owl-theme">
-      {/* Carousel item 1 */}
-      <div className={classsNameDiv}>
-        <img src={carouselImage} />
-      </div>
+    <div className={classNameDiv}>
+      {carouselImages.map((image, index) => (
+        <img key={index} src={image} alt={`Carousel ${index}`} />
+      ))}
     </div>
   );
 };

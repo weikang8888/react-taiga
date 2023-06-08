@@ -1,0 +1,107 @@
+.service-details-area .service-details-item {
+  margin-bottom: 30px;
+}
+.service-details-area .service-details-item .service-details-left {
+  margin-bottom: 50px;
+}
+.service-details-area .service-details-item .service-details-left h3 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.service-details-area .service-details-item .service-details-left h3:before {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #333;
+}
+.service-details-area .service-details-item .service-details-left ul {
+  margin: 0;
+  padding: 0;
+}
+.service-details-area .service-details-item .service-details-left ul li {
+  list-style-type: none;
+  display: block;
+  margin-bottom: 15px;
+}
+.service-details-area .service-details-item .service-details-left ul li i {
+  font-size: 21px;
+  position: relative;
+  top: 4px;
+}
+.service-details-area .service-details-item .service-details-left ul li a {
+  display: inline-block;
+  color: #333;
+}
+.service-details-area
+  .service-details-item
+  .service-details-left
+  ul
+  li
+  a:hover {
+  color: #ff8310;
+}
+.service-details-area .service-details-item .service-details-contact {
+  margin-bottom: 0;
+}
+.service-details-area .service-details-item .service-details-contact ul li {
+  color: #333;
+  margin-bottom: 20px;
+}
+.service-details-area
+  .service-details-item
+  .service-details-contact
+  ul
+  li:last-child {
+  margin-bottom: 0;
+}
+.service-details-area .service-details-item .service-details-contact ul li i {
+  margin-right: 5px;
+}
+.service-details-area .service-details-item .service-details-img img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.service-details-area .service-details-item .service-details-img h3 {
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 38px;
+  position: relative;
+  padding-bottom: 20px;
+}
+.service-details-area .service-details-item .service-details-img h3:before {
+  position: absolute;
+  content: "";
+  width: 60px;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff8310;
+}
+.service-details-area .service-details-item .service-details-img p {
+  margin-bottom: 15px;
+}
+.service-details-area .service-details-item .service-details-img p:last-child {
+  margin-bottom: 0;
+}
+.service-details-area .service-details-slider {
+  margin-bottom: 30px;
+}
+.service-details-area .owl-theme .owl-nav.disabled + .owl-dots {
+  margin-top: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+}
+.service-details-area .owl-theme .owl-dots .owl-dot span {
+  background: #869791;
+}
+.service-details-area .owl-theme .owl-dots .owl-dot.active span {
+  background: #ff8310;
+}

@@ -85,7 +85,10 @@ const Header = (props) => {
                   </NavLink>
                 </li>
                 <li className="nav-item px-2">
-                  <NavLink to="/services" className="nav-link dropdown-toggle">
+                  <NavLink
+                    to="/services"
+                    className="nav-link dropdown-toggle"
+                    onClick={(e) => e.preventDefault()}>
                     Services
                   </NavLink>
                   <ul className={`dropdown-menu ${dropdownMenuClassName}`}>

@@ -1,0 +1,50 @@
+.parts-area {
+  background-color: #f6f4f4;
+}
+.parts-view {
+  text-align: center;
+}
+.parts-view a {
+  display: inline-block;
+  color: #ff8310;
+  border: 1px solid #ff8310;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 20px;
+}
+.parts-view a:hover {
+  background-color: #ff8310;
+  color: #fff;
+}
+.parts-item {
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: #fff;
+  padding: 30px 25px 35px;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+.parts-item:hover {
+  -webkit-transform: translate(0, -10px);
+  transform: translate(0, -10px);
+}
+.parts-item .parts-top {
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ff8310;
+  margin-bottom: 20px;
+}
+.parts-item h3 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.parts-item span {
+  display: block;
+  font-weight: 600;
+  font-size: 22px;
+  color: #ff8310;
+  margin-bottom: 14px;
+}
+.parts-item .cmn-btn .banner-btn-left {
+  margin-right: 0;
+}

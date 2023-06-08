@@ -115,7 +115,13 @@ const About = () => {
 
   return (
     <>
-      <Banner bannerImage={BannerImage} bannerTitle={"About Us"} />
+      <Banner
+        bannerImage={BannerImage}
+        bannerTitle={"About Us"}
+        bannerTarget={"About Us"}
+        bannerPreviousTarget={""}
+        showChevron={false}
+      />
 
       <section className="quality-area quality-area-four pt-100">
         <div className="container-fluid p-0">

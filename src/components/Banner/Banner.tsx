@@ -4,8 +4,17 @@ import "./banner.css";
 interface BannerOption {
   bannerImage: string;
   bannerTitle: string;
+  bannerTarget: string;
+  bannerPreviousTarget: string;
+  showChevron: boolean;
 }
-const Banner = ({ bannerImage, bannerTitle }: BannerOption) => {
+const Banner = ({
+  bannerImage,
+  bannerTitle,
+  bannerTarget,
+  bannerPreviousTarget,
+  showChevron,
+}: BannerOption) => {
   return (
     <>
       <div className="page-title-area">
@@ -20,7 +29,18 @@ const Banner = ({ bannerImage, bannerTitle }: BannerOption) => {
               <li>
                 <i className="bx bx-chevron-right"></i>
               </li>
-              <li>{bannerTitle}</li>
+
+              <li>
+                <a href="/">{bannerPreviousTarget}</a>
+              </li>
+              {showChevron && (
+                <>
+                  <li>
+                    <i className="bx bx-chevron-right"></i>
+                  </li>
+                </>
+              )}
+              <li>{bannerTarget}</li>
             </ul>
           </div>
         </div>

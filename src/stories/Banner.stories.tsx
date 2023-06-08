@@ -7,8 +7,16 @@ export default {
   component: Banner,
 } as Meta<typeof Banner>;
 
-const Template: Story<typeof Banner> = () => <Banner bannerImage={""} bannerTitle={"About Us"} />;
+const Template: Story<typeof Banner> = () => (
+  <Banner
+    bannerImage={""}
+    bannerTitle={"About Us"}
+    bannerTarget={"About Us"}
+    bannerPreviousTarget={""}
+    showChevron={false}
+  />
+);
 
 export const BannerStory = Template.bind({});
-BannerStory.storyName = "Banner";
+BannerStory.storyName = "BannerImage";
 BannerStory.args = {};

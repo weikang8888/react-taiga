@@ -1,8 +1,5 @@
 import React from "react";
-
 import "./button.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-
 interface ButtonMainProps {
   text: string;
   buttonDiv?: string;

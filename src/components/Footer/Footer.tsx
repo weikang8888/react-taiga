@@ -1,5 +1,5 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { memo } from "react";
+
 import "./footer.css";
 
 const Footer = () => {
@@ -172,7 +172,7 @@ const Footer = () => {
               <div className="col-lg-7">
                 <div className="copyright-item">
                   <p>
-                    Copyright @ 2023 Audeck. Designed By 
+                    Copyright @ 2023 Audeck. Designed By
                     <a href="https://hibootstrap.com/" target="_blank">
                       Kitar Teliti
                     </a>

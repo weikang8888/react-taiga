@@ -44,7 +44,7 @@ const Product = () => {
         bannerPreviousTarget={""}
         showChevron={false}
       />
-      <section className="parts-area pt-100 pb-70">
+      <section className="products-area pt-100 pb-70">
         <Mixitup
           isWorkPage={false}
           works={undefined}

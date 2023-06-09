@@ -4,7 +4,6 @@ import {
   Route,
   Routes,
   useLocation,
-  Outlet,
 } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -16,6 +15,11 @@ import Contact from "./pages/Contact/Contact";
 import Faq from "./pages/Page/Faq";
 import PrivacyPolicy from "./pages/Page/Privacy-policy";
 import TermConditions from "./pages/Page/Term-conditions";
+import ButtonScrollTop from "./components/Button/ButtonScrollTop";
+import ButtonTheme from "./components/Button/ButtonTheme";
+import "./static/bootstrap/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+export * from './components';
 
 function App() {
   return (
@@ -37,6 +41,8 @@ function App() {
         <Route path="/pages/term-conditions" element={<TermConditions />} />
       </Routes>
       <Footer />
+      <ButtonTheme />
+      <ButtonScrollTop />
     </Router>
   );
 }

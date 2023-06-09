@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../../assets/image/tiger.png";
 import Button from "../Button/Button";
 import "./header.css";
@@ -45,15 +44,15 @@ const Header = (props) => {
         <div className="row gx-0 d-none d-lg-flex">
           <div className="px-5 text-end text-white">
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
-              <small className="bx bx-map-pin text-primary me-2 fs-5"></small>
+              <small className="bx bx-map-pin color-primary me-2 fs-5"></small>
               <small>123 Street, New York, USA</small>
             </div>
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
-              <small className="bx bx-time text-primary me-2 fs-5"></small>
+              <small className="bx bx-time color-primary me-2 fs-5"></small>
               <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
             </div>
             <div className="h-100 d-inline-flex align-items-center py-3">
-              <small className="bx bx-phone text-primary me-2 fs-5"></small>
+              <small className="bx bx-phone color-primary me-2 fs-5"></small>
               <small>+012 345 6789</small>
             </div>
           </div>

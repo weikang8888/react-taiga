@@ -87,8 +87,8 @@ const Mixitup = ({ isWorkPage, works, products }: MixitupOption) => {
                   className={`col-sm-6 col-lg-3 mix ${product.filters.join(
                     " "
                   )}`}>
-                  <div className="parts-item">
-                    <div className="parts-top">
+                  <div className="products-item">
+                    <div className="products-top">
                       <img src={product.image} alt="Parts" />
                     </div>
                     <h3>{product.title}</h3>

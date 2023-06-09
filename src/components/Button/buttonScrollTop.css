@@ -1,0 +1,39 @@
+@import "../../static/css/boxicons.css";
+
+.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#toTop {
+  position: fixed;
+  bottom: 30px;
+  right: 0;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 10;
+  transition: opacity 0.5s;
+  visibility: hidden;
+}
+.back-to-top-btn i {
+  background: #ff8310;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  display: inline-block;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 50%;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  margin-right: 28px;
+  -webkit-box-shadow: 0 0 14px 0 #ff831091;
+  box-shadow: 0 0 14px 0 #ff831091;
+}
+.back-to-top-btn i:hover {
+  background-color: #333;
+  color: #fff;
+  -webkit-box-shadow: 0 0 14px 0 #333333a6;
+  box-shadow: 0 0 14px 0 #333333a6;
+}

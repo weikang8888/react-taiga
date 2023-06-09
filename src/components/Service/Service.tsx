@@ -1,7 +1,4 @@
 import React from "react";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-
 interface ServiceProps {
   serviceImage: string;
   serviceIcon: string;

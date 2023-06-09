@@ -1,5 +1,8 @@
 @import "../../static/css/boxicons.css";
 
+.color-primary {
+  color: #ff8310;
+}
 .nav-item {
   position: relative;
 }

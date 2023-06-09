@@ -1,8 +1,6 @@
 import React from "react";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./titlesection.css";
-
 interface TitleSectionProps {
   subtitle: string;
   title: string;

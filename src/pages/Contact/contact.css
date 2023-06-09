@@ -1,0 +1,118 @@
+a {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  text-decoration: none;
+  color: #ff8310;
+}
+/* a:hover {
+  color: #333;
+} */
+.contact-area .contact-item {
+  margin-bottom: 30px;
+}
+.contact-area .contact-left h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+.contact-area .contact-left p {
+  margin: 0;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+.contact-area .contact-left ul {
+  margin: 0;
+  padding: 0;
+}
+.contact-area .contact-left ul li {
+  list-style-type: none;
+  display: block;
+  color: #333;
+  font-size: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dddddd69;
+  padding-bottom: 20px;
+}
+.contact-area .contact-left ul li:last-child {
+  margin-bottom: 0;
+}
+.contact-area .contact-left ul li i {
+  font-size: 21px;
+  color: #333;
+  margin-right: 5px;
+  position: relative;
+  bottom: -5px;
+}
+.contact-area .contact-left ul li a {
+  display: inline-block;
+  color: #333;
+}
+.contact-area .contact-left ul li a:hover {
+  color: #ff8310;
+}
+.contact-area .contact-right h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+.contact-area .contact-right .form-group {
+  margin-bottom: 25px;
+}
+.contact-area .contact-right .form-group .form-control {
+  border: 1px solid #ff8310;
+  border-radius: 0;
+  height: 50px;
+  padding-left: 25px;
+  font-size: 14px;
+}
+.contact-area .contact-right .form-group .form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #333;
+}
+.contact-area .contact-right .form-group textarea {
+  height: auto !important;
+  padding-top: 15px;
+}
+.contact-area .contact-right .form-group ::-webkit-input-placeholder {
+  color: #333;
+}
+.contact-area .contact-right .form-group :-ms-input-placeholder {
+  color: #333;
+}
+.contact-area .contact-right .form-group ::-ms-input-placeholder {
+  color: #333;
+}
+.contact-area .contact-right .form-group ::placeholder {
+  color: #333;
+}
+.contact-area .contact-right .form-group .list-unstyled {
+  color: #dc3545;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.contact-area .contact-right .contact-btn {
+  background-color: #ff8310;
+  color: #fff;
+  width: 100%;
+  border-radius: 0;
+  padding: 12px 0;
+  text-transform: uppercase;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  opacity: 1;
+  font-weight: 600;
+}
+.contact-area .contact-right .contact-btn:hover {
+  background-color: #333;
+}
+.contact-area .contact-right .text-danger {
+  font-size: 20px;
+  margin-top: 12px;
+  color: #dc3545;
+}
+.contact-area .contact-right .text-success {
+  font-size: 20px;
+  margin-top: 12px;
+  color: #28a745;
+}

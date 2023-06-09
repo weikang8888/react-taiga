@@ -1,0 +1,162 @@
+.faq-area .faq-head h2 {
+  margin-bottom: 35px;
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: -7px;
+}
+.faq-area .faq-wrap {
+  margin-bottom: 50px;
+}
+.faq-area .faq-wrap:last-child {
+  margin-bottom: 30px;
+}
+.faq-area .accordion {
+  padding-left: 0;
+  margin: 0;
+  padding: 0;
+}
+.faq-area .accordion p {
+  font-size: 15px;
+  display: none;
+  padding: 20px 45px 15px 20px;
+  margin-bottom: 0;
+}
+.faq-area .accordion a {
+  color: #232323;
+  font-size: 17px;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 15px 0 15px 18px;
+  border: 1px solid #232323;
+  border-radius: 8px 8px 0 0;
+}
+.faq-area .accordion a:hover {
+  color: #333;
+}
+.faq-area .accordion a:after {
+  position: absolute;
+  right: 20px;
+  content: "+";
+  top: 10px;
+  color: #232323;
+  font-size: 25px;
+  font-weight: 700;
+}
+.faq-area .accordion li {
+  position: relative;
+  list-style-type: none;
+  margin-bottom: 30px;
+}
+.faq-area .accordion li:first-child {
+  border-top: 0;
+}
+.faq-area .accordion li:last-child {
+  margin-bottom: 0;
+}
+.faq-area .accordion li a.active {
+  color: #fff;
+  background-color: #333;
+  border: 1px solid #333;
+}
+.faq-area .accordion li a.active:after {
+  content: "-";
+  font-size: 25px;
+  color: #fff;
+}
+.coming-item {
+  height: 100vh;
+  text-align: center;
+}
+.coming-item h1 {
+  font-size: 75px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.coming-item p {
+  margin-bottom: 40px;
+  max-width: 865px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.coming-item .coming-wrap {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+.coming-item .coming-wrap .coming-inner {
+  text-align: center;
+  background-color: #efefef;
+  padding-top: 15px;
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+}
+.coming-item .coming-wrap .coming-inner h3 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #232323;
+  margin-bottom: 5px;
+}
+.coming-item .coming-wrap .coming-inner p {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.coming-item ul {
+  margin: 0;
+  padding: 0;
+}
+.coming-item ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.coming-item ul li a {
+  display: block;
+  color: #fff;
+  background-color: #ff8310;
+  width: 35px;
+  height: 35px;
+  line-height: 39px;
+  border-radius: 50%;
+  font-size: 16px;
+}
+.coming-item ul li a:hover {
+  background-color: #333;
+}
+.privacy-area {
+  padding-bottom: 50px;
+}
+.privacy-item {
+  margin-bottom: 50px;
+}
+.privacy-item h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-family: poppins, sans-serif;
+}
+.privacy-item p {
+  margin-bottom: 0;
+}
+.privacy-item ul {
+  margin: 0;
+  padding: 0;
+}
+.privacy-item ul li {
+  list-style-type: none;
+  display: block;
+  margin-bottom: 18px;
+}
+.privacy-item ul li i {
+  display: inline-block;
+  font-size: 20px;
+  position: relative;
+  bottom: -2px;
+}
+.privacy-item ul li:last-child {
+  margin-bottom: 0;
+}

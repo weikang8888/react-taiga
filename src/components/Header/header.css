@@ -13,6 +13,11 @@
   color: #ff8310;
 }
 .nav-item .dropdown-menu {
+  position: absolute;
+  background: transparent;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.35);
   transform: rotate(6deg);
   transition: all 0.7s ease;

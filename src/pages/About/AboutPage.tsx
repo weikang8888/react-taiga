@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../assets/about/footer-car.png";
 import AboutCarImage from "../../assets/about/about-car.jpg";
+import CarShape from "../../assets/about/car-shape.png";
 import Icon1 from "../../assets/icon/like.png";
 import Icon1Hover from "../../assets/icon/like-hover.png";
 import Icon2 from "../../assets/icon/customer-support.png";
@@ -124,6 +125,9 @@ const About = () => {
       />
 
       <section className="quality-area quality-area-four pt-100">
+        <div className="quality-shape">
+          <img src={CarShape} />
+        </div>
         <div className="container-fluid p-0">
           <div className="row m-0 align-items-center">
             <div className="col-lg-6 p-0">

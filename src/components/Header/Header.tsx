@@ -104,7 +104,34 @@ const Header = (props) => {
                         Suspension Service
                       </Link>
                     </li>
-                    {/* Add more service links here */}
+                    <li className="nav-item">
+                      <Link
+                        to="/services/suspension-service"
+                        className="nav-link">
+                        Wheel Alignment
+                      </Link>
+                    </li>{" "}
+                    <li className="nav-item">
+                      <Link
+                        to="/services/suspension-service"
+                        className="nav-link">
+                        Brake Service
+                      </Link>
+                    </li>{" "}
+                    <li className="nav-item">
+                      <Link
+                        to="/services/suspension-service"
+                        className="nav-link">
+                        Tyre Balancing
+                      </Link>
+                    </li>{" "}
+                    <li className="nav-item">
+                      <Link
+                        to="/services/suspension-service"
+                        className="nav-link">
+                        Engine Oil Service
+                      </Link>
+                    </li>
                   </ul>
                 </li>
                 <li className="nav-item px-2">
@@ -113,7 +140,10 @@ const Header = (props) => {
                   </NavLink>
                 </li>
                 <li className="nav-item px-2">
-                  <NavLink to="/pages" className="nav-link dropdown-toggle">
+                  <NavLink
+                    to="/pages"
+                    className="nav-link dropdown-toggle"
+                    onClick={(e) => e.preventDefault()}>
                     Pages
                   </NavLink>
                   <ul className={`dropdown-menu ${dropdownMenuClassName}`}>
@@ -127,11 +157,15 @@ const Header = (props) => {
                         Privacy Policy
                       </Link>
                     </li>
-                    {/* Add more page links here */}
+                    <li className="nav-item">
+                      <Link to="/pages/term-conditions" className="nav-link">
+                        Tern & Conditions
+                      </Link>
+                    </li>
                   </ul>
                 </li>
                 <li className="nav-item px-2">
-                  <NavLink to="/contact" className="nav-link">
+                  <NavLink to="/contactUs" className="nav-link">
                     Contact
                   </NavLink>
                 </li>

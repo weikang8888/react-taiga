@@ -17,9 +17,10 @@ import PrivacyPolicy from "./pages/Page/Privacy-policy";
 import TermConditions from "./pages/Page/Term-conditions";
 import ButtonScrollTop from "./components/Button/ButtonScrollTop";
 import ButtonTheme from "./components/Button/ButtonTheme";
-import "./static/bootstrap/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-export * from './components';
+import "./static/css/responsive.css";
+
+export * from "./components";
 
 function App() {
   return (

@@ -1,9 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../assets/about/footer-car.png";
 import "./page.css";
 
 const Faq = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const faqData = [
+    {
+      question: "How we serve to people?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "How is our parts quality?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "How do we give home delivery?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "How can we get in touch with you?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "Is this audeck 24 hours open?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    // Add more FAQ items here
+  ];
+
+  const handleItemClick = (index) => {
+    if (index === activeIndex) {
+      setActiveIndex(-1); // Toggle off if already active
+    } else {
+      setActiveIndex(index);
+    }
+  };
+
+  const renderFaqItems = () => {
+    return faqData.map((item, index) => (
+      <li key={index} onClick={() => handleItemClick(index)}>
+        <a className={index === activeIndex ? "active" : ""}>{item.question}</a>
+        <p
+          className={`faq-answer ${
+            index === activeIndex ? "active-answer" : ""
+          }`}>
+          {item.answer}
+        </p>
+      </li>
+    ));
+  };
   return (
     <>
       {" "}
@@ -22,73 +74,7 @@ const Faq = () => {
                 <h2>Common Questions</h2>
               </div>
               <div className="faq-item">
-                <ul className="accordion">
-                  <li>
-                    <a>How we serve to people?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi quis modi ullam amet debitis libero veritatis enim
-                      repellat optio natus eum delectus deserunt, odit expedita
-                      eos molestiae ipsa totam quidem? Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Vel, quos mollitia
-                      voluptatum aliquam repellendus similique iure fuga
-                      aspernatur amet odit! At vitae dicta excepturi quasi?
-                      Veritatis, pariatur excepturi! Illum, ut?
-                    </p>
-                  </li>
-                  <li>
-                    <a>How is our parts quality?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi quis modi ullam amet debitis libero veritatis enim
-                      repellat optio natus eum delectus deserunt, odit expedita
-                      eos molestiae ipsa totam quidem? Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Vel, quos mollitia
-                      voluptatum aliquam repellendus similique iure fuga
-                      aspernatur amet odit! At vitae dicta excepturi quasi?
-                      Veritatis, pariatur excepturi! Illum, ut?
-                    </p>
-                  </li>
-                  <li>
-                    <a>How do we give home delivery?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi quis modi ullam amet debitis libero veritatis enim
-                      repellat optio natus eum delectus deserunt, odit expedita
-                      eos molestiae ipsa totam quidem? Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Vel, quos mollitia
-                      voluptatum aliquam repellendus similique iure fuga
-                      aspernatur amet odit! At vitae dicta excepturi quasi?
-                      Veritatis, pariatur excepturi! Illum, ut?
-                    </p>
-                  </li>
-                  <li>
-                    <a>How can we get in touch with you?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi quis modi ullam amet debitis libero veritatis enim
-                      repellat optio natus eum delectus deserunt, odit expedita
-                      eos molestiae ipsa totam quidem? Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Vel, quos mollitia
-                      voluptatum aliquam repellendus similique iure fuga
-                      aspernatur amet odit! At vitae dicta excepturi quasi?
-                      Veritatis, pariatur excepturi! Illum, ut?
-                    </p>
-                  </li>
-                  <li>
-                    <a>Is this audeck 24 hours open?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi quis modi ullam amet debitis libero veritatis enim
-                      repellat optio natus eum delectus deserunt, odit expedita
-                      eos molestiae ipsa totam quidem? Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Vel, quos mollitia
-                      voluptatum aliquam repellendus similique iure fuga
-                      aspernatur amet odit! At vitae dicta excepturi quasi?
-                      Veritatis, pariatur excepturi! Illum, ut?
-                    </p>
-                  </li>
-                </ul>
+                <ul className="accordion">{renderFaqItems()}</ul>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
-import React, { memo } from "react";
-
+import React from "react";
+import BannerImage from "../../assets/about/footer-car.png";
 import "./footer.css";
 
 const Footer = () => {
@@ -7,7 +7,7 @@ const Footer = () => {
     <>
       <footer>
         <div className="footer-img">
-          <img src="static/picture/footer-car.png" alt="Footer" />
+          <img src={BannerImage} alt="Footer" />
         </div>
         <div className="container">
           <div className="row pt-5">

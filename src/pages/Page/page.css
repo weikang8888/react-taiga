@@ -17,7 +17,7 @@
 }
 .faq-area .accordion p {
   font-size: 15px;
-  display: none;
+  /* display: none; */
   padding: 20px 45px 15px 20px;
   margin-bottom: 0;
 }
@@ -64,6 +64,17 @@
   content: "-";
   font-size: 25px;
   color: #fff;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.active-answer {
+  max-height: 500px; /* Adjust the height as needed */
+  opacity: 1;
 }
 .coming-item {
   height: 100vh;

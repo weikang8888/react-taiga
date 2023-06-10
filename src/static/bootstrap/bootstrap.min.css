@@ -230,6 +230,13 @@ sub {
 sup {
   top: -0.5em;
 }
+a {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+a:hover {
+  color: #0a58ca;
+}
 a:not([href]):not([class]),
 a:not([href]):not([class]):hover {
   color: inherit;
@@ -3349,6 +3356,7 @@ fieldset:disabled .btn {
 .dropdown-menu {
   position: absolute;
   z-index: 1000;
+  /* display: none; */
   width: 200px;
   min-width: 10rem;
   padding: 0.5rem 0;
@@ -3818,7 +3826,6 @@ fieldset:disabled .btn {
 }
 .navbar-logo-height-75 {
   max-height: 75px;
-  transition: max-height 0.5s ease;
 }
 .navbar > .container,
 .navbar > .container-fluid,
@@ -4018,7 +4025,9 @@ fieldset:disabled .btn {
   .navbar-expand-lg .navbar-nav {
     flex-direction: row;
   }
-
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
@@ -7151,7 +7160,8 @@ fieldset:disabled .btn {
   color: var(--bs-orange);
 }
 .text-primary {
-  color: var(--bs-orange)!important;
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
 }
 .text-secondary {
   --bs-text-opacity: 1;

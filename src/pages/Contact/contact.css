@@ -1,7 +1,7 @@
 a {
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
-  text-decoration: none;
+  text-decoration: none!important;
   color: #ff8310;
 }
 /* a:hover {

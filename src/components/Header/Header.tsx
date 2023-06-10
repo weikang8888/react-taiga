@@ -71,7 +71,7 @@ const Header = (props) => {
         </div>
         <div className="text-end">
           <div className="collapse navbar-collapse" id="navbarCollapse">
-            <nav>
+            <nav className="collapse navbar-collapse">
               <ul className="navbar-nav ml-auto p-4 p-lg-0">
                 <li className="nav-item px-2">
                   <NavLink to="/" className="nav-link">

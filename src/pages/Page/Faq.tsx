@@ -4,7 +4,9 @@ import BannerImage from "../../assets/about/footer-car.png";
 import "./page.css";
 
 const Faq = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex1, setActiveIndex1] = useState(0);
+  const [activeIndex2, setActiveIndex2] = useState(null);
+  const [activeIndex3, setActiveIndex3] = useState(null);
 
   const faqData = [
     {
@@ -35,27 +37,84 @@ const Faq = () => {
     // Add more FAQ items here
   ];
 
-  const handleItemClick = (index) => {
-    if (index === activeIndex) {
-      setActiveIndex(-1); // Toggle off if already active
-    } else {
-      setActiveIndex(index);
+  const faqData2 = [
+    {
+      question: "How we do service?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "What is our service quality?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "What people say about our service?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "Do we give home delivery to anyone?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "When parts are available?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+  ];
+
+  const faqData3 = [
+    {
+      question: "How we make car?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "What is our car quality?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "What people say about our service?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "Do we give home delivery to anyone?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+    {
+      question: "When parts are available?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing el Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos mollitia voluptatum aliquam repellendus similique iure fuga aspernatur amet odit! At vitae dicta excepturi quasi? Veritatis, pariatur excepturi! Illum, ut?",
+    },
+  ];
+
+  const handleItemClick = (sectionIndex, itemIndex) => {
+    if (sectionIndex === 1) {
+      if (itemIndex === activeIndex1) {
+        setActiveIndex1(-1);
+      } else {
+        setActiveIndex1(itemIndex);
+      }
+    } else if (sectionIndex === 2) {
+      if (itemIndex === activeIndex2) {
+        setActiveIndex2(-1);
+      } else {
+        setActiveIndex2(itemIndex);
+      }
+    } else if (sectionIndex === 3) {
+      if (itemIndex === activeIndex3) {
+        setActiveIndex3(-1);
+      } else {
+        setActiveIndex3(itemIndex);
+      }
     }
   };
 
-  const renderFaqItems = () => {
-    return faqData.map((item, index) => (
-      <li key={index} onClick={() => handleItemClick(index)}>
-        <a className={index === activeIndex ? "active" : ""}>{item.question}</a>
-        <p
-          className={`faq-answer ${
-            index === activeIndex ? "active-answer" : ""
-          }`}>
-          {item.answer}
-        </p>
-      </li>
-    ));
-  };
   return (
     <>
       {" "}
@@ -74,7 +133,21 @@ const Faq = () => {
                 <h2>Common Questions</h2>
               </div>
               <div className="faq-item">
-                <ul className="accordion">{renderFaqItems()}</ul>
+                <ul className="accordion">
+                  {faqData.map((item, index) => (
+                    <li key={index} onClick={() => handleItemClick(1, index)}>
+                      <a className={index === activeIndex1 ? "active" : ""}>
+                        {item.question}
+                      </a>
+                      <p
+                        className={
+                          index === activeIndex1 ? "active-answer" : ""
+                        }>
+                        {item.answer}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -85,75 +158,19 @@ const Faq = () => {
               </div>
               <div className="faq-item">
                 <ul className="accordion">
-                  <li>
-                    <a>How we do service?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Provident porro laboriosam magni labore quaerat,
-                      aspernatur iusto error ducimus adipisci, et corporis
-                      recusandae illum tenetur hic? Earum excepturi porro fuga
-                      ipsum? Lorem ipsum dolor sit amet consectetur adipisicing
-                      elit. Ut fugiat, expedita vero et quia saepe debitis
-                      exercitationem labore consequatur fuga ab, laudantium sed
-                      maiores velit reiciendis. Ullam illo laborum sequi.
-                    </p>
-                  </li>
-                  <li>
-                    <a>What is our service quality?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Provident porro laboriosam magni labore quaerat,
-                      aspernatur iusto error ducimus adipisci, et corporis
-                      recusandae illum tenetur hic? Earum excepturi porro fuga
-                      ipsum? Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Sint natus ipsa accusantium saepe dolorem a mollitia
-                      tempora consequatur totam modi pariatur nulla, aspernatur
-                      dolore consequuntur temporibus unde minima repellendus
-                      laboriosam.
-                    </p>
-                  </li>
-                  <li>
-                    <a>What people say about our service?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Provident porro laboriosam magni labore quaerat,
-                      aspernatur iusto error ducimus adipisci, et corporis
-                      recusandae illum tenetur hic? Earum excepturi porro fuga
-                      ipsum? Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Sint natus ipsa accusantium saepe dolorem a mollitia
-                      tempora consequatur totam modi pariatur nulla, aspernatur
-                      dolore consequuntur temporibus unde minima repellendus
-                      laboriosam.
-                    </p>
-                  </li>
-                  <li>
-                    <a>Do we give home delivery to anyone?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Provident porro laboriosam magni labore quaerat,
-                      aspernatur iusto error ducimus adipisci, et corporis
-                      recusandae illum tenetur hic? Earum excepturi porro fuga
-                      ipsum? Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Sint natus ipsa accusantium saepe dolorem a mollitia
-                      tempora consequatur totam modi pariatur nulla, aspernatur
-                      dolore consequuntur temporibus unde minima repellendus
-                      laboriosam.
-                    </p>
-                  </li>
-                  <li>
-                    <a>When parts are available?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Provident porro laboriosam magni labore quaerat,
-                      aspernatur iusto error ducimus adipisci, et corporis
-                      recusandae illum tenetur hic? Earum excepturi porro fuga
-                      ipsum? Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Sint natus ipsa accusantium saepe dolorem a mollitia
-                      tempora consequatur totam modi pariatur nulla, aspernatur
-                      dolore consequuntur temporibus unde minima repellendus
-                      laboriosam.
-                    </p>
-                  </li>
+                  {faqData2.map((item, index) => (
+                    <li key={index} onClick={() => handleItemClick(2, index)}>
+                      <a className={index === activeIndex2 ? "active" : ""}>
+                        {item.question}
+                      </a>
+                      <p
+                        className={
+                          index === activeIndex2 ? "active-answer" : ""
+                        }>
+                        {item.answer}
+                      </p>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -165,71 +182,19 @@ const Faq = () => {
               </div>
               <div className="faq-item">
                 <ul className="accordion">
-                  <li>
-                    <a>How we make car?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi quis modi ullam amet debitis libero veritatis enim
-                      repellat optio natus eum delectus deserunt, odit expedita
-                      eos molestiae ipsa totam quidem? Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Vel, quos mollitia
-                      voluptatum aliquam repellendus similique iure fuga
-                      aspernatur amet odit! At vitae dicta excepturi quasi?
-                      Veritatis, pariatur excepturi! Illum, ut?3
-                    </p>
-                  </li>
-                  <li>
-                    <a>What is our car quality?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi quis modi ullam amet debitis libero veritatis enim
-                      repellat optio natus eum delectus deserunt, odit expedita
-                      eos molestiae ipsa totam quidem? Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Vel, quos mollitia
-                      voluptatum aliquam repellendus similique iure fuga
-                      aspernatur amet odit! At vitae dicta excepturi quasi?
-                      Veritatis, pariatur excepturi! Illum, ut?3
-                    </p>
-                  </li>
-                  <li>
-                    <a>What people say about our car?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi quis modi ullam amet debitis libero veritatis enim
-                      repellat optio natus eum delectus deserunt, odit expedita
-                      eos molestiae ipsa totam quidem? Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Vel, quos mollitia
-                      voluptatum aliquam repellendus similique iure fuga
-                      aspernatur amet odit! At vitae dicta excepturi quasi?
-                      Veritatis, pariatur excepturi! Illum, ut?3
-                    </p>
-                  </li>
-                  <li>
-                    <a>Do we give home delivery to car?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi quis modi ullam amet debitis libero veritatis enim
-                      repellat optio natus eum delectus deserunt, odit expedita
-                      eos molestiae ipsa totam quidem? Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Vel, quos mollitia
-                      voluptatum aliquam repellendus similique iure fuga
-                      aspernatur amet odit! At vitae dicta excepturi quasi?
-                      Veritatis, pariatur excepturi! Illum, ut?3
-                    </p>
-                  </li>
-                  <li>
-                    <a>When car is available?</a>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nisi quis modi ullam amet debitis libero veritatis enim
-                      repellat optio natus eum delectus deserunt, odit expedita
-                      eos molestiae ipsa totam quidem? Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Vel, quos mollitia
-                      voluptatum aliquam repellendus similique iure fuga
-                      aspernatur amet odit! At vitae dicta excepturi quasi?
-                      Veritatis, pariatur excepturi! Illum, ut?3
-                    </p>
-                  </li>
+                  {faqData3.map((item, index) => (
+                    <li key={index} onClick={() => handleItemClick(3, index)}>
+                      <a className={index === activeIndex3 ? "active" : ""}>
+                        {item.question}
+                      </a>
+                      <p
+                        className={
+                          index === activeIndex3 ? "active-answer" : ""
+                        }>
+                        {item.answer}
+                      </p>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

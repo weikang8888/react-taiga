@@ -2,10 +2,11 @@ import React from "react";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../assets/about/footer-car.png";
 import "./contact.css";
+import Loader from "../../components/Loader/Loader";
 const Contact = () => {
   return (
     <>
-      {" "}
+      <Loader />
       <Banner
         bannerImage={BannerImage}
         bannerTitle={"Contact Us"}

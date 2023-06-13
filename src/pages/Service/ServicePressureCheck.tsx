@@ -8,6 +8,7 @@ import ServiceDetail1 from "../../assets/service/service-details.jpg";
 import ServiceDetail2 from "../../assets/service/service-details2.jpg";
 import ServiceDetail3 from "../../assets/service/service-details3.jpg";
 import ServiceRight from "./ServiceRight";
+import Loader from "../../components/Loader/Loader";
 
 const ServicePressureCheck = () => {
   const settings = {
@@ -22,6 +23,7 @@ const ServicePressureCheck = () => {
   const serviceDetail = [ServiceDetail1, ServiceDetail2, ServiceDetail3];
   return (
     <>
+      <Loader />
       <Banner
         bannerImage={BannerImage}
         bannerTitle={"Service Details"}
@@ -29,7 +31,6 @@ const ServicePressureCheck = () => {
         bannerPreviousTarget={"Service"}
         showChevron={true}
       />
-
       <div className="service-details-area pt-100 pb-70">
         <div className="container">
           <div className="row">

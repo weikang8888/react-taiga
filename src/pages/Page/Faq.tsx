@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../assets/about/footer-car.png";
 import "./page.css";
+import Loader from "../../components/Loader/Loader";
 
 const Faq = () => {
   const [activeIndex1, setActiveIndex1] = useState(0);
@@ -117,14 +118,14 @@ const Faq = () => {
 
   return (
     <>
-      {" "}
+      <Loader />
       <Banner
         bannerImage={BannerImage}
         bannerTitle={"FAQ"}
         bannerTarget={"FAQ"}
         bannerPreviousTarget={"Pages"}
         showChevron={true}
-      />{" "}
+      />
       <section className="faq-area pt-100 pb-70">
         <div className="container">
           <div className="row faq-wrap">

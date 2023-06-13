@@ -18,6 +18,7 @@ import Icon6Hover from "../../assets/icon/dollar-symbol-hover.png";
 
 import "./about.css";
 import CountUp from "react-countup";
+import Loader from "../../components/Loader/Loader";
 
 const About = () => {
   const countRef = useRef(null);
@@ -116,6 +117,7 @@ const About = () => {
 
   return (
     <>
+      <Loader />
       <Banner
         bannerImage={BannerImage}
         bannerTitle={"About Us"}

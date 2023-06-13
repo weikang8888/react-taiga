@@ -4,7 +4,6 @@ import {
   Route,
   Routes,
   useLocation,
-  BrowserRouter,
 } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -30,7 +29,7 @@ export * from "./components";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <HeaderWrapper />
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -70,7 +69,7 @@ function App() {
       <Footer />
       <ButtonTheme />
       <ButtonScrollTop />
-    </BrowserRouter>
+    </Router>
   );
 }
 
@@ -79,18 +78,22 @@ function HeaderWrapper() {
   const { pathname } = location;
   const isHomepage = pathname === "/";
 
-  return isHomepage ? (
-    <Header
-      style={{ background: "transparent", top: "30px" }}
-      location={location}
-    />
-  ) : (
-    <Header
-      style={{ background: "black", top: "" }}
-      hideFirstDiv={true}
-      logoHeight={true}
-      location={location}
-    />
+  return (
+    <>
+      {isHomepage ? (
+        <Header
+          style={{ background: "transparent", top: "30px" }}
+          location={location}
+        />
+      ) : (
+        <Header
+          style={{ background: "black", top: "" }}
+          hideFirstDiv={true}
+          logoHeight={true}
+          location={location}
+        />
+      )}
+    </>
   );
 }
 

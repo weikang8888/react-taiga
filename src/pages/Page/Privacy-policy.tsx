@@ -1,10 +1,11 @@
 import React from "react";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../assets/about/footer-car.png";
+import Loader from "../../components/Loader/Loader";
 const PrivacyPolicy = () => {
   return (
     <>
-      {" "}
+      <Loader />
       <Banner
         bannerImage={BannerImage}
         bannerTitle={"Privacy Policy"}

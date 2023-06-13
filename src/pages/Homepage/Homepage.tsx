@@ -16,11 +16,12 @@ import "./homepage.css";
 import HompageWorks from "./HomepageWorks";
 import HomepageParts from "./HomepageParts";
 import HomepagePartner from "./HomepagePartner";
-// import HomepagePartner from "./HomepagePartner";
+import Loader from "../../components/Loader/Loader";
 
 const Homepage = () => {
   return (
     <>
+      <Loader />
       <div className="container-fluid p-0 mb-5">
         <div
           id="header-carousel"
@@ -118,7 +119,6 @@ const Homepage = () => {
           </button>
         </div>
       </div>
-
       <section className="process-area pt-100 pb-70">
         <div className="process-shape">
           <img src={CarShadow} alt="Shape" />
@@ -168,7 +168,6 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-
       <section className="pb-70">
         <div className="container">
           <TitleSection
@@ -180,7 +179,6 @@ const Homepage = () => {
           <HomepageService />
         </div>
       </section>
-
       <section className="quality-area">
         <div className="quality-img">
           <img src={QualityShape} alt="Quality" />
@@ -203,7 +201,6 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-
       <section className="work-area pt-100 pb-70">
         <div className="container">
           <TitleSection
@@ -216,7 +213,6 @@ const Homepage = () => {
           <HompageWorks />
         </div>
       </section>
-
       <div className="feature-area">
         <div className="feature-shape">
           <img src={FeatureShape} alt="Feature" />
@@ -262,7 +258,6 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-
       <section className="products-area ptb-100">
         <div className="container">
           <TitleSection
@@ -274,7 +269,6 @@ const Homepage = () => {
           <ButtonMain text={"View More"} buttonDiv="products-view" buttonA="" />
         </div>
       </section>
-
       <section className="our-partner pt-5">
         <div className="container">
           <TitleSection

@@ -14,6 +14,7 @@ import CarouselImage6 from "../../assets/partner/SUPER-POWER-150x150.png";
 const HomepagePartner = () => {
   const settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 200,
     slidesToShow: 5, // Adjust this value as needed

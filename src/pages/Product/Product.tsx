@@ -7,6 +7,7 @@ import ProductsImage2 from "../../assets/products/21.png";
 import ProductsImage3 from "../../assets/products/3.png";
 import ProductsImage4 from "../../assets/products/4.png";
 import "./product.css";
+import Loader from "../../components/Loader/Loader";
 
 const Product = () => {
   const products = [
@@ -37,6 +38,7 @@ const Product = () => {
   ];
   return (
     <>
+      <Loader />
       <Banner
         bannerImage={BannerImage}
         bannerTitle={"Products"}
@@ -45,11 +47,7 @@ const Product = () => {
         showChevron={false}
       />
       <section className="products-area pt-100 pb-70">
-        <Mixitup
-          isWorkPage={false}
-          works={undefined}
-          products={products}
-        />
+        <Mixitup isWorkPage={false} works={undefined} products={products} />
       </section>
     </>
   );

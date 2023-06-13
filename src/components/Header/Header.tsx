@@ -59,121 +59,125 @@ const Header = (props) => {
         </div>
       </div>
 
-      <nav
-        className={`navbar navbar-expand-lg navbar-light shadow fixed-top p-0 justify-content-between w-100 ${secondDivClassName}`}
-        style={props.style}>
-        <div className="align-items-center px-4 px-lg-5">
-          <img
-            src={Logo}
-            alt="My Logo"
-            className={`${logoImgClassName} ${logoHeightClassName}`}
-          />
-        </div>
-        <div className="text-end">
-          <div className="collapse navbar-collapse" id="navbarCollapse">
-            <nav className="collapse navbar-collapse">
-              <ul className="navbar-nav ml-auto p-4 p-lg-0">
-                <li className="nav-item px-2">
-                  <NavLink to="/" className="nav-link">
-                    Home
-                  </NavLink>
-                </li>
-                <li className="nav-item px-2">
-                  <NavLink to="/about" className="nav-link">
-                    About
-                  </NavLink>
-                </li>
-                <li className="nav-item px-2">
-                  <NavLink
-                    to="/services"
-                    className="nav-link dropdown-toggle"
-                    onClick={(e) => e.preventDefault()}>
-                    Services
-                  </NavLink>
-                  <ul className={`dropdown-menu ${dropdownMenuClassName}`}>
-                    <li className="nav-item">
-                      <Link to="/services/pressure-check" className="nav-link">
-                        Pressure Check
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link
-                        to="/services/suspension-service"
-                        className="nav-link">
-                        Suspension Service
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link
-                        to="/services/wheel-alignment"
-                        className="nav-link">
-                        Wheel Alignment
-                      </Link>
-                    </li>{" "}
-                    <li className="nav-item">
-                      <Link
-                        to="/services/brake-service"
-                        className="nav-link">
-                        Brake Service
-                      </Link>
-                    </li>{" "}
-                    <li className="nav-item">
-                      <Link
-                        to="/services/tyre-balancing"
-                        className="nav-link">
-                        Tyre Balancing
-                      </Link>
-                    </li>{" "}
-                    <li className="nav-item">
-                      <Link
-                        to="/services/engine-oil-service"
-                        className="nav-link">
-                        Engine Oil Service
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="nav-item px-2">
-                  <NavLink to="/products" className="nav-link dropdown-toggle">
-                    Products
-                  </NavLink>
-                </li>
-                <li className="nav-item px-2">
-                  <NavLink
-                    to="/pages"
-                    className="nav-link dropdown-toggle"
-                    onClick={(e) => e.preventDefault()}>
-                    Pages
-                  </NavLink>
-                  <ul className={`dropdown-menu ${dropdownMenuClassName}`}>
-                    <li className="nav-item">
-                      <Link to="/pages/faq" className="nav-link">
-                        FAQ
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link to="/pages/privacy-policy" className="nav-link">
-                        Privacy Policy
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link to="/pages/term-conditions" className="nav-link">
-                        Tern & Conditions
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="nav-item px-2">
-                  <NavLink to="/contactUs" className="nav-link">
-                    Contact
-                  </NavLink>
-                </li>
-              </ul>
-            </nav>
-            <Button text="Get A Quote" />
+      <BrowserRouter>
+        <nav
+          className={`navbar navbar-expand-lg navbar-light shadow fixed-top p-0 justify-content-between w-100 ${secondDivClassName}`}
+          style={props.style}>
+          <div className="align-items-center px-4 px-lg-5">
+            <img
+              src={Logo}
+              alt="My Logo"
+              className={`${logoImgClassName} ${logoHeightClassName}`}
+            />
           </div>
-        </div>
-      </nav>
+          <div className="text-end">
+            <div className="collapse navbar-collapse" id="navbarCollapse">
+              <nav className="collapse navbar-collapse">
+                <ul className="navbar-nav ml-auto p-4 p-lg-0">
+                  <li className="nav-item px-2">
+                    <NavLink to="/" className="nav-link">
+                      Home
+                    </NavLink>
+                  </li>
+                  <li className="nav-item px-2">
+                    <NavLink to="/about" className="nav-link">
+                      About
+                    </NavLink>
+                  </li>
+                  <li className="nav-item px-2">
+                    <NavLink
+                      to="/services"
+                      className="nav-link dropdown-toggle"
+                      onClick={(e) => e.preventDefault()}>
+                      Services
+                    </NavLink>
+                    <ul className={`dropdown-menu ${dropdownMenuClassName}`}>
+                      <li className="nav-item">
+                        <Link
+                          to="/services/pressure-check"
+                          className="nav-link">
+                          Pressure Check
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link
+                          to="/services/suspension-service"
+                          className="nav-link">
+                          Suspension Service
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link
+                          to="/services/wheel-alignment"
+                          className="nav-link">
+                          Wheel Alignment
+                        </Link>
+                      </li>{" "}
+                      <li className="nav-item">
+                        <Link to="/services/brake-service" className="nav-link">
+                          Brake Service
+                        </Link>
+                      </li>{" "}
+                      <li className="nav-item">
+                        <Link
+                          to="/services/tyre-balancing"
+                          className="nav-link">
+                          Tyre Balancing
+                        </Link>
+                      </li>{" "}
+                      <li className="nav-item">
+                        <Link
+                          to="/services/engine-oil-service"
+                          className="nav-link">
+                          Engine Oil Service
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="nav-item px-2">
+                    <NavLink
+                      to="/products"
+                      className="nav-link dropdown-toggle">
+                      Products
+                    </NavLink>
+                  </li>
+                  <li className="nav-item px-2">
+                    <NavLink
+                      to="/pages"
+                      className="nav-link dropdown-toggle"
+                      onClick={(e) => e.preventDefault()}>
+                      Pages
+                    </NavLink>
+                    <ul className={`dropdown-menu ${dropdownMenuClassName}`}>
+                      <li className="nav-item">
+                        <Link to="/pages/faq" className="nav-link">
+                          FAQ
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/pages/privacy-policy" className="nav-link">
+                          Privacy Policy
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/pages/term-conditions" className="nav-link">
+                          Tern & Conditions
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="nav-item px-2">
+                    <NavLink to="/contactUs" className="nav-link">
+                      Contact
+                    </NavLink>
+                  </li>
+                </ul>
+              </nav>
+              <Button text="Get A Quote" />
+            </div>
+          </div>
+        </nav>
+      </BrowserRouter>
     </>
   );
 };

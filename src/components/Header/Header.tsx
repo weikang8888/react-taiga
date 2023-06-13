@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Link, NavLink } from "react-router-dom";
 
 import Logo from "../../assets/image/tiger.png";
 import Button from "../Button/Button";
@@ -105,28 +105,28 @@ const Header = (props) => {
                     </li>
                     <li className="nav-item">
                       <Link
-                        to="/services/suspension-service"
+                        to="/services/wheel-alignment"
                         className="nav-link">
                         Wheel Alignment
                       </Link>
                     </li>{" "}
                     <li className="nav-item">
                       <Link
-                        to="/services/suspension-service"
+                        to="/services/brake-service"
                         className="nav-link">
                         Brake Service
                       </Link>
                     </li>{" "}
                     <li className="nav-item">
                       <Link
-                        to="/services/suspension-service"
+                        to="/services/tyre-balancing"
                         className="nav-link">
                         Tyre Balancing
                       </Link>
                     </li>{" "}
                     <li className="nav-item">
                       <Link
-                        to="/services/suspension-service"
+                        to="/services/engine-oil-service"
                         className="nav-link">
                         Engine Oil Service
                       </Link>

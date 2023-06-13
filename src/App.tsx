@@ -4,6 +4,7 @@ import {
   Route,
   Routes,
   useLocation,
+  BrowserRouter,
 } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -19,12 +20,17 @@ import ButtonScrollTop from "./components/Button/ButtonScrollTop";
 import ButtonTheme from "./components/Button/ButtonTheme";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./static/css/responsive.css";
+import ServiceSuspensionService from "./pages/Service/ServiceSuspensionService";
+import ServiceBrakeService from "./pages/Service/ServiceBrakeService";
+import ServiceWheelAlignment from "./pages/Service/ServiceWheelAlignment";
+import ServiceTyreBalancing from "./pages/Service/ServiceTyreBalancing";
+import ServiceEngineOil from "./pages/Service/ServiceEngineOil";
 
 export * from "./components";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <HeaderWrapper />
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -33,6 +39,26 @@ function App() {
         <Route
           path="/services/pressure-check"
           element={<ServicePressureCheck />}
+        />
+        <Route
+          path="/services/suspension-service"
+          element={<ServiceSuspensionService />}
+        />
+        <Route
+          path="/services/wheel-alignment"
+          element={<ServiceWheelAlignment />}
+        />
+        <Route
+          path="/services/brake-service"
+          element={<ServiceBrakeService />}
+        />
+        <Route
+          path="/services/tyre-balancing"
+          element={<ServiceTyreBalancing />}
+        />
+        <Route
+          path="/services/engine-oil-service"
+          element={<ServiceEngineOil />}
         />
         <Route path="/products" element={<Product />} />
         <Route path="/contactUs" element={<Contact />} />
@@ -44,7 +70,7 @@ function App() {
       <Footer />
       <ButtonTheme />
       <ButtonScrollTop />
-    </Router>
+    </BrowserRouter>
   );
 }
 

@@ -37,11 +37,7 @@ const HompageWorks = () => {
 
   return (
     <>
-      <Mixitup
-        works={works}
-        isWorkPage={true}
-        products={undefined}
-      />
+      <Mixitup works={works} />
     </>
   );
 };

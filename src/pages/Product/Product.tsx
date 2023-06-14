@@ -1,18 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../assets/about/footer-car.png";
-import ProductsImage1 from "../../assets/products/11.png";
-import ProductsImage2 from "../../assets/products/21.png";
-import ProductsImage3 from "../../assets/products/3.png";
-import ProductsImage4 from "../../assets/products/4.png";
 import "./product.css";
 import Loader from "../../components/Loader/Loader";
 import mixitup from "mixitup";
 import ButtonMain from "../../components/Button/Button";
 
+import ProductsImage1 from "../../assets/products/11.png";
+import ProductsImage2 from "../../assets/products/21.png";
+import ProductsImage3 from "../../assets/products/3.png";
+import ProductsImage4 from "../../assets/products/4.png";
 const Product = () => {
   const containerRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState("all"); // State variable for active filter
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -25,33 +27,51 @@ const Product = () => {
     return () => {
       mixer.destroy();
     };
+  }, [products]); // Update the dependency array to include 'products'
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/api/products");
+        const formattedProducts = response.data.map((product) => ({
+          ...product,
+          filters: JSON.parse(product.filters),
+        }));
+        setProducts(formattedProducts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchProducts();
   }, []);
-  const products = [
-    {
-      image: ProductsImage1,
-      title: "Taiga Tyre",
-      price: "RM100",
-      filters: ["ui"],
-    },
-    {
-      image: ProductsImage2,
-      title: "Taiga Black Oil",
-      price: "RM100",
-      filters: ["tyre", "ux"],
-    },
-    {
-      image: ProductsImage3,
-      title: "Taiga Wheel",
-      price: "RM100",
-      filters: ["ui", "branding"],
-    },
-    {
-      image: ProductsImage4,
-      title: "Taiga Seat",
-      price: "RM100",
-      filters: ["ux", "tyre"],
-    },
-  ];
+
+  // const products = [
+  //   {
+  //     image: ProductsImage1,
+  //     title: "Taiga Tyre",
+  //     price: "RM100",
+  //     filters: ["ui"],
+  //   },
+  //   {
+  //     image: ProductsImage2,
+  //     title: "Taiga Black Oil",
+  //     price: "RM100",
+  //     filters: ["tyre", "ux"],
+  //   },
+  //   {
+  //     image: ProductsImage3,
+  //     title: "Taiga Wheel",
+  //     price: "RM100",
+  //     filters: ["ui", "branding"],
+  //   },
+  //   {
+  //     image: ProductsImage4,
+  //     title: "Taiga Seat",
+  //     price: "RM100",
+  //     filters: ["ux", "tyre"],
+  //   },
+  // ];
   return (
     <>
       <Loader />
@@ -73,27 +93,27 @@ const Product = () => {
             </li>
             <li
               className={`filter ${activeFilter === "tyre" ? "active" : ""}`}
-              data-filter=".tyre"
+              data-filter=".wheels"
               onClick={() => setActiveFilter("tyre")}>
               wheels
             </li>
             <li
               className={`filter ${activeFilter === "ui" ? "active" : ""}`}
-              data-filter=".ui"
+              data-filter=".brakes"
               onClick={() => setActiveFilter("ui")}>
               brakes
             </li>
             <li
               className={`filter ${activeFilter === "ux" ? "active" : ""}`}
-              data-filter=".ux"
+              data-filter=".oil"
               onClick={() => setActiveFilter("ux")}>
-              suspension
+              black oil
             </li>
             <li
               className={`filter ${
                 activeFilter === "branding" ? "active" : ""
               }`}
-              data-filter=".branding"
+              data-filter=".tyre"
               onClick={() => setActiveFilter("branding")}>
               tyre
             </li>
@@ -107,10 +127,13 @@ const Product = () => {
                 className={`col-sm-6 col-lg-3 mix ${product.filters.join()}`}>
                 <div className="products-item">
                   <div className="products-top">
-                    <img src={product.image} alt="Parts" />
+                    <img
+                      src={require(`../../assets/products/${product.products_image}`)}
+                      alt="Parts"
+                    />
                   </div>
-                  <h3>{product.title}</h3>
-                  <span>{product.price}</span>
+                  <h3>{product.products_name}</h3>
+                  <span>{product.products_price}</span>
                   <ButtonMain text="Read More" />
                 </div>
               </div>

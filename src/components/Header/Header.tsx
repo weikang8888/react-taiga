@@ -84,6 +84,11 @@ const Header = (props) => {
                   </NavLink>
                 </li>
                 <li className="nav-item px-2">
+                  <NavLink to="/products" className="nav-link">
+                    Products
+                  </NavLink>
+                </li>
+                <li className="nav-item px-2">
                   <NavLink
                     to="/services"
                     className="nav-link dropdown-toggle"
@@ -126,11 +131,6 @@ const Header = (props) => {
                       </Link>
                     </li>
                   </ul>
-                </li>
-                <li className="nav-item px-2">
-                  <NavLink to="/products" className="nav-link dropdown-toggle">
-                    Products
-                  </NavLink>
                 </li>
                 <li className="nav-item px-2">
                   <NavLink

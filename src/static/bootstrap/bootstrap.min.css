@@ -3826,6 +3826,7 @@ fieldset:disabled .btn {
 }
 .navbar-logo-height-75 {
   max-height: 75px;
+  transition: max-height 0.5s ease;
 }
 .navbar > .container,
 .navbar > .container-fluid,

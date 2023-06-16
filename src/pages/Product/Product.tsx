@@ -7,13 +7,9 @@ import Loader from "../../components/Loader/Loader";
 import mixitup from "mixitup";
 import ButtonMain from "../../components/Button/Button";
 
-import ProductsImage1 from "../../assets/products/11.png";
-import ProductsImage2 from "../../assets/products/21.png";
-import ProductsImage3 from "../../assets/products/3.png";
-import ProductsImage4 from "../../assets/products/4.png";
 const Product = () => {
   const containerRef = useRef(null);
-  const [activeFilter, setActiveFilter] = useState("all"); // State variable for active filter
+  const [activeFilter, setActiveFilter] = useState("all");
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -27,7 +23,7 @@ const Product = () => {
     return () => {
       mixer.destroy();
     };
-  }, [products]); // Update the dependency array to include 'products'
+  }, [products]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -46,32 +42,6 @@ const Product = () => {
     fetchProducts();
   }, []);
 
-  // const products = [
-  //   {
-  //     image: ProductsImage1,
-  //     title: "Taiga Tyre",
-  //     price: "RM100",
-  //     filters: ["ui"],
-  //   },
-  //   {
-  //     image: ProductsImage2,
-  //     title: "Taiga Black Oil",
-  //     price: "RM100",
-  //     filters: ["tyre", "ux"],
-  //   },
-  //   {
-  //     image: ProductsImage3,
-  //     title: "Taiga Wheel",
-  //     price: "RM100",
-  //     filters: ["ui", "branding"],
-  //   },
-  //   {
-  //     image: ProductsImage4,
-  //     title: "Taiga Seat",
-  //     price: "RM100",
-  //     filters: ["ux", "tyre"],
-  //   },
-  // ];
   return (
     <>
       <Loader />
@@ -88,7 +58,9 @@ const Product = () => {
             <li
               className={`filter ${activeFilter === "all" ? "active" : ""}`}
               data-filter="all"
-              onClick={() => setActiveFilter("all")}>
+              onClick={() => {
+                setActiveFilter("all");
+              }}>
               all
             </li>
             <li

@@ -19,6 +19,7 @@ import Icon6Hover from "../../assets/icon/dollar-symbol-hover.png";
 import "./about.css";
 import CountUp from "react-countup";
 import Loader from "../../components/Loader/Loader";
+import PopoverVideo from "../../components/Popover/PopoverVideo";
 
 const About = () => {
   const countRef = useRef(null);
@@ -135,13 +136,7 @@ const About = () => {
             <div className="col-lg-6 p-0">
               <div className="quality-img">
                 <img src={AboutCarImage} alt="Quality" />
-                <div className="video-wrap">
-                  <a
-                    href="https://www.youtube.com/watch?v=aqz-KE-bpKQ"
-                    className="popup-youtube">
-                    <i className="bx bx-play"></i>
-                  </a>
-                </div>
+                <PopoverVideo />
               </div>
             </div>
             <div className="col-lg-6 p-0">

@@ -501,7 +501,7 @@ img {
 .products-view {
   text-align: center;
 }
-.products-view a {
+.products-view button {
   display: inline-block;
   color: #ff8310;
   border: 1px solid #ff8310;
@@ -509,7 +509,7 @@ img {
   font-size: 15px;
   padding: 12px 20px;
 }
-.products-view a:hover {
+.products-view button:hover {
   background-color: #ff8310;
   color: #fff;
 }

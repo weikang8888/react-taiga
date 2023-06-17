@@ -1,4 +1,4 @@
-.cmn-btn a {
+.cmn-btn button {
     display: inline-block;
     font-weight: 500;
     color: #fff;
@@ -6,8 +6,9 @@
     padding: 12px 20px;
     z-index: 1;
     text-decoration:none!important;
+    border: 0;
   }
-  .cmn-btn a i {
+  .cmn-btn button i {
     display: inline-block;
     font-size: 21px;
     position: relative;

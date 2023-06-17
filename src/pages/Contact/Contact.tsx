@@ -1,9 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../assets/about/footer-car.png";
-import "./contact.css";
 import Loader from "../../components/Loader/Loader";
+import "./contact.css";
+import ButtonMain from "../../components/Button/Button";
+
 const Contact = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone_number: "",
+    subject: "",
+    message: "",
+    gridCheck: false,
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    const inputValue = type === "checkbox" ? checked : value;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: inputValue,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    axios
+      .post("http://localhost:8080/api/contact.php", formData)
+      .then((response) => {
+        console.log(response.data);
+        // Handle success response
+        setIsLoading(false);
+        setIsSuccess(true);
+      })
+      .catch((error) => {
+        console.error(error);
+        // Handle error response
+        setIsLoading(false);
+        setIsSuccess(false);
+        alert(
+          "There was an error submitting the form. Please try again later."
+        );
+      });
+  };
+
   return (
     <>
       <Loader />
@@ -51,7 +97,7 @@ const Contact = () => {
             <div className="col-lg-6">
               <div className="contact-item contact-right">
                 <h3>Get In Touch</h3>
-                <form id="contactForm">
+                <form id="contactForm" onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-sm-6 col-lg-6">
                       <div className="form-group">
@@ -60,8 +106,10 @@ const Contact = () => {
                           name="name"
                           id="name"
                           className="form-control"
-                          data-error="Please enter your name"
                           placeholder="Name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
                         />
                         <div className="help-block with-errors"></div>
                       </div>
@@ -73,8 +121,10 @@ const Contact = () => {
                           name="email"
                           id="email"
                           className="form-control"
-                          data-error="Please enter your email"
                           placeholder="Email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
                         />
                         <div className="help-block with-errors"></div>
                       </div>
@@ -85,9 +135,11 @@ const Contact = () => {
                           type="text"
                           name="phone_number"
                           id="phone_number"
-                          data-error="Please enter your number"
                           className="form-control"
                           placeholder="Phone"
+                          value={formData.phone_number}
+                          onChange={handleInputChange}
+                          required
                         />
                         <div className="help-block with-errors"></div>
                       </div>
@@ -96,11 +148,13 @@ const Contact = () => {
                       <div className="form-group">
                         <input
                           type="text"
-                          name="msg_subject"
-                          id="msg_subject"
+                          name="subject"
+                          id="subject"
                           className="form-control"
-                          data-error="Please enter your subject"
                           placeholder="Subject"
+                          value={formData.subject}
+                          onChange={handleInputChange}
+                          required
                         />
                         <div className="help-block with-errors"></div>
                       </div>
@@ -111,8 +165,10 @@ const Contact = () => {
                           name="message"
                           className="form-control"
                           id="message"
-                          data-error="Write your message"
-                          placeholder="Message"></textarea>
+                          placeholder="Message"
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          required></textarea>
                         <div className="help-block with-errors"></div>
                       </div>
                     </div>
@@ -121,31 +177,30 @@ const Contact = () => {
                         <div className="form-check agree-label">
                           <input
                             name="gridCheck"
-                            value="I agree to the terms and privacy policy."
                             className="form-check-input"
                             type="checkbox"
                             id="gridCheck"
+                            checked={formData.gridCheck}
+                            onChange={handleInputChange}
+                            required
                           />
                           <label className="form-check-label">
                             Accept
-                            <a href="terms-condition.html">
+                            <a href="terms-condition.html" className="px-2">
                               Terms & Conditions
                             </a>
                             And
-                            <a href="privacy-policy.html">Privacy Policy.</a>
+                            <a href="privacy-policy.html" className="px-2">Privacy Policy.</a>
                           </label>
                           <div className="help-block with-errors gridCheck-error"></div>
                         </div>
                       </div>
                     </div>
                     <div className="col-md-12 col-lg-12">
-                      <button type="submit" className="contact-btn btn">
-                        Send Message
-                      </button>
-                      <div
-                        id="msgSubmit"
-                        className="h3 text-center hidden"></div>
-                      <div className="clearfix"></div>
+                      <ButtonMain
+                        buttonA={"contact-btn btn"}
+                        text={"Send Message"}
+                      />
                     </div>
                   </div>
                 </form>
@@ -154,6 +209,10 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      {isLoading && <Loader />}
+      {isSuccess && (
+        <div className="success-message">Form submitted successfully!</div>
+      )}
     </>
   );
 };

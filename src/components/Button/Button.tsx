@@ -16,9 +16,9 @@ const ButtonMain: React.FC<ButtonMainProps> = ({
 }) => {
   return (
     <div className={buttonDiv}>
-      <a className={buttonA} onClick={onClick}>
+      <button type="submit" className={buttonA} onClick={onClick}>
         {text}
-      </a>
+      </button>
     </div>
   );
 };

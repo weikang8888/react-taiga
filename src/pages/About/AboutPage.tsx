@@ -15,55 +15,22 @@ import Icon5 from "../../assets/icon/truck.png";
 import Icon5Hover from "../../assets/icon/truck-hover.png";
 import Icon6 from "../../assets/icon/dollar-symbol.png";
 import Icon6Hover from "../../assets/icon/dollar-symbol-hover.png";
+import CountUp from "react-countup";
 
 import "./about.css";
-import CountUp from "react-countup";
 import Loader from "../../components/Loader/Loader";
 import PopoverVideo from "../../components/Popover/PopoverVideo";
 
 const About = () => {
   const countRef = useRef(null);
   const [inViewport, setInViewport] = useState(false);
-  const [animationCompleted, setAnimationCompleted] = useState(false);
-
-  useEffect(() => {
-    const handleViewportChange = (
-      inView: boolean | ((prevState: boolean) => boolean)
-    ) => {
-      setInViewport(inView);
-    };
-
-    const inViewOptions = {
-      rootMargin: "0px",
-    };
-
-    const observer = new IntersectionObserver(([entry]) => {
-      handleViewportChange(entry.isIntersecting);
-    }, inViewOptions);
-
-    if (countRef.current) {
-      observer.observe(countRef.current);
-    }
-
-    return () => {
-      if (countRef.current) {
-        observer.unobserve(countRef.current);
-      }
-    };
-  }, []);
 
   const counts = [
-    { value: 15, label: "Years Of Experience" },
-    { value: 300, label: "Our Employees" },
-    { value: 985, label: "Happy Customers", separator: true },
-    { value: 10, label: "Award Winning" },
+    { value: 15, label: "Years Of Experience", duration: 5 },
+    { value: 300, label: "Our Employees", duration: 3 },
+    { value: 543, label: "Happy Customers", separator: true, duration: 3 },
+    { value: 10, label: "Award Winning", duration: 5, delay: 0.5 },
   ];
-
-  useEffect(() => {
-    if (inViewport && !animationCompleted) {
-      setAnimationCompleted(true);
-    }
-  }, [inViewport, animationCompleted]);
 
   const items = [
     {
@@ -115,6 +82,21 @@ const About = () => {
         "You can see servicing cost upfront our Service Calculator. Only additional",
     },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (countRef.current) {
+        const { top, bottom } = countRef.current.getBoundingClientRect();
+        const isVisible = top < window.innerHeight && bottom >= 0;
+        setInViewport(isVisible);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -213,24 +195,28 @@ const About = () => {
           <div className="why-content">
             <h2 className="text-center text-white mb-5">FACTS &amp; FIGURES</h2>
             <div className="row text-white text-center">
-              {counts.map(({ label, value, separator }, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12"
-                    ref={countRef}>
-                    <div className="statistics-content">
-                      {animationCompleted ? (
-                        <CountUp start={0} end={value} duration={3} />
+              {counts.map((count, index) => (
+                <div
+                  key={index}
+                  className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                  <div className="statistics-content">
+                    <span className="counterUp" ref={countRef}>
+                      {inViewport ? (
+                        <CountUp
+                          start={0}
+                          end={count.value}
+                          delay={count.delay}
+                          duration={count.duration}
+                        />
                       ) : (
-                        <span>0</span>
+                        count.value
                       )}
-                      {separator && <span className="sub-text">K</span>}
-                      <p>{label}</p>
-                    </div>
+                    </span>
+                    {count.separator && <span className="sub-text">K</span>}
+                    <p>{count.label}</p>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 a {
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
-  text-decoration: none!important;
+  text-decoration: none !important;
   color: #ff8310;
 }
 .contact-area .contact-item {
@@ -112,4 +112,9 @@ a {
   font-size: 20px;
   margin-top: 12px;
   color: #28a745;
+}
+.success-message {
+  margin-top: 10px;
+  padding: 5px;
+  background: green;
 }

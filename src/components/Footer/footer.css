@@ -4,6 +4,9 @@ footer {
   background-color: #000;
   position: relative;
 }
+footer .footer-logo-img{
+  width:155px;
+}
 footer .footer-img {
   position: absolute;
   left: 0;

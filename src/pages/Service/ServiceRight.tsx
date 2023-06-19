@@ -13,23 +13,23 @@ const ServiceRight = () => {
             </li>
             <li>
               <i className="bx bx-chevron-right"></i>
-              <a href="#">Engine Service</a>
+              <a href="#">Suspension Service</a>
             </li>
             <li>
               <i className="bx bx-chevron-right"></i>
-              <a href="#">Tuning Service</a>
+              <a href="#">Wheel Alignment</a>
             </li>
             <li>
               <i className="bx bx-chevron-right"></i>
-              <a href="#">Motor Service</a>
+              <a href="#">Brake Service</a>
             </li>
             <li>
               <i className="bx bx-chevron-right"></i>
-              <a href="#">System Service</a>
+              <a href="#">Tyre Balancing</a>
             </li>
             <li>
               <i className="bx bx-chevron-right"></i>
-              <a href="#">Washing Service</a>
+              <a href="#">Engine Oil Service</a>
             </li>
           </ul>
         </div>
@@ -50,7 +50,7 @@ const ServiceRight = () => {
                 <span
                   className="__cf_email__"
                   data-cfemail="83eaede5ecc3e2f6e7e6e0e8ade0ecee">
-                  [email&#160;protected]
+                  taiga@hotmail.com
                 </span>
               </a>
             </li>

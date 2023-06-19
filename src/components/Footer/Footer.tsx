@@ -1,5 +1,6 @@
 import React from "react";
 import BannerImage from "../../assets/about/footer-car.png";
+import Logo from "../../assets/image/tiger.png";
 import "./footer.css";
 
 const Footer = () => {
@@ -15,7 +16,7 @@ const Footer = () => {
               <div className="footer-item">
                 <div className="footer-logo">
                   <a href="">
-                    <img src="static/picture/logo-two.png" alt="Logo" />
+                    <img src={Logo} alt="Logo" className="footer-logo-img"/>
                   </a>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -55,31 +56,37 @@ const Footer = () => {
                     <li>
                       <a href="#" target="_blank">
                         <i className="bx bx-chevron-right"></i>
-                        Automobile
+                        Pressure Check Service
                       </a>
                     </li>
                     <li>
                       <a href="#" target="_blank">
                         <i className="bx bx-chevron-right"></i>
-                        Tyre Service
+                        Suspension Service
                       </a>
                     </li>
                     <li>
                       <a href="#" target="_blank">
                         <i className="bx bx-chevron-right"></i>
-                        Repair Service
+                        Wheel Alignment
                       </a>
                     </li>
                     <li>
                       <a href="#" target="_blank">
                         <i className="bx bx-chevron-right"></i>
-                        Engine Service
+                        Brake Service
                       </a>
                     </li>
                     <li>
                       <a href="#" target="_blank">
                         <i className="bx bx-chevron-right"></i>
-                        System Service
+                        Tyre Balancing
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" target="_blank">
+                        <i className="bx bx-chevron-right"></i>
+                        Engine Oil Service
                       </a>
                     </li>
                   </ul>
@@ -106,19 +113,19 @@ const Footer = () => {
                     <li>
                       <a href="blog.html" target="_blank">
                         <i className="bx bx-chevron-right"></i>
-                        Blogs
+                        Products
                       </a>
                     </li>
                     <li>
                       <a href="engineer.html" target="_blank">
                         <i className="bx bx-chevron-right"></i>
-                        Team
+                        FAQ
                       </a>
                     </li>
                     <li>
                       <a href="testimonial.html" target="_blank">
                         <i className="bx bx-chevron-right"></i>
-                        Testimonials
+                        Contact
                       </a>
                     </li>
                   </ul>
@@ -139,26 +146,12 @@ const Footer = () => {
                       <a href="tel:+880123456789">+88 0123 456 789</a>
                     </li>
                     <li>
-                      <i className="bx bx-phone-call"></i>
-                      <a href="tel:+880563246378">+88 0563 246 378</a>
-                    </li>
-                    <li>
                       <i className="bx bx-mail-send"></i>
                       <a href="/cdn-cgi/l/email-protection#acc5c2cac3eccdd9c8c9cfc782cfc3c1">
                         <span
                           className="__cf_email__"
                           data-cfemail="4920272f2609283c2d2c2a22672a2624">
-                          [email&#160;protected]
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <i className="bx bx-mail-send"></i>
-                      <a href="/cdn-cgi/l/email-protection#4f272a2323200f2e3a2b2a2c24612c2022">
-                        <span
-                          className="__cf_email__"
-                          data-cfemail="b3dbd6dfdfdcf3d2c6d7d6d0d89dd0dcde">
-                          [email&#160;protected]
+                          taiga@hotmail.com
                         </span>
                       </a>
                     </li>
@@ -172,8 +165,8 @@ const Footer = () => {
               <div className="col-lg-7">
                 <div className="copyright-item">
                   <p>
-                    Copyright @ 2023 Audeck. Designed By
-                    <a href="https://hibootstrap.com/" target="_blank">
+                    Copyright @ 2023 Taiga. Designed By
+                    <a href="" target="_blank" className="px-1">
                       Kitar Teliti
                     </a>
                   </p>
@@ -183,7 +176,7 @@ const Footer = () => {
                 <div className="copyright-item copyright-right">
                   <ul>
                     <li>
-                      <a href="terms-and-conditions.html" target="_blank">
+                      <a href="" target="_blank">
                         Terms & Conditions
                       </a>
                     </li>
@@ -191,7 +184,7 @@ const Footer = () => {
                       <span>-</span>
                     </li>
                     <li>
-                      <a href="privacy-policy.html" target="_blank">
+                      <a href="" target="_blank">
                         Privacy Policy
                       </a>
                     </li>

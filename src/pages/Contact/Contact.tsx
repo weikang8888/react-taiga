@@ -7,7 +7,6 @@ import "./contact.css";
 import ButtonMain from "../../components/Button/Button";
 
 const Contact = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -29,20 +28,17 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true);
 
     axios
       .post("http://localhost:8080/api/contact.php", formData)
       .then((response) => {
         console.log(response.data);
         // Handle success response
-        setIsLoading(false);
         setIsSuccess(true);
       })
       .catch((error) => {
         console.error(error);
         // Handle error response
-        setIsLoading(false);
         setIsSuccess(false);
         alert(
           "There was an error submitting the form. Please try again later."
@@ -190,7 +186,9 @@ const Contact = () => {
                               Terms & Conditions
                             </a>
                             And
-                            <a href="privacy-policy.html" className="px-2">Privacy Policy.</a>
+                            <a href="privacy-policy.html" className="px-2">
+                              Privacy Policy.
+                            </a>
                           </label>
                           <div className="help-block with-errors gridCheck-error"></div>
                         </div>
@@ -203,16 +201,17 @@ const Contact = () => {
                       />
                     </div>
                   </div>
+                  {isSuccess && (
+                    <div className="success-message">
+                      Form submitted successfully!
+                    </div>
+                  )}
                 </form>
               </div>
             </div>
           </div>
         </div>
       </section>
-      {isLoading && <Loader />}
-      {isSuccess && (
-        <div className="success-message">Form submitted successfully!</div>
-      )}
     </>
   );
 };

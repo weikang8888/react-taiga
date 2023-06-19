@@ -44,12 +44,7 @@ const Homepage = () => {
                       <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">
                         Qualified Tyre Repair Service Center
                       </h1>
-                      <div className="cmn-btn">
-                        <a className="banner-btn-left" href="sign-in.html">
-                          <i className="bx bxs-user-plus"></i>
-                          Learn More
-                        </a>
-                      </div>
+                      <ButtonMain text={"Learn More"} />
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img
@@ -79,10 +74,7 @@ const Homepage = () => {
                         Qualified Tyre Wash Service Center
                       </h1>
                       <div className="cmn-btn">
-                        <a className="banner-btn-left" href="sign-in.html">
-                          <i className="bx bxs-user-plus"></i>
-                          Learn More
-                        </a>
+                        <ButtonMain text={"Learn More"} />
                       </div>
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">

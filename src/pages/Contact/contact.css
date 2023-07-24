@@ -2,7 +2,7 @@ a {
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
   text-decoration: none !important;
-  color: #ff8310;
+  color: #fd5f16;
 }
 .contact-area .contact-item {
   margin-bottom: 30px;
@@ -45,7 +45,7 @@ a {
   color: #333;
 }
 .contact-area .contact-left ul li a:hover {
-  color: #ff8310;
+  color: #fd5f16;
 }
 .contact-area .contact-right h3 {
   font-size: 24px;
@@ -56,7 +56,7 @@ a {
   margin-bottom: 25px;
 }
 .contact-area .contact-right .form-group .form-control {
-  border: 1px solid #ff8310;
+  border: 1px solid #fd5f16;
   border-radius: 0;
   height: 50px;
   padding-left: 25px;
@@ -89,7 +89,7 @@ a {
   font-size: 14px;
 }
 .contact-area .contact-right .contact-btn {
-  background-color: #ff8310;
+  background-color: #fd5f16;
   color: #fff;
   width: 100%;
   border-radius: 0;

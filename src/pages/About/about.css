@@ -2,7 +2,7 @@
   display: inline-block;
   font-weight: 500;
   color: #fff;
-  background-color: #ff8310;
+  background-color: #fd5f16;
   padding: 12px 20px;
   z-index: 1;
   text-decoration: none!important;
@@ -82,7 +82,7 @@ h6 {
   display: block;
   width: 100px;
   height: 100px;
-  background-color: #ff8310;
+  background-color: #fd5f16;
   border-radius: 50%;
   z-index: -1;
   -webkit-animation: pulse-border 1500ms ease-out infinite;
@@ -99,7 +99,7 @@ h6 {
   display: block;
   width: 100px;
   height: 100px;
-  background-color: #ff8310;
+  background-color: #fd5f16;
   border-radius: 50%;
   z-index: -1;
   -webkit-transition: 0.5s all ease;
@@ -176,7 +176,7 @@ h6 {
   transition: all 500ms ease 0s;
 }
 .why-choose-us-area .single-item .icon-holder:hover {
-  background-color: #ff8310;
+  background-color: #fd5f16;
 }
 .why-choose-us-area .single-item .content {
   padding-left: 10px;

@@ -1,7 +1,7 @@
 @import "../../static/css/boxicons.css";
 
 .color-primary {
-  color: #ff8310;
+  color: #fd5f16;
 }
 .nav-item {
   position: relative;
@@ -13,7 +13,7 @@
 .nav-item .dropdown-menu li a:hover,
 .nav-item .dropdown-menu li a:focus,
 .nav-item .dropdown-menu li a.active {
-  color: #ff8310;
+  color: #fd5f16;
 }
 .nav-item .dropdown-menu {
   position: absolute;

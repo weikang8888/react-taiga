@@ -2,7 +2,7 @@
     display: inline-block;
     font-weight: 500;
     color: #fff;
-    background-color: #ff8310;
+    background-color: #fd5f16;
     padding: 12px 20px;
     z-index: 1;
     text-decoration:none!important;
@@ -43,8 +43,8 @@
     padding: 0;
   }
   .cmn-btn .banner-btn-right:hover {
-    color: #ff8310;
+    color: #fd5f16;
   }
   .cmn-btn .banner-btn-right i {
-    color: #ff8310;
+    color: #fd5f16;
   }

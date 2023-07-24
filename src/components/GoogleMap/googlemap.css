@@ -1,4 +1,8 @@
-.map{
-    height:500px;
-    width:100%;
+.map {
+  height: 500px;
+  width: 100%;
+}
+.marker-label {
+  font-size: 14px; /* Font size */
+  padding-bottom: 20px;
 }

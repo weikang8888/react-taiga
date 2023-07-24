@@ -11,19 +11,36 @@ const Product = () => {
   const containerRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState("all");
   const [products, setProducts] = useState([]);
+  const [filterProducts, setFilterProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 8;
+
+  // useEffect(() => {
+  //   const container = containerRef.current;
+  //   const mixer = mixitup(container, {
+  //     selectors: {
+  //       control: ".filter",
+  //     },
+  //   });
+
+  //   return () => {
+  //     mixer.destroy();
+  //   };
+  // }, [products]);
 
   useEffect(() => {
-    const container = containerRef.current;
-    const mixer = mixitup(container, {
-      selectors: {
-        control: ".filter",
-      },
-    });
-
-    return () => {
-      mixer.destroy();
-    };
-  }, [products]);
+    // Update the filter logic when activeFilter changes
+    if (activeFilter === "all") {
+      // If activeFilter is "all", show all products
+      setFilterProducts(products);
+    } else {
+      // Otherwise, filter the products based on activeFilter
+      const filteredProducts = products.filter((product) =>
+        product.filters.includes(activeFilter)
+      );
+      setFilterProducts(filteredProducts);
+    }
+  }, [activeFilter, products]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -42,6 +59,18 @@ const Product = () => {
     fetchProducts();
   }, []);
 
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filterProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  const handleFilterSelection = (filter) => {
+    setActiveFilter(filter);
+    setCurrentPage(1); // Reset the current page to 1 when a filter is selected
+  };
+
   return (
     <>
       <Loader />
@@ -59,41 +88,39 @@ const Product = () => {
               className={`filter ${activeFilter === "all" ? "active" : ""}`}
               data-filter="all"
               onClick={() => {
-                setActiveFilter("all");
+                handleFilterSelection("all");
               }}>
               all
             </li>
             <li
-              className={`filter ${activeFilter === "tyre" ? "active" : ""}`}
+              className={`filter ${activeFilter === "wheels" ? "active" : ""}`}
               data-filter=".wheels"
-              onClick={() => setActiveFilter("tyre")}>
+              onClick={() => handleFilterSelection("wheels")}>
               wheels
             </li>
             <li
-              className={`filter ${activeFilter === "ui" ? "active" : ""}`}
+              className={`filter ${activeFilter === "brakes" ? "active" : ""}`}
               data-filter=".brakes"
-              onClick={() => setActiveFilter("ui")}>
+              onClick={() => handleFilterSelection("brakes")}>
               brakes
             </li>
             <li
-              className={`filter ${activeFilter === "ux" ? "active" : ""}`}
+              className={`filter ${activeFilter === "oil" ? "active" : ""}`}
               data-filter=".oil"
-              onClick={() => setActiveFilter("ux")}>
+              onClick={() => handleFilterSelection("oil")}>
               black oil
             </li>
             <li
-              className={`filter ${
-                activeFilter === "branding" ? "active" : ""
-              }`}
+              className={`filter ${activeFilter === "tyre" ? "active" : ""}`}
               data-filter=".tyre"
-              onClick={() => setActiveFilter("branding")}>
+              onClick={() => handleFilterSelection("tyre")}>
               tyre
             </li>
           </ul>
         </div>
         <div className="container">
           <div className="row" ref={containerRef}>
-            {products.map((product, index) => (
+            {currentProducts.map((product, index) => (
               <div
                 key={index}
                 className={`col-sm-6 col-lg-3 mix ${product.filters.join()}`}>
@@ -110,6 +137,18 @@ const Product = () => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="pagination">
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(currentPage - 1)}>
+              Previous
+            </button>
+            <button
+              disabled={currentProducts.length < productsPerPage}
+              onClick={() => setCurrentPage(currentPage + 1)}>
+              Next
+            </button>
           </div>
         </div>
       </section>

@@ -10,7 +10,7 @@
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
   --bs-red: #dc3545;
-  --bs-orange: #ff8310;
+  --bs-orange: #fd5f16;
   --bs-yellow: #ffc107;
   --bs-green: #198754;
   --bs-teal: #20c997;
@@ -4240,14 +4240,14 @@ fieldset:disabled .btn {
 }
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-  color: #ff8310;
+  color: #fd5f16;
 }
 .navbar-light .navbar-nav .nav-link.disabled {
   color: rgba(0, 0, 0, 0.3);
 }
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .show > .nav-link {
-  color: #ff8310;
+  color: #fd5f16;
 }
 .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0.55);

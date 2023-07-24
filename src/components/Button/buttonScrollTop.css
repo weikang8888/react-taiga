@@ -16,7 +16,7 @@
   visibility: hidden;
 }
 .back-to-top-btn i {
-  background: #ff8310;
+  background: #fd5f16;
   color: #fff;
   height: 50px;
   width: 50px;
@@ -28,8 +28,8 @@
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
   margin-right: 28px;
-  -webkit-box-shadow: 0 0 14px 0 #ff831091;
-  box-shadow: 0 0 14px 0 #ff831091;
+  -webkit-box-shadow: 0 0 14px 0 #fd5f1691;
+  box-shadow: 0 0 14px 0 #fd5f1691;
 }
 .back-to-top-btn i:hover {
   background-color: #333;

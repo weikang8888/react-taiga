@@ -6,6 +6,8 @@ import Loader from "../../components/Loader/Loader";
 import "./contact.css";
 import ButtonMain from "../../components/Button/Button";
 
+import TaigaGoogleMap from "../../components/GoogleMap/TaigaGoogleMap";
+
 const Contact = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -210,6 +212,8 @@ const Contact = () => {
               </div>
             </div>
           </div>
+
+          <TaigaGoogleMap />
         </div>
       </section>
     </>

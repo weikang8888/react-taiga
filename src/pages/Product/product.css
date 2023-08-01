@@ -36,6 +36,7 @@
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
 }
+
 .products-item:hover {
   -webkit-transform: translate(0, -10px);
   transform: translate(0, -10px);

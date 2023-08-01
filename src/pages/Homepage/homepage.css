@@ -504,6 +504,7 @@ img {
 .products-view button {
   display: inline-block;
   color: #fd5f16;
+  background: transparent;
   border: 1px solid #fd5f16;
   font-weight: 600;
   font-size: 15px;

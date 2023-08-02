@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../assets/about/footer-car.png";
@@ -7,9 +7,9 @@ import Carousel from "../../components/Carousel/Carousel";
 import ServiceDetail1 from "../../assets/service/service-details.jpg";
 import ServiceDetail2 from "../../assets/service/service-details2.jpg";
 import ServiceDetail3 from "../../assets/service/service-details3.jpg";
-import ServiceRight from "./ServiceRight";
 import Loader from "../../components/Loader/Loader";
 import Button from "../../components/Button/Button";
+import MultiStepModal from "../../components/Modal/MultiStepModal";
 
 const ServicePressureCheck = () => {
   const settings = {
@@ -20,6 +20,15 @@ const ServicePressureCheck = () => {
     autoplay: true, // Enable autoplay
     autoplaySpeed: 1000, // Set autoplay speed in milliseconds
     arrows: false,
+  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   const serviceDetail = [ServiceDetail1, ServiceDetail2, ServiceDetail3];
@@ -38,7 +47,10 @@ const ServicePressureCheck = () => {
           <div className="row">
             <div className="service-details-header">
               <h3>Suspension Service</h3>
-              <Button text="Book Appointment" />
+              <Button text="Book Appointment" onClick={handleOpenModal} />
+              {isModalOpen && (
+                <MultiStepModal handleCloseModal={handleCloseModal} />
+              )}
             </div>
             <div className="row">
               <div className="col-lg-6">

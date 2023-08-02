@@ -1,7 +1,7 @@
 import React from "react";
 import "../../pages/Contact/contact.css";
 
-const CustomerInformation = ({ data, handleChange }) => {
+const CustomerInformation = ({ data, handleChange, errors }) => {
   return (
     <>
       <div className="contact-area">
@@ -13,13 +13,17 @@ const CustomerInformation = ({ data, handleChange }) => {
                   type="text"
                   name="name"
                   id="name"
-                  className="form-control"
+                  className={`form-control ${
+                    errors.name ? "error-border" : ""
+                  }`}
                   placeholder="Name"
                   value={data.name}
                   onChange={handleChange}
                   required
                 />
-                <div className="help-block with-errors"></div>
+                {errors.name && (
+                  <div className="error-message">{errors.name}</div>
+                )}
               </div>
             </div>
             <div className="col-sm-6 col-lg-6">
@@ -28,13 +32,17 @@ const CustomerInformation = ({ data, handleChange }) => {
                   type="email"
                   name="email"
                   id="email"
-                  className="form-control"
+                  className={`form-control ${
+                    errors.email ? "error-border" : ""
+                  }`}
                   placeholder="Email"
                   value={data.email}
                   onChange={handleChange}
                   required
                 />
-                <div className="help-block with-errors"></div>
+                {errors.email && (
+                  <div className="error-message">{errors.email}</div>
+                )}
               </div>
             </div>
             <div className="col-sm-6 col-lg-6">
@@ -43,13 +51,17 @@ const CustomerInformation = ({ data, handleChange }) => {
                   type="text"
                   name="phone_number"
                   id="phone_number"
-                  className="form-control"
+                  className={`form-control ${
+                    errors.phone_number ? "error-border" : ""
+                  }`}
                   placeholder="Phone"
                   value={data.phone_number}
                   onChange={handleChange}
                   required
                 />
-                <div className="help-block with-errors"></div>
+                {errors.phone_number && (
+                  <div className="error-message">{errors.phone_number}</div>
+                )}{" "}
               </div>
             </div>
           </div>

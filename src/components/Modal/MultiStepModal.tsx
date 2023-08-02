@@ -3,8 +3,23 @@ import "./modal.css";
 import Step1 from "./TyreServiceModal";
 import Step2 from "./ChooseDate";
 import Step3 from "./CustomerInformation";
-
-const MultiStepModal = () => {
+interface FormData {
+  name: string;
+  email: string;
+  phone_number: string;
+  date: string; // Update the type if date has a different type in your application
+  servicesType: string; // Assuming servicesType is an array of strings
+}
+const MultiStepModal = ({ handleCloseModal }) => {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone_number: "",
+    date: "",
+    servicesType: [],
+  });
   const formSteps = [
     {
       id: 1,
@@ -20,18 +35,10 @@ const MultiStepModal = () => {
     },
   ];
 
-  const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone_number: "",
-    servicesType: [],
-  });
-
   const handleInputChange = (e) => {
     const { name, value, checked } = e.target;
+
     if (name === "servicesType") {
-      // If the input is a serviceType checkbox, handle it as an array
       setFormData((prevData) => {
         if (checked) {
           return { ...prevData, [name]: [...prevData[name], value] };
@@ -42,13 +49,69 @@ const MultiStepModal = () => {
           };
         }
       });
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        servicesType: "",
+      }));
     } else {
       // For other input fields, handle them normally
       setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
   };
+  const handleDateChange = (newDate) => {
+    setFormData((prevData) => ({ ...prevData, date: newDate }));
+  };
+  const validateStep1 = () => {
+    const step1Errors: Partial<FormData> = {}; // Use Partial<> to allow setting partial errors
+    if (formData.servicesType.length === 0) {
+      step1Errors.servicesType = "Please select at least one service type.";
+    }
+    // Add more validation rules for other fields in Step 1 if needed
+
+    setErrors(step1Errors);
+    return Object.keys(step1Errors).length === 0;
+  };
+
+  const validateStep2 = () => {
+    const step2Errors: Partial<FormData> = {}; // Use Partial<> to allow setting partial errors
+    if (!formData.date) {
+      step2Errors.date = "Please choose a date.";
+    }
+    // Add more validation rules for other fields in Step 2 if needed
+
+    setErrors(step2Errors);
+    return Object.keys(step2Errors).length === 0;
+  };
+
+  const validateStep3 = () => {
+    const step3Errors: Partial<FormData> = {}; // Use Partial<> to allow setting partial errors
+    {
+    }
+    if (!formData.name) {
+      step3Errors.name = "Please enter your name.";
+    }
+    if (!formData.email) {
+      step3Errors.email = "Please enter your email.";
+    }
+    if (!formData.phone_number) {
+      step3Errors.phone_number = "Please enter your phone number.";
+    }
+
+    setErrors(step3Errors);
+    return Object.keys(step3Errors).length === 0;
+  };
 
   const handleNextStep = () => {
+    if (currentStep === 1) {
+      if (!validateStep1()) {
+        return;
+      }
+    } else if (currentStep === 2) {
+      if (!validateStep2()) {
+        return;
+      }
+    }
+
     setCurrentStep((prevStep) => prevStep + 1);
   };
 
@@ -57,7 +120,12 @@ const MultiStepModal = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formData);
+    if (currentStep === 3) {
+      if (!validateStep3()) {
+        return;
+      }
+      console.log(formData);
+    }
   };
 
   const renderProgressSteps = () => {
@@ -72,29 +140,62 @@ const MultiStepModal = () => {
   };
   return (
     <div className="modal-content-overlay">
-      {/* Modal Content */}
-
       <div className="modal-content-form">
+        <button className="close-button" onClick={handleCloseModal}>
+          &times;
+        </button>
         <div className="progressbar-wrapper">
           <ul className="progressbar">{renderProgressSteps()}</ul>
         </div>
         {currentStep === 1 && (
-          <Step1 data={formData} handleChange={handleInputChange} />
+          <>
+            <Step1
+              data={formData}
+              handleChange={handleInputChange}
+              errors={errors}
+            />
+            {errors.servicesType && (
+              <div className="error-message">{errors.servicesType}</div>
+            )}
+          </>
         )}
         {currentStep === 2 && (
-          <Step2 data={formData} handleChange={handleInputChange} />
+          <>
+            <Step2 data={formData} handleChange={handleDateChange} />
+            {errors.date && (
+              <div className="error-message">{errors.date}</div>
+            )}{" "}
+          </>
         )}
         {currentStep === 3 && (
-          <Step3 data={formData} handleChange={handleInputChange} />
+          <>
+            <Step3
+              data={formData}
+              handleChange={handleInputChange}
+              errors={errors}
+            />
+          </>
         )}
         <div className="modal-buttons">
           {currentStep > 1 && (
-            <button onClick={handlePrevStep}>Previous</button>
+            <div className="cmn-btn">
+              <button onClick={handlePrevStep} className="banner-btn-left">
+                Previous
+              </button>
+            </div>
           )}
           {currentStep < formSteps.length ? (
-            <button onClick={handleNextStep}>Next</button>
+            <div className="cmn-btn">
+              <button onClick={handleNextStep} className="banner-btn-left">
+                Next
+              </button>{" "}
+            </div>
           ) : (
-            <button onClick={handleSubmit}>Submit</button>
+            <div className="cmn-btn">
+              <button onClick={handleSubmit} className="banner-btn-left">
+                Submit
+              </button>{" "}
+            </div>
           )}
         </div>
       </div>

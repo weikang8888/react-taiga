@@ -49,7 +49,9 @@ const ServicePressureCheck = () => {
             <div className="service-details-header">
               <h3>Pressure Check</h3>
               <Button text="Book Appointment" onClick={handleOpenModal} />
-              {isModalOpen && <MultiStepModal />}
+              {isModalOpen && (
+                <MultiStepModal handleCloseModal={handleCloseModal} />
+              )}
             </div>
 
             <div className="row">

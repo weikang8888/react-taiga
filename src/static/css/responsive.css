@@ -26,13 +26,13 @@
     top: 9px;
     max-width: 105px;
   }
-  .mean-container a.meanmenu-reveal span {
+  .meanmenu-reveal span {
     background: #fd5f16;
     position: relative;
     top: 8px;
     margin-top: -6px;
   }
-  .mean-container a.meanmenu-reveal {
+  .meanmenu-reveal {
     color: #fd5f16;
   }
   .mobile-nav.mean-container .mean-nav ul li a.active {
@@ -771,13 +771,13 @@
     top: 9px;
     max-width: 105px;
   }
-  .mean-container a.meanmenu-reveal span {
+  .meanmenu-reveal span {
     background: #fd5f16;
     position: relative;
     top: 8px;
     margin-top: -6px;
   }
-  .mean-container a.meanmenu-reveal {
+  .meanmenu-reveal {
     color: #fd5f16;
   }
   .mobile-nav.mean-container .mean-nav ul li a.active {

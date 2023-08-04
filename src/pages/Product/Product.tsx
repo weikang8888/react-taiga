@@ -43,20 +43,18 @@ const Product = () => {
   }, [activeFilter, products]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/api/products");
+    axios
+      .get("http://localhost:8080/api_taiga/products/products")
+      .then((response) => {
         const formattedProducts = response.data.map((product) => ({
           ...product,
           filters: JSON.parse(product.filters),
         }));
         setProducts(formattedProducts);
-      } catch (error) {
+      })
+      .catch((error) => {
         console.log(error);
-      }
-    };
-
-    fetchProducts();
+      });
   }, []);
 
   const indexOfLastProduct = currentPage * productsPerPage;

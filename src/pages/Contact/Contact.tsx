@@ -32,7 +32,7 @@ const Contact = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:8080/api/contact.php", formData)
+      .post("http://localhost:8080/api_taiga/contact.php", formData)
       .then((response) => {
         console.log(response.data);
         // Handle success response

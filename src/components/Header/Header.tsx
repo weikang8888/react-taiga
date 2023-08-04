@@ -8,6 +8,28 @@ import "./header.css";
 const Header = (props) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { location, hideFirstDiv, logoHeight } = props;
+  const [isMeanNavVisible, setIsMeanNavVisible] = useState(false);
+  const [isServicesDropdownVisible, setIsServicesDropdownVisible] =
+    useState(false);
+  const [isPagesDropdownVisible, setIsPagesDropdownVisible] = useState(false);
+
+  const toggleMeanNavVisibility = () => {
+    setIsMeanNavVisible((prevState) => !prevState);
+  };
+
+  const toggleServicesDropdown = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setIsServicesDropdownVisible(!isServicesDropdownVisible);
+    setIsServicesDropdownVisible(!isServicesDropdownVisible);
+  };
+
+  const togglePagesDropdown = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setIsPagesDropdownVisible(!isPagesDropdownVisible);
+    setIsPagesDropdownVisible(!isPagesDropdownVisible);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +61,7 @@ const Header = (props) => {
   return (
     <>
       <div
-        className={`container-fluid p-0 fixed-top text-end top-0 ${firstDivClassName} ${hideFirstDivClassName}`}
+        className={`container-fluid p-0 fixed-top text-end top-0 hide-on-mobile ${firstDivClassName} ${hideFirstDivClassName}`}
         style={props.style}>
         <div className="row gx-0 d-none d-lg-flex">
           <div className="px-5 text-end text-white">
@@ -69,6 +91,117 @@ const Header = (props) => {
             className={`${logoImgClassName} ${logoHeightClassName}`}
           />
         </div>
+        <a className="meanmenu-reveal" onClick={toggleMeanNavVisibility}>
+          <span>
+            <span>
+              <span></span>
+            </span>
+          </span>
+        </a>
+        <nav
+          style={{ display: isMeanNavVisible ? "block" : "none" }}
+          className="mean-nav">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <NavLink to="/" className="nav-link">
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/about" className="nav-link">
+                About
+              </NavLink>
+            </li>{" "}
+            <li className="nav-item">
+              <NavLink to="/products" className="nav-link">
+                Products
+              </NavLink>
+            </li>
+            <li className="nav-item" onClick={toggleServicesDropdown}>
+              <NavLink
+                to="/services"
+                className="nav-link"
+                onClick={(e) => e.preventDefault()}>
+                Services
+              </NavLink>
+              <ul
+                className="dropdown-menu"
+                style={{
+                  display: isServicesDropdownVisible ? "block" : "none",
+                }}>
+                <li className="nav-item">
+                  <Link to="/services/pressure-check" className="nav-link">
+                    Pressure Check
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/services/suspension-service" className="nav-link">
+                    Suspension Service
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/services/wheel-alignment" className="nav-link">
+                    Wheel Alignment
+                  </Link>
+                </li>{" "}
+                <li className="nav-item">
+                  <Link to="/services/brake-service" className="nav-link">
+                    Brake Service
+                  </Link>
+                </li>{" "}
+                <li className="nav-item">
+                  <Link to="/services/tyre-balancing" className="nav-link">
+                    Tyre Balancing
+                  </Link>
+                </li>{" "}
+                <li className="nav-item">
+                  <Link to="/services/engine-oil-service" className="nav-link">
+                    Engine Oil Service
+                  </Link>
+                </li>
+              </ul>
+              <a className="mean-expand" href="#">
+                {isServicesDropdownVisible ? "-" : "+"}
+              </a>
+            </li>
+            <li className="nav-item" onClick={togglePagesDropdown}>
+              <NavLink
+                to="/pages"
+                className="nav-link"
+                onClick={(e) => e.preventDefault()}>
+                Pages
+              </NavLink>
+              <ul
+                className="dropdown-menu"
+                style={{ display: isPagesDropdownVisible ? "block" : "none" }}>
+                {" "}
+                <li className="nav-item">
+                  <Link to="/pages/faq" className="nav-link">
+                    FAQ
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/pages/privacy-policy" className="nav-link">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/pages/term-conditions" className="nav-link">
+                    Tern & Conditions
+                  </Link>
+                </li>
+              </ul>
+              <a className="mean-expand" href="#">
+                {isPagesDropdownVisible ? "-" : "+"}
+              </a>
+            </li>
+            <li className="nav-item mean-last">
+              <NavLink to="/contactUs" className="nav-link">
+                Contact
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
         <div className="text-end">
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <nav className="collapse navbar-collapse">

@@ -26,6 +26,24 @@
   justify-content: space-between;
   width: 100%;
 }
+
+.button-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-wrapper-right {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-wrapper-left {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+}
 /* CSS for the close button */
 .close-button {
   position: absolute;
@@ -150,7 +168,7 @@
 }
 
 .error-border {
-  border: 2px solid red!important;
+  border: 2px solid red !important;
 }
 
 .error-message {

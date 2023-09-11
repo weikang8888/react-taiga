@@ -111,7 +111,7 @@ const Header = (props) => {
               <NavLink to="/about" className="nav-link">
                 About
               </NavLink>
-            </li>{" "}
+            </li>
             <li className="nav-item">
               <NavLink to="/products" className="nav-link">
                 Products
@@ -143,17 +143,17 @@ const Header = (props) => {
                   <Link to="/services/wheel-alignment" className="nav-link">
                     Wheel Alignment
                   </Link>
-                </li>{" "}
+                </li>
                 <li className="nav-item">
                   <Link to="/services/brake-service" className="nav-link">
                     Brake Service
                   </Link>
-                </li>{" "}
+                </li>
                 <li className="nav-item">
                   <Link to="/services/tyre-balancing" className="nav-link">
                     Tyre Balancing
                   </Link>
-                </li>{" "}
+                </li>
                 <li className="nav-item">
                   <Link to="/services/engine-oil-service" className="nav-link">
                     Engine Oil Service
@@ -174,7 +174,7 @@ const Header = (props) => {
               <ul
                 className="dropdown-menu"
                 style={{ display: isPagesDropdownVisible ? "block" : "none" }}>
-                {" "}
+                
                 <li className="nav-item">
                   <Link to="/pages/faq" className="nav-link">
                     FAQ
@@ -245,17 +245,17 @@ const Header = (props) => {
                       <Link to="/services/wheel-alignment" className="nav-link">
                         Wheel Alignment
                       </Link>
-                    </li>{" "}
+                    </li>
                     <li className="nav-item">
                       <Link to="/services/brake-service" className="nav-link">
                         Brake Service
                       </Link>
-                    </li>{" "}
+                    </li>
                     <li className="nav-item">
                       <Link to="/services/tyre-balancing" className="nav-link">
                         Tyre Balancing
                       </Link>
-                    </li>{" "}
+                    </li>
                     <li className="nav-item">
                       <Link
                         to="/services/engine-oil-service"
@@ -297,7 +297,7 @@ const Header = (props) => {
                 </li>
               </ul>
             </nav>
-            <Button text="Get A Quote" />
+            <Button text="Get A Quote" buttonUrl={""} />
           </div>
         </div>
       </nav>

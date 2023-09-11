@@ -61,7 +61,7 @@ const CustomerInformation = ({ data, handleChange, errors }) => {
                 />
                 {errors.phone_number && (
                   <div className="error-message">{errors.phone_number}</div>
-                )}{" "}
+                )}
               </div>
             </div>
           </div>

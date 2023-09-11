@@ -12,7 +12,7 @@ const TermConditions = () => {
         bannerTarget={"Terms & Conditions"}
         bannerPreviousTarget={"Pages"}
         showChevron={true}
-      />{" "}
+      />
       <section className="privacy-area pt-100">
         <div className="container">
           <div className="privacy-item">

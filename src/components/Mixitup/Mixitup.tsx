@@ -74,7 +74,7 @@ const Mixitup = ({ works }: MixitupOption) => {
               } mix ${work.filters.join(" ")}`}>
               <div className="work-item">
                 <img src={work.image} alt="Work" />
-                <ButtonMain text="Read More" />
+                <ButtonMain text="Read More" buttonUrl={""} />
               </div>
             </div>
           ))}

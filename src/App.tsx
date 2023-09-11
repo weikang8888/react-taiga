@@ -62,8 +62,8 @@ function App() {
         <Route path="/products" element={<Product />} />
         <Route path="/contactUs" element={<Contact />} />
         <Route path="/pages" />
-        <Route path="/pages/faq" element={<Faq />} />{" "}
-        <Route path="/pages/privacy-policy" element={<PrivacyPolicy />} />{" "}
+        <Route path="/pages/faq" element={<Faq />} />
+        <Route path="/pages/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/pages/term-conditions" element={<TermConditions />} />
       </Routes>
       <Footer />

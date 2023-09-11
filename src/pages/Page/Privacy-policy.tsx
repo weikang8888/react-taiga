@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
         bannerTarget={"Privacy Policy"}
         bannerPreviousTarget={"Pages"}
         showChevron={true}
-      />{" "}
+      />
       <section className="privacy-area pt-100">
         <div className="container">
           <div className="privacy-item">

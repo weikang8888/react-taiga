@@ -72,7 +72,7 @@ const Contact = () => {
                 <h3>Phone</h3>
                 <p>
                   Call us at +60380823500 during our office hours (Mon-Fri, 9 am
-                  - 6 pm).{" "}
+                  - 6 pm).
                 </p>
               </div>
             </div>

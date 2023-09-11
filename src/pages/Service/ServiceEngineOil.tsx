@@ -51,7 +51,7 @@ const ServicePressureCheck = () => {
               <Button text="Book Appointment" onClick={handleOpenModal} />
               {isModalOpen && (
                 <MultiStepModal handleCloseModal={handleCloseModal} />
-              )}{" "}
+              )}
             </div>
             <div className="row">
               <div className="col-lg-6">

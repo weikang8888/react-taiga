@@ -164,7 +164,7 @@ const MultiStepModal = ({ handleCloseModal }) => {
             <Step2 data={formData} handleChange={handleDateChange} />
             {errors.date && (
               <div className="error-message">{errors.date}</div>
-            )}{" "}
+            )}
           </>
         )}
         {currentStep === 3 && (
@@ -179,22 +179,16 @@ const MultiStepModal = ({ handleCloseModal }) => {
         <div className="modal-buttons">
           {currentStep > 1 && (
             <div className="cmn-btn">
-              <button onClick={handlePrevStep} className="banner-btn-left">
-                Previous
-              </button>
+              <button onClick={handlePrevStep}>Previous</button>
             </div>
           )}
           {currentStep < formSteps.length ? (
-            <div className="cmn-btn">
-              <button onClick={handleNextStep} className="banner-btn-left">
-                Next
-              </button>{" "}
+            <div className="cmn-btn button-wrapper-right">
+              <button onClick={handleNextStep}>Next</button>
             </div>
           ) : (
             <div className="cmn-btn">
-              <button onClick={handleSubmit} className="banner-btn-left">
-                Submit
-              </button>{" "}
+              <button onClick={handleSubmit}>Submit</button>
             </div>
           )}
         </div>

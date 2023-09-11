@@ -5,21 +5,23 @@ interface ButtonMainProps {
   text: string;
   buttonDiv?: string;
   buttonA?: string;
+  buttonUrl?: string;
   onClick?: () => void;
 }
 
 const ButtonMain: React.FC<ButtonMainProps> = ({
   text,
+  buttonUrl,
   buttonDiv = "cmn-btn",
   buttonA = "banner-btn-left",
   onClick,
 }) => {
   return (
-    <div className={buttonDiv}>
+    <a className={buttonDiv}>
       <button type="submit" className={buttonA} onClick={onClick}>
         {text}
       </button>
-    </div>
+    </a>
   );
 };
 

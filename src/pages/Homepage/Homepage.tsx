@@ -1,9 +1,9 @@
 import React from "react";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 import TitleSection from "../../components/TitleSection/TitleSection";
 import HomepageService from "./HomepageService";
 import ButtonMain from "../../components/Button/Button";
-
 import CarouselBg from "../../assets/image/carousel-bg-2.jpg";
 import CarShadow from "../../assets/image/car-shadow.png";
 import ProcessTyre from "../../assets/image/tyre.png";
@@ -17,6 +17,8 @@ import HompageWorks from "./HomepageWorks";
 import HomepageParts from "./HomepageParts";
 import HomepagePartner from "./HomepagePartner";
 import Loader from "../../components/Loader/Loader";
+
+AOS.init();
 
 const Homepage = () => {
   return (
@@ -71,7 +73,7 @@ const Homepage = () => {
                         // Tyre Servicing //
                       </h6>
                       <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">
-                        Qualified Tyre Wash Service Center
+                        Qualified Tyre Maintenance Center
                       </h1>
                       <div className="cmn-btn">
                         <ButtonMain text={"Learn More"} />
@@ -122,7 +124,11 @@ const Homepage = () => {
         />
         <div className="container">
           <div className="row">
-            <div className="col-lg-4">
+            <div
+              className="col-lg-4"
+              data-aos="fade-right"
+              data-aos-duration="2000"
+              data-aos-once="true">
               <div className="process-item">
                 <div className="process-inner process-one">
                   <i className="bx bxs-car-mechanic"></i>
@@ -139,11 +145,21 @@ const Homepage = () => {
             <div className="col-lg-4">
               <div className="process-item">
                 <div className="process-img">
-                  <img src={ProcessTyre} alt="Process" />
+                  <img
+                    src={ProcessTyre}
+                    alt="Process"
+                    data-aos="zoom-in"
+                    data-aos-duration="2000"
+                    data-aos-once="true"
+                  />
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">
+            <div
+              className="col-lg-4"
+              data-aos="fade-left"
+              data-aos-duration="2000"
+              data-aos-once="true">
               <div className="process-item">
                 <div className="process-inner process-two">
                   <i className="bx bxs-car-crash"></i>

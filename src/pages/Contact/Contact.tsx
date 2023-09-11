@@ -5,6 +5,9 @@ import BannerImage from "../../assets/about/footer-car.png";
 import Loader from "../../components/Loader/Loader";
 import "./contact.css";
 import ButtonMain from "../../components/Button/Button";
+import Phone from "../../assets/contact/telephone-call.png";
+import Email from "../../assets/contact/email.png";
+import LiveChat from "../../assets/contact/live-chat.png";
 
 import TaigaGoogleMap from "../../components/GoogleMap/TaigaGoogleMap";
 
@@ -60,6 +63,44 @@ const Contact = () => {
       />
       <section className="contact-area pt-100 pb-70">
         <div className="container">
+          <div className="row text-center mx-0 mb-5">
+            <div className="col-lg-4 contact-column background-orange">
+              <div className="contact-icon">
+                <img src={Phone} />
+              </div>
+              <div className="contact-content text-color-white">
+                <h3>Phone</h3>
+                <p>
+                  Call us at +60380823500 during our office hours (Mon-Fri, 9 am
+                  - 6 pm).{" "}
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-4 contact-column">
+              <div className="contact-icon">
+                <img src={Email} />
+              </div>
+              <div className="contact-content text-color-orange">
+                <h3>Email</h3>
+                <p>
+                  Prefer to write? Shoot us an email at hi@klinikar.com, and
+                  we'll get back to you within 24 hours.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-4 contact-column background-orange">
+              <div className="contact-icon">
+                <img src={LiveChat} />
+              </div>
+              <div className="contact-content text-color-white">
+                <h3>Live Chat</h3>
+                <p>
+                  Need immediate assistance? Chat with our experts through the
+                  Live Chat button at the corner of your screen.
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="row">
             <div className="col-lg-6">
               <div className="contact-item contact-left">

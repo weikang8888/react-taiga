@@ -546,3 +546,36 @@ img {
 .products-item .cmn-btn .banner-btn-left {
   margin-right: 0;
 }
+
+.animated {
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.6, 0.6, 0.6);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+}
+@keyframes slideInDown {
+  0% {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translateZ(0);
+  }
+}
+
+.slideInDown {
+  animation-name: slideInDown;
+}

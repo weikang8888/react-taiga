@@ -118,3 +118,21 @@ a {
   padding: 5px;
   background: green;
 }
+.text-color-white {
+  color: #fff !important;
+}
+.text-color-orange {
+  color: #fd5f16 !important;
+}
+.background-orange {
+  background: #fd5f16;
+}
+.contact-area .contact-column {
+  padding: 20px;
+}
+.contact-area .contact-column .contact-icon {
+  margin-bottom: 10px;
+}
+.contact-area .contact-content h3 {
+  margin: 5px;
+}

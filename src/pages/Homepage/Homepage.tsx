@@ -1,6 +1,8 @@
 import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import HompageWorks from "./HomepageWorks";
+import HomepagePartner from "./HomepagePartner";
 import TitleSection from "../../components/TitleSection/TitleSection";
 import HomepageService from "./HomepageService";
 import ButtonMain from "../../components/Button/Button";
@@ -12,11 +14,11 @@ import QualityShape from "../../assets/image/quality-shape.png";
 import QualityCar from "../../assets/image/quality-car.png";
 import FeatureImage from "../../assets/image/feature-bg.jpg";
 import FeatureShape from "../../assets/image/feature-shape.png";
+
 import "./homepage.css";
-import HompageWorks from "./HomepageWorks";
-import HomepageParts from "./HomepageParts";
-import HomepagePartner from "./HomepagePartner";
+
 import Loader from "../../components/Loader/Loader";
+import HomepageProducts from "./HomepageProducts";
 
 AOS.init();
 
@@ -266,17 +268,9 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <section className="products-area ptb-100">
-        <div className="container">
-          <TitleSection
-            subtitle="products"
-            title="Products On Sale"
-            description=""
-          />
-          <HomepageParts />
-          <ButtonMain text={"View More"} buttonDiv="products-view" buttonA="" />
-        </div>
-      </section>
+
+      <HomepageProducts />
+
       <section className="our-partner pt-5">
         <div className="container">
           <TitleSection

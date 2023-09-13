@@ -4,7 +4,6 @@ import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../assets/about/footer-car.png";
 import "./product.css";
 import Loader from "../../components/Loader/Loader";
-import mixitup from "mixitup";
 import ButtonMain from "../../components/Button/Button";
 
 const Product = () => {
@@ -14,19 +13,6 @@ const Product = () => {
   const [filterProducts, setFilterProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 8;
-
-  // useEffect(() => {
-  //   const container = containerRef.current;
-  //   const mixer = mixitup(container, {
-  //     selectors: {
-  //       control: ".filter",
-  //     },
-  //   });
-
-  //   return () => {
-  //     mixer.destroy();
-  //   };
-  // }, [products]);
 
   useEffect(() => {
     // Update the filter logic when activeFilter changes
@@ -80,7 +66,7 @@ const Product = () => {
         showChevron={false}
       />
       <section className="products-area pt-100 pb-70">
-        <div className="sorting-menu">
+        {/* <div className="sorting-menu">
           <ul>
             <li
               className={`filter ${activeFilter === "all" ? "active" : ""}`}
@@ -148,7 +134,7 @@ const Product = () => {
               Next
             </button>
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   );

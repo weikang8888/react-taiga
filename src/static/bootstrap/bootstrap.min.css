@@ -194,6 +194,9 @@ ul ol,
 ul ul {
   margin-bottom: 0;
 }
+li {
+  list-style: none outside;
+}
 dt {
   font-weight: 700;
 }

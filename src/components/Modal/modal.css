@@ -9,7 +9,6 @@
   height: auto;
   max-width: 800px;
   margin: auto;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,23 +25,10 @@
   justify-content: space-between;
   width: 100%;
 }
-
-.button-wrapper {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
 .button-wrapper-right {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
-}
-
-.button-wrapper-left {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-start;
 }
 /* CSS for the close button */
 .close-button {
@@ -57,10 +43,10 @@
 }
 
 .progressbar-wrapper {
-  background: #fff;
+  background: #fd5f16;
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 5px;
+  text-align: center;
+  padding: 20px;
 }
 
 .progressbar {
@@ -103,19 +89,28 @@
 .progressbar li:first-child:after {
   content: none;
 }
-.progressbar li.active {
+.progressbar li {
+  color: #000;
+}
+.progressbar li p{
+  color: #000;
+}
+.progressbar li.active{
   color: #fd5f16;
+}
+.progressbar li p.active {
+  color: #000;
   font-weight: bold;
 }
 .progressbar li.active:before {
-  border-color: #f9824b;
+  border-color: #fd5f16;
   background: #fd5f16;
 }
 .progressbar li.active + li:after {
-  background-color: #f9824b;
+  background-color: #000;
 }
 .progressbar li.active:before {
-  background: #f9824b no-repeat center center;
+  background: #000 no-repeat center center;
   background-size: 60%;
 }
 .progressbar li::before {
@@ -129,6 +124,10 @@
 .progressbar li:before {
   content: counter(step);
   counter-increment: step;
+}
+.contact-area {
+  padding: 20px;
+  background-color: #fff;
 }
 /* Hide the default checkbox */
 .form-group input[type="checkbox"] {

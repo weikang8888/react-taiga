@@ -38,6 +38,9 @@
   .mobile-nav.mean-container .mean-nav ul li a.active {
     color: #fd5f16;
   }
+  .carousel {
+    height: 40vh!important;
+  }
   .banner-area {
     height: 100%;
     text-align: center;
@@ -1010,23 +1013,12 @@
     width: 110px;
     height: 110px;
   }
-  .pricing-item {
-    padding-bottom: 40px;
+  .products-area .products-column .products-column-brand .products-brand {
+    width: 100%;
   }
-  .pricing-item .pricing-top h3 {
-    font-size: 28px;
-  }
-  .pricing-item .pricing-top p {
-    font-size: 30px;
-  }
-  .pricing-item .pricing-bottom ul {
-    margin-bottom: 30px;
-  }
-  .pricing-item .pricing-bottom ul li {
-    font-size: 14px;
-  }
-  .pricing-item .pricing-bottom ul li i {
-    font-size: 17px;
+  .products-area .products-column .products-column-brand .products-brand img {
+    width: 100%;
+    height: 100%;
   }
   .blog-area {
     padding-bottom: 140px;
@@ -1551,3 +1543,4 @@
     width: 100%;
   }
 }
+

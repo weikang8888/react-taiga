@@ -77,9 +77,7 @@ const Homepage = () => {
                       <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">
                         Qualified Tyre Maintenance Center
                       </h1>
-                      <div className="cmn-btn">
-                        <ButtonMain text={"Learn More"} />
-                      </div>
+                      <ButtonMain text={"Learn More"} />
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img

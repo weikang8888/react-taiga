@@ -12,13 +12,16 @@ interface ButtonMainProps {
 const ButtonMain: React.FC<ButtonMainProps> = ({
   text,
   buttonUrl,
-  buttonDiv = "cmn-btn",
-  buttonA = "banner-btn-left",
+  buttonDiv,
+  buttonA,
   onClick,
 }) => {
   return (
-    <a className={buttonDiv}>
-      <button type="submit" className={buttonA} onClick={onClick}>
+    <a className={`cmn-btn ${buttonDiv}`}>
+      <button
+        type="button"
+        className={`banner-btn-left ${buttonA}`}
+        onClick={onClick}>
         {text}
       </button>
     </a>

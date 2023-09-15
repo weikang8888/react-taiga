@@ -3,6 +3,7 @@ import "./modal.css";
 import Step1 from "./TyreServiceModal";
 import Step2 from "./ChooseDate";
 import Step3 from "./CustomerInformation";
+import Button from "../Button/Button";
 interface FormData {
   name: string;
   email: string;
@@ -133,7 +134,7 @@ const MultiStepModal = ({ handleCloseModal }) => {
       const isActive = currentStep >= step.id;
       return (
         <li key={step.id} className={isActive ? "active" : ""}>
-          {step.fields[0].label}
+          <p className={isActive ? "active" : ""}>{step.fields[0].label}</p>
         </li>
       );
     });
@@ -145,6 +146,7 @@ const MultiStepModal = ({ handleCloseModal }) => {
           &times;
         </button>
         <div className="progressbar-wrapper">
+          <h2 className="mb-3">Book An Appointment</h2>
           <ul className="progressbar">{renderProgressSteps()}</ul>
         </div>
         {currentStep === 1 && (
@@ -162,9 +164,7 @@ const MultiStepModal = ({ handleCloseModal }) => {
         {currentStep === 2 && (
           <>
             <Step2 data={formData} handleChange={handleDateChange} />
-            {errors.date && (
-              <div className="error-message">{errors.date}</div>
-            )}
+            {errors.date && <div className="error-message">{errors.date}</div>}
           </>
         )}
         {currentStep === 3 && (
@@ -178,18 +178,22 @@ const MultiStepModal = ({ handleCloseModal }) => {
         )}
         <div className="modal-buttons">
           {currentStep > 1 && (
-            <div className="cmn-btn">
-              <button onClick={handlePrevStep}>Previous</button>
-            </div>
+            <Button text={"Previous"} onClick={handlePrevStep} />
           )}
           {currentStep < formSteps.length ? (
-            <div className="cmn-btn button-wrapper-right">
-              <button onClick={handleNextStep}>Next</button>
-            </div>
+            <Button
+              text={"Next"}
+              onClick={handleNextStep}
+              buttonDiv={"button-wrapper-right"}
+              buttonA="me-0"
+            />
           ) : (
-            <div className="cmn-btn">
-              <button onClick={handleSubmit}>Submit</button>
-            </div>
+            <Button
+              text={"Submit"}
+              onClick={handleSubmit}
+              buttonDiv={"button-wrapper-right"}
+              buttonA="me-0"
+            />
           )}
         </div>
       </div>

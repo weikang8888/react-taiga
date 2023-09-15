@@ -1,87 +1,226 @@
-.products-top {
-  height: 200px;
+.widgets-area .widget {
+  background-color: #fff;
+  padding: 25px 20px;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.widgets-area .widget:after {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  content: "";
+  height: 1px;
+  background-color: #d8d8d8;
+}
+
+.widgets-area .widget .price_slider_wrapper {
+  padding-top: 3px;
+}
+
+.widgets-area .widget .price_slider_wrapper:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.widgets-area .widget .price_slider_wrapper .ui-widget-content {
+  background-color: #000;
+  border-radius: 0;
+  height: 1px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.widgets-area .widget .price_slider_wrapper .ui-slider {
+  margin: 5px 0 10px;
+  position: relative;
+  text-align: left;
+}
+
+.widgets-area .widget .ui-slider .ui-slider-range {
+  background-color: #000;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.widgets-area .widget .ui-slider .ui-slider-handle {
+  background-color: #000;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin-left: 0;
+  top: -7px;
+}
+
+.widgets-area .widget .ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: #000;
+  cursor: ew-resize;
+  outline: 0;
+  margin-left: -0.5em;
+}
+
+.widgets-area .widget .widget-layered-nav-list {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none outside;
+}
+.widgets-area .widget .cat-item {
+  padding-left: 15px;
+}
+/* Checkbox */
+.custom-checkbox {
   display: flex;
   align-items: center;
-  justify-content: center;
+  cursor: pointer;
 }
 
-.products-top img {
-  max-width: 100%;
-  max-height: 100%;
+.custom-checkbox input[type="checkbox"] {
+  display: none;
 }
 
-.products-area {
-  background-color: #f6f4f4;
+.custom-checkbox .checkbox-label {
+  position: relative;
+  padding-left: 25px; /* Adjust label padding */
+  cursor: pointer;
 }
-.products-view {
-  text-align: center;
+
+.custom-checkbox .checkbox-label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 15px; /* Adjust checkbox size */
+  height: 15px; /* Adjust checkbox size */
+  border: 2px solid #000; /* Border color of the checkbox */
+  background-color: transparent; /* Background color of the checkbox */
+  border-radius: 4px; /* Adjust border-radius for rounded corners */
 }
-.products-view a {
-  display: inline-block;
-  color: #fd5f16;
+
+.custom-checkbox input[type="checkbox"]:checked + .checkbox-label:before {
+  background-color: #000; /* Background color when checked */
+}
+.price-range-display {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #999;
+}
+.input-range__label-container {
+  display: none;
+}
+.input-range__slider {
+  background: #fd5f16;
   border: 1px solid #fd5f16;
-  font-weight: 600;
-  font-size: 15px;
-  padding: 12px 20px;
 }
-.products-view a:hover {
+.input-range__track--active {
+  background: #fd5f16;
+}
+
+.content-area .shop-toolbar {
   background-color: #fd5f16;
-  color: #fff;
-}
-.products-item {
-  margin-bottom: 30px;
-  text-align: center;
-  background-color: #fff;
-  padding: 30px 25px 35px;
-  -webkit-transition: 0.5s all ease;
-  transition: 0.5s all ease;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
 }
 
-.products-item:hover {
-  -webkit-transform: translate(0, -10px);
-  transform: translate(0, -10px);
-}
-.products-item .products-top {
-  padding-bottom: 25px;
-  border-bottom: 1px solid #fd5f16;
-  margin-bottom: 20px;
-}
-.products-item h3 {
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-.products-item span {
-  display: block;
-  font-weight: 600;
-  font-size: 22px;
-  color: #fd5f16;
-  margin-bottom: 14px;
-}
-.products-item .cmn-btn .banner-btn-left {
-  margin-right: 0;
+.content-area .shop-toolbar .products-found {
+  display: flex;
+  align-items: center;
 }
 
-.pagination button {
+.content-area .shop-toolbar .products-found strong {
+  color: #000;
+  font-weight: 600;
+  padding-right: 5px;
+}
+
+.content-area .shop-toolbar .shop-ordering {
+  margin: 0;
+}
+
+.content-area .shop-toolbar .shop-ordering .current {
+  min-width: 270px;
+  position: relative;
   display: inline-block;
   cursor: pointer;
-  font-weight: 600;
-  transition: 0.5s all ease;
-  padding: 7px 20px;
-  text-transform: uppercase;
-  background-color: #ddd3;
-  margin-right: 4px;
-  margin-left: 4px;
-  margin-bottom: 10px;
-  border: 0;
+  min-height: 33px;
+  line-height: 33px;
+  border: 1px solid #b8b8b8;
+  background-color: #fff;
+  padding: 0 25px 0 15px;
 }
 
-.pagination button.active,
-.pagination button:hover {
-  background-color: #fd5f16;
-  color: #fff;
+.content-area .shop-toolbar .shop-ordering .current:after {
+  position: absolute;
+  background-image: url("../../assets/products/down-arrow.png");
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  content: "";
+  display: inline-block;
+  color: #000;
 }
 
-.pagination button:disabled {
-  pointer-events: none;
+.content-area .shop-toolbar .shop-ordering .current ul {
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: top 0.5s;
+  border: 1px solid #b8b8b8;
+  background-color: #fff;
+  padding: 10px 15px;
+  color: #999;
+  transform: scale(0);
+  z-index: -999;
+  line-height: 1.4;
+  min-width: 100%;
+}
+.content-area .shop-content .shop-content-column {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 10px; /* Add a small margin between items */
+  box-sizing: border-box;
+}
+
+.content-area .shop-content .shop-content-column li {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+}
+.content-area .shop-content .shop-content-column li:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.content-area .shop-content .shop-content-column li .product-inner {
+  padding-bottom: 20px;
+  border: 1px solid transparent;
+  padding: 20px 20px 0;
+  margin-bottom: 30px;
+}
+
+.content-area .shop-content .shop-content-column li .product-inner:hover {
+  border-color: #fd5f16;
+}
+
+.content-area
+  .shop-content
+  .shop-content-column
+  li
+  .product-inner
+  .product-thumbnail {
+  position: relative;
+  margin-bottom: 12px;
 }

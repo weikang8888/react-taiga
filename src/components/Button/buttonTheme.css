@@ -67,7 +67,7 @@
   background-position: center;
 }
 .theme-dark {
-  background: #1d1d1d!important;
+  background: #1d1d1d !important;
   color: #fff;
 }
 .theme-dark h1,
@@ -156,17 +156,16 @@
 .theme-dark .sorting-menu ul li {
   color: #fff;
 }
-.theme-dark .products-area,
-.theme-dark .pricing-area {
+.theme-dark .products-area {
   background-color: #252525;
+}
+.theme-dark .products-area .products-column {
+  background-color: black;
 }
 .theme-dark .products-item {
   background-color: #0e0e0e;
 }
 .theme-dark .engineer-item .engineer-bottom {
-  background-color: #0e0e0e;
-}
-.theme-dark .pricing-item {
   background-color: #0e0e0e;
 }
 .theme-dark .subscribe-area {

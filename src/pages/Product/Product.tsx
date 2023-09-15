@@ -1,59 +1,38 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import InputRange from "react-input-range";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../assets/about/footer-car.png";
+import "react-input-range/lib/css/index.css";
 import "./product.css";
 import Loader from "../../components/Loader/Loader";
-import ButtonMain from "../../components/Button/Button";
+import PriceRangeDisplay from "./PriceRangeDisplay";
+import Textproduct from "../../assets/picture/powertrac_racingpro-2-300x300.jpg";
 
 const Product = () => {
-  const containerRef = useRef(null);
-  const [activeFilter, setActiveFilter] = useState("all");
   const [products, setProducts] = useState([]);
-  const [filterProducts, setFilterProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 8;
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 2000 });
 
-  useEffect(() => {
-    // Update the filter logic when activeFilter changes
-    if (activeFilter === "all") {
-      // If activeFilter is "all", show all products
-      setFilterProducts(products);
-    } else {
-      // Otherwise, filter the products based on activeFilter
-      const filteredProducts = products.filter((product) =>
-        product.filters.includes(activeFilter)
-      );
-      setFilterProducts(filteredProducts);
-    }
-  }, [activeFilter, products]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:8080/api_taiga/products/products")
-      .then((response) => {
-        const formattedProducts = response.data.map((product) => ({
-          ...product,
-          filters: JSON.parse(product.filters),
-        }));
-        setProducts(formattedProducts);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = filterProducts.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
-
-  const handleFilterSelection = (filter) => {
-    setActiveFilter(filter);
-    setCurrentPage(1); // Reset the current page to 1 when a filter is selected
+  // Handle changes in the price range
+  const handlePriceChange = (newPriceRange) => {
+    setPriceRange(newPriceRange);
+    // You can perform filtering or any other actions here
+    // You might want to pass the newPriceRange to your filtering logic
   };
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:8080/api_taiga/products/products")
+  //     .then((response) => {
+  //       const formattedProducts = response.data.map((product) => ({
+  //         ...product,
+  //         filters: JSON.parse(product.filters),
+  //       }));
+  //       setProducts(formattedProducts);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   return (
     <>
@@ -66,75 +45,179 @@ const Product = () => {
         showChevron={false}
       />
       <section className="products-area pt-100 pb-70">
-        {/* <div className="sorting-menu">
-          <ul>
-            <li
-              className={`filter ${activeFilter === "all" ? "active" : ""}`}
-              data-filter="all"
-              onClick={() => {
-                handleFilterSelection("all");
-              }}>
-              all
-            </li>
-            <li
-              className={`filter ${activeFilter === "wheels" ? "active" : ""}`}
-              data-filter=".wheels"
-              onClick={() => handleFilterSelection("wheels")}>
-              wheels
-            </li>
-            <li
-              className={`filter ${activeFilter === "brakes" ? "active" : ""}`}
-              data-filter=".brakes"
-              onClick={() => handleFilterSelection("brakes")}>
-              brakes
-            </li>
-            <li
-              className={`filter ${activeFilter === "oil" ? "active" : ""}`}
-              data-filter=".oil"
-              onClick={() => handleFilterSelection("oil")}>
-              black oil
-            </li>
-            <li
-              className={`filter ${activeFilter === "tyre" ? "active" : ""}`}
-              data-filter=".tyre"
-              onClick={() => handleFilterSelection("tyre")}>
-              tyre
-            </li>
-          </ul>
-        </div>
         <div className="container">
-          <div className="row" ref={containerRef}>
-            {currentProducts.map((product, index) => (
-              <div
-                key={index}
-                className={`col-sm-6 col-lg-3 mix ${product.filters.join()}`}>
-                <div className="products-item">
-                  <div className="products-top">
-                    <img
-                      src={require(`../../assets/products/${product.products_image}`)}
-                      alt="Parts"
-                    />
-                  </div>
-                  <h3>{product.products_name}</h3>
-                  <span>{product.products_price}</span>
-                  <ButtonMain text="Read More" />
+          <div className="row">
+            <div className="widgets-area col-md-3 col-sm-12 col-xs-12">
+              <div className="widget">
+                <h4 className="widget-title">Filter by price</h4>
+                <div className="price_slider_wrapper">
+                  <InputRange
+                    maxValue={2000} // Set your desired max value
+                    minValue={0} // Set your desired min value
+                    value={priceRange}
+                    onChange={handlePriceChange}
+                    formatLabel={(value) => `RM${value}`} // Optional: Format label as desired
+                  />
+                  <PriceRangeDisplay
+                    minValue={priceRange.min}
+                    maxValue={priceRange.max}
+                  />
                 </div>
               </div>
-            ))}
+              <div className="widget">
+                <h4 className="widget-title">Filter by</h4>
+                <div className="widget-wrapper">
+                  <ul
+                    className="widget-layered-nav-list mf-widget-layered-nav-scroll"
+                    data-height="130">
+                    <li className="widget-layered-nav-list__item">
+                      <label className="custom-checkbox">
+                        <input type="checkbox" value="Toyo Tires" />
+                        <span className="checkbox-label">Toyo Tires</span>
+                      </label>
+                    </li>
+                    <li className="widget-layered-nav-list__item">
+                      <label className="custom-checkbox">
+                        <input type="checkbox" value="Toyo Tires" />
+                        <span className="checkbox-label">Michelin</span>
+                      </label>
+                    </li>
+                    <li className="widget-layered-nav-list__item">
+                      <label className="custom-checkbox">
+                        <input type="checkbox" value="Toyo Tires" />
+                        <span className="checkbox-label">Continental</span>
+                      </label>
+                    </li>
+                    <li className="widget-layered-nav-list__item">
+                      <label className="custom-checkbox">
+                        <input type="checkbox" value="Toyo Tires" />
+                        <span className="checkbox-label">BridgeStone</span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="widget">
+                <h4 className="widget-title">Categories</h4>
+                <ul className="product-categories p-0">
+                  <li className="cat-item">
+                    <a>Audi</a>
+                  </li>
+                  <li className="cat-item">
+                    <a>BMW</a>
+                  </li>
+                  <li className="cat-item">
+                    <a>Bentley</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="content-area col-md-9 col-sm-12 col-xs-12">
+              <div
+                id="mf-catalog-toolbar"
+                className="shop-toolbar multiple mb-4">
+                <div className="products-found">
+                  <strong>1141</strong>Products found
+                </div>{" "}
+                <div className="shop-view"></div>
+                <ul className="shop-ordering">
+                  <li className="current">
+                    <span> Sort by price: low to high</span>
+                    <ul>
+                      <li>
+                        <a
+                          href="https://klinikar.com/shop/?orderby=popularity&amp;min_price=0&amp;max_price=2400"
+                          className="">
+                          Sort by popularity
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://klinikar.com/shop/?orderby=date&amp;min_price=0&amp;max_price=2400"
+                          className="">
+                          Sort by latest
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://klinikar.com/shop/?orderby=price&amp;min_price=0&amp;max_price=2400"
+                          className="active">
+                          Sort by price: low to high
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://klinikar.com/shop/?orderby=price-desc&amp;min_price=0&amp;max_price=2400"
+                          className="">
+                          Sort by price: high to low
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://klinikar.com/shop/?orderby=outofstock&amp;min_price=0&amp;max_price=2400"
+                          className="">
+                          Out of stock at the bottom
+                        </a>
+                      </li>{" "}
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="shop-content">
+                <div className="shop-content">
+                  <ul className="shop-content-column px-0 mx-0">
+                    <li className="px-0 col-lg-4">
+                      <div className="product-inner">
+                        <div className="product-thumbnail">
+                          <a>
+                            <img src={Textproduct} />
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="px-0 col-lg-4">
+                      <div className="product-inner">
+                        <div className="product-thumbnail">
+                          <a>
+                            <img src={Textproduct} />
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="px-0 col-lg-4">
+                      <div className="product-inner">
+                        <div className="product-thumbnail">
+                          <a>
+                            <img src={Textproduct} />
+                          </a>
+                        </div>
+                      </div>
+                    </li>{" "}
+                    <li className="px-0 col-lg-4">
+                      <div className="product-inner">
+                        <div className="product-thumbnail">
+                          <a>
+                            <img src={Textproduct} />
+                          </a>
+                        </div>
+                      </div>
+                    </li>{" "}
+                    <li className="px-0 col-lg-4">
+                      <div className="product-inner">
+                        <div className="product-thumbnail">
+                          <a>
+                            <img src={Textproduct} />
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="pagination">
-            <button
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage(currentPage - 1)}>
-              Previous
-            </button>
-            <button
-              disabled={currentProducts.length < productsPerPage}
-              onClick={() => setCurrentPage(currentPage + 1)}>
-              Next
-            </button>
-          </div>
-        </div> */}
+        </div>
       </section>
     </>
   );

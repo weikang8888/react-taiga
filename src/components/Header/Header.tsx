@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Link, NavLink } from "react-router-dom";
 
-import Logo from "../../assets/image/tiger.png";
+import Logo from "../../static/assets/image/tiger.png";
 import Button from "../Button/Button";
 import "./header.css";
 

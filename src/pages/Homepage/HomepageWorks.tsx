@@ -1,10 +1,10 @@
 import React from "react";
-import WorkImage1 from "../../assets/image/12.jpg";
-import WorkImage2 from "../../assets/image/22.jpg";
-import WorkImage3 from "../../assets/image/32.jpg";
-import WorkImage4 from "../../assets/image/42.jpg";
-import WorkImage5 from "../../assets/image/34.jpg";
-import WorkImage6 from "../../assets/image/62.jpg";
+import WorkImage1 from "../../static/assets/image/12.jpg";
+import WorkImage2 from "../../static/assets/image/22.jpg";
+import WorkImage3 from "../../static/assets/image/32.jpg";
+import WorkImage4 from "../../static/assets/image/42.jpg";
+import WorkImage5 from "../../static/assets/image/34.jpg";
+import WorkImage6 from "../../static/assets/image/62.jpg";
 import Mixitup from "../../components/Mixitup/Mixitup";
 
 const HompageWorks = () => {

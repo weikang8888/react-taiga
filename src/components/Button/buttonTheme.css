@@ -30,7 +30,7 @@
   transition: 0.4s;
   -webkit-box-shadow: 0 0 15px #2020203d;
   box-shadow: 0 0 15px #2020203d;
-  background: #fff url(../../assets/icon/night.png);
+  background: #fff url(../../static/assets/icon/night.png);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -62,7 +62,7 @@
 .switch-box input:checked + .slider:before {
   -webkit-transform: translateX(24px);
   transform: translateX(24px);
-  background: #fff url(../../assets/icon/sunny.png);
+  background: #fff url(../../static/assets/icon/sunny.png);
   background-repeat: no-repeat;
   background-position: center;
 }

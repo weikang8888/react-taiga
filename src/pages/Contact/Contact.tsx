@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Banner from "../../components/Banner/Banner";
-import BannerImage from "../../assets/about/footer-car.png";
+import BannerImage from "../../static/assets/about/footer-car.png";
 import Loader from "../../components/Loader/Loader";
 import "./contact.css";
 import ButtonMain from "../../components/Button/Button";
-import Phone from "../../assets/contact/telephone-call.png";
-import Email from "../../assets/contact/email.png";
-import LiveChat from "../../assets/contact/live-chat.png";
+import Phone from "../../static/assets/contact/telephone-call.png";
+import Email from "../../static/assets/contact/email.png";
+import LiveChat from "../../static/assets/contact/live-chat.png";
 
 import TaigaGoogleMap from "../../components/GoogleMap/TaigaGoogleMap";
 

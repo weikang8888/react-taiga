@@ -6,14 +6,14 @@ import HomepagePartner from "./HomepagePartner";
 import TitleSection from "../../components/TitleSection/TitleSection";
 import HomepageService from "./HomepageService";
 import ButtonMain from "../../components/Button/Button";
-import CarouselBg from "../../assets/image/carousel-bg-2.jpg";
-import CarShadow from "../../assets/image/car-shadow.png";
-import ProcessTyre from "../../assets/image/tyre.png";
-import BannerTyre from "../../assets/image/banner-black-tyre.png";
-import QualityShape from "../../assets/image/quality-shape.png";
-import QualityCar from "../../assets/image/quality-car.png";
-import FeatureImage from "../../assets/image/feature-bg.jpg";
-import FeatureShape from "../../assets/image/feature-shape.png";
+import CarouselBg from "../../static/assets/image/carousel-bg-2.jpg";
+import CarShadow from "../../static/assets/image/car-shadow.png";
+import ProcessTyre from "../../static/assets/image/tyre.png";
+import BannerTyre from "../../static/assets/image/banner-black-tyre.png";
+import QualityShape from "../../static/assets/image/quality-shape.png";
+import QualityCar from "../../static/assets/image/quality-car.png";
+import FeatureImage from "../../static/assets/image/feature-bg.jpg";
+import FeatureShape from "../../static/assets/image/feature-shape.png";
 
 import "./homepage.css";
 

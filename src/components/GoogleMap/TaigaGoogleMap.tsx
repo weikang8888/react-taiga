@@ -6,7 +6,7 @@ import {
   useLoadScript,
 } from "@react-google-maps/api";
 import "./googlemap.css";
-import customerMarker from "../../assets/contact/map-marker_orange.svg";
+import customerMarker from "../../static/assets/contact/map-marker_orange.svg";
 
 const TaigaGoogleMap = () => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;

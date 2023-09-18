@@ -159,7 +159,7 @@
 
 .content-area .shop-toolbar .shop-ordering .current:after {
   position: absolute;
-  background-image: url("../../assets/products/down-arrow.png");
+  background-image: url("../../static/assets/products/down-arrow.png");
   background-repeat: no-repeat;
   width: 18px;
   height: 14px;
@@ -213,6 +213,10 @@
 
 .content-area .shop-content .shop-content-column li .product-inner:hover {
   border-color: #fd5f16;
+}
+
+.product-inner .product-details {
+  position: relative;
 }
 
 .content-area

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import Banner from "../../components/Banner/Banner";
-import BannerImage from "../../assets/about/footer-car.png";
+import BannerImage from "../../static/assets/about/footer-car.png";
 import "./service.css";
 import Carousel from "../../components/Carousel/Carousel";
-import ServiceDetail1 from "../../assets/service/service-details.jpg";
-import ServiceDetail2 from "../../assets/service/service-details2.jpg";
-import ServiceDetail3 from "../../assets/service/service-details3.jpg";
+import ServiceDetail1 from "../../static/assets/service/service-details.jpg";
+import ServiceDetail2 from "../../static/assets/service/service-details2.jpg";
+import ServiceDetail3 from "../../static/assets/service/service-details3.jpg";
 import Loader from "../../components/Loader/Loader";
 import Button from "../../components/Button/Button";
 import MultiStepModal from "../../components/Modal/MultiStepModal";

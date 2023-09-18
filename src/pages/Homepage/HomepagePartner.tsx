@@ -4,12 +4,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carousel from "../../components/Carousel/Carousel";
-import CarouselImage1 from "../../assets/partner/al-ghazi-150x150.png";
-import CarouselImage2 from "../../assets/partner/METRO-150x150.png";
-import CarouselImage3 from "../../assets/partner/SUPER-POWER-150x150.png";
-import CarouselImage4 from "../../assets/partner/tez-raftar-150x150.png";
-import CarouselImage5 from "../../assets/partner/YAMAHA-150x150.png";
-import CarouselImage6 from "../../assets/partner/SUPER-POWER-150x150.png";
+import CarouselImage1 from "../../static/assets/partner/al-ghazi-150x150.png";
+import CarouselImage2 from "../../static/assets/partner/METRO-150x150.png";
+import CarouselImage3 from "../../static/assets/partner/SUPER-POWER-150x150.png";
+import CarouselImage4 from "../../static/assets/partner/tez-raftar-150x150.png";
+import CarouselImage5 from "../../static/assets/partner/YAMAHA-150x150.png";
+import CarouselImage6 from "../../static/assets/partner/SUPER-POWER-150x150.png";
 
 const HomepagePartner = () => {
   const settings = {

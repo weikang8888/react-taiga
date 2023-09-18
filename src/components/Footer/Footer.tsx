@@ -1,6 +1,6 @@
 import React from "react";
-import BannerImage from "../../assets/about/footer-car.png";
-import Logo from "../../assets/image/tiger.png";
+import BannerImage from "../../static/assets/about/footer-car.png";
+import Logo from "../../static/assets/image/tiger.png";
 import "./footer.css";
 
 const Footer = () => {

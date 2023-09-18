@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import InputRange from "react-input-range";
 import Banner from "../../components/Banner/Banner";
-import BannerImage from "../../assets/about/footer-car.png";
+import BannerImage from "../../static/assets/about/footer-car.png";
 import "react-input-range/lib/css/index.css";
 import "./product.css";
 import Loader from "../../components/Loader/Loader";
 import PriceRangeDisplay from "./PriceRangeDisplay";
-import Textproduct from "../../assets/picture/powertrac_racingpro-2-300x300.jpg";
+import Textproduct from "../../static/assets/picture/powertrac_racingpro-2-300x300.jpg";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -16,23 +16,18 @@ const Product = () => {
   // Handle changes in the price range
   const handlePriceChange = (newPriceRange) => {
     setPriceRange(newPriceRange);
-    // You can perform filtering or any other actions here
-    // You might want to pass the newPriceRange to your filtering logic
   };
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:8080/api_taiga/products/products")
-  //     .then((response) => {
-  //       const formattedProducts = response.data.map((product) => ({
-  //         ...product,
-  //         filters: JSON.parse(product.filters),
-  //       }));
-  //       setProducts(formattedProducts);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api_taiga/products/products")
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <>
@@ -118,7 +113,7 @@ const Product = () => {
                 className="shop-toolbar multiple mb-4">
                 <div className="products-found">
                   <strong>1141</strong>Products found
-                </div>{" "}
+                </div>
                 <div className="shop-view"></div>
                 <ul className="shop-ordering">
                   <li className="current">
@@ -158,7 +153,7 @@ const Product = () => {
                           className="">
                           Out of stock at the bottom
                         </a>
-                      </li>{" "}
+                      </li>
                     </ul>
                   </li>
                 </ul>
@@ -167,51 +162,36 @@ const Product = () => {
               <div className="shop-content">
                 <div className="shop-content">
                   <ul className="shop-content-column px-0 mx-0">
-                    <li className="px-0 col-lg-4">
-                      <div className="product-inner">
-                        <div className="product-thumbnail">
-                          <a>
-                            <img src={Textproduct} />
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="px-0 col-lg-4">
-                      <div className="product-inner">
-                        <div className="product-thumbnail">
-                          <a>
-                            <img src={Textproduct} />
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="px-0 col-lg-4">
-                      <div className="product-inner">
-                        <div className="product-thumbnail">
-                          <a>
-                            <img src={Textproduct} />
-                          </a>
-                        </div>
-                      </div>
-                    </li>{" "}
-                    <li className="px-0 col-lg-4">
-                      <div className="product-inner">
-                        <div className="product-thumbnail">
-                          <a>
-                            <img src={Textproduct} />
-                          </a>
-                        </div>
-                      </div>
-                    </li>{" "}
-                    <li className="px-0 col-lg-4">
-                      <div className="product-inner">
-                        <div className="product-thumbnail">
-                          <a>
-                            <img src={Textproduct} />
-                          </a>
-                        </div>
-                      </div>
-                    </li>
+                    <div className="shop-content">
+                      <ul className="shop-content-column px-0 mx-0">
+                        {products.map((product) => (
+                          <li key={product.id} className="px-0 col-lg-4">
+                            <div className="product-inner">
+                              <div className="product-thumbnail">
+                                <a href="#">
+                                  <img
+                                    src={require(`../../static/assets/picture/${product.products_image}`)}
+                                    alt={product.products_title}
+                                  />
+                                </a>
+                              </div>
+                              <div className="product-details">
+                                <div className="product-content">
+                                  <div className="product_title">
+                                    <a href="#">{product.products_title}</a>
+                                  </div>
+                                  <div className="product-price-box">
+                                    <div className="price">
+                                      {product.products_price}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </ul>
                 </div>
               </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import Car from "../../static/assets/image/sedan-car-front.png";
 import Audi from "../../static/assets/products/audi.png";
 import BMW from "../../static/assets/products/bmw.png";
@@ -51,134 +52,134 @@ const HomepageProducts = () => {
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <a>
+              <Link to="/products/audi/">
                 <img src={Audi} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={BMW} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Bentley} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Chevrolet} />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Ferrari} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Haval} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Honda} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Hyundai} />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Benz} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Mini} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Lexus} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Madza} />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Nissan} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Perodua} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Porsche} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Proton} />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={LandRover} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Subaru} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={KIA} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Toyota} />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Ford} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Peugeot} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Volkswagen} />
-              </a>
+              </Link>
             </div>
             <div className="products-brand">
-              <a>
+              <Link to="">
                 <img src={Volvo} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -194,128 +195,128 @@ const HomepageProducts = () => {
             </div>
             <div className="products-column-brand">
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="/products/audi">
                   <img src={Audi} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={BMW} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Bentley} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Chevrolet} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Ferrari} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Haval} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Honda} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Hyundai} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Benz} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Mini} />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="products-column-brand">
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Lexus} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Madza} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Nissan} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Perodua} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Porsche} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Proton} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={LandRover} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Subaru} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={KIA} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Toyota} />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="products-column-brand">
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Ford} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Peugeot} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Volkswagen} />
-                </a>
+                </Link>
               </div>
               <div className="products-brand">
-                <a className="d-inline-block">
+                <Link to="">
                   <img src={Volvo} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

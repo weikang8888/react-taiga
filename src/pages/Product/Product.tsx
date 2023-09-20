@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import InputRange from "react-input-range";
 import Banner from "../../components/Banner/Banner";
@@ -7,16 +8,14 @@ import "react-input-range/lib/css/index.css";
 import "./product.css";
 import Loader from "../../components/Loader/Loader";
 import PriceRangeDisplay from "./PriceRangeDisplay";
-import Textproduct from "../../static/assets/picture/powertrac_racingpro-2-300x300.jpg";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [priceRange, setPriceRange] = useState({ min: 0, max: 2000 });
-
-  // Handle changes in the price range
-  const handlePriceChange = (newPriceRange) => {
-    setPriceRange(newPriceRange);
-  };
+  const [selectedTyreBrands, setSelectedTyreBrands] = useState([]);
+  const [selectedCarBrand, setSelectedCarBrand] = useState([]);
+  const navigate = useNavigate();
+  const { brand } = useParams();
 
   useEffect(() => {
     axios
@@ -28,6 +27,67 @@ const Product = () => {
         console.log(error);
       });
   }, []);
+
+  // Handle changes in the price range
+  const handlePriceChange = (newPriceRange) => {
+    setPriceRange(newPriceRange);
+  };
+
+  const handleTyreBrandChange = (event) => {
+    const brand = event.target.value;
+
+    if (selectedTyreBrands.includes(brand)) {
+      // Brand is already selected, remove it
+      setSelectedTyreBrands(
+        selectedTyreBrands.filter((selectedBrand) => selectedBrand !== brand)
+      );
+    } else {
+      // Brand is not selected, add it
+      setSelectedTyreBrands([...selectedTyreBrands, brand]);
+    }
+  };
+  
+  const handleCarBrandClick = (brand) => {
+    if (brand === "all") {
+      // If "All Categories" is clicked, clear the selected car brands and tire brands, and navigate
+      setSelectedCarBrand([]);
+      setSelectedTyreBrands([]);
+      navigate("/products");
+    } else {
+      setSelectedCarBrand([brand]); // Select the clicked car brand and deselect others
+      navigate(`/products/${brand}`);
+    }
+  };
+
+  const filteredProducts = products
+    .filter((product) => {
+      // Check if the product's tire brand is selected (selectedTyreBrands)
+      const isTireBrandSelected =
+        selectedTyreBrands.length === 0 ||
+        selectedTyreBrands.includes(product.products_tyre_brand);
+
+      // Split the product's car brands into an array
+      const carBrandsArray = product.products_car_type_tyre
+        .split(",")
+        .map((brand) => brand.trim());
+
+      // Check if at least one of the selected car brands is present in the product's car brands
+      const isCarBrandSelected =
+        selectedCarBrand.length === 0 ||
+        selectedCarBrand.some((selectedBrand) =>
+          carBrandsArray.includes(selectedBrand)
+        );
+      // Combine both conditions with logical AND (&&)
+      return isTireBrandSelected && isCarBrandSelected;
+    })
+    .filter((product) => {
+      const productPrice = parseFloat(product.products_price);
+      return productPrice >= priceRange.min && productPrice <= priceRange.max;
+    });
+
+  useEffect(() => {
+    setSelectedCarBrand(brand ? [brand] : []);
+  }, [brand]);
 
   return (
     <>
@@ -67,25 +127,46 @@ const Product = () => {
                     data-height="130">
                     <li className="widget-layered-nav-list__item">
                       <label className="custom-checkbox">
-                        <input type="checkbox" value="Toyo Tires" />
+                        <input
+                          type="checkbox"
+                          value="ToyoTires"
+                          checked={selectedTyreBrands.includes("ToyoTires")}
+                          onChange={handleTyreBrandChange}
+                        />
                         <span className="checkbox-label">Toyo Tires</span>
                       </label>
                     </li>
+
                     <li className="widget-layered-nav-list__item">
                       <label className="custom-checkbox">
-                        <input type="checkbox" value="Toyo Tires" />
+                        <input
+                          type="checkbox"
+                          value="Michelin"
+                          checked={selectedTyreBrands.includes("Michelin")}
+                          onChange={handleTyreBrandChange}
+                        />
                         <span className="checkbox-label">Michelin</span>
                       </label>
                     </li>
                     <li className="widget-layered-nav-list__item">
                       <label className="custom-checkbox">
-                        <input type="checkbox" value="Toyo Tires" />
+                        <input
+                          type="checkbox"
+                          value="Continental"
+                          checked={selectedTyreBrands.includes("Continental")}
+                          onChange={handleTyreBrandChange}
+                        />
                         <span className="checkbox-label">Continental</span>
                       </label>
                     </li>
                     <li className="widget-layered-nav-list__item">
                       <label className="custom-checkbox">
-                        <input type="checkbox" value="Toyo Tires" />
+                        <input
+                          type="checkbox"
+                          value="BridgeStone"
+                          checked={selectedTyreBrands.includes("BridgeStone")}
+                          onChange={handleTyreBrandChange}
+                        />
                         <span className="checkbox-label">BridgeStone</span>
                       </label>
                     </li>
@@ -95,15 +176,32 @@ const Product = () => {
               <div className="widget">
                 <h4 className="widget-title">Categories</h4>
                 <ul className="product-categories p-0">
-                  <li className="cat-item">
-                    <a>Audi</a>
-                  </li>
-                  <li className="cat-item">
-                    <a>BMW</a>
-                  </li>
-                  <li className="cat-item">
-                    <a>Bentley</a>
-                  </li>
+                  {selectedCarBrand.length > 0 && (
+                    <li className="cat-item">
+                      <a
+                        onClick={() => handleCarBrandClick("all")}
+                        className="fw-bolder">
+                        All Categories
+                      </a>
+                    </li>
+                  )}
+                  {[
+                    { id: "audi", label: "Audi" },
+                    { id: "bmw", label: "BMW" },
+                    { id: "bentley", label: "Bentley" },
+                    { id: "chevrolet", label: "Chevrolet" },
+                    { id: "ferrari", label: "Ferrari" },
+                  ].map((brand) => (
+                    <li className="cat-item" key={brand.id}>
+                      <a
+                        onClick={() => handleCarBrandClick(brand.id)}
+                        className={`${
+                          selectedCarBrand.includes(brand.id) ? "active" : ""
+                        }`}>
+                        {brand.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -112,8 +210,12 @@ const Product = () => {
                 id="mf-catalog-toolbar"
                 className="shop-toolbar multiple mb-4">
                 <div className="products-found">
-                  <strong>1141</strong>Products found
+                  <strong>{filteredProducts.length}</strong>
+                  {filteredProducts.length === 1
+                    ? "Product found"
+                    : "Products found"}
                 </div>
+
                 <div className="shop-view"></div>
                 <ul className="shop-ordering">
                   <li className="current">
@@ -159,41 +261,39 @@ const Product = () => {
                 </ul>
               </div>
 
-              <div className="shop-content">
-                <div className="shop-content">
-                  <ul className="shop-content-column px-0 mx-0">
-                    <div className="shop-content">
-                      <ul className="shop-content-column px-0 mx-0">
-                        {products.map((product) => (
-                          <li key={product.id} className="px-0 col-lg-4">
-                            <div className="product-inner">
-                              <div className="product-thumbnail">
-                                <a href="#">
-                                  <img
-                                    src={require(`../../static/assets/picture/${product.products_image}`)}
-                                    alt={product.products_title}
-                                  />
-                                </a>
-                              </div>
-                              <div className="product-details">
-                                <div className="product-content">
-                                  <div className="product_title">
-                                    <a href="#">{product.products_title}</a>
-                                  </div>
-                                  <div className="product-price-box">
-                                    <div className="price">
-                                      {product.products_price}
-                                    </div>
+              <div className="">
+                <ul className="shop-content-column px-0 mx-0">
+                  <div className="shop-content">
+                    <ul className="shop-content-column px-0 mx-0">
+                      {filteredProducts.map((product) => (
+                        <li key={product.id} className="px-0 col-lg-4">
+                          <div className="product-inner">
+                            <div className="product-thumbnail">
+                              <a href="#">
+                                <img
+                                  src={require(`../../static/assets/picture/${product.products_image}`)}
+                                  alt={product.products_title}
+                                />
+                              </a>
+                            </div>
+                            <div className="product-details">
+                              <div className="product-content">
+                                <div className="product_title">
+                                  <a href="#">{product.products_title}</a>
+                                </div>
+                                <div className="product-price-box">
+                                  <div className="price">
+                                    RM{product.products_price}.00
                                   </div>
                                 </div>
                               </div>
                             </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </ul>
-                </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </ul>
               </div>
             </div>
           </div>

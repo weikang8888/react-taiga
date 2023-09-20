@@ -75,6 +75,17 @@
 .widgets-area .widget .cat-item {
   padding-left: 15px;
 }
+.widgets-area .widget .cat-item a {
+  color: #000;
+  cursor: pointer;
+}
+.widgets-area .widget .cat-item a:hover {
+  color: #fd5f16;
+}
+.widgets-area .widget .cat-item a.active {
+  color: #fd5f16;
+  font-weight: bold
+}
 /* Checkbox */
 .custom-checkbox {
   display: flex;
@@ -105,7 +116,7 @@
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .checkbox-label:before {
-  background-color: #000; /* Background color when checked */
+  background-color: #fd5f16; /* Background color when checked */
 }
 .price-range-display {
   margin-top: 10px;
@@ -185,6 +196,9 @@
   z-index: -999;
   line-height: 1.4;
   min-width: 100%;
+}
+.content-area .shop-content {
+  width: 100%;
 }
 .content-area .shop-content .shop-content-column {
   display: flex;

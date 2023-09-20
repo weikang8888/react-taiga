@@ -7,7 +7,7 @@ import "./header.css";
 
 const Header = (props) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { location, hideFirstDiv, logoHeight } = props;
+  const { hideFirstDiv, logoHeight } = props;
   const [isMeanNavVisible, setIsMeanNavVisible] = useState(false);
   const [isServicesDropdownVisible, setIsServicesDropdownVisible] =
     useState(false);
@@ -174,7 +174,6 @@ const Header = (props) => {
               <ul
                 className="dropdown-menu"
                 style={{ display: isPagesDropdownVisible ? "block" : "none" }}>
-                
                 <li className="nav-item">
                   <Link to="/pages/faq" className="nav-link">
                     FAQ

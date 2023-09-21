@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Banner from "../../components/Banner/Banner";
-import BannerImage from "../../static/assets/about/footer-car.png";
+import BannerImage from "../../static/assets/about/about-taiga.png";
 import AboutCarImage from "../../static/assets/about/about-car.jpg";
 import CarShape from "../../static/assets/about/car-shape.png";
 import Icon1 from "../../static/assets/icon/like.png";
@@ -103,9 +103,6 @@ const About = () => {
       <Loader />
       <Banner
         bannerImage={BannerImage}
-        bannerTitle={"About Us"}
-        bannerTarget={"About Us"}
-        bannerPreviousTarget={""}
         showChevron={false}
       />
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Banner from "../../components/Banner/Banner";
-import BannerImage from "../../static/assets/about/footer-car.png";
+import BannerImage from "../../static/assets/about/about-taiga.png";
 import "./page.css";
 import Loader from "../../components/Loader/Loader";
 

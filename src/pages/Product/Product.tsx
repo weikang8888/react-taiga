@@ -3,7 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import InputRange from "react-input-range";
 import Banner from "../../components/Banner/Banner";
-import BannerImage from "../../static/assets/about/footer-car.png";
+import BannerImage from "../../static/assets/about/about-taiga.png";
 import "react-input-range/lib/css/index.css";
 import "./product.css";
 import Loader from "../../components/Loader/Loader";
@@ -15,7 +15,7 @@ const Product = () => {
   const [selectedTyreBrands, setSelectedTyreBrands] = useState([]);
   const [selectedCarBrand, setSelectedCarBrand] = useState([]);
   const navigate = useNavigate();
-  const { brand } = useParams();
+  const { carBrand } = useParams();
 
   useEffect(() => {
     axios
@@ -34,28 +34,30 @@ const Product = () => {
   };
 
   const handleTyreBrandChange = (event) => {
-    const brand = event.target.value;
+    const tyreBrand = event.target.value;
 
-    if (selectedTyreBrands.includes(brand)) {
+    if (selectedTyreBrands.includes(tyreBrand)) {
       // Brand is already selected, remove it
       setSelectedTyreBrands(
-        selectedTyreBrands.filter((selectedBrand) => selectedBrand !== brand)
+        selectedTyreBrands.filter(
+          (selectedBrand) => selectedBrand !== tyreBrand
+        )
       );
     } else {
       // Brand is not selected, add it
-      setSelectedTyreBrands([...selectedTyreBrands, brand]);
+      setSelectedTyreBrands([...selectedTyreBrands, tyreBrand]);
     }
   };
-  
-  const handleCarBrandClick = (brand) => {
-    if (brand === "all") {
+
+  const handleCarBrandClick = (carBrand) => {
+    if (carBrand === "all") {
       // If "All Categories" is clicked, clear the selected car brands and tire brands, and navigate
       setSelectedCarBrand([]);
       setSelectedTyreBrands([]);
       navigate("/products");
     } else {
-      setSelectedCarBrand([brand]); // Select the clicked car brand and deselect others
-      navigate(`/products/${brand}`);
+      setSelectedCarBrand([carBrand]); // Select the clicked car brand and deselect others
+      navigate(`/products/${carBrand}`);
     }
   };
 
@@ -69,7 +71,7 @@ const Product = () => {
       // Split the product's car brands into an array
       const carBrandsArray = product.products_car_type_tyre
         .split(",")
-        .map((brand) => brand.trim());
+        .map((carBrand) => carBrand.trim());
 
       // Check if at least one of the selected car brands is present in the product's car brands
       const isCarBrandSelected =
@@ -86,8 +88,8 @@ const Product = () => {
     });
 
   useEffect(() => {
-    setSelectedCarBrand(brand ? [brand] : []);
-  }, [brand]);
+    setSelectedCarBrand(carBrand ? [carBrand] : []);
+  }, [carBrand]);
 
   return (
     <>
@@ -125,51 +127,28 @@ const Product = () => {
                   <ul
                     className="widget-layered-nav-list mf-widget-layered-nav-scroll"
                     data-height="130">
-                    <li className="widget-layered-nav-list__item">
-                      <label className="custom-checkbox">
-                        <input
-                          type="checkbox"
-                          value="ToyoTires"
-                          checked={selectedTyreBrands.includes("ToyoTires")}
-                          onChange={handleTyreBrandChange}
-                        />
-                        <span className="checkbox-label">Toyo Tires</span>
-                      </label>
-                    </li>
-
-                    <li className="widget-layered-nav-list__item">
-                      <label className="custom-checkbox">
-                        <input
-                          type="checkbox"
-                          value="Michelin"
-                          checked={selectedTyreBrands.includes("Michelin")}
-                          onChange={handleTyreBrandChange}
-                        />
-                        <span className="checkbox-label">Michelin</span>
-                      </label>
-                    </li>
-                    <li className="widget-layered-nav-list__item">
-                      <label className="custom-checkbox">
-                        <input
-                          type="checkbox"
-                          value="Continental"
-                          checked={selectedTyreBrands.includes("Continental")}
-                          onChange={handleTyreBrandChange}
-                        />
-                        <span className="checkbox-label">Continental</span>
-                      </label>
-                    </li>
-                    <li className="widget-layered-nav-list__item">
-                      <label className="custom-checkbox">
-                        <input
-                          type="checkbox"
-                          value="BridgeStone"
-                          checked={selectedTyreBrands.includes("BridgeStone")}
-                          onChange={handleTyreBrandChange}
-                        />
-                        <span className="checkbox-label">BridgeStone</span>
-                      </label>
-                    </li>
+                    {[
+                      { id: "ToyoTires", label: "Toyo Tires" },
+                      { id: "Michelin", label: "Michelin" },
+                      { id: "Continental", label: "Continental" },
+                      { id: "BridgeStone", label: "BridgeStone" },
+                    ].map((tyreBrand) => (
+                      <li
+                        className="widget-layered-nav-list__item"
+                        key={tyreBrand.id}>
+                        <label className="custom-checkbox">
+                          <input
+                            type="checkbox"
+                            value={tyreBrand.id}
+                            checked={selectedTyreBrands.includes(tyreBrand.id)}
+                            onChange={handleTyreBrandChange}
+                          />
+                          <span className="checkbox-label">
+                            {tyreBrand.label}
+                          </span>
+                        </label>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -191,14 +170,14 @@ const Product = () => {
                     { id: "bentley", label: "Bentley" },
                     { id: "chevrolet", label: "Chevrolet" },
                     { id: "ferrari", label: "Ferrari" },
-                  ].map((brand) => (
-                    <li className="cat-item" key={brand.id}>
+                  ].map((carBrand) => (
+                    <li className="cat-item" key={carBrand.id}>
                       <a
-                        onClick={() => handleCarBrandClick(brand.id)}
+                        onClick={() => handleCarBrandClick(carBrand.id)}
                         className={`${
-                          selectedCarBrand.includes(brand.id) ? "active" : ""
+                          selectedCarBrand.includes(carBrand.id) ? "active" : ""
                         }`}>
-                        {brand.label}
+                        {carBrand.label}
                       </a>
                     </li>
                   ))}
@@ -269,7 +248,7 @@ const Product = () => {
                         <li key={product.id} className="px-0 col-lg-4">
                           <div className="product-inner">
                             <div className="product-thumbnail">
-                              <a href="#">
+                              <a href={product.products_url}>
                                 <img
                                   src={require(`../../static/assets/picture/${product.products_image}`)}
                                   alt={product.products_title}

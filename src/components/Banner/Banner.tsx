@@ -2,11 +2,11 @@ import React from "react";
 
 import "./banner.css";
 interface BannerOption {
-  bannerImage: string;
-  bannerTitle: string;
-  bannerTarget: string;
-  bannerPreviousTarget: string;
-  showChevron: boolean;
+  bannerImage?: string;
+  bannerTitle?: string;
+  bannerTarget?: string;
+  bannerPreviousTarget?: string;
+  showChevron?: boolean;
 }
 const Banner = ({
   bannerImage,
@@ -19,7 +19,7 @@ const Banner = ({
     <>
       <div className="page-title-area">
         <img src={bannerImage} alt="Title" />
-        <div className="container">
+        {/* <div className="container">
           <div className="page-title-content">
             <h2>{bannerTitle}</h2>
             <ul>
@@ -43,7 +43,7 @@ const Banner = ({
               <li>{bannerTarget}</li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

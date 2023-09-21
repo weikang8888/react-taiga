@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Banner from "../../components/Banner/Banner";
-import BannerImage from "../../static/assets/about/footer-car.png";
+import BannerImage from "../../static/assets/about/about-taiga.png";
 import Loader from "../../components/Loader/Loader";
 import "./contact.css";
 import ButtonMain from "../../components/Button/Button";

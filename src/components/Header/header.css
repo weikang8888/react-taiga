@@ -33,6 +33,7 @@
   position: absolute;
   top: 25px;
   right: 5px;
+  display: none;
 }
 .meanmenu-reveal span {
   display: block;

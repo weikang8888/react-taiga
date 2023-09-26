@@ -1,0 +1,71 @@
+.pt-5rem {
+  padding-top: 5rem;
+}
+.form-outline {
+  position: relative;
+}
+.form-outline.form-white .form-control {
+  color: #fff;
+}
+.form-outline .form-control.form-control-lg {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+.form-outline .form-control {
+  min-height: auto;
+  padding: 0.33em 0.75em;
+  background: transparent;
+  transition: all 0.2s linear;
+}
+.form-control.form-control-lg {
+  line-height: 2.15;
+  border-radius: 0.25rem;
+}
+
+.form-outline .form-control.form-control-lg.active ~ .form-label,
+.form-outline .form-control.form-control-lg:focus ~ .form-label {
+  transform: translateY(-1.25rem) translateY(0.1rem) scale(0.8);
+}
+.form-outline.form-white .form-control ~ .form-label {
+  color: #fff;
+}
+.form-outline .form-control.form-control-lg ~ .form-label {
+  padding-top: 0.7rem;
+}
+.form-outline .form-control.active ~ .form-label,
+.form-outline .form-control:focus ~ .form-label {
+  transform: translateY(-1rem) translateY(0.1rem) scale(0.8);
+  padding: 0px 5px;
+  background-color: var(--bs-black);
+  color: #fd5f16;
+  top: 5px;
+}
+.form-outline .form-control ~ .form-label {
+  position: absolute;
+  top: 0;
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  left: 0.75rem;
+  padding-top: 0.37rem;
+  pointer-events: none;
+  transform-origin: 0 0;
+  transition: all 0.2s ease-out;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 0;
+}
+.form-label {
+  margin-bottom: 0.5rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+.custom-icon-color {
+  color: #fff;
+}
+.error-message {
+  border: 2px solid var(--bs-orange) !important;
+  color: #fff;
+  background-color: var(--bs-orange);
+}

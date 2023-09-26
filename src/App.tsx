@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -16,7 +17,6 @@ import Faq from "./pages/Page/Faq";
 import PrivacyPolicy from "./pages/Page/Privacy-policy";
 import TermConditions from "./pages/Page/Term-conditions";
 import ButtonScrollTop from "./components/Button/ButtonScrollTop";
-import ButtonTheme from "./components/Button/ButtonTheme";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./static/css/responsive.css";
 import ServiceSuspensionService from "./pages/Service/ServiceSuspensionService";
@@ -24,15 +24,37 @@ import ServiceBrakeService from "./pages/Service/ServiceBrakeService";
 import ServiceWheelAlignment from "./pages/Service/ServiceWheelAlignment";
 import ServiceTyreBalancing from "./pages/Service/ServiceTyreBalancing";
 import ServiceEngineOil from "./pages/Service/ServiceEngineOil";
+import Login from "./pages/LoginRegister/Login";
+import Register from "./pages/LoginRegister/Register";
+import Verify from "./pages/LoginRegister/Verify";
 
 export * from "./components";
 
 function App() {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+  const [userEmail, setUserEmail] = useState("");
+
+  const handleLoginSuccess = (email) => {
+    setIsLoggedIn(true);
+    setUserEmail(email);
+
+    console.log("isLoggedIn:", isLoggedIn);
+  };
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
   return (
     <Router>
       <HeaderWrapper />
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route
+          path="/login"
+          element={<Login onLoginSuccess={handleLoginSuccess} />}
+        />
+        <Route path="/register" element={<Register />} />
+        <Route path="/register/verify" element={<Verify />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" />
         <Route
@@ -67,34 +89,38 @@ function App() {
         <Route path="/pages/term-conditions" element={<TermConditions />} />
       </Routes>
       <Footer />
-      <ButtonTheme />
+      {/* <ButtonTheme /> */}
       <ButtonScrollTop />
     </Router>
   );
+
+  function HeaderWrapper() {
+    const location = useLocation();
+    const { pathname } = location;
+    const isHomepage = pathname === "/";
+
+    // Define props with different styles based on the current page
+    const headerProps = isHomepage
+      ? {
+          background: "transparent",
+          top: "30px",
+          hideFirstDiv: false,
+          logoHeight: false,
+        }
+      : {
+          background: "black",
+          hideFirstDiv: true,
+          logoHeight: true,
+        };
+
+    return (
+      <Header
+        props={headerProps}
+        isLoggedIn={isLoggedIn}
+        userEmail={userEmail}
+        onLogout={handleLogout}
+      />
+    );
+  }
 }
-
-function HeaderWrapper() {
-  const location = useLocation();
-  const { pathname } = location;
-  const isHomepage = pathname === "/";
-
-  return (
-    <>
-      {isHomepage ? (
-        <Header
-          style={{ background: "transparent", top: "30px" }}
-          location={location}
-        />
-      ) : (
-        <Header
-          style={{ background: "black", top: "" }}
-          hideFirstDiv={true}
-          logoHeight={true}
-          location={location}
-        />
-      )}
-    </>
-  );
-}
-
 export default App;

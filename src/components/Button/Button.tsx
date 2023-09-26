@@ -17,7 +17,7 @@ const ButtonMain: React.FC<ButtonMainProps> = ({
   onClick,
 }) => {
   return (
-    <a className={`cmn-btn ${buttonDiv}`}>
+    <a href={buttonUrl} className={`cmn-btn ${buttonDiv}`}>
       <button
         type="button"
         className={`banner-btn-left ${buttonA}`}

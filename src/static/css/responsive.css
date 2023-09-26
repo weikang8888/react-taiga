@@ -782,6 +782,7 @@
   }
   .meanmenu-reveal {
     color: #fd5f16;
+    display: block;
   }
   .mobile-nav.mean-container .mean-nav ul li a.active {
     color: #fd5f16;

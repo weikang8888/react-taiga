@@ -4,10 +4,15 @@ import { BrowserRouter, Link, NavLink } from "react-router-dom";
 import Logo from "../../static/assets/image/tiger.png";
 import Button from "../Button/Button";
 import "./header.css";
+import User from "../../static/assets/image/human.png";
 
-const Header = (props) => {
+const Header = ({ props, isLoggedIn, userEmail, onLogout }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { hideFirstDiv, logoHeight } = props;
+  const { hideFirstDiv, logoHeight, background, top } = props;
+  const headerStyle = {
+    background,
+    top,
+  };
   const [isMeanNavVisible, setIsMeanNavVisible] = useState(false);
   const [isServicesDropdownVisible, setIsServicesDropdownVisible] =
     useState(false);
@@ -49,25 +54,22 @@ const Header = (props) => {
     };
   }, []);
 
-  const hideFirstDivClassName = hideFirstDiv ? "d-none" : "";
-  const logoHeightClassName = logoHeight ? "navbar-logo-height-75" : "";
-  const logoImgClassName = isScrolled
-    ? `${logoHeightClassName} navbar-logo-height-75`
-    : "navbar-logo-height";
-  const firstDivClassName = isScrolled ? "d-none" : hideFirstDivClassName;
-  const secondDivClassName = isScrolled ? "bg-black top-0" : "";
   const dropdownMenuClassName = isScrolled ? "bg-black" : "";
 
   return (
     <>
       <div
-        className={`container-fluid p-0 fixed-top text-end top-0 hide-on-mobile ${firstDivClassName} ${hideFirstDivClassName}`}
-        style={props.style}>
-        <div className="row gx-0 d-none d-lg-flex">
-          <div className="px-5 text-end text-white">
+        className={`container-fluid p-0 fixed-top text-end top-0 hide-on-mobile ${
+          hideFirstDiv ? "d-none" : ""
+        }`}
+        style={headerStyle}>
+        <div className="row gx-0 d-none d-lg-flex text-white">
+          <div className="px-5">
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
               <small className="bx bx-map-pin color-primary me-2 fs-5"></small>
-              <small>123 Street, New York, USA</small>
+              <small>
+                1,Jalan Putra 2/13,Bandar Putra,85000 Segamat,Johor.
+              </small>
             </div>
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
               <small className="bx bx-time color-primary me-2 fs-5"></small>
@@ -82,13 +84,17 @@ const Header = (props) => {
       </div>
 
       <nav
-        className={`navbar navbar-expand-lg navbar-light shadow fixed-top p-0 justify-content-between w-100 ${secondDivClassName}`}
-        style={props.style}>
-        <div className="align-items-center px-4 px-lg-5">
+        className={`navbar navbar-expand-lg navbar-light shadow fixed-top p-0 justify-content-between w-100 ${
+          isScrolled ? "bg-black top-0" : ""
+        } `}
+        style={headerStyle}>
+        <div className="align-items-center ps-4">
           <img
             src={Logo}
             alt="My Logo"
-            className={`${logoImgClassName} ${logoHeightClassName}`}
+            className={`align-items-center ps-4 ${
+              isScrolled ? "navbar-logo-height-75" : "navbar-logo-height"
+            } ${logoHeight ? "navbar-logo-height-75" : ""}`}
           />
         </div>
         <a className="meanmenu-reveal" onClick={toggleMeanNavVisibility}>
@@ -125,7 +131,7 @@ const Header = (props) => {
                 Services
               </NavLink>
               <ul
-                className="dropdown-menu"
+                className={`dropdown-menu ${isScrolled ? "bg-black" : ""}`}
                 style={{
                   display: isServicesDropdownVisible ? "block" : "none",
                 }}>
@@ -172,7 +178,7 @@ const Header = (props) => {
                 Pages
               </NavLink>
               <ul
-                className="dropdown-menu"
+                className={`dropdown-menu ${isScrolled ? "bg-black" : ""}`}
                 style={{ display: isPagesDropdownVisible ? "block" : "none" }}>
                 <li className="nav-item">
                   <Link to="/pages/faq" className="nav-link">
@@ -201,7 +207,7 @@ const Header = (props) => {
             </li>
           </ul>
         </nav>
-        <div className="text-end">
+        <div className="">
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <nav className="collapse navbar-collapse">
               <ul className="navbar-nav ml-auto p-4 p-lg-0">
@@ -296,8 +302,23 @@ const Header = (props) => {
                 </li>
               </ul>
             </nav>
-            <Button text="Get A Quote" buttonUrl={""} />
           </div>
+        </div>
+
+        <div className="px-4">
+          {isLoggedIn ? (
+            <div className="d-flex align-items-center">
+              <div onClick={onLogout}>
+                <img src={User} alt="User Image" />
+              </div>
+              <div className="profile-info text-white">
+                {/* <p className="name m-0">wkSP01</p> */}
+                <span className="email">{userEmail}</span>
+              </div>
+            </div>
+          ) : (
+            <Button text="Login/Register" buttonUrl={"/login"} />
+          )}
         </div>
       </nav>
     </>

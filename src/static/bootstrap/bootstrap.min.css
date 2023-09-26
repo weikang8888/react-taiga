@@ -35,6 +35,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
+  --bs-black: #000;
   --bs-primary-rgb: 13, 110, 253;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
@@ -1858,7 +1859,7 @@ progress {
   color: #212529;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #fff;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1877,11 +1878,13 @@ progress {
   cursor: pointer;
 }
 .form-control:focus {
-  color: #212529;
-  background-color: #fff;
-  border-color: #86b7fe;
+  background-color: transparent;
+  border: 1px solid #fd5f16;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(42, 20, 9, 0.25);
+}
+.form-control.active {
+  border: 1px solid #fd5f16;
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
@@ -4305,7 +4308,7 @@ fieldset:disabled .btn {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 1rem;
 }
 .card > hr {
   margin-right: 0;
@@ -7296,6 +7299,9 @@ fieldset:disabled .btn {
 .bg-white {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+}
+.bg-orange {
+  background-color: var(--bs-orange);
 }
 .bg-body {
   --bs-bg-opacity: 1;

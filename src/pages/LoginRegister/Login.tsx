@@ -4,12 +4,10 @@ import ButtonMain from "../../components/Button/Button";
 import "font-awesome/css/font-awesome.min.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../../AuthContent";
 
-interface LoginOptions {
-  onLoginSuccess: (email: string) => void; // Modify the type to accept an email argument
-}
-
-const Login = ({ onLoginSuccess }: LoginOptions) => {
+const Login = () => {
+  const { login } = useAuth();
   const [email, setEmail] = useState(""); // State to track the email input value
   const [password, setPassword] = useState(""); // State to track the password input value
   const [emailActive, setEmailActive] = useState(false); // State to track email input focus
@@ -30,9 +28,12 @@ const Login = ({ onLoginSuccess }: LoginOptions) => {
       .post("http://localhost:8080/api_taiga/users/login", userData)
       .then((response) => {
         console.log(response.data);
+        const authToken = response.data.authToken;
+        const name = response.data.name;
+
+        login(email, name, null, authToken);
 
         navigate("/");
-        onLoginSuccess(email);
       })
       .catch((error) => {
         setErrorMessage(`Incorrect username or password.Please try again.`);
@@ -50,6 +51,7 @@ const Login = ({ onLoginSuccess }: LoginOptions) => {
     setPassword(e.target.value);
     setErrorMessage("");
   };
+
   return (
     <>
       <section className="gradient-custom bg-orange">
@@ -62,11 +64,10 @@ const Login = ({ onLoginSuccess }: LoginOptions) => {
                     <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
                     <p className="text-white mb-5">
                       Please enter your login and password!
-                    </p>
+                    </p>{" "}
                     {errorMessage && (
                       <p className="error-message">{errorMessage}</p>
                     )}
-
                     <div className="form-outline form-white mb-4">
                       <input
                         type="email"
@@ -79,8 +80,7 @@ const Login = ({ onLoginSuccess }: LoginOptions) => {
                       />
                       <label className="form-label ">Email</label>
                     </div>
-
-                    <div className="form-outline form-white mb-4">
+                    <div className="form-outline form-white mb-1">
                       <input
                         type="password"
                         id="typePasswordX"
@@ -92,15 +92,12 @@ const Login = ({ onLoginSuccess }: LoginOptions) => {
                       />
                       <label className="form-label">Password</label>
                     </div>
-
-                    <p className="small mb-5 pb-lg-2">
+                    <p className="small mb-4 pb-lg-2">
                       <a className="text-main" href="#!">
                         Forgot password?
                       </a>
                     </p>
-
                     <ButtonMain text={"Login"} onClick={handleLogin} />
-
                     <div className="d-flex justify-content-center text-center mt-4 pt-1">
                       <a href="#!" className="text-dark ">
                         <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
@@ -115,10 +112,16 @@ const Login = ({ onLoginSuccess }: LoginOptions) => {
                   </div>
 
                   <div>
-                    <p className="mb-0">
+                    <p className="mb-0 m">
                       Don't have an account?
-                      <Link to="/register" className="text-main fw-bold">
+                      <Link to="/register" className="text-main fw-bold mx-2">
                         Sign Up
+                      </Link>
+                    </p>
+                    <p className="mb-0">
+                      Login/Sign Up With
+                      <Link to="/login-pn" className="text-main fw-bold ms-1">
+                        Phone Number
                       </Link>
                     </p>
                   </div>

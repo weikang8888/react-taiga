@@ -1879,9 +1879,9 @@ progress {
 }
 .form-control:focus {
   background-color: transparent;
-  border: 1px solid #fd5f16;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(42, 20, 9, 0.25);
+  border-color: #fd5f16;
+  box-shadow: 0 0 0 1px #fd5f16;
 }
 .form-control.active {
   border: 1px solid #fd5f16;
@@ -3854,6 +3854,7 @@ fieldset:disabled .btn {
 .navbar-nav {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -6985,6 +6986,10 @@ fieldset:disabled .btn {
 .px-5 {
   padding-right: 3rem !important;
   padding-left: 3rem !important;
+}
+.px-6 {
+  padding-right: 6rem !important;
+  padding-left: 6rem !important;
 }
 .py-0 {
   padding-top: 0 !important;

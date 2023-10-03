@@ -27,32 +27,20 @@ import ServiceEngineOil from "./pages/Service/ServiceEngineOil";
 import Login from "./pages/LoginRegister/Login";
 import Register from "./pages/LoginRegister/Register";
 import Verify from "./pages/LoginRegister/Verify";
+import PhoneNumber from "./pages/LoginRegister/PhoneNumber";
 
 export * from "./components";
 
 function App() {
-  const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
   const [userEmail, setUserEmail] = useState("");
 
-  const handleLoginSuccess = (email) => {
-    setIsLoggedIn(true);
-    setUserEmail(email);
-
-    console.log("isLoggedIn:", isLoggedIn);
-  };
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
   return (
     <Router>
       <HeaderWrapper />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route
-          path="/login"
-          element={<Login onLoginSuccess={handleLoginSuccess} />}
-        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/login-pn" element={<PhoneNumber />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register/verify" element={<Verify />} />
         <Route path="/about" element={<AboutPage />} />
@@ -113,14 +101,7 @@ function App() {
           logoHeight: true,
         };
 
-    return (
-      <Header
-        props={headerProps}
-        isLoggedIn={isLoggedIn}
-        userEmail={userEmail}
-        onLogout={handleLogout}
-      />
-    );
+    return <Header props={headerProps} />;
   }
 }
 export default App;

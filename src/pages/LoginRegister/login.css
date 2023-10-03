@@ -11,6 +11,7 @@
   font-size: 1rem;
   line-height: 2.15;
   padding-left: 0.75em;
+  transition: box-shadow ease 0.25s, border-color ease 0.25s;
   padding-right: 0.75em;
 }
 .form-outline .form-control {
@@ -68,4 +69,14 @@
   border: 2px solid var(--bs-orange) !important;
   color: #fff;
   background-color: var(--bs-orange);
+}
+.otp-input-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.otp-input-wrapper input:focus {
+  border: #fd5f16;
+  background-color: #fd5f16;
 }

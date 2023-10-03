@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Link, NavLink, useNavigate } from "react-router-dom";
 
 import Logo from "../../static/assets/image/tiger.png";
 import Button from "../Button/Button";
 import "./header.css";
 import User from "../../static/assets/image/human.png";
+import { useAuth } from "../../AuthContent";
 
-const Header = ({ props, isLoggedIn, userEmail, onLogout }) => {
+const Header = ({ props }) => {
+  const navigate = useNavigate();
+  const { isLoggedIn, logout, userName } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const { hideFirstDiv, logoHeight, background, top } = props;
   const headerStyle = {
@@ -17,7 +20,6 @@ const Header = ({ props, isLoggedIn, userEmail, onLogout }) => {
   const [isServicesDropdownVisible, setIsServicesDropdownVisible] =
     useState(false);
   const [isPagesDropdownVisible, setIsPagesDropdownVisible] = useState(false);
-
   const toggleMeanNavVisibility = () => {
     setIsMeanNavVisible((prevState) => !prevState);
   };
@@ -34,6 +36,11 @@ const Header = ({ props, isLoggedIn, userEmail, onLogout }) => {
     event.stopPropagation();
     setIsPagesDropdownVisible(!isPagesDropdownVisible);
     setIsPagesDropdownVisible(!isPagesDropdownVisible);
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
   };
 
   useEffect(() => {
@@ -64,7 +71,7 @@ const Header = ({ props, isLoggedIn, userEmail, onLogout }) => {
         }`}
         style={headerStyle}>
         <div className="row gx-0 d-none d-lg-flex text-white">
-          <div className="px-5">
+          <div className="px-4">
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
               <small className="bx bx-map-pin color-primary me-2 fs-5"></small>
               <small>
@@ -295,31 +302,42 @@ const Header = ({ props, isLoggedIn, userEmail, onLogout }) => {
                     </li>
                   </ul>
                 </li>
-                <li className="nav-item px-2">
+                <li className="nav-item px-2 me-4">
                   <NavLink to="/contactUs" className="nav-link">
                     Contact
                   </NavLink>
+                </li>
+
+                <li className="nav-item px-2 me-5">
+                  {isLoggedIn ? (
+                    <div className="d-flex align-items-center user-wrapper">
+                      <div>
+                        <img src={User} alt="User Image" />
+                        <ul
+                          className={`dropdown-menu ${dropdownMenuClassName}`}>
+                          <li className="nav-item">
+                            <div
+                              className="nav-link fw-bold"
+                              onClick={handleLogout}>
+                              Logout
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="profile-info text-white">
+                        <span className="name">{userName}</span>
+                      </div>
+                    </div>
+                  ) : (
+                    <Button text="Login/Register" buttonUrl={"/login"} />
+                  )}
                 </li>
               </ul>
             </nav>
           </div>
         </div>
 
-        <div className="px-4">
-          {isLoggedIn ? (
-            <div className="d-flex align-items-center">
-              <div onClick={onLogout}>
-                <img src={User} alt="User Image" />
-              </div>
-              <div className="profile-info text-white">
-                {/* <p className="name m-0">wkSP01</p> */}
-                <span className="email">{userEmail}</span>
-              </div>
-            </div>
-          ) : (
-            <Button text="Login/Register" buttonUrl={"/login"} />
-          )}
-        </div>
+        {/* <div className="px-4"></div> */}
       </nav>
     </>
   );

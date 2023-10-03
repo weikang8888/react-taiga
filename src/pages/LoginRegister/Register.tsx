@@ -6,20 +6,30 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [nameActive, setNameActive] = useState(false);
   const [emailActive, setEmailActive] = useState(false);
   const [passwordActive, setPasswordActive] = useState(false);
   const [confirmPasswordActive, setConfirmPasswordActive] = useState(false);
+  const [nameValid, setNameValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
   const [confirmPasswordValid, setConfirmPasswordValid] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(true);
+  const [registrationStatus, setRegistrationStatus] = useState(null);
   const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
   const isFormValid = emailValid && passwordValid && confirmPasswordValid;
+
+  const handleNameChange = (e) => {
+    const newValue = e.target.value;
+    setName(e.target.value);
+    setNameValid(newValue.trim() !== "");
+  };
 
   const handleEmailChange = (e) => {
     const newValue = e.target.value;
@@ -45,6 +55,7 @@ const Register = () => {
 
     if (isFormValid && passwordMatch && emailValid) {
       const userData = {
+        name: name,
         email: email,
         password: password,
       };
@@ -58,12 +69,12 @@ const Register = () => {
             registrationResponse.data.message ===
             "Registration successful. Verification email sent."
           ) {
-            // Optional: Set the verificationToken state with the received token
-            // setVerificationToken(receivedVerificationToken);
+            setRegistrationStatus("success");
           }
         })
         .catch((registrationError) => {
           console.error("Error during registration:", registrationError);
+          setRegistrationStatus("error");
         });
     }
   };
@@ -81,6 +92,31 @@ const Register = () => {
                     <p className="text-white mb-5">
                       Please enter your login and password!
                     </p>
+                    {registrationStatus === "success" ? (
+                      <p className="error-message">
+                        Please check your email to verify.
+                      </p>
+                    ) : registrationStatus === "error" ? (
+                      <p className="error-message">
+                        Registration failed. Please try again.
+                      </p>
+                    ) : null}
+
+                    <div className="form-outline form-white mb-4">
+                      <input
+                        type="name"
+                        id="name"
+                        className={`form-control form-control-lg ${
+                          formSubmitted && !nameValid ? "error-input" : ""
+                        } ${nameActive || name ? "active" : ""}`}
+                        value={name}
+                        onChange={handleNameChange}
+                      />
+                      <label className="form-label">Name</label>
+                      {formSubmitted && !nameValid && (
+                        <div className="error-message">Please enter name.</div>
+                      )}
+                    </div>
 
                     <div className="form-outline form-white mb-4">
                       <input

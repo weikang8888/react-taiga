@@ -139,3 +139,6 @@
     overflow-y: scroll;
   }
 }
+.user-wrapper{
+  cursor: pointer;
+}

@@ -32,8 +32,6 @@ import PhoneNumber from "./pages/LoginRegister/PhoneNumber";
 export * from "./components";
 
 function App() {
-  const [userEmail, setUserEmail] = useState("");
-
   return (
     <Router>
       <HeaderWrapper />

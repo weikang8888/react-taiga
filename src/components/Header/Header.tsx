@@ -41,6 +41,7 @@ const Header = ({ props }) => {
   const handleLogout = () => {
     logout();
     navigate("/login");
+    setIsMeanNavVisible(false);
   };
 
   useEffect(() => {
@@ -71,7 +72,7 @@ const Header = ({ props }) => {
         }`}
         style={headerStyle}>
         <div className="row gx-0 d-none d-lg-flex text-white">
-          <div className="px-4">
+          <div className="px-3">
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
               <small className="bx bx-map-pin color-primary me-2 fs-5"></small>
               <small>
@@ -95,11 +96,11 @@ const Header = ({ props }) => {
           isScrolled ? "bg-black top-0" : ""
         } `}
         style={headerStyle}>
-        <div className="align-items-center ps-4">
+        <div className="align-items-center ">
           <img
             src={Logo}
             alt="My Logo"
-            className={`align-items-center ps-4 ${
+            className={`align-items-center  ${
               isScrolled ? "navbar-logo-height-75" : "navbar-logo-height"
             } ${logoHeight ? "navbar-logo-height-75" : ""}`}
           />
@@ -116,17 +117,26 @@ const Header = ({ props }) => {
           className="mean-nav">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <NavLink to="/" className="nav-link">
+              <NavLink
+                to="/"
+                className="nav-link"
+                onClick={() => setIsMeanNavVisible(false)}>
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/about" className="nav-link">
+              <NavLink
+                to="/about"
+                className="nav-link"
+                onClick={() => setIsMeanNavVisible(false)}>
                 About
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/products" className="nav-link">
+              <NavLink
+                to="/products"
+                className="nav-link"
+                onClick={() => setIsMeanNavVisible(false)}>
                 Products
               </NavLink>
             </li>
@@ -143,32 +153,50 @@ const Header = ({ props }) => {
                   display: isServicesDropdownVisible ? "block" : "none",
                 }}>
                 <li className="nav-item">
-                  <Link to="/services/pressure-check" className="nav-link">
+                  <Link
+                    to="/services/pressure-check"
+                    className="nav-link"
+                    onClick={() => setIsMeanNavVisible(false)}>
                     Pressure Check
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/services/suspension-service" className="nav-link">
+                  <Link
+                    to="/services/suspension-service"
+                    className="nav-link"
+                    onClick={() => setIsMeanNavVisible(false)}>
                     Suspension Service
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/services/wheel-alignment" className="nav-link">
+                  <Link
+                    to="/services/wheel-alignment"
+                    className="nav-link"
+                    onClick={() => setIsMeanNavVisible(false)}>
                     Wheel Alignment
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/services/brake-service" className="nav-link">
+                  <Link
+                    to="/services/brake-service"
+                    className="nav-link"
+                    onClick={() => setIsMeanNavVisible(false)}>
                     Brake Service
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/services/tyre-balancing" className="nav-link">
+                  <Link
+                    to="/services/tyre-balancing"
+                    className="nav-link"
+                    onClick={() => setIsMeanNavVisible(false)}>
                     Tyre Balancing
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/services/engine-oil-service" className="nav-link">
+                  <Link
+                    to="/services/engine-oil-service"
+                    className="nav-link"
+                    onClick={() => setIsMeanNavVisible(false)}>
                     Engine Oil Service
                   </Link>
                 </li>
@@ -188,17 +216,26 @@ const Header = ({ props }) => {
                 className={`dropdown-menu ${isScrolled ? "bg-black" : ""}`}
                 style={{ display: isPagesDropdownVisible ? "block" : "none" }}>
                 <li className="nav-item">
-                  <Link to="/pages/faq" className="nav-link">
+                  <Link
+                    to="/pages/faq"
+                    className="nav-link"
+                    onClick={() => setIsMeanNavVisible(false)}>
                     FAQ
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/pages/privacy-policy" className="nav-link">
+                  <Link
+                    to="/pages/privacy-policy"
+                    className="nav-link"
+                    onClick={() => setIsMeanNavVisible(false)}>
                     Privacy Policy
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/pages/term-conditions" className="nav-link">
+                  <Link
+                    to="/pages/term-conditions"
+                    className="nav-link"
+                    onClick={() => setIsMeanNavVisible(false)}>
                     Tern & Conditions
                   </Link>
                 </li>
@@ -208,13 +245,33 @@ const Header = ({ props }) => {
               </a>
             </li>
             <li className="nav-item mean-last">
-              <NavLink to="/contactUs" className="nav-link">
+              <NavLink
+                to="/contactUs"
+                className="nav-link"
+                onClick={() => setIsMeanNavVisible(false)}>
                 Contact
               </NavLink>
             </li>
+            <li className="nav-item mean-last">
+              {isLoggedIn ? (
+                <NavLink
+                  to="/login"
+                  className="nav-link"
+                  onClick={handleLogout}>
+                  Logout
+                </NavLink>
+              ) : (
+                <NavLink
+                  to="/login"
+                  className="nav-link"
+                  onClick={() => setIsMeanNavVisible(false)}>
+                  Login / Register
+                </NavLink>
+              )}
+            </li>
           </ul>
         </nav>
-        <div className="">
+        <div className="collapse-column">
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <nav className="collapse navbar-collapse">
               <ul className="navbar-nav ml-auto p-4 p-lg-0">
@@ -302,13 +359,13 @@ const Header = ({ props }) => {
                     </li>
                   </ul>
                 </li>
-                <li className="nav-item px-2 me-4">
+                <li className="nav-item px-2 ">
                   <NavLink to="/contactUs" className="nav-link">
                     Contact
                   </NavLink>
                 </li>
 
-                <li className="nav-item px-2 me-5">
+                <li className="nav-item px-2 ">
                   {isLoggedIn ? (
                     <div className="d-flex align-items-center user-wrapper">
                       <div>

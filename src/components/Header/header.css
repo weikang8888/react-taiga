@@ -28,12 +28,8 @@
   text-indent: -9999em;
   line-height: 22px;
   font-size: 1px;
-  display: block;
-  font-weight: 700;
-  position: absolute;
-  top: 25px;
-  right: 5px;
   display: none;
+  font-weight: 700;
 }
 .meanmenu-reveal span {
   display: block;
@@ -135,10 +131,17 @@
     max-height: 75px !important;
   }
   .navbar-nav {
-    height: 350px;
+    height: 405px;
     overflow-y: scroll;
   }
+  .navbar-expand-lg .collapse-column {
+    display: none;
+  }
+  .meanmenu-reveal {
+    color: #fd5f16;
+    display: block;
+  }
 }
-.user-wrapper{
+.user-wrapper {
   cursor: pointer;
 }

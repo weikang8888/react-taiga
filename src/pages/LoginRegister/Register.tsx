@@ -102,9 +102,9 @@ const Register = () => {
                       </p>
                     ) : null}
 
-                    <div className="d-flex justify-content-between flex-wrap mb-4">
+                    <div className="d-sm-flex justify-content-between flex-wrap mb-4">
                       {/* Name input */}
-                      <div className="form-outline form-white mb-4 col-6 px-2">
+                      <div className="form-outline form-white mb-4 col-sm-6 px-2">
                         <input
                           type="text"
                           id="name"
@@ -127,7 +127,7 @@ const Register = () => {
                       </div>
 
                       {/* Email input */}
-                      <div className="form-outline form-white mb-4 col-6 px-2">
+                      <div className="form-outline form-white mb-4 col-sm-6 px-2">
                         <input
                           type="email"
                           id="email"
@@ -154,7 +154,7 @@ const Register = () => {
                       </div>
 
                       {/* Password input */}
-                      <div className="form-outline form-white mb-4 col-6 px-2">
+                      <div className="form-outline form-white mb-4 col-sm-6 px-2">
                         <input
                           type="password"
                           id="password"
@@ -177,7 +177,7 @@ const Register = () => {
                       </div>
 
                       {/* Confirm Password input */}
-                      <div className="form-outline form-white mb-1 col-6 px-2">
+                      <div className="form-outline form-white mb-1 col-sm-6 px-2">
                         <input
                           type="password"
                           id="confirmPassword"
@@ -206,9 +206,9 @@ const Register = () => {
 
                     {/* Additional Information */}
                     <h3 className="fw-bold mb-2">Additional Information</h3>
-                    <div className="d-flex justify-content-between flex-wrap">
+                    <div className="d-sm-flex justify-content-between flex-wrap">
                       {/* Phone Number input */}
-                      <div className="form-outline form-white mb-4 col-6 px-2">
+                      <div className="form-outline form-white mb-4 col-sm-6 px-2">
                         <input
                           type="text"
                           id="phoneNumber"
@@ -231,7 +231,7 @@ const Register = () => {
                       </div>
 
                       {/* Car Type input */}
-                      <div className="form-outline form-white mb-4 col-6 px-2">
+                      <div className="form-outline form-white mb-4 col-sm-6 px-2">
                         <input
                           type="text"
                           id="carType"

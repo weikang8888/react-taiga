@@ -12,7 +12,7 @@ const Verify = () => {
     // Make a GET request to your server to verify the token
     axios
       .get(
-        `http://localhost:8080/api_taiga/users/verify?token=${verificationToken}`
+        `https://backend.taiga-auto.com/api_taiga/users/verify?token=${verificationToken}`
       )
       .then((response) => {
         // Handle the verification response here

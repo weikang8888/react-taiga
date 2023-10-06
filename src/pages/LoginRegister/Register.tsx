@@ -4,6 +4,7 @@ import ButtonMain from "../../components/Button/Button";
 import "font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -21,9 +22,11 @@ const Register = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(true);
   const [registrationStatus, setRegistrationStatus] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-  const isFormValid = emailValid && passwordValid && confirmPasswordValid;
+  const isFormValid =
+    nameValid && emailValid && passwordValid && confirmPasswordValid;
 
   const handleNameChange = (e) => {
     const newValue = e.target.value;
@@ -60,8 +63,11 @@ const Register = () => {
         password: password,
       };
 
+      // Start loading indicator
+      setIsLoading(true);
+
       axios
-        .post("http://localhost:8080/api_taiga/users/register", userData)
+        .post("https://backend.taiga-auto.com/api_taiga/users/register", userData)
         .then((registrationResponse) => {
           console.log("Registration Response:", registrationResponse.data);
 
@@ -75,6 +81,10 @@ const Register = () => {
         .catch((registrationError) => {
           console.error("Error during registration:", registrationError);
           setRegistrationStatus("error");
+        })
+        .finally(() => {
+          // Stop loading indicator regardless of success or error
+          setIsLoading(false);
         });
     }
   };
@@ -153,7 +163,7 @@ const Register = () => {
                       )}
                     </div>
 
-                    <div className="form-outline form-white mb-4">
+                    <div className="form-outline form-white mb-1">
                       <input
                         type="password"
                         id="confirmPassword"
@@ -182,33 +192,39 @@ const Register = () => {
                       )}
                     </div>
 
-                    <p className="small mb-5 pb-lg-2">
-                      <a className="text-main" href="#!">
-                        Forgot password?
-                      </a>
-                    </p>
+                    {isLoading ? (
+                      <LoaderDiamond />
+                    ) : (
+                      <>
+                        <p className="small mb-5 pb-lg-2">
+                          <a className="text-main" href="#!">
+                            Forgot password?
+                          </a>
+                        </p>
 
-                    <ButtonMain
-                      text={"Register"}
-                      onClick={handleRegistration}
-                    />
+                        <ButtonMain
+                          text={"Register"}
+                          onClick={handleRegistration}
+                        />
 
-                    <div className="d-flex justify-content-center text-center mt-4 pt-1">
-                      <a href="#!" className="text-dark ">
-                        <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
-                      </a>
-                      <a href="#!" className="text-dark">
-                        <i className="fa fa-twitter fa-lg mx-4 px-2 custom-icon-color"></i>
-                      </a>
-                      <a href="#!" className="text-dark">
-                        <i className="fa fa-google fa-lg custom-icon-color"></i>
-                      </a>
-                    </div>
+                        <div className="d-flex justify-content-center text-center mt-4 pt-1">
+                          <a href="#!" className="text-dark ">
+                            <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
+                          </a>
+                          <a href="#!" className="text-dark">
+                            <i className="fa fa-twitter fa-lg mx-4 px-2 custom-icon-color"></i>
+                          </a>
+                          <a href="#!" className="text-dark">
+                            <i className="fa fa-google fa-lg custom-icon-color"></i>
+                          </a>
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   <div>
                     <p className="mb-0">
-                      Already have account?
+                      Already have an account?{" "}
                       <Link to="/login" className="text-main fw-bold">
                         Sign In
                       </Link>

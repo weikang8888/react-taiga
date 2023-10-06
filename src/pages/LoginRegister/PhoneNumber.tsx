@@ -8,6 +8,7 @@ import { useAuth } from "../../AuthContent";
 import PhoneInput from "react-phone-input-2";
 import "../../static/css/material.css";
 import OTPInput from "otp-input-react"; // No need for ResendOTP if you're not using it
+import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 
 const PhoneNumber = () => {
   const { login } = useAuth();
@@ -110,7 +111,7 @@ const PhoneNumber = () => {
                           />
                         </div>
                         {isLoading ? (
-                          <div className="text-white">Sending OTP...</div>
+                          <LoaderDiamond />
                         ) : (
                           <div className="text-danger mb-2">{error}</div>
                         )}
@@ -137,7 +138,9 @@ const PhoneNumber = () => {
                           className="otp-input-wrapper"
                         />
                         {isLoading ? (
-                          <div className="text-white mb-2">Verifying OTP...</div>
+                          <div className="text-white mb-2">
+                            Verifying OTP...
+                          </div>
                         ) : (
                           <div className="text-danger">{error}</div>
                         )}

@@ -6,7 +6,8 @@ interface ServiceProps {
   serviceDescription: string;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
-  hoverImage: string | null; // Add hoverImage prop
+  hoverImage: string | null;
+  aosDelay: string;
 }
 
 const Service: React.FC<ServiceProps> = ({
@@ -16,13 +17,18 @@ const Service: React.FC<ServiceProps> = ({
   serviceImage,
   onMouseEnter,
   onMouseLeave,
-  hoverImage, // Destructure hoverImage from props
+  hoverImage,
+  aosDelay,
 }) => {
   return (
     <div
       className="col-sm-6 col-lg-4"
       onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}>
+      onMouseLeave={onMouseLeave}
+      data-aos="fade-right"
+      data-aos-duration="2000"
+      data-aos-delay={aosDelay}
+      data-aos-once="true">
       <a href="service-details.html">
         <div className="service-item">
           <div className="service-img">

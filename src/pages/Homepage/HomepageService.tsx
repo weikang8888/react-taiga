@@ -38,6 +38,7 @@ const HomepageService = () => {
       serviceTitle: "Pressure Check",
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      aosDelay: "200",
     },
     {
       serviceImage: ServiceImage2,
@@ -46,6 +47,7 @@ const HomepageService = () => {
       serviceTitle: "Suspension Service",
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      aosDelay: "400",
     },
     {
       serviceImage: ServiceImage3,
@@ -54,6 +56,7 @@ const HomepageService = () => {
       serviceTitle: "Wheel Alignment",
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      aosDelay: "600",
     },
     {
       serviceImage: ServiceImage4,
@@ -62,6 +65,7 @@ const HomepageService = () => {
       serviceTitle: "Brake Service",
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      aosDelay: "800",
     },
     {
       serviceImage: ServiceImage5,
@@ -70,6 +74,7 @@ const HomepageService = () => {
       serviceTitle: "Tyre Balancing",
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      aosDelay: "1000",
     },
     {
       serviceImage: ServiceImage6,
@@ -78,6 +83,7 @@ const HomepageService = () => {
       serviceTitle: "Engine Oil Service",
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      aosDelay: "1200",
     },
   ];
 
@@ -97,6 +103,7 @@ const HomepageService = () => {
           serviceTitle={service.serviceTitle}
           serviceDescription={service.serviceDescription}
           hoverImage={""}
+          aosDelay={service.aosDelay}
         />
       ))}
     </div>

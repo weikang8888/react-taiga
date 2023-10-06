@@ -5,6 +5,7 @@ import "font-awesome/css/font-awesome.min.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../AuthContent";
+import Loader from "../../components/Loader/Loader";
 
 const Login = () => {
   const { login } = useAuth();
@@ -25,7 +26,7 @@ const Login = () => {
 
     // Send a POST request to the PHP backend
     axios
-      .post("http://localhost:8080/api_taiga/users/login", userData)
+      .post("https://backend.taiga-auto.com/api_taiga/users/login", userData)
       .then((response) => {
         console.log(response.data);
         const authToken = response.data.authToken;
@@ -54,6 +55,7 @@ const Login = () => {
 
   return (
     <>
+      <Loader />
       <section className="gradient-custom bg-orange">
         <div className="container pb-1 pt-5rem h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -99,14 +101,11 @@ const Login = () => {
                     </p>
                     <ButtonMain text={"Login"} onClick={handleLogin} />
                     <div className="d-flex justify-content-center text-center mt-4 pt-1">
-                      <a href="#!" className="text-dark ">
+                      <a href="#!" className="text-dark px-3">
                         <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
                       </a>
-                      <a href="#!" className="text-dark">
-                        <i className="fa fa-twitter fa-lg mx-4 px-2 custom-icon-color"></i>
-                      </a>
-                      <a href="#!" className="text-dark">
-                        <i className="fa fa-google fa-lg custom-icon-color"></i>
+                      <a href="#!" className="text-dark px-3">
+                        <i className="fa fa-twitter fa-lg custom-icon-color"></i>
                       </a>
                     </div>
                   </div>

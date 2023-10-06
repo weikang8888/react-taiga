@@ -5,7 +5,6 @@ import "font-awesome/css/font-awesome.min.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../AuthContent";
-import Loader from "../../components/Loader/Loader";
 
 const Login = () => {
   const { login } = useAuth();
@@ -55,7 +54,6 @@ const Login = () => {
 
   return (
     <>
-      <Loader />
       <section className="gradient-custom bg-orange">
         <div className="container pb-1 pt-5rem h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -105,7 +103,7 @@ const Login = () => {
                         <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
                       </a>
                       <a href="#!" className="text-dark px-3">
-                        <i className="fa fa-twitter fa-lg custom-icon-color"></i>
+                        <i className="fa fa-google fa-lg custom-icon-color"></i>
                       </a>
                     </div>
                   </div>
@@ -117,12 +115,12 @@ const Login = () => {
                         Sign Up
                       </Link>
                     </p>
-                    <p className="mb-0">
+                    {/* <p className="mb-0">
                       Login/Sign Up With
                       <Link to="/login-pn" className="text-main fw-bold ms-1">
                         Phone Number
                       </Link>
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>

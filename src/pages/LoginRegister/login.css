@@ -50,7 +50,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  left: 0.75rem;
+  left: 1rem;
   padding-top: 0.37rem;
   pointer-events: none;
   transform-origin: 0 0;
@@ -66,9 +66,7 @@
   color: #fff;
 }
 .error-message {
-  border: 2px solid var(--bs-orange) !important;
-  color: #fff;
-  background-color: var(--bs-orange);
+  background-color: red;
 }
 .otp-input-wrapper {
   display: flex;

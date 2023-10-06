@@ -48,7 +48,6 @@ const Homepage = () => {
                       <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">
                         Qualified Tyre Repair Service Center
                       </h1>
-                      <ButtonMain text={"Learn More"} />
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img
@@ -77,7 +76,6 @@ const Homepage = () => {
                       <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">
                         Qualified Tyre Maintenance Center
                       </h1>
-                      <ButtonMain text={"Learn More"} />
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img

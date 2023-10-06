@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./login.css";
 import ButtonMain from "../../components/Button/Button";
 import "font-awesome/css/font-awesome.min.css";
@@ -7,67 +7,57 @@ import axios from "axios";
 import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 
 const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [nameActive, setNameActive] = useState(false);
-  const [emailActive, setEmailActive] = useState(false);
-  const [passwordActive, setPasswordActive] = useState(false);
-  const [confirmPasswordActive, setConfirmPasswordActive] = useState(false);
-  const [nameValid, setNameValid] = useState(false);
-  const [emailValid, setEmailValid] = useState(false);
-  const [passwordValid, setPasswordValid] = useState(false);
-  const [confirmPasswordValid, setConfirmPasswordValid] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phoneNumber: "",
+    carType: "",
+    address: "",
+  });
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [passwordMatch, setPasswordMatch] = useState(true);
   const [registrationStatus, setRegistrationStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-  const isFormValid =
-    nameValid && emailValid && passwordValid && confirmPasswordValid;
-
-  const handleNameChange = (e) => {
-    const newValue = e.target.value;
-    setName(e.target.value);
-    setNameValid(newValue.trim() !== "");
+  const isFormValid = () => {
+    return (
+      formData.name.trim() !== "" &&
+      emailPattern.test(formData.email) &&
+      formData.password.trim() !== "" &&
+      formData.confirmPassword === formData.password &&
+      formData.phoneNumber.trim() !== "" &&
+      formData.carType.trim() !== "" &&
+      formData.address.trim() !== ""
+    );
   };
 
-  const handleEmailChange = (e) => {
-    const newValue = e.target.value;
-    setEmail(e.target.value);
-    setEmailValid(newValue.trim() !== "" && emailPattern.test(newValue));
-  };
-
-  const handlePasswordChange = (e) => {
-    const newValue = e.target.value;
-    setPassword(e.target.value);
-    setPasswordValid(newValue.trim() !== "");
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    const newValue = e.target.value;
-    setConfirmPassword(e.target.value);
-    setConfirmPasswordValid(newValue.trim() !== "");
-    setPasswordMatch(newValue === password);
+  const handleInputChange = (fieldName, value) => {
+    setFormData({ ...formData, [fieldName]: value });
   };
 
   const handleRegistration = () => {
     setFormSubmitted(true);
 
-    if (isFormValid && passwordMatch && emailValid) {
+    if (isFormValid()) {
       const userData = {
-        name: name,
-        email: email,
-        password: password,
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        phoneNumber: formData.phoneNumber,
+        carType: formData.carType,
+        address: formData.address,
       };
 
       // Start loading indicator
       setIsLoading(true);
 
       axios
-        .post("https://backend.taiga-auto.com/api_taiga/users/register", userData)
+        .post(
+          "https://backend.taiga-auto.com/api_taiga/users/register",
+          userData
+        )
         .then((registrationResponse) => {
           console.log("Registration Response:", registrationResponse.data);
 
@@ -94,13 +84,13 @@ const Register = () => {
       <section className="gradient-custom bg-orange">
         <div className="container pb-1 pt-5rem h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div className="col-12 col-md-10 col-lg-8 col-xl-7">
               <div className="card bg-black text-white">
                 <div className="card-body px-5 text-center">
                   <div className="mb-md-5 mt-md-4">
                     <h2 className="fw-bold mb-2 text-uppercase">Sign Up</h2>
-                    <p className="text-white mb-5">
-                      Please enter your login and password!
+                    <p className="text-white">
+                      Sign Up For Our Taiga Auto Member
                     </p>
                     {registrationStatus === "success" ? (
                       <p className="error-message">
@@ -112,84 +102,179 @@ const Register = () => {
                       </p>
                     ) : null}
 
-                    <div className="form-outline form-white mb-4">
-                      <input
-                        type="name"
-                        id="name"
-                        className={`form-control form-control-lg ${
-                          formSubmitted && !nameValid ? "error-input" : ""
-                        } ${nameActive || name ? "active" : ""}`}
-                        value={name}
-                        onChange={handleNameChange}
-                      />
-                      <label className="form-label">Name</label>
-                      {formSubmitted && !nameValid && (
-                        <div className="error-message">Please enter name.</div>
-                      )}
+                    <div className="d-flex justify-content-between flex-wrap mb-4">
+                      {/* Name input */}
+                      <div className="form-outline form-white mb-4 col-6 px-2">
+                        <input
+                          type="text"
+                          id="name"
+                          className={`form-control form-control-lg ${
+                            formSubmitted && !formData.name.trim()
+                              ? "error-input"
+                              : ""
+                          } ${formData.name ? "active" : ""}`}
+                          value={formData.name}
+                          onChange={(e) =>
+                            handleInputChange("name", e.target.value)
+                          }
+                        />
+                        <label className="form-label">Name</label>
+                        {formSubmitted && !formData.name.trim() && (
+                          <div className="error-message">
+                            Please enter name.
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Email input */}
+                      <div className="form-outline form-white mb-4 col-6 px-2">
+                        <input
+                          type="email"
+                          id="email"
+                          className={`form-control form-control-lg ${
+                            formSubmitted &&
+                            (!emailPattern.test(formData.email) ||
+                              !formData.email.trim())
+                              ? "error-input"
+                              : ""
+                          } ${formData.email ? "active" : ""}`}
+                          value={formData.email}
+                          onChange={(e) =>
+                            handleInputChange("email", e.target.value)
+                          }
+                        />
+                        <label className="form-label">Email</label>
+                        {formSubmitted &&
+                          (!emailPattern.test(formData.email) ||
+                            !formData.email.trim()) && (
+                            <div className="error-message">
+                              Please enter a valid email address.
+                            </div>
+                          )}
+                      </div>
+
+                      {/* Password input */}
+                      <div className="form-outline form-white mb-4 col-6 px-2">
+                        <input
+                          type="password"
+                          id="password"
+                          className={`form-control form-control-lg ${
+                            formSubmitted && !formData.password.trim()
+                              ? "error-input"
+                              : ""
+                          } ${formData.password ? "active" : ""}`}
+                          value={formData.password}
+                          onChange={(e) =>
+                            handleInputChange("password", e.target.value)
+                          }
+                        />
+                        <label className="form-label">Password</label>
+                        {formSubmitted && !formData.password.trim() && (
+                          <div className="error-message">
+                            Please enter password.
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Confirm Password input */}
+                      <div className="form-outline form-white mb-1 col-6 px-2">
+                        <input
+                          type="password"
+                          id="confirmPassword"
+                          className={`form-control form-control-lg ${
+                            formSubmitted &&
+                            (!formData.confirmPassword.trim() ||
+                              formData.confirmPassword !== formData.password)
+                              ? "error-input"
+                              : ""
+                          } ${formData.confirmPassword ? "active" : ""}`}
+                          value={formData.confirmPassword}
+                          onChange={(e) =>
+                            handleInputChange("confirmPassword", e.target.value)
+                          }
+                        />
+                        <label className="form-label">Confirm Password</label>
+                        {formSubmitted &&
+                          (!formData.confirmPassword.trim() ||
+                            formData.confirmPassword !== formData.password) && (
+                            <div className="error-message">
+                              Passwords do not match.
+                            </div>
+                          )}
+                      </div>
                     </div>
 
-                    <div className="form-outline form-white mb-4">
-                      <input
-                        type="email"
-                        id="email"
-                        className={`form-control form-control-lg ${
-                          formSubmitted && !emailValid ? "error-input" : ""
-                        } ${emailActive || email ? "active" : ""}`}
-                        onChange={handleEmailChange}
-                      />
-                      <label className="form-label ">Email</label>
-                      {formSubmitted && !emailValid && (
-                        <div className="error-message">
-                          Please enter a valid email address.
-                        </div>
-                      )}
-                    </div>
+                    {/* Additional Information */}
+                    <h3 className="fw-bold mb-2">Additional Information</h3>
+                    <div className="d-flex justify-content-between flex-wrap">
+                      {/* Phone Number input */}
+                      <div className="form-outline form-white mb-4 col-6 px-2">
+                        <input
+                          type="text"
+                          id="phoneNumber"
+                          className={`form-control form-control-lg ${
+                            formSubmitted && !formData.phoneNumber.trim()
+                              ? "error-input"
+                              : ""
+                          } ${formData.phoneNumber ? "active" : ""}`}
+                          value={formData.phoneNumber}
+                          onChange={(e) =>
+                            handleInputChange("phoneNumber", e.target.value)
+                          }
+                        />
+                        <label className="form-label">Phone Number</label>
+                        {formSubmitted && !formData.phoneNumber.trim() && (
+                          <div className="error-message">
+                            Please enter phone number.
+                          </div>
+                        )}
+                      </div>
 
-                    <div className="form-outline form-white mb-4">
-                      <input
-                        type="password"
-                        id="password"
-                        className={`form-control form-control-lg ${
-                          formSubmitted && !passwordValid ? "error-input" : ""
-                        } ${passwordActive || password ? "active" : ""}`}
-                        value={password}
-                        onChange={handlePasswordChange}
-                      />
-                      <label className="form-label">Password</label>
-                      {formSubmitted && !passwordValid && (
-                        <div className="error-message">
-                          Please enter password.
-                        </div>
-                      )}
-                    </div>
+                      {/* Car Type input */}
+                      <div className="form-outline form-white mb-4 col-6 px-2">
+                        <input
+                          type="text"
+                          id="carType"
+                          className={`form-control form-control-lg ${
+                            formSubmitted && !formData.carType.trim()
+                              ? "error-input"
+                              : ""
+                          } ${formData.carType ? "active" : ""}`}
+                          value={formData.carType}
+                          onChange={(e) =>
+                            handleInputChange("carType", e.target.value)
+                          }
+                        />
+                        <label className="form-label">Type of Car</label>
+                        {formSubmitted && !formData.carType.trim() && (
+                          <div className="error-message">
+                            Please enter your car type.
+                          </div>
+                        )}
+                      </div>
 
-                    <div className="form-outline form-white mb-1">
-                      <input
-                        type="password"
-                        id="confirmPassword"
-                        className={`form-control form-control-lg ${
-                          formSubmitted && !confirmPasswordValid
-                            ? "error-input"
-                            : ""
-                        } ${
-                          confirmPasswordActive || confirmPassword
-                            ? "active"
-                            : ""
-                        }`}
-                        value={confirmPassword}
-                        onChange={handleConfirmPasswordChange}
-                      />
-                      <label className="form-label">Confirm Password</label>
-                      {formSubmitted && !confirmPasswordValid && (
-                        <div className="error-message">
-                          Please enter confirm password.
-                        </div>
-                      )}
-                      {!passwordMatch && (
-                        <div className="error-message">
-                          Passwords do not match.
-                        </div>
-                      )}
+                      {/* Address input */}
+                      <div className="form-outline form-white mb-4 col-12 px-2">
+                        <input
+                          type="text"
+                          id="address"
+                          className={`form-control form-control-lg ${
+                            formSubmitted && !formData.address.trim()
+                              ? "error-input"
+                              : ""
+                          } ${formData.address ? "active" : ""}`}
+                          value={formData.address}
+                          onChange={(e) =>
+                            handleInputChange("address", e.target.value)
+                          }
+                        />
+                        <label className="form-label">Address</label>
+                        {formSubmitted && !formData.address.trim() && (
+                          <div className="error-message">
+                            Please enter your address.
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     {isLoading ? (
@@ -208,13 +293,10 @@ const Register = () => {
                         />
 
                         <div className="d-flex justify-content-center text-center mt-4 pt-1">
-                          <a href="#!" className="text-dark ">
+                          <a href="#!" className="text-dark px-3">
                             <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
                           </a>
-                          <a href="#!" className="text-dark">
-                            <i className="fa fa-twitter fa-lg mx-4 px-2 custom-icon-color"></i>
-                          </a>
-                          <a href="#!" className="text-dark">
+                          <a href="#!" className="text-dark px-3">
                             <i className="fa fa-google fa-lg custom-icon-color"></i>
                           </a>
                         </div>

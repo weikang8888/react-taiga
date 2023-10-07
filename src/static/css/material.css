@@ -749,11 +749,10 @@
 .react-tel-input .form-control {
   font-size: 16px;
   background: black;
-  border: 1px solid #fd5f16;
   border-radius: 5px;
   width: 100%;
   outline: none;
-  padding: 18.5px 14px 18.5px 58px;
+  padding: 10px 14px 10px 58px;
   transition: box-shadow ease 0.25s, border-color ease 0.25s;
 }
 

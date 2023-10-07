@@ -76,7 +76,7 @@ const Header = ({ props }) => {
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
               <small className="bx bx-map-pin color-primary me-2 fs-5"></small>
               <small>
-                1,Jalan Putra 2/13,Bandar Putra,85000 Segamat,Johor.
+                1,Jalan Taiga,Bandar Taiga,85000 Segamat,Johor.
               </small>
             </div>
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">

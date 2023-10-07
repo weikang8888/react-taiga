@@ -2,6 +2,7 @@ import React from "react";
 import BannerImage from "../../static/assets/about/footer-car.png";
 import Logo from "../../static/assets/image/tiger.png";
 import "./footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -15,9 +16,9 @@ const Footer = () => {
             <div className="col-sm-6 col-lg-3">
               <div className="footer-item">
                 <div className="footer-logo">
-                  <a href="">
+                  <Link to="/">
                     <img src={Logo} alt="Logo" className="footer-logo-img" />
-                  </a>
+                  </Link>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Aliquam nobis et praesentium architecto ex laudantium
@@ -25,24 +26,24 @@ const Footer = () => {
                   </p>
                   <ul>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="" target="_blank">
                         <i className="bx bxl-youtube"></i>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="" target="_blank">
                         <i className="bx bxl-facebook"></i>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="" target="_blank">
                         <i className="bx bxl-instagram-alt"></i>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="" target="_blank">
                         <i className="bx bxl-twitter"></i>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -54,40 +55,40 @@ const Footer = () => {
                   <h3>Services</h3>
                   <ul>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="/services/pressure-check" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         Pressure Check Service
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="/services/suspension-service" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         Suspension Service
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="/services/wheel-alignment" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         Wheel Alignment
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="/services/brake-service" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         Brake Service
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="/services/tyre-balancing" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         Tyre Balancing
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="/services/engine-oil-service" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         Engine Oil Service
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -99,34 +100,34 @@ const Footer = () => {
                   <h3>Quick Links</h3>
                   <ul>
                     <li>
-                      <a href="" target="_blank">
+                      <Link to="/" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         Home
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="about.html" target="_blank">
+                      <Link to="/about" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         About Us
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="blog.html" target="_blank">
+                      <Link to="/products" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         Products
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="engineer.html" target="_blank">
+                      <Link to="/pages/faq" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         FAQ
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="testimonial.html" target="_blank">
+                      <Link to="/contactUs" target="_blank">
                         <i className="bx bx-chevron-right"></i>
                         Contact
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -166,9 +167,9 @@ const Footer = () => {
                 <div className="copyright-item">
                   <p>
                     Copyright @ 2023 Taiga. Designed By
-                    <a href="" target="_blank" className="px-1">
+                    <Link to="" target="_blank" className="px-1">
                       Kitar Teliti
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
@@ -176,17 +177,17 @@ const Footer = () => {
                 <div className="copyright-item copyright-right">
                   <ul>
                     <li>
-                      <a href="" target="_blank">
+                      <Link to="/pages/term-conditions" target="_blank">
                         Terms & Conditions
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <span>-</span>
                     </li>
                     <li>
-                      <a href="" target="_blank">
+                      <Link to="/pages/privacy-policy" target="_blank">
                         Privacy Policy
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>

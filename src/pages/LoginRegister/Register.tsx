@@ -5,6 +5,7 @@ import "font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import LoaderDiamond from "../../components/Loader/LoaderDiamond";
+import PhoneInput from "react-phone-input-2";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -209,20 +210,11 @@ const Register = () => {
                     <div className="d-sm-flex justify-content-between flex-wrap">
                       {/* Phone Number input */}
                       <div className="form-outline form-white mb-4 col-sm-6 px-2">
-                        <input
-                          type="text"
-                          id="phoneNumber"
-                          className={`form-control form-control-lg ${
-                            formSubmitted && !formData.phoneNumber.trim()
-                              ? "error-input"
-                              : ""
-                          } ${formData.phoneNumber ? "active" : ""}`}
+                        <PhoneInput
+                          country={"my"}
                           value={formData.phoneNumber}
-                          onChange={(e) =>
-                            handleInputChange("phoneNumber", e.target.value)
-                          }
+                          onChange={(e) => handleInputChange("phoneNumber", e)}
                         />
-                        <label className="form-label">Phone Number</label>
                         {formSubmitted && !formData.phoneNumber.trim() && (
                           <div className="error-message">
                             Please enter phone number.
@@ -281,7 +273,6 @@ const Register = () => {
                       <LoaderDiamond />
                     ) : (
                       <>
-
                         <ButtonMain
                           text={"Register"}
                           onClick={handleRegistration}

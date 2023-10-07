@@ -71,7 +71,10 @@ const Mixitup = ({ works }: MixitupOption) => {
               key={index}
               className={`col-sm-6 ${
                 index === 2 || index === 4 ? "col-lg-6" : "col-lg-3"
-              } mix ${work.filters.join(" ")}`}>
+              } mix ${work.filters.join(" ")}`}
+              data-aos="zoom-in"
+              data-aos-duration="2000"
+              data-aos-once="true">
               <div className="work-item">
                 <img src={work.image} alt="Work" />
                 <ButtonMain text="Read More" buttonUrl={""} />

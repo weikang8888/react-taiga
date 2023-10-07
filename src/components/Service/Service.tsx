@@ -4,9 +4,9 @@ interface ServiceProps {
   serviceIcon: string;
   serviceTitle: string;
   serviceDescription: string;
+  serviceUrl: string;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
-  hoverImage: string | null;
   aosDelay: string;
 }
 
@@ -15,9 +15,9 @@ const Service: React.FC<ServiceProps> = ({
   serviceDescription,
   serviceIcon,
   serviceImage,
+  serviceUrl,
   onMouseEnter,
   onMouseLeave,
-  hoverImage,
   aosDelay,
 }) => {
   return (
@@ -26,13 +26,13 @@ const Service: React.FC<ServiceProps> = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       data-aos="fade-right"
-      data-aos-duration="2000"
+      data-aos-duration="1000"
       data-aos-delay={aosDelay}
       data-aos-once="true">
-      <a href="service-details.html">
+      <a href={serviceUrl}>
         <div className="service-item">
           <div className="service-img">
-            <img src={hoverImage ? serviceIcon : serviceImage} alt="Service" />
+            <img src={serviceImage} alt="Service" />
           </div>
           <div className="service-content">
             <img src={serviceIcon} alt="Service Icon" />

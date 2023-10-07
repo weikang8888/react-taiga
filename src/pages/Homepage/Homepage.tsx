@@ -189,13 +189,28 @@ const Homepage = () => {
         <div className="quality-img">
           <img src={QualityShape} alt="Quality" />
           <img src={QualityShape} alt="Quality" />
-          <img src={QualityCar} alt="Quality" />
+          <img
+            src={QualityCar}
+            alt="Quality"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+            data-aos-once="true"
+          />
         </div>
         <div className="container">
           <div className="quality-content">
             <div className="section-title">
-              <h2>Quality Work is Our First Priority</h2>
-              <p>
+              <h2
+                data-aos="fade-left"
+                data-aos-duration="2000"
+                data-aos-once="true">
+                Quality Work is Our First Priority
+              </h2>
+              <p
+                data-aos="fade-left"
+                data-aos-duration="2000"
+                data-aos-delay="200"
+                data-aos-once="true">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
                 ipsum suspendisse ultrices gravida. Risus commodo viverra
@@ -232,9 +247,18 @@ const Homepage = () => {
             </div>
             <div className="col-lg-6 p-0">
               <div className="feature-content">
-                <h2>Our Features</h2>
+                <h2
+                  data-aos="fade-left"
+                  data-aos-duration="1000"
+                  data-aos-once="true">
+                  Our Features
+                </h2>
                 <ul>
-                  <li>
+                  <li
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                    data-aos-once="true"
+                    data-aos-delay="200">
                     <i className="bx bx-box"></i>
                     <h3>Trusted & Quality Work</h3>
                     <p>
@@ -242,7 +266,11 @@ const Homepage = () => {
                       sed do.the dolor sit amet, consectetur
                     </p>
                   </li>
-                  <li>
+                  <li
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                    data-aos-once="true"
+                    data-aos-delay="400">
                     <i className="bx bxs-truck"></i>
                     <h3>Fast Service Delivery</h3>
                     <p>
@@ -250,7 +278,11 @@ const Homepage = () => {
                       sed do.the dolor sit amet, consectetur
                     </p>
                   </li>
-                  <li>
+                  <li
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                    data-aos-once="true"
+                    data-aos-delay="600">
                     <i className="bx bx-money"></i>
                     <h3>Money Back Garanty</h3>
                     <p>

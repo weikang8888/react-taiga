@@ -39,6 +39,7 @@ const HomepageService = () => {
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
       aosDelay: "200",
+      serviceUrl: "/services/pressure-check",
     },
     {
       serviceImage: ServiceImage2,
@@ -48,6 +49,7 @@ const HomepageService = () => {
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
       aosDelay: "400",
+      serviceUrl: "/services/suspension-service",
     },
     {
       serviceImage: ServiceImage3,
@@ -57,6 +59,7 @@ const HomepageService = () => {
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
       aosDelay: "600",
+      serviceUrl: "/services/wheel-alignment",
     },
     {
       serviceImage: ServiceImage4,
@@ -66,6 +69,7 @@ const HomepageService = () => {
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
       aosDelay: "800",
+      serviceUrl: "/services/brake-service",
     },
     {
       serviceImage: ServiceImage5,
@@ -75,6 +79,7 @@ const HomepageService = () => {
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
       aosDelay: "1000",
+      serviceUrl: "/services/tyre-balancing",
     },
     {
       serviceImage: ServiceImage6,
@@ -84,6 +89,7 @@ const HomepageService = () => {
       serviceDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
       aosDelay: "1200",
+      serviceUrl: "/services/engine-oil-service",
     },
   ];
 
@@ -102,7 +108,7 @@ const HomepageService = () => {
           }
           serviceTitle={service.serviceTitle}
           serviceDescription={service.serviceDescription}
-          hoverImage={""}
+          serviceUrl={service.serviceUrl}
           aosDelay={service.aosDelay}
         />
       ))}

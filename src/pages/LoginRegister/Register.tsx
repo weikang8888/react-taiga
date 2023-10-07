@@ -86,7 +86,7 @@ const Register = () => {
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 col-md-10 col-lg-8 col-xl-7">
               <div className="card bg-black text-white">
-                <div className="card-body px-5 text-center">
+                <div className="card-body px-4 text-center">
                   <div className="mb-md-5 mt-md-4">
                     <h2 className="fw-bold mb-2 text-uppercase">Sign Up</h2>
                     <p className="text-white">
@@ -205,7 +205,7 @@ const Register = () => {
                     </div>
 
                     {/* Additional Information */}
-                    <h3 className="fw-bold mb-2">Additional Information</h3>
+                    <h3 className="fw-bold mb-3">Additional Information</h3>
                     <div className="d-sm-flex justify-content-between flex-wrap">
                       {/* Phone Number input */}
                       <div className="form-outline form-white mb-4 col-sm-6 px-2">
@@ -254,7 +254,7 @@ const Register = () => {
                       </div>
 
                       {/* Address input */}
-                      <div className="form-outline form-white mb-4 col-12 px-2">
+                      <div className="form-outline form-white mb-5 col-12 px-2">
                         <input
                           type="text"
                           id="address"
@@ -281,11 +281,6 @@ const Register = () => {
                       <LoaderDiamond />
                     ) : (
                       <>
-                        <p className="small mb-5 pb-lg-2">
-                          <a className="text-main" href="#!">
-                            Forgot password?
-                          </a>
-                        </p>
 
                         <ButtonMain
                           text={"Register"}

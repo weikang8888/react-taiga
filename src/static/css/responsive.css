@@ -38,8 +38,8 @@
   .mobile-nav.mean-container .mean-nav ul li a.active {
     color: #fd5f16;
   }
-  .carousel {
-    height: 40vh!important;
+  .carousel,.page-title-area {
+    height: 50vh!important;
   }
   .banner-area {
     height: 100%;
@@ -74,6 +74,7 @@
   .banner-area .banner-text p {
     margin-bottom: 32px;
   }
+  
   .cmn-btn a {
     padding: 10px 12px 12px;
   }
@@ -453,8 +454,6 @@
     margin-bottom: -30px;
   }
   .page-title-area {
-    padding-top: 140px;
-    padding-bottom: 95px;
     overflow: hidden;
   }
   .page-title-area img {

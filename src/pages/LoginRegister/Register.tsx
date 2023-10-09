@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import ButtonMain from "../../components/Button/Button";
 import "font-awesome/css/font-awesome.min.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 import PhoneInput from "react-phone-input-2";
@@ -13,6 +13,7 @@ declare global {
   }
 }
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -97,22 +98,15 @@ const Register = () => {
 
             // Make an axios POST request to your backend API
             axios
-              .post("https://backend.taiga-auto.com/api_taiga/users/register", {
-                accessToken: accessToken, // Pass the Facebook access token to your backend
+              .post("http://localhost:8080/api_taiga/users/registerFacebook", {
+                facebookAccessToken: accessToken, // Pass the Facebook access token to your backend
               })
               .then((registrationResponse) => {
                 console.log(
                   "Registration Response:",
                   registrationResponse.data
                 );
-
-                if (
-                  registrationResponse.data.message ===
-                  "Registration successful. Verification email sent."
-                ) {
-                  // Handle successful registration on your frontend as needed
-                  setRegistrationStatus("success");
-                }
+                navigate("/");
               })
               .catch((registrationError) => {
                 console.error("Error during registration:", registrationError);
@@ -124,7 +118,7 @@ const Register = () => {
             console.log("Facebook login canceled or not authorized.");
           }
         },
-        { scope: "email" } // Specify the required permissions/scopes
+        { scope: "email,public_profile" }
       );
     } else {
       console.error("Facebook SDK not initialized.");

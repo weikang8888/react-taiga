@@ -7,6 +7,11 @@ import axios from "axios";
 import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 import PhoneInput from "react-phone-input-2";
 
+declare global {
+  interface Window {
+    FB: any;
+  }
+}
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -77,6 +82,52 @@ const Register = () => {
           // Stop loading indicator regardless of success or error
           setIsLoading(false);
         });
+    }
+  };
+
+  const handleFacebookLogin = () => {
+    // Ensure the Facebook SDK is initialized (you should have done this elsewhere)
+    if (window.FB) {
+      // Trigger the Facebook login process
+      window.FB.login(
+        function (response) {
+          if (response.authResponse) {
+            // User is logged in and authenticated
+            const accessToken = response.authResponse.accessToken;
+
+            // Make an axios POST request to your backend API
+            axios
+              .post("https://backend.taiga-auto.com/api_taiga/users/register", {
+                accessToken: accessToken, // Pass the Facebook access token to your backend
+              })
+              .then((registrationResponse) => {
+                console.log(
+                  "Registration Response:",
+                  registrationResponse.data
+                );
+
+                if (
+                  registrationResponse.data.message ===
+                  "Registration successful. Verification email sent."
+                ) {
+                  // Handle successful registration on your frontend as needed
+                  setRegistrationStatus("success");
+                }
+              })
+              .catch((registrationError) => {
+                console.error("Error during registration:", registrationError);
+                // Handle registration error on your frontend as needed
+                setRegistrationStatus("error");
+              });
+          } else {
+            // User canceled the login or didn't authorize your app
+            console.log("Facebook login canceled or not authorized.");
+          }
+        },
+        { scope: "email" } // Specify the required permissions/scopes
+      );
+    } else {
+      console.error("Facebook SDK not initialized.");
     }
   };
 
@@ -279,7 +330,10 @@ const Register = () => {
                         />
 
                         <div className="d-flex justify-content-center text-center mt-4 pt-1">
-                          <a href="#!" className="text-dark px-3">
+                          <a
+                            href="#!"
+                            className="text-dark px-3"
+                            onClick={handleFacebookLogin}>
                             <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
                           </a>
                           <a href="#!" className="text-dark px-3">

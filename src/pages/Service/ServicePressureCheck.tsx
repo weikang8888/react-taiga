@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../static/assets/about/about-taiga.png";
@@ -31,6 +31,16 @@ const ServicePressureCheck = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+  useEffect(() => {
+    // Update the overflow property of the body element based on isModalOpen state
+    document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+
+    // Cleanup function to reset the overflow property when the component unmounts
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isModalOpen]);
 
   const serviceDetail = [ServiceDetail1, ServiceDetail2, ServiceDetail3];
   return (

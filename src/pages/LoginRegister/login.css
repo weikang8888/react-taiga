@@ -65,6 +65,9 @@
 .custom-icon-color {
   color: #fff;
 }
+.custom-icon-color:hover {
+  color: #fd5f16;
+}
 .error-message {
   background-color: red;
 }

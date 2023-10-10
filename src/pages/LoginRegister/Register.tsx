@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 import PhoneInput from "react-phone-input-2";
+import { useAuth } from "src/AuthContent";
 
 declare global {
   interface Window {
@@ -14,6 +15,7 @@ declare global {
 }
 const Register = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -96,16 +98,20 @@ const Register = () => {
             // User is logged in and authenticated
             const accessToken = response.authResponse.accessToken;
 
-            // Make an axios POST request to your backend API
             axios
               .post("http://localhost:8080/api_taiga/users/registerFacebook", {
-                facebookAccessToken: accessToken, // Pass the Facebook access token to your backend
+                facebookAccessToken: accessToken,
               })
               .then((registrationResponse) => {
                 console.log(
                   "Registration Response:",
                   registrationResponse.data
                 );
+
+                const name = registrationResponse.data.name;
+                const email = registrationResponse.data.email;
+
+                login(email, name, null, null);
                 navigate("/");
               })
               .catch((registrationError) => {

@@ -28,7 +28,7 @@ const Service: React.FC<ServiceProps> = ({
       data-aos="fade-right"
       data-aos-duration="1000"
       data-aos-delay={aosDelay}
-      data-aos-once="true">
+      >
       <a href={serviceUrl}>
         <div className="service-item">
           <div className="service-img">

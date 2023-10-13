@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./login.css";
 import ButtonMain from "../../components/Button/Button";
 import "font-awesome/css/font-awesome.min.css";
@@ -11,8 +11,17 @@ import { useAuth } from "src/AuthContent";
 declare global {
   interface Window {
     FB: any;
+    google: {
+      accounts: {
+        id: {
+          initialize(options: { client_id: string }): void;
+          prompt(): void;
+        };
+      };
+    };
   }
 }
+
 const Register = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -129,6 +138,20 @@ const Register = () => {
     } else {
       console.error("Facebook SDK not initialized.");
     }
+  };
+
+  useEffect(() => {
+    // Initialize Google Sign-In
+    window.google.accounts.id.initialize({
+      client_id:
+        "163741164506-pkvf3cgnjnaf1h3srfuhdr2s17j63hqg.apps.googleusercontent.com",
+    });
+  }, []);
+
+  const handleSignIn = () => {
+    // Trigger the Google Sign-In dialog
+    window.google.accounts.id.prompt();
+    console.log("Google Sign-In dialog triggered.");
   };
 
   return (
@@ -331,12 +354,15 @@ const Register = () => {
 
                         <div className="d-flex justify-content-center text-center mt-4 pt-1">
                           <a
-                            href="#!"
+                            href="#facebook"
                             className="text-dark px-3"
                             onClick={handleFacebookLogin}>
                             <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
                           </a>
-                          <a href="#!" className="text-dark px-3">
+                          <a
+                            href="#google"
+                            className="text-dark px-3"
+                            onClick={handleSignIn}>
                             <i className="fa fa-google fa-lg custom-icon-color"></i>
                           </a>
                         </div>

@@ -19,9 +19,9 @@ const Product = () => {
 
   useEffect(() => {
     axios
-      .get("https://backend.taiga-auto.com/api_taiga/products/products")
-      .then((response) => {
-        setProducts(response.data);
+      .get("http://localhost:8080/api_taiga/products/products")
+      .then((registrationResponse) => {
+        setProducts(registrationResponse.data);
       })
       .catch((error) => {
         console.log(error);

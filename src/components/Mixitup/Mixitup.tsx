@@ -74,7 +74,7 @@ const Mixitup = ({ works }: MixitupOption) => {
               } mix ${work.filters.join(" ")}`}
               data-aos="zoom-in"
               data-aos-duration="2000"
-              data-aos-once="true">
+              >
               <div className="work-item">
                 <img src={work.image} alt="Work" />
                 <ButtonMain text="Read More" buttonUrl={""} />

@@ -7,15 +7,20 @@ import axios from "axios";
 import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 import PhoneInput from "react-phone-input-2";
 import { useAuth } from "src/AuthContent";
-
+import jwt_decode from "jwt-decode";
+import { toast } from "react-toastify";
 declare global {
   interface Window {
     FB: any;
     google: {
       accounts: {
         id: {
-          initialize(options: { client_id: string }): void;
+          initialize(options: { client_id: string; callback: Function }): void;
           prompt(): void;
+          renderButton(
+            element: HTMLElement,
+            options: { theme: string; size: string }
+          ): void;
         };
       };
     };
@@ -140,18 +145,61 @@ const Register = () => {
     }
   };
 
+  function handleCallbackResponse(response) {
+    // Check if the response contains the Google ID token
+    if (response.credential) {
+      // User successfully logged in
+      const googleIdToken = response.credential;
+      // Send the Google ID token to the backend
+      axios
+        .post("http://localhost:8080/api_taiga/users/registerGoogle", {
+          googleAccessToken: googleIdToken, // Pass the ID token to the backend
+        })
+        .then((backendResponse) => {
+          console.log("Backend response:", backendResponse.data);
+          toast.success("Login Successfully", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+          navigate("/"); // Redirect the user to the desired page after successful login
+        })
+        .catch((error) => {
+          console.error("Error making the backend request:", error);
+          toast.error(error.response, {
+            // Use error.response.data to access the error message
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        });
+    } else {
+      // Handle the case where the Google ID token is missing in the response
+      console.error("Google ID token is missing in the response.");
+      // Handle the error as needed
+    }
+  }
+
   useEffect(() => {
-    // Initialize Google Sign-In
+    /* global google */
     window.google.accounts.id.initialize({
       client_id:
         "163741164506-pkvf3cgnjnaf1h3srfuhdr2s17j63hqg.apps.googleusercontent.com",
+      callback: handleCallbackResponse,
     });
+
+    return () => {};
   }, []);
 
-  const handleSignIn = () => {
-    // Trigger the Google Sign-In dialog
+  const handleCustomGoogleSignIn = () => {
+    // Trigger the Google Sign-In process
     window.google.accounts.id.prompt();
-    console.log("Google Sign-In dialog triggered.");
   };
 
   return (
@@ -362,7 +410,8 @@ const Register = () => {
                           <a
                             href="#google"
                             className="text-dark px-3"
-                            onClick={handleSignIn}>
+                            id="signInDiv"
+                            onClick={handleCustomGoogleSignIn}>
                             <i className="fa fa-google fa-lg custom-icon-color"></i>
                           </a>
                         </div>

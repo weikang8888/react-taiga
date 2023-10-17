@@ -14,9 +14,7 @@ import QualityShape from "../../static/assets/image/quality-shape.png";
 import QualityCar from "../../static/assets/image/quality-car.png";
 import FeatureImage from "../../static/assets/image/feature-bg.jpg";
 import FeatureShape from "../../static/assets/image/feature-shape.png";
-
 import "./homepage.css";
-
 import Loader from "../../components/Loader/Loader";
 import HomepageProducts from "./HomepageProducts";
 

@@ -5,6 +5,7 @@ import "font-awesome/css/font-awesome.min.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../AuthContent";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { login } = useAuth();
@@ -25,19 +26,38 @@ const Login = () => {
 
     // Send a POST request to the PHP backend
     axios
-      .post("https://backend.taiga-auto.com/api_taiga/users/login", userData)
+      .post("http://localhost:8080/api_taiga/users/login", userData)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         const authToken = response.data.authToken;
         const name = response.data.name;
-
         login(email, name, null, authToken);
-
+        toast.success("Login Successfully!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
         navigate("/");
       })
       .catch((error) => {
         setErrorMessage(`Incorrect username or password.Please try again.`);
         console.error(error);
+        toast.error("Login Failed!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          containerId: "login-toast-error",
+        });
       });
   };
   // Function to handle email input change
@@ -65,9 +85,9 @@ const Login = () => {
                     <p className="text-white mb-5">
                       Please enter your login and password!
                     </p>{" "}
-                    {errorMessage && (
+                    {/* {errorMessage && (
                       <p className="error-message">{errorMessage}</p>
-                    )}
+                    )} */}
                     <div className="form-outline form-white mb-4">
                       <input
                         type="email"

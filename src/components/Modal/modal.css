@@ -92,10 +92,10 @@
 .progressbar li {
   color: #000;
 }
-.progressbar li p{
+.progressbar li p {
   color: #000;
 }
-.progressbar li.active{
+.progressbar li.active {
   color: #fd5f16;
 }
 .progressbar li p.active {
@@ -172,4 +172,5 @@
 
 .error-message {
   color: #fff;
+  background-color: #fd5f16;
 }

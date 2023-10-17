@@ -68,9 +68,6 @@
 .custom-icon-color:hover {
   color: #fd5f16;
 }
-.error-message {
-  background-color: red;
-}
 .otp-input-wrapper {
   display: flex;
   justify-content: center;

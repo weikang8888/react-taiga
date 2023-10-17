@@ -7,8 +7,8 @@ import axios from "axios";
 import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 import PhoneInput from "react-phone-input-2";
 import { useAuth } from "src/AuthContent";
-import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
+
 declare global {
   interface Window {
     FB: any;
@@ -77,10 +77,7 @@ const Register = () => {
       setIsLoading(true);
 
       axios
-        .post(
-          "https://backend.taiga-auto.com/api_taiga/users/register",
-          userData
-        )
+        .post("http://localhost:8080/api_taiga/users/register", userData)
         .then((registrationResponse) => {
           console.log("Registration Response:", registrationResponse.data);
 
@@ -88,12 +85,30 @@ const Register = () => {
             registrationResponse.data.message ===
             "Registration successful. Verification email sent."
           ) {
-            setRegistrationStatus("success");
+            toast.success("Verification Email Sent!", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
           }
         })
         .catch((registrationError) => {
           console.error("Error during registration:", registrationError);
-          setRegistrationStatus("error");
+          toast.error("Register Failed!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         })
         .finally(() => {
           // Stop loading indicator regardless of success or error
@@ -121,17 +136,33 @@ const Register = () => {
                   "Registration Response:",
                   registrationResponse.data
                 );
-
                 const name = registrationResponse.data.name;
                 const email = registrationResponse.data.email;
-
                 login(email, name, null, null);
+                toast.success("Facebook Login Successfully!", {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "colored",
+                });
                 navigate("/");
               })
               .catch((registrationError) => {
                 console.error("Error during registration:", registrationError);
-                // Handle registration error on your frontend as needed
-                setRegistrationStatus("error");
+                toast.error("Facebook Login Failed!", {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "colored",
+                });
               });
           } else {
             // User canceled the login or didn't authorize your app
@@ -155,28 +186,34 @@ const Register = () => {
         .post("http://localhost:8080/api_taiga/users/registerGoogle", {
           googleAccessToken: googleIdToken, // Pass the ID token to the backend
         })
-        .then((backendResponse) => {
-          console.log("Backend response:", backendResponse.data);
-          toast.success("Login Successfully", {
-            position: "top-center",
+        .then((registrationResponse) => {
+          console.log("Backend response:", registrationResponse.data);
+          const name = registrationResponse.data.name;
+          const email = registrationResponse.data.email;
+          login(email, name, null, null);
+          toast.success("Google Login Successfully!", {
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
+            progress: undefined,
+            theme: "colored",
           });
-          navigate("/"); // Redirect the user to the desired page after successful login
+          navigate("/");
         })
         .catch((error) => {
           console.error("Error making the backend request:", error);
-          toast.error(error.response, {
-            // Use error.response.data to access the error message
-            position: "top-center",
+          toast.success("Google Login Failed!", {
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
+            progress: undefined,
+            theme: "colored",
           });
         });
     } else {
@@ -215,16 +252,6 @@ const Register = () => {
                     <p className="text-white">
                       Sign Up For Our Taiga Auto Member
                     </p>
-                    {registrationStatus === "success" ? (
-                      <p className="error-message">
-                        Please check your email to verify.
-                      </p>
-                    ) : registrationStatus === "error" ? (
-                      <p className="error-message">
-                        Registration failed. Please try again.
-                      </p>
-                    ) : null}
-
                     <div className="d-sm-flex justify-content-between flex-wrap mb-4">
                       {/* Name input */}
                       <div className="form-outline form-white mb-4 col-sm-6 px-2">

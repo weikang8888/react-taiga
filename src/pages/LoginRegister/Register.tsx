@@ -17,10 +17,6 @@ declare global {
         id: {
           initialize(options: { client_id: string; callback: Function }): void;
           prompt(): void;
-          renderButton(
-            element: HTMLElement,
-            options: { theme: string; size: string }
-          ): void;
         };
       };
     };
@@ -40,7 +36,6 @@ const Register = () => {
     address: "",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [registrationStatus, setRegistrationStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 

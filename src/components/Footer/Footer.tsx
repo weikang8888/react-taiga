@@ -140,11 +140,12 @@ const Footer = () => {
                   <ul>
                     <li>
                       <i className="bx bx-location-plus"></i>
-                      28/A Street, New York City
+                      101G, Jalan Bestari 1/5, Taman Nusa Bestari, Johor Bahru,
+                      Malaysia
                     </li>
                     <li>
                       <i className="bx bx-phone-call"></i>
-                      <a href="tel:+880123456789">+88 0123 456 789</a>
+                      <a href="tel:+880123456789">+012-725 6601</a>
                     </li>
                     <li>
                       <i className="bx bx-mail-send"></i>
@@ -152,7 +153,7 @@ const Footer = () => {
                         <span
                           className="__cf_email__"
                           data-cfemail="4920272f2609283c2d2c2a22672a2624">
-                          taiga@hotmail.com
+                          taigaautoservice@gmail.com
                         </span>
                       </a>
                     </li>

@@ -76,7 +76,8 @@ const Header = ({ props }) => {
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
               <small className="bx bx-map-pin color-primary me-2 fs-5"></small>
               <small>
-                1,Jalan Taiga,Bandar Taiga,85000 Segamat,Johor.
+                101G, Jalan Bestari 1/5, Taman Nusa Bestari, Johor Bahru,
+                Malaysia
               </small>
             </div>
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
@@ -85,7 +86,7 @@ const Header = ({ props }) => {
             </div>
             <div className="h-100 d-inline-flex align-items-center py-3">
               <small className="bx bx-phone color-primary me-2 fs-5"></small>
-              <small>+012 345 6789</small>
+              <small>+012-725-6601</small>
             </div>
           </div>
         </div>

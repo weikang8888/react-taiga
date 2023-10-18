@@ -71,8 +71,8 @@ const Contact = () => {
               <div className="contact-content text-color-white">
                 <h3>Phone</h3>
                 <p>
-                  Call us at +60380823500 during our office hours (Mon-Fri, 9 am
-                  - 6 pm).
+                  Call us at +012-725 6601 during our office hours (Mon-Fri, 9
+                  am - 6 pm).
                 </p>
               </div>
             </div>
@@ -83,8 +83,9 @@ const Contact = () => {
               <div className="contact-content text-color-orange">
                 <h3>Email</h3>
                 <p>
-                  Prefer to write? Shoot us an email at hi@klinikar.com, and
-                  we'll get back to you within 24 hours.
+                  Prefer to write? Shoot us an email at
+                  taigaautoservice@gmail.com, and we'll get back to you within
+                  24 hours.
                 </p>
               </div>
             </div>
@@ -114,21 +115,20 @@ const Contact = () => {
                 <ul>
                   <li>
                     <i className="bx bx-location-plus"></i>
-                    Address: Barmingha, QD 201, United Kingdom
+                    Address: 101G, Jalan Bestari 1/5, Taman Nusa Bestari, Johor
+                    Bahru, Malaysia
                   </li>
                   <li>
                     <i className="bx bx-mail-send"></i>
-                    <a href="/cdn-cgi/l/email-protection#355c5b535a7554405150565e1b565a58">
-                      <span
-                        className="__cf_email__"
-                        data-cfemail="b1d8dfd7def1d0c4d5d4d2da9fd2dedc">
-                        [email&#160;protected]
+                    <a href="taigaautoservice@gmail.com">
+                      <span className="__cf_email__">
+                        taigaautoservice@gmail.com
                       </span>
                     </a>
                   </li>
                   <li>
                     <i className="bx bx-phone-call"></i>
-                    <a href="tel:+8562-65516-595">+8562-65516-595</a>
+                    <a href="tel:+60127256601">+012-725 6601</a>
                   </li>
                 </ul>
               </div>

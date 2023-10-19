@@ -3,13 +3,19 @@ import "./login.css";
 import ButtonMain from "../../components/Button/Button";
 import "font-awesome/css/font-awesome.min.css";
 import { Link, useNavigate, useLocation, useParams } from "react-router-dom";
-import axios from "axios";
+import {
+  registerWithEmail,
+  registerInfo,
+  registerWithFacebook,
+  registerWithGoogle,
+} from "../../apiEndpoints"; // Adjust the import path as needed
 import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 import PhoneInput from "react-phone-input-2";
 import { useAuth } from "src/AuthContent";
 import { toast } from "react-toastify";
 import CopyrightFooter from "src/components/Footer/CopyrightFooter";
 import Logo from "../../static/assets/image/tiger.png";
+import Toast from "../../Toast";
 
 declare global {
   interface Window {
@@ -76,36 +82,17 @@ const Register = () => {
       };
       setIsLoading(true);
 
-      axios
-        .post("http://localhost:8080/api_taiga/users/registerEmail", userData)
-        .then((registrationResponse) => {
+      registerWithEmail(userData)
+        .then((response) => {
           setIsLoading(false);
-          console.log("Registration Response:", registrationResponse.data);
-          toast.success("Verification Email Link Sent!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          console.log("Registration Response:", response.data);
+          Toast({ message: "Verification Link Sent Successful!" });
           setEmail(email);
         })
         .catch((registrationError) => {
           setIsLoading(false);
           console.error("Error during registration:", registrationError);
-          toast.error("Something Error!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          Toast({ message: "Email Already Exists", type: "error" });
         });
     }
   };
@@ -124,23 +111,14 @@ const Register = () => {
       // Start loading indicator
       setIsLoading(true);
 
-      axios
-        .post("http://localhost:8080/api_taiga/users/registerInfo", infoData)
-        .then((registrationResponse) => {
-          console.log("Registration Response:", registrationResponse.data);
-          const name = registrationResponse.data.name;
-          const email = registrationResponse.data.email;
+      registerInfo(infoData)
+        .then((response) => {
+          console.log("Registration Response:", response.data);
+          const name = response.data.name;
+          const email = response.data.email;
           login(email, name, null, null);
-          toast.success("Register Successful!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          Toast({ message: "Register Successful!" });
+
           navigate("/");
           // Handle success
         })
@@ -163,40 +141,30 @@ const Register = () => {
           if (response.authResponse) {
             // User is logged in and authenticated
             const accessToken = response.authResponse.accessToken;
-            console.log(accessToken);
 
-            axios
-              .post("http://localhost:8080/api_taiga/users/registerSocial", {
-                facebookAccessToken: accessToken,
-              })
+            registerWithFacebook(accessToken)
               .then((response) => {
                 console.log("Registration Response:", response.data);
                 const email = response.data.email;
-                toast.success("Facebook Login Successfully!", {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "colored",
-                });
+                const name = response.data.name;
+                const emailExists = response.data.emailExists;
+
+                Toast({ message: "Facebook Login Successful!" });
                 setEmail(email);
                 navigate(`/register/moreInfo`);
+                login(email, name, null, null);
+
+                if (emailExists) {
+                  // Email exists, navigate to the homepage directly
+                  navigate("/");
+                } else {
+                  setEmail(email);
+                  navigate("/register/moreInfo");
+                }
               })
               .catch((registrationError) => {
                 console.error("Error during registration:", registrationError);
-                toast.error("Facebook Login Failed!", {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "colored",
-                });
+                Toast({ message: "Facebook Login Error!", type: "error" });
               });
           } else {
             // User canceled the login or didn't authorize your app
@@ -216,40 +184,28 @@ const Register = () => {
       // User successfully logged in
       const googleIdToken = response.credential;
       // Send the Google ID token to the backend
-      axios
-        .post("http://localhost:8080/api_taiga/users/registerSocial", {
-          googleAccessToken: googleIdToken, // Pass the ID token to the backend
-        })
-        .then((registrationResponse) => {
-          console.log("Backend response:", registrationResponse.data);
-          const name = registrationResponse.data.name;
-          const email = registrationResponse.data.email;
+      registerWithGoogle(googleIdToken)
+        .then((response) => {
+          console.log("Backend response:", response.data);
+          const name = response.data.name;
+          const email = response.data.email;
+          const emailExists = response.data.emailExists;
+
           login(email, name, null, null);
-          toast.success("Google Login Successfully!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          Toast({ message: "Google Login Successful!" });
           setEmail(email);
           navigate(`/register/moreInfo`);
+
+          if (emailExists) {
+            navigate("/");
+          } else {
+            setEmail(email);
+            navigate("/register/moreInfo");
+          }
         })
         .catch((error) => {
           console.error("Error making the backend request:", error);
-          toast.success("Google Login Failed!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          Toast({ message: "Google Login Error!", type: "error" });
         });
     } else {
       // Handle the case where the Google ID token is missing in the response
@@ -262,7 +218,7 @@ const Register = () => {
     /* global google */
     window.google.accounts.id.initialize({
       client_id:
-        "163741164506-pkvf3cgnjnaf1h3srfuhdr2s17j63hqg.apps.googleusercontent.com",
+        "106987708628-69u7ibsorp0rfkaq35qvril6j09gp4st.apps.googleusercontent.com",
       callback: handleCallbackResponse,
     });
 

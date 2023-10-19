@@ -28,7 +28,8 @@ import Login from "./pages/LoginRegister/Login";
 import Register from "./pages/LoginRegister/Register";
 import Verify from "./pages/LoginRegister/Verify";
 import PhoneNumber from "./pages/LoginRegister/PhoneNumber";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export * from "./components";
 
 function App() {
@@ -40,7 +41,8 @@ function App() {
         <Route path="/register/:step" element={<Register />} />
         <Route path="/register/verifyEmail" element={<Verify />} />
         <Route path="/*" element={<AppWithHeaderAndFooter />} />
-      </Routes>
+      </Routes>{" "}
+      <ToastContainer />
       <ButtonScrollTop />
     </Router>
   );

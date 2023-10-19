@@ -39,7 +39,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login-pn" element={<PhoneNumber />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register/:step" element={<Register />} />
         <Route path="/register/verifyEmail" element={<Verify />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" />

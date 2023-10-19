@@ -18,7 +18,7 @@ const Verify = () => {
       .then((response) => {
         // Handle the verification response here
         console.log("Verification Response:", response.data);
-        toast.success("Register Successfully!", {
+        toast.success("Verification Successfully!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -28,7 +28,9 @@ const Verify = () => {
           progress: undefined,
           theme: "colored",
         });
-        navigate("/login");
+        const email = response.data.email || "";
+        console.log("Email:", email);
+        navigate("/register/moreInfo", { state: { email } });
       })
       .catch((error) => {
         // Handle errors here

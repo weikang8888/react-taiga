@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../AuthContent";
 import { toast } from "react-toastify";
+import CopyrightFooter from "src/components/Footer/CopyrightFooter";
+import Logo from "../../static/assets/image/tiger.png";
 
 const Login = () => {
   const { login } = useAuth();
@@ -74,13 +76,14 @@ const Login = () => {
 
   return (
     <>
-      <section className="gradient-custom bg-orange">
-        <div className="container pb-1 pt-5rem h-100">
+      <section className="gradient-custom bg-black">
+        <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
               <div className="card bg-black text-white">
-                <div className="card-body px-5 text-center">
+                <div className="card-body px-sm-5 px-4 text-center">
                   <div className="mb-md-5 mt-md-4">
+                    <img src={Logo} style={{width:"240px"}}/>
                     <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
                     <p className="text-white mb-5">
                       Please enter your login and password!
@@ -131,7 +134,9 @@ const Login = () => {
                   <div>
                     <p className="mb-0 m">
                       Don't have an account?
-                      <Link to="/register/signUp" className="text-main fw-bold mx-2">
+                      <Link
+                        to="/register/signUp"
+                        className="text-main fw-bold mx-2">
                         Sign Up
                       </Link>
                     </p>
@@ -146,6 +151,7 @@ const Login = () => {
               </div>
             </div>
           </div>
+          <CopyrightFooter />
         </div>
       </section>
     </>

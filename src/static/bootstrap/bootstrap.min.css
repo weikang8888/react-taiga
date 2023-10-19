@@ -7305,9 +7305,6 @@ fieldset:disabled .btn {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
 }
-.bg-orange {
-  background-color: var(--bs-orange);
-}
 .bg-body {
   --bs-bg-opacity: 1;
   background-color: rgba(

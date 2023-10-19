@@ -8,6 +8,8 @@ import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 import PhoneInput from "react-phone-input-2";
 import { useAuth } from "src/AuthContent";
 import { toast } from "react-toastify";
+import CopyrightFooter from "src/components/Footer/CopyrightFooter";
+import Logo from "../../static/assets/image/tiger.png";
 
 declare global {
   interface Window {
@@ -77,6 +79,7 @@ const Register = () => {
       axios
         .post("http://localhost:8080/api_taiga/users/registerEmail", userData)
         .then((registrationResponse) => {
+          setIsLoading(false);
           console.log("Registration Response:", registrationResponse.data);
           toast.success("Verification Email Link Sent!", {
             position: "top-right",
@@ -90,6 +93,7 @@ const Register = () => {
           });
         })
         .catch((registrationError) => {
+          setIsLoading(false);
           console.error("Error during registration:", registrationError);
           toast.error("Something Error!", {
             position: "top-right",
@@ -101,10 +105,6 @@ const Register = () => {
             progress: undefined,
             theme: "colored",
           });
-        })
-        .finally(() => {
-          // Stop loading indicator regardless of success or error
-          setIsLoading(false);
         });
     }
   };
@@ -162,6 +162,7 @@ const Register = () => {
           if (response.authResponse) {
             // User is logged in and authenticated
             const accessToken = response.authResponse.accessToken;
+            console.log(accessToken);
 
             axios
               .post("http://localhost:8080/api_taiga/users/registerSocial", {
@@ -169,9 +170,7 @@ const Register = () => {
               })
               .then((response) => {
                 console.log("Registration Response:", response.data);
-                const name = response.data.name;
                 const email = response.data.email;
-                login(email, name, null, null);
                 toast.success("Facebook Login Successfully!", {
                   position: "top-right",
                   autoClose: 5000,
@@ -276,13 +275,15 @@ const Register = () => {
 
   return (
     <>
-      <section className="gradient-custom bg-orange">
-        <div className="container pb-1 pt-5rem h-100">
+      {isLoading && <LoaderDiamond />}
+      <section className="gradient-custom bg-black">
+        <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
               <div className="card bg-black text-white">
-                <div className="card-body px-5 text-center">
+                <div className="card-body px-sm-5 px-4 text-center">
                   <div className="mb-md-5 mt-md-4">
+                    <img src={Logo} style={{ width: "240px" }} />
                     {step === "signUp" && (
                       <>
                         <h2 className="fw-bold mb-2 text-uppercase">Sign Up</h2>
@@ -398,32 +399,26 @@ const Register = () => {
                           </div>
                         </div>
 
-                        {isLoading ? (
-                          <LoaderDiamond />
-                        ) : (
-                          <>
-                            <ButtonMain
-                              text={"Register"}
-                              onClick={handleBasicInfoSubmission}
-                            />
+                        <ButtonMain
+                          text={"Register"}
+                          onClick={handleBasicInfoSubmission}
+                        />
 
-                            <div className="text-center mt-4 pt-1">
-                              <a
-                                href="#facebook"
-                                className="text-dark px-3"
-                                onClick={handleFacebookLogin}>
-                                <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
-                              </a>
-                              <a
-                                href="#google"
-                                className="text-dark px-3"
-                                id="signInDiv"
-                                onClick={handleCustomGoogleSignIn}>
-                                <i className="fa fa-google fa-lg custom-icon-color"></i>
-                              </a>
-                            </div>
-                          </>
-                        )}
+                        <div className="text-center mt-4 pt-1">
+                          <a
+                            href="#facebook"
+                            className="text-dark px-3"
+                            onClick={handleFacebookLogin}>
+                            <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
+                          </a>
+                          <a
+                            href="#google"
+                            className="text-dark px-3"
+                            id="signInDiv"
+                            onClick={handleCustomGoogleSignIn}>
+                            <i className="fa fa-google fa-lg custom-icon-color"></i>
+                          </a>
+                        </div>
                       </>
                     )}
                     {step === "moreInfo" && (
@@ -493,7 +488,7 @@ const Register = () => {
                               </div>
                             )}
                           </div>
-                        </div>{" "}
+                        </div>
                         <ButtonMain
                           text={"Register"}
                           onClick={handleRegistration}
@@ -504,8 +499,8 @@ const Register = () => {
 
                   <div>
                     <p className="mb-0">
-                      Already have an account?{" "}
-                      <Link to="/login" className="text-main fw-bold">
+                      Already have an account?
+                      <Link to="/login" className="text-main fw-bold mx-2">
                         Sign In
                       </Link>
                     </p>
@@ -514,6 +509,7 @@ const Register = () => {
               </div>
             </div>
           </div>
+          <CopyrightFooter />
         </div>
       </section>
     </>

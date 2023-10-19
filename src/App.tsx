@@ -34,13 +34,26 @@ export * from "./components";
 function App() {
   return (
     <Router>
-      <HeaderWrapper />
       <Routes>
-        <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login-pn" element={<PhoneNumber />} />
         <Route path="/register/:step" element={<Register />} />
         <Route path="/register/verifyEmail" element={<Verify />} />
+        <Route path="/*" element={<AppWithHeaderAndFooter />} />
+      </Routes>
+      <ButtonScrollTop />
+    </Router>
+  );
+}
+
+function AppWithHeaderAndFooter() {
+  // You can include the header and footer components here
+  return (
+    <div>
+      <HeaderWrapper />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/about" element={<AboutPage />} />{" "}
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" />
         <Route
@@ -75,9 +88,7 @@ function App() {
         <Route path="/pages/term-conditions" element={<TermConditions />} />
       </Routes>
       <Footer />
-      {/* <ButtonTheme /> */}
-      <ButtonScrollTop />
-    </Router>
+    </div>
   );
 
   function HeaderWrapper() {

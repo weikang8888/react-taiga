@@ -2,7 +2,7 @@
 
 import axios from "axios";
 
-const apiUrl = "http://localhost:8080/api_taiga/users";
+const apiUrl = "https://backend.taiga-auto.com/api_taiga/users";
 
 export const registerWithEmail = (userData) => {
   return axios.post(`${apiUrl}/registerEmail`, userData);

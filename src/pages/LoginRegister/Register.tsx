@@ -363,14 +363,12 @@ const Register = () => {
 
                         <div className="text-center mt-4 pt-1">
                           <a
-                            href="#facebook"
-                            className="text-dark px-3"
+                            className="text-dark px-3 cursorPointer"
                             onClick={handleFacebookLogin}>
                             <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
                           </a>
                           <a
-                            href="#google"
-                            className="text-dark px-3"
+                            className="text-dark px-3 cursorPointer"
                             id="signInDiv"
                             onClick={handleCustomGoogleSignIn}>
                             <i className="fa fa-google fa-lg custom-icon-color"></i>

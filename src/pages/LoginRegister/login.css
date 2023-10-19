@@ -78,3 +78,7 @@
   border: #fd5f16;
   background-color: #fd5f16;
 }
+
+.cursorPointer {
+  cursor: pointer;
+}

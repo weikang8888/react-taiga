@@ -91,6 +91,7 @@ const Register = () => {
             progress: undefined,
             theme: "colored",
           });
+          setEmail(email);
         })
         .catch((registrationError) => {
           setIsLoading(false);

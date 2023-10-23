@@ -12,18 +12,24 @@ import {
 import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 import PhoneInput from "react-phone-input-2";
 import { useAuth } from "src/AuthContent";
-import { toast } from "react-toastify";
 import CopyrightFooter from "src/components/Footer/CopyrightFooter";
 import Logo from "../../static/assets/image/tiger.png";
 import Toast from "../../Toast";
-
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 declare global {
   interface Window {
     FB: any;
     google: {
       accounts: {
         id: {
-          initialize(options: { client_id: string; callback: Function }): void;
+          initialize(options: {
+            client_id: string;
+            callback: Function;
+            redirect_uri: string;
+            response_type: string;
+            scope: string;
+          }): void;
           prompt(): void;
         };
       };
@@ -178,57 +184,47 @@ const Register = () => {
     }
   };
 
-  function handleCallbackResponse(response) {
-    // Check if the response contains the Google ID token
-    if (response.credential) {
-      // User successfully logged in
-      const googleIdToken = response.credential;
-      // Send the Google ID token to the backend
-      registerWithGoogle(googleIdToken)
-        .then((response) => {
-          console.log("Backend response:", response.data);
-          const name = response.data.name;
-          const email = response.data.email;
-          const emailExists = response.data.emailExists;
-
-          login(email, name, null, null);
-          Toast({ message: "Google Login Successful!" });
-          setEmail(email);
-          navigate(`/register/moreInfo`);
-
-          if (emailExists) {
-            navigate("/");
-          } else {
-            setEmail(email);
-            navigate("/register/moreInfo");
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: async (response) => {
+      try {
+        // Make an API call to Google to retrieve user information
+        const userInfoResponse = await axios.get(
+          "https://www.googleapis.com/oauth2/v3/userinfo",
+          {
+            headers: {
+              Authorization: `Bearer ${response.access_token}`,
+            },
           }
-        })
-        .catch((error) => {
-          console.error("Error making the backend request:", error);
-          Toast({ message: "Google Login Error!", type: "error" });
+        );
+        const email = userInfoResponse.data.email;
+        const name = userInfoResponse.data.name;
+
+        console.log("Email:", email);
+        console.log("Name:", name);
+
+        // Call the registerWithGoogle function with the access token in the headers
+        const registrationResponse = await registerWithGoogle(email, name, {
+          Authorization: `Bearer ${response.access_token}`,
         });
-    } else {
-      // Handle the case where the Google ID token is missing in the response
-      console.error("Google ID token is missing in the response.");
-      // Handle the error as needed
-    }
-  }
 
-  useEffect(() => {
-    /* global google */
-    window.google.accounts.id.initialize({
-      client_id:
-        "106987708628-69u7ibsorp0rfkaq35qvril6j09gp4st.apps.googleusercontent.com",
-      callback: handleCallbackResponse,
-    });
+        Toast({ message: "Google Login Successful!" });
+        setEmail(email);
+        navigate(`/register/moreInfo`);
+        login(email, name, null, null);
 
-    return () => {};
-  }, []);
-
-  const handleCustomGoogleSignIn = () => {
-    // Trigger the Google Sign-In process
-    window.google.accounts.id.prompt();
-  };
+        if (registrationResponse.data.emailExists) {
+          // Email exists, navigate to the homepage directly
+          navigate("/");
+        } else {
+          setEmail(email);
+          navigate("/register/moreInfo");
+        }
+      } catch (err) {
+        console.error(err);
+        Toast({ message: "Google Login Error!", type: "error" });
+      }
+    },
+  });
 
   return (
     <>
@@ -370,7 +366,7 @@ const Register = () => {
                           <a
                             className="text-dark px-3 cursorPointer"
                             id="signInDiv"
-                            onClick={handleCustomGoogleSignIn}>
+                            onClick={() => handleGoogleLogin()}>
                             <i className="fa fa-google fa-lg custom-icon-color"></i>
                           </a>
                         </div>

@@ -8,7 +8,7 @@ import {
   registerInfo,
   registerWithFacebook,
   registerWithGoogle,
-} from "../../apiEndpoints"; // Adjust the import path as needed
+} from "../../apiEndpoints";
 import LoaderDiamond from "../../components/Loader/LoaderDiamond";
 import PhoneInput from "react-phone-input-2";
 import { useAuth } from "src/AuthContent";
@@ -208,8 +208,6 @@ const Register = () => {
         });
 
         Toast({ message: "Google Login Successful!" });
-        setEmail(email);
-        navigate(`/register/moreInfo`);
         login(email, name, null, null);
 
         if (registrationResponse.data.emailExists) {
@@ -365,7 +363,6 @@ const Register = () => {
                           </a>
                           <a
                             className="text-dark px-3 cursorPointer"
-                            id="signInDiv"
                             onClick={() => handleGoogleLogin()}>
                             <i className="fa fa-google fa-lg custom-icon-color"></i>
                           </a>

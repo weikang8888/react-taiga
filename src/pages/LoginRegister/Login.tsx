@@ -5,9 +5,11 @@ import "font-awesome/css/font-awesome.min.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../AuthContent";
-import { toast } from "react-toastify";
 import CopyrightFooter from "src/components/Footer/CopyrightFooter";
 import Logo from "../../static/assets/image/tiger.png";
+import Toast from "../../Toast";
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import { registerWithGoogle } from "../../apiEndpoints";
 
 const Login = () => {
   const { login } = useAuth();
@@ -34,32 +36,13 @@ const Login = () => {
         const authToken = response.data.authToken;
         const name = response.data.name;
         login(email, name, null, authToken);
-        toast.success("Login Successfully!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+        Toast({ message: "Login Successful!" });
         navigate("/");
       })
       .catch((error) => {
         setErrorMessage(`Incorrect username or password.Please try again.`);
         console.error(error);
-        toast.error("Login Failed!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          containerId: "login-toast-error",
-        });
+        Toast({ message: "Login Failed!", type: "error" });
       });
   };
   // Function to handle email input change
@@ -74,6 +57,45 @@ const Login = () => {
     setErrorMessage("");
   };
 
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: async (response) => {
+      try {
+        // Make an API call to Google to retrieve user information
+        const userInfoResponse = await axios.get(
+          "https://www.googleapis.com/oauth2/v3/userinfo",
+          {
+            headers: {
+              Authorization: `Bearer ${response.access_token}`,
+            },
+          }
+        );
+        const email = userInfoResponse.data.email || "";
+        const name = userInfoResponse.data.name;
+
+        console.log("Email:", email);
+        console.log("Name:", name);
+
+        // Call the registerWithGoogle function with the access token in the headers
+        const registrationResponse = await registerWithGoogle(email, name, {
+          Authorization: `Bearer ${response.access_token}`,
+        });
+
+        Toast({ message: "Google Login Successful!" });
+        login(email, name, null, null);
+
+        if (registrationResponse.data.emailExists) {
+          // Email exists, navigate to the homepage directly
+          navigate("/");
+        } else {
+          navigate("/register/moreInfo", { state: { email } });
+        }
+      } catch (err) {
+        console.error(err);
+        Toast({ message: "Google Login Error!", type: "error" });
+      }
+    },
+  });
+
   return (
     <>
       <section className="gradient-custom bg-black">
@@ -83,7 +105,7 @@ const Login = () => {
               <div className="card bg-black text-white">
                 <div className="card-body px-sm-5 px-4 text-center">
                   <div className="mb-md-5 mt-md-4">
-                    <img src={Logo} style={{width:"240px"}}/>
+                    <img src={Logo} style={{ width: "240px" }} />
                     <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
                     <p className="text-white mb-5">
                       Please enter your login and password!
@@ -121,11 +143,13 @@ const Login = () => {
                       </a>
                     </p>
                     <ButtonMain text={"Login"} onClick={handleLogin} />
-                    <div className="d-flex justify-content-center text-center mt-4 pt-1">
-                      <a href="#!" className="text-dark px-3">
+                    <div className="text-center mt-4 pt-1">
+                      <a className="text-dark px-3 cursorPointer">
                         <i className="fa fa-facebook-f fa-lg custom-icon-color"></i>
                       </a>
-                      <a href="#!" className="text-dark px-3">
+                      <a
+                        className="text-dark px-3 cursorPointer"
+                        onClick={() => handleGoogleLogin()}>
                         <i className="fa fa-google fa-lg custom-icon-color"></i>
                       </a>
                     </div>

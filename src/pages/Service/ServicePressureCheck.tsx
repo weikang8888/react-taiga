@@ -84,60 +84,91 @@ const ServicePressureCheck = () => {
               </div>
 
               <div className="col-lg-6">
+                {" "}
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged.
+                  The inflation pressure of the tires must be checked frequently
+                  because it directly affects safety and proper upkeep can
+                  extend the life of the tires.
                 </p>
                 <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.
-                </p>
-                <p>
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form, by injected humour, or randomised words which don't look
-                  even slightly believable. If you are going to use a passage of
-                  Lorem Ipsum, you need to be sure there isn't anything
-                  embarrassing hidden in the middle of text. All the Lorem Ipsum
-                  generators on the Internet tend to repeat predefined chunks as
-                  necessary, making this the first true generator on the
-                  Internet.
+                  Regularly checking your tyre pressure is crucial because tires
+                  naturally lose some air. Without it, you run the risk of
+                  losing traction and extending your stopping distances.
+                  Additionally, you risk damaging your tires, reducing their
+                  lifespan, and using more fuel.
                 </p>
               </div>
             </div>
-            <div className="col-lg-12">
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Properly inflated tires improve traction, handling, and braking,
-                reducing the risk of accidents.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Correct tire pressure enhances fuel efficiency, saving money on
-                gas.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Even tire wear from proper inflation extends tire life, reducing
-                replacement costs.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div> Optimal tire pressure
-                ensures smoother rides and better vehicle performance.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div> By preventing premature wear
-                and improving fuel efficiency, overall maintenance costs are
-                reduced.
-              </p>
+            <div className="row">
+              <div className="col-lg-6">
+                <p>
+                  <strong>
+                    Why is it important to check the tyre pressure? It is
+                    important to check the tyre pressure regularly for a number
+                    of reasons:
+                  </strong>
+                </p>
+                <p>
+                  <strong>Safety:</strong> Having properly inflated tires
+                  enhances steering and driving while lowering the possibility
+                  of blowouts and accidents.
+                </p>
+                <p>
+                  <strong>Tyre wear:</strong> Under-inflated tires can lead to
+                  uneven wear and tear, shorter life, and other problems.
+                </p>
+                <p>
+                  <strong>Comfort:</strong> Having properly inflated tires can
+                  give the driver smoother rides, lower vibrations, and a more
+                  comfortable driving experience.
+                </p>
+                <p>
+                  <strong>Fuel economy:</strong> Low tire pressure can increase
+                  the rotating resistance, which lowers fuel economy and raises
+                  fuel consumption.
+                </p>
+                <p>
+                  <strong>Cost-effective:</strong>Proper tire pressure
+                  maintenance can help extend tire life and reduce fuel costs.
+                </p>
+              </div>
+              <div className="col-lg-6">
+                <p>
+                  <strong>
+                    To check the pressure of your tyres, you can use either an
+                    automatic air compressor or a tyre pressure gauge. To check
+                    the tyre pressure, you need to:
+                  </strong>
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div> Check the tyre placard or
+                  the owner's manual for the correct tyre pressures for your
+                  car.
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div> Unscrew the cap on the air
+                  valve of your tyre.
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div> Push your tyre pressure
+                  gauge firmly onto the tyre valve.
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div> Remove the valve cap from
+                  one of your tires.
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div> Place the pressure gauge
+                  on the valve stem and press down hard enough so the hiss sound
+                  disappears and your gauge provides a reading.
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div> With a standard gauge, the
+                  air pressure will push a small bar out from the bottom of the
+                  gauge. Your vehicle handbook will tell you what pressure you
+                  should have in your tyres.
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -72,64 +72,61 @@ const ServicePressureCheck = () => {
 
               <div className="col-lg-6">
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged.
+                  Wheel alignments are crucial because out-of-alignment wheels
+                  can result in problems like tyres that wear out quickly or
+                  unevenly and make driving or riding in your car less
+                  enjoyable.
                 </p>
-                <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.
+                <p>Symptoms of a car out of alignment:</p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>Your car pulling constantly
+                  to one side or the other on the straight is one indication
+                  that it may not be in alignment. Additionally, your steering
+                  wheel may give you hints that there is a problem with
+                  alignment, such as if it vibrates or seems off-center when you
+                  are driving straight. However, these issues might be happening
+                  for a number of different reasons, so keep reading for more
+                  warning signs of alignment problems.
                 </p>
-                <p>
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form, by injected humour, or randomised words which don't look
-                  even slightly believable. If you are going to use a passage of
-                  Lorem Ipsum, you need to be sure there isn't anything
-                  embarrassing hidden in the middle of text. All the Lorem Ipsum
-                  generators on the Internet tend to repeat predefined chunks as
-                  necessary, making this the first true generator on the
-                  Internet.
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>When your car is stopped,
+                  visually inspect the tread on your tires to look for alignment
+                  issues. Different alignment issues are indicated by different
+                  areas of the tire that are more "worn-down" than others or by
+                  a difference in tread depth from the inside to the outside
+                  edge of the tire.
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>Because misaligned wheels
+                  can cause tyres to screech in circumstances where they
+                  normally wouldn't, you might even be able to hear an alignment
+                  problem.
                 </p>
               </div>
             </div>
             <div className="col-lg-12">
               <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Correct wheel alignment ensures that the tires make uniform and
-                optimal contact with the road surface, reducing uneven wear.
-                This extends the lifespan of the tires, saving money on
-                premature replacements.
+                <div className="tick-orange"></div>How frequently you should
+                align your car's wheels isn't predetermined; it all depends on
+                your typical driving circumstances and routines. Many mechanics
+                advise having your car's alignment checked after every service,
+                but if you frequently drive on rough roads or log more miles
+                than average, you might want to think about getting an alignment
+                much more frequently. There is no such thing as too many
+                alignments in the mechanical sense.
               </p>
               <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Properly aligned wheels reduce rolling resistance, which means
-                the vehicle requires less effort to move forward. Improved fuel
-                efficiency leads to cost savings on gas over time.
+                <div className="tick-orange"></div>Regardless of when your
+                last alignment was performed, you should realign your vehicle
+                after replacing the tires, any steering or suspension system
+                components, or after a driving incident like a collision or a
+                particularly hard blow to the steering wheel.
               </p>
               <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Wheel alignment contributes to better handling and stability,
-                allowing the vehicle to respond more accurately to steering
-                inputs and maintain its intended course.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div> Correct alignment prevents
-                the vehicle from pulling to one side while driving, reducing
-                driver fatigue and making the driving experience more
-                comfortable.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div> Wheel alignment helps
-                maintain proper wheel balance, preventing vibrations and
-                ensuring a smoother ride.
+                <div className="tick-orange"></div>Wheel alignments are
+                crucial because misaligned wheels can negatively impact your
+                driving or riding experience and result in problems like tyres
+                that wear out too quickly or unevenly.
               </p>
             </div>
           </div>

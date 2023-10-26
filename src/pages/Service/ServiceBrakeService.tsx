@@ -73,63 +73,67 @@ const ServicePressureCheck = () => {
 
               <div className="col-lg-6">
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged.
+                  One of your car's most crucial systems is the braking system.
+                  Everyone wants to feel secure in the knowledge that their
+                  brakes won't malfunction and that they will be able to stop
+                  their car safely.
                 </p>
                 <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.
+                  The following are some signs that your brakes need to be
+                  inspected by our official store nearby.
                 </p>
-                <p>
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form, by injected humour, or randomised words which don't look
-                  even slightly believable. If you are going to use a passage of
-                  Lorem Ipsum, you need to be sure there isn't anything
-                  embarrassing hidden in the middle of text. All the Lorem Ipsum
-                  generators on the Internet tend to repeat predefined chunks as
-                  necessary, making this the first true generator on the
-                  Internet.
+                <p className="service-benefit-column">
+                  {" "}
+                  <div className="tick-orange"></div>
+                  When the brakes are applied, the vehicle pulls to one side or
+                  the other
+                </p>
+                <p className="service-benefit-column">
+                  {" "}
+                  <div className="tick-orange"></div>
+                  Brakes feel grindingly rigid
+                </p>
+                <p className="service-benefit-column">
+                  {" "}
+                  <div className="tick-orange"></div>
+                  Brakes are reluctant to react
+                </p>
+                <p className="service-benefit-column">
+                  {" "}
+                  <div className="tick-orange"></div>
+                  The dashboard's brake light is flashing red.
                 </p>
               </div>
             </div>
             <div className="col-lg-12">
               <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Regular brake service ensures the braking system functions
-                optimally, reducing the risk of accidents and providing a safer
-                driving experience.
+                <div className="tick-orange"></div>Your brake fluid will be
+                checked for the proper level and moisture content during your
+                routine maintenance appointment. To prevent brake performance
+                from being affected by boiling brought on by water-saturated
+                brake fluid, the brake fluid needs to be changed every couple of
+                years.
               </p>
               <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Properly maintained brakes offer improved stopping power,
-                allowing the vehicle to come to a halt more quickly in emergency
-                situations.
+                <div className="tick-orange"></div>The vehicle slows down as a
+                result of friction between the brake pad and brake rotor caused
+                by the brake callipers pressing the brake pads against the
+                rotor. Servicing the brake calliper, calliper pins, and sliders
+                will prolong the lifespan of the brake pads and rotors in
+                addition to keeping the brake system in your car operating at
+                its best. All of the metals used in brake systems are
+                susceptible to corrosion and rust. Regular maintenance will keep
+                them clean and functioning as intended, allowing you to brake
+                with confidence and enjoying a long brake pad life.
               </p>
               <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Brake service ensures that the brake system operates at its
-                best, providing consistent and reliable braking performance
-                under various driving conditions.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div>A well-maintained brake
-                system contributes to the overall health of the vehicle,
-                maintaining its resale value and marketability.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div> Brake service involves
-                checking and replacing brake fluid as needed, which helps
-                maintain the brake system's hydraulic performance and prevents
-                brake fade.
+                <div className="tick-orange"></div>The environment that brake
+                rotors live in is quite hostile. The brake pad squeezes the
+                rotor, causing friction that slows and ultimately stops the car.
+                A brake rotor's lifespan can be shortened by high temperatures,
+                inadequate cooling, and dragging brake pads. Make sure your
+                car's brake system is regularly inspected and maintained to get
+                the most life and performance out of it.
               </p>
             </div>
           </div>

@@ -73,63 +73,85 @@ const ServicePressureCheck = () => {
 
               <div className="col-lg-6">
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged.
+                  At certain speeds, any imbalance in the wheel and tyre
+                  assembly can cause vibrations in the suspension and vehicle
+                  structure. Such vibrations not only make driving
+                  uncomfortable, but they also hasten the wear of the vehicle's
+                  suspension parts and the tread on your tires. Premature wear
+                  raises costs because the tyre must be replaced before its
+                  time.
                 </p>
                 <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.
+                  By having your wheels balanced, you can prevent annoying
+                  vibrations in your car and the premature expense of having to
+                  replace the unevenly worn tyre.
                 </p>
                 <p>
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form, by injected humour, or randomised words which don't look
-                  even slightly believable. If you are going to use a passage of
-                  Lorem Ipsum, you need to be sure there isn't anything
-                  embarrassing hidden in the middle of text. All the Lorem Ipsum
-                  generators on the Internet tend to repeat predefined chunks as
-                  necessary, making this the first true generator on the
-                  Internet.
+                  A qualified technician will mounts your wheel and tire
+                  assembly onto a tire balancing device during a tire balance
+                  service. The wheel and tire assembly are spun by the machine
+                  to gauge the degree of imbalance. The technician can install
+                  the appropriate wheel weights to balance the wheel and tire
+                  correctly using this information.
                 </p>
               </div>
             </div>
-            <div className="col-lg-12">
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Balanced tyres reduce vibrations and create a smoother driving
-                experience, enhancing comfort for passengers and reducing driver
-                fatigue.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Properly balanced tyres ensure optimal contact with the road,
-                improving traction and grip, especially during cornering and on
-                wet or slippery surfaces.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div>
-                Balancing tyres evenly distributes the weight and pressure on
-                each tyre, leading to more uniform wear and prolonging the life
-                of the tyres.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div> Balanced tyres reduce
-                rolling resistance, which improves fuel efficiency and saves
-                money on gas over time.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div> Properly balanced tyres
-                reduce stress on the vehicle's suspension system, leading to
-                fewer repairs and longer-lasting components.
-              </p>
+            <div className="row">
+              <div className="col-lg-3">
+                <p className="service-benefit-column">
+                  <strong>Importance of tyre balancing:</strong>
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>A smoother ride
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>Less deterioration of the
+                  tires
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div> Reduces the load on the
+                  drivetrain
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>Higher fuel efficiency
+                </p>
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>Fewer vibrations and noises
+                </p>
+              </div>
+              <div className="col-lg-6">
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>You should schedule a visit
+                  with a qualified technician as soon as you notice any
+                  indications that your tires need to be balanced. However,
+                  generally speaking, you ought to have your car's tires
+                  balanced and rotated every 5,000
+                </p>
+                <p className="service-benefit-column">
+                  {" "}
+                  <div className="tick-orange"></div>
+                  As soon as you feel a vibration, you should have your vehicle
+                  checked. Tires that are out of balance unfortunately can't be
+                  fixed. The issue must be handled by a skilled technician.
+                </p>
+              </div>
+              <div className="col-lg-3">
+                <p className="service-benefit-column">
+                  <strong> Perfect time for tyre balancing:</strong>
+                </p>{" "}
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>During tire rotation
+                  service
+                </p>{" "}
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>During flat tire repair
+                  services
+                </p>{" "}
+                <p className="service-benefit-column">
+                  <div className="tick-orange"></div>During regularly scheduled
+                  maintenance visits
+                </p>
+              </div>
             </div>
           </div>
         </div>

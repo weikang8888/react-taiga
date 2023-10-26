@@ -101,10 +101,7 @@ const About = () => {
   return (
     <>
       <Loader />
-      <Banner
-        bannerImage={BannerImage}
-        showChevron={false}
-      />
+      <Banner bannerImage={BannerImage} showChevron={false} />
 
       <section className="quality-area quality-area-four pt-100">
         <div className="quality-shape">
@@ -146,42 +143,34 @@ const About = () => {
             <div className="section-title mb-0"></div>
             <h2 className="text-main">Business Overview</h2>
             <p>
-              For over half a <strong>century</strong>, Service Group has been
-              the leading and largest manufacturers of
-              <strong> tyres </strong> , <strong> tubes </strong> , and
-              <strong> footwear </strong>
-              in Pakistan. With an established nationwide network, it reaches
-              out and touches millions of lives through its power brands.
+              Since its establishment in 2022, Taiga Auto Service Sdn Bhd has
+              been diligently serving the discerning community of Nusa Bestari,
+              Johor Bahru. Our esteemed expertise lies in the art of car repair,
+              ensuring that every vehicle entrusted to us receives the utmost
+              care and attention it deserves. Furthermore, we take great pride
+              in offering an extensive range of top-notch services, including
+              but not limited to oil servicing, tire and sport rim maintenance,
+              suspension repair, and a plethora of other automotive solutions.
             </p>
             <p>
-              Beginning its modest journey in
-              <strong> 1941 </strong>
-              with the manufacturing of handbags and sports goods, it
-              established a<strong> shoe </strong>
-              manufacturing plant in
-              <strong> 1954 </strong>. Today the production site of the company
-              has flourished into Service Industries Limited (SIL), a public
-              limited company, with annual sales revenue of approximately
-              <strong> PKR 33 billion </strong>. The company carries a
-              well-reputed and respected image as producers of world-className
-              shoes, tyres, and tubes at their manufacturing facilities in
-              <strong> Gujrat </strong>
-              and
-              <strong> Muridke </strong>.
+              Our exceptional staff members are committed to providing
+              unparalleled service to our esteemed customers, ensuring that
+              their unique needs and financial considerations are meticulously
+              addressed. In the rare event that any inconvenience arises as a
+              result of our inadvertent error, we guarantee a full refund as a
+              prompt and satisfactory resolution.
             </p>
             <p>
-              In addition to being a leading company in Pakistan, SIL has the
-              distinctive honour of being the largest exporter of tyres, tubes,
-              and footwear products with an ever-expanding international
-              footprint in Europe, the Middle East, South America, Africa, Asia,
-              and the Far East.
-            </p>
-            <p>
-              Presently, the company employs more than
-              <strong> 12,000 </strong>
-              dedicated and skilled personnel who are constantly contributing to
-              the recognition and growth of the company both domestically and
-              internationally.
+              o In our esteemed establishment, we offer a splendid array of
+              exquisite sports rims, designed to captivate the discerning eye of
+              new customers. Additionally, our extensive collection boasts a
+              plethora of esteemed tire brands, ensuring that the needs and
+              desires of our esteemed clientele are met with utmost precision.
+              Should a customer's desired tire brand be temporarily unavailable,
+              our dedicated personnel will promptly liaise with our trusted
+              suppliers to procure and bestow it upon our esteemed patron. Rest
+              assured, dear customer, your complete satisfaction remains our
+              utmost priority.
             </p>
           </div>
         </div>

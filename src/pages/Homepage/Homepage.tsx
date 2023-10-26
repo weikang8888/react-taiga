@@ -128,12 +128,18 @@ const Homepage = () => {
                 <div className="process-inner process-one">
                   <i className="bx bxs-car-mechanic"></i>
                   <h3>Identify Problems</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                  <p>
+                    The responsible party will make a list of everything that
+                    needs to be fixed.
+                  </p>
                 </div>
                 <div className="process-inner">
                   <i className="bx bxs-car-garage"></i>
                   <h3>Start Servicing</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                  <p>
+                    The responsible party will begin servicing your vehicle
+                    until it is flawless.
+                  </p>
                 </div>
               </div>
             </div>
@@ -157,12 +163,18 @@ const Homepage = () => {
                 <div className="process-inner process-two">
                   <i className="bx bxs-car-crash"></i>
                   <h3>Trial For Make Sure</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                  <p>
+                    After servicing, we'll make sure to test the vehicle before
+                    handing it off to the customer.
+                  </p>
                 </div>
                 <div className="process-inner process-three">
                   <i className="bx bxs-car-wash"></i>
                   <h3>Deliver Service</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                  <p>
+                    We will hand the car over to the customer once the car has
+                    been settled and serviced.
+                  </p>
                 </div>
               </div>
             </div>
@@ -201,10 +213,9 @@ const Homepage = () => {
                 data-aos="fade-right"
                 data-aos-duration="2000"
                 data-aos-delay="200">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis.
+                Ensuring safety is our top priority, and maintaining high
+                quality is our standard. Moreover, we prioritize our customers
+                when it comes to delivering outstanding quality.
               </p>
             </div>
             <ButtonMain text="Read More" />
@@ -217,8 +228,7 @@ const Homepage = () => {
           <TitleSection
             subtitle="works"
             title="Latest Works For Clients"
-            description=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            description=" Here are a few samples of our most recent projects that we have completed. For further details and insights, please refer to the image provided below."
           />
 
           <HompageWorks />
@@ -248,8 +258,10 @@ const Homepage = () => {
                     <i className="bx bx-box"></i>
                     <h3>Trusted & Quality Work</h3>
                     <p>
-                      Lorem ipsum the dolor sit amet, consectetur adising elit,
-                      sed do.the dolor sit amet, consectetur
+                      Rest assured, our esteemed team of skilled mechanics is at
+                      your service. With unwavering commitment to excellence, we
+                      guarantee to deliver unparalleled quality and an
+                      unforgettable experience.
                     </p>
                   </li>
                   <li
@@ -259,8 +271,10 @@ const Homepage = () => {
                     <i className="bx bxs-truck"></i>
                     <h3>Fast Service Delivery</h3>
                     <p>
-                      Lorem ipsum the dolor sit amet, consectetur adising elit,
-                      sed do.the dolor sit amet, consectetur
+                      Allow us the privilege to attend to your vehicle's needs
+                      promptly and efficiently. With our expertise and swift
+                      service, your car will be meticulously cared for in no
+                      time at all.
                     </p>
                   </li>
                   <li
@@ -270,8 +284,9 @@ const Homepage = () => {
                     <i className="bx bx-money"></i>
                     <h3>Money Back Garanty</h3>
                     <p>
-                      Lorem ipsum the dolor sit amet, consectetur adising elit,
-                      sed do.the dolor sit amet, consectetur
+                      In the event of any unforeseen complications on our part,
+                      we are committed to providing a money back guarantee. Your
+                      peace of mind is our utmost priority.
                     </p>
                   </li>
                 </ul>

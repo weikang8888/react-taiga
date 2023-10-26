@@ -37,7 +37,7 @@ const HomepageService = () => {
       serviceIcon: PressureImage,
       serviceTitle: "Pressure Check",
       serviceDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+        "Tyre pressure is a measurement of how much air is in your tyre, and ensures tyre wear evenly and maintain the correct level of grip with the surface.",
       aosDelay: "200",
       serviceUrl: "/services/pressure-check",
     },
@@ -47,7 +47,7 @@ const HomepageService = () => {
       serviceIcon: SuspensionImage,
       serviceTitle: "Suspension Service",
       serviceDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+        "A vehicle's performance, ride comfort, and safety are all directly influenced by the service suspension system.",
       aosDelay: "400",
       serviceUrl: "/services/suspension-service",
     },
@@ -57,7 +57,7 @@ const HomepageService = () => {
       serviceIcon: WheelImage,
       serviceTitle: "Wheel Alignment",
       serviceDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+        "A mechanical adjustment of your suspension system to ensure that your wheels are in th correct position. ",
       aosDelay: "600",
       serviceUrl: "/services/wheel-alignment",
     },
@@ -67,7 +67,7 @@ const HomepageService = () => {
       serviceIcon: BrakeImage,
       serviceTitle: "Brake Service",
       serviceDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+        "It involves replacing the old brake fluid with fresh fluid, changing the brake pads, refinishing the rotors, and cleaning, adjusting, and lubricating additional braking systems.",
       aosDelay: "800",
       serviceUrl: "/services/brake-service",
     },
@@ -77,7 +77,7 @@ const HomepageService = () => {
       serviceIcon: BalancingImage,
       serviceTitle: "Tyre Balancing",
       serviceDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+        "The process of distributing the assembly's weight evenly so that it spins smoothly and vibration-free.",
       aosDelay: "1000",
       serviceUrl: "/services/tyre-balancing",
     },
@@ -87,7 +87,7 @@ const HomepageService = () => {
       serviceIcon: EngineImage,
       serviceTitle: "Engine Oil Service",
       serviceDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+        "Engine oil acts as a lubricant to ensure that all of  these parts move smoothly by lowering friction.",
       aosDelay: "1200",
       serviceUrl: "/services/engine-oil-service",
     },

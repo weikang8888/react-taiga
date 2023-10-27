@@ -146,8 +146,8 @@ const MultiStepModal = ({ handleCloseModal }) => {
           &times;
         </button>
         <div className="progressbar-wrapper">
-          <h2 className="mb-3">Book An Appointment</h2>
-          <ul className="progressbar">{renderProgressSteps()}</ul>
+          <h2 className="my-3">Book An Appointment</h2>
+          <ul className="progressbar p-0 m-0">{renderProgressSteps()}</ul>
         </div>
         {currentStep === 1 && (
           <>

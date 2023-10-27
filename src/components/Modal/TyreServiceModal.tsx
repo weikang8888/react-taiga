@@ -9,10 +9,8 @@ const TyreService = ({ data, handleChange, errors }) => {
           <div className="row">
             <div className="col-sm-6 col-lg-6">
               <div
-                className={`form-group form-control ${
-                  data.servicesType.includes("Pressure Check")
-                    ? "checked"
-                    : ""
+                className={`form-group form-control border ${
+                  data.servicesType.includes("Pressure Check") ? "checked" : ""
                 }${errors.servicesType ? "error-border" : ""}`}>
                 <input
                   type="checkbox"
@@ -31,7 +29,7 @@ const TyreService = ({ data, handleChange, errors }) => {
             </div>
             <div className="col-sm-6 col-lg-6">
               <div
-                className={`form-group form-control ${
+                className={`form-group form-control border ${
                   data.servicesType.includes("Suspension Service")
                     ? "checked"
                     : ""
@@ -54,7 +52,7 @@ const TyreService = ({ data, handleChange, errors }) => {
             </div>
             <div className="col-sm-6 col-lg-6">
               <div
-                className={`form-group form-control ${
+                className={`form-group form-control border ${
                   data.servicesType.includes("Wheel Alignment") ? "checked" : ""
                 }${errors.servicesType ? "error-border" : ""}`}>
                 <input
@@ -74,7 +72,7 @@ const TyreService = ({ data, handleChange, errors }) => {
             </div>
             <div className="col-sm-6 col-lg-6">
               <div
-                className={`form-group form-control ${
+                className={`form-group form-control border ${
                   data.servicesType.includes("Brake Service") ? "checked" : ""
                 }${errors.servicesType ? "error-border" : ""}`}>
                 <input
@@ -94,7 +92,7 @@ const TyreService = ({ data, handleChange, errors }) => {
             </div>
             <div className="col-sm-6 col-lg-6">
               <div
-                className={`form-group form-control ${
+                className={`form-group form-control border ${
                   data.servicesType.includes("Tyre Balancing") ? "checked" : ""
                 }${errors.servicesType ? "error-border" : ""}`}>
                 <input
@@ -114,7 +112,7 @@ const TyreService = ({ data, handleChange, errors }) => {
             </div>
             <div className="col-sm-6 col-lg-6">
               <div
-                className={`form-group form-control ${
+                className={`form-group form-control border ${
                   data.servicesType.includes("Engine Oil Service")
                     ? "checked"
                     : ""

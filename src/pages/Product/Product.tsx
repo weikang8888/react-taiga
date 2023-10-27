@@ -8,6 +8,7 @@ import "react-input-range/lib/css/index.css";
 import "./product.css";
 import Loader from "../../components/Loader/Loader";
 import PriceRangeDisplay from "./PriceRangeDisplay";
+import { getProductList } from "src/apiEndpoints";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -18,8 +19,7 @@ const Product = () => {
   const { carBrand } = useParams();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/api_taiga/products/products")
+    getProductList()
       .then((registrationResponse) => {
         setProducts(registrationResponse.data);
       })

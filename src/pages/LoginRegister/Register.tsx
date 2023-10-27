@@ -243,7 +243,7 @@ const Register = () => {
                         </p>
                         <div className="mb-4">
                           {/* Name input */}
-                          <div className="form-outline form-white mb-4  px-2">
+                          <div className="form-outline form-white mb-4">
                             <input
                               type="text"
                               id="name"
@@ -266,7 +266,7 @@ const Register = () => {
                           </div>
 
                           {/* Email input */}
-                          <div className="form-outline form-white mb-4  px-2">
+                          <div className="form-outline form-white mb-4">
                             <input
                               type="email"
                               id="email"
@@ -293,7 +293,7 @@ const Register = () => {
                           </div>
 
                           {/* Password input */}
-                          <div className="form-outline form-white mb-4  px-2">
+                          <div className="form-outline form-white mb-4">
                             <input
                               type="password"
                               id="password"
@@ -376,13 +376,14 @@ const Register = () => {
                         <p className="text-white">Let Us more remember you!</p>
                         <div className="">
                           {/* Phone Number input */}
-                          <div className="form-outline form-white mb-4  px-2">
+                          <div className="form-outline form-white mb-4">
                             <PhoneInput
                               country={"my"}
                               value={formData.phoneNumber}
                               onChange={(e) =>
                                 handleInputChange("phoneNumber", e)
                               }
+                              inputClass={`${formData.phoneNumber ? "active" : ""}`}
                             />
                             {formSubmitted && !formData.phoneNumber.trim() && (
                               <div className="error-message">
@@ -392,7 +393,7 @@ const Register = () => {
                           </div>
 
                           {/* Car Type input */}
-                          <div className="form-outline form-white mb-4  px-2">
+                          <div className="form-outline form-white mb-4">
                             <input
                               type="text"
                               id="carType"
@@ -415,7 +416,7 @@ const Register = () => {
                           </div>
 
                           {/* Address input */}
-                          <div className="form-outline form-white mb-5 col-12 px-2">
+                          <div className="form-outline form-white mb-5 col-12">
                             <input
                               type="text"
                               id="address"

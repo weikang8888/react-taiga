@@ -38,8 +38,9 @@
   .mobile-nav.mean-container .mean-nav ul li a.active {
     color: #fd5f16;
   }
-  .carousel,.page-title-area {
-    height: 50vh!important;
+  .carousel,
+  .page-title-area {
+    height: 50vh !important;
   }
   .banner-area {
     height: 100%;
@@ -74,7 +75,7 @@
   .banner-area .banner-text p {
     margin-bottom: 32px;
   }
-  
+
   .cmn-btn a {
     padding: 10px 12px 12px;
   }
@@ -743,6 +744,15 @@
   }
   .contact-area .contact-right .contact-btn {
     font-size: 14px;
+  }
+  .progressbar-wrapper {
+    padding: 0;
+  }
+  .css-956pwy-MuiPickersToolbar-root-MuiDateTimePickerToolbar-root {
+    padding: 0 16px 0 16px!important;
+  }
+  .css-nk89i7-MuiPickersCalendarHeader-root{
+    margin:0!important;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -1539,4 +1549,3 @@
     width: 100%;
   }
 }
-

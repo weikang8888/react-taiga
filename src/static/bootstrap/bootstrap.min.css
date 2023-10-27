@@ -6518,7 +6518,7 @@ fieldset:disabled .btn {
   transform: translateY(-50%) !important;
 }
 .border {
-  border: 1px solid #dee2e6 !important;
+  border: 1px solid #000;
 }
 .border-0 {
   border: 0 !important;

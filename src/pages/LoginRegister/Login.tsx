@@ -9,7 +9,7 @@ import CopyrightFooter from "src/components/Footer/CopyrightFooter";
 import Logo from "../../static/assets/image/tiger.png";
 import Toast from "../../Toast";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
-import { registerWithGoogle } from "../../apiEndpoints";
+import { loginWithEmail, registerWithGoogle } from "../../apiEndpoints";
 
 const Login = () => {
   const { login } = useAuth();
@@ -29,8 +29,7 @@ const Login = () => {
     };
 
     // Send a POST request to the PHP backend
-    axios
-      .post("http://localhost:8080/api_taiga/users/login", userData)
+    loginWithEmail(userData)
       .then((response) => {
         // console.log(response.data);
         const authToken = response.data.authToken;

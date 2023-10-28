@@ -337,8 +337,8 @@
     max-width: 100%;
   }
   .copyright-area {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     margin-top: 20px;
     text-align: center;
   }
@@ -1071,7 +1071,7 @@
   .copyright-area {
     padding-top: 25px;
     padding-bottom: 25px;
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
   }
   .copyright-area .copyright-item p {

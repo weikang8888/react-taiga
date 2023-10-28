@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
+import { verifyEmail } from "../../apiEndpoints";
 import { toast } from "react-toastify";
 
 const Verify = () => {
@@ -11,10 +11,7 @@ const Verify = () => {
 
   useEffect(() => {
     // Make a GET request to your server to verify the token
-    axios
-      .get(
-        `http://localhost:8080/api_taiga/users/verifyEmail?token=${verificationToken}`
-      )
+    verifyEmail(verificationToken)
       .then((response) => {
         // Handle the verification response here
         console.log("Verification Response:", response.data);

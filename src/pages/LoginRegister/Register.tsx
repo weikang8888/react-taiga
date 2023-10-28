@@ -316,7 +316,7 @@ const Register = () => {
                           </div>
 
                           {/* Confirm Password input */}
-                          <div className="form-outline form-white mb-1  px-2">
+                          <div className="form-outline form-white mb-1">
                             <input
                               type="password"
                               id="confirmPassword"

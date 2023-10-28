@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:8080/api_taiga";
+const apiUrl = "https://backend.taiga-auto.com/api_taiga";
 
 export const loginWithEmail = (userData) => {
   return axios.post(`${apiUrl}/users/login`, userData);
@@ -30,4 +30,8 @@ export const registerWithGoogle = (email, name, headers) => {
 
 export const getProductList = () => {
   return axios.get(`${apiUrl}/products/list`);
+};
+
+export const verifyEmail = (verificationToken) => {
+  return axios.get(`${apiUrl}/users/verifyEmail?token=${verificationToken}`);
 };

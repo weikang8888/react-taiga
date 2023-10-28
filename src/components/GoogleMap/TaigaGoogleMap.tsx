@@ -21,7 +21,7 @@ const TaigaGoogleMap = () => {
     {
       id: 1,
       labelText: "Taiga",
-      position: { lat: 2.494001743274743, lng: 102.85915383087884 },
+      position: { lat: 1.494405696049873, lng: 103.6571709018517 },
       icon: customerMarker,
     },
   ];
@@ -42,7 +42,7 @@ const TaigaGoogleMap = () => {
     <div>
       <GoogleMap
         zoom={13}
-        center={{ lat: 2.494001743274743, lng: 102.85915383087884 }}
+        center={{ lat: 1.494405696049873, lng: 103.6571709018517 }}
         mapContainerClassName="map">
         {markers.map((marker) => (
           <MarkerF

@@ -102,9 +102,11 @@ const Login = () => {
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
               <div className="card bg-black text-white">
-                <div className="card-body px-sm-5 px-4 text-center">
+                <div className="card-body px-sm-5 px-4 pt-4 text-center">
                   <div className="mb-md-5 mt-md-4">
-                    <img src={Logo} style={{ width: "240px" }} />
+                    <Link to="/">
+                      <img src={Logo} style={{ width: "240px" }} />
+                    </Link>
                     <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
                     <p className="text-white mb-5">
                       Please enter your login and password!

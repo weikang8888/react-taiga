@@ -179,24 +179,24 @@ const ServicePressureCheck = () => {
                   and durability of the oil. The viscosity level is determined
                   by two numbers.
                 </p>
-                <p className="service-benefit-column">
-                  <div className="tick-orange"></div>The initial number with
-                  the letter 'W' indicates how the oil flows during cold weather
-                  or when the engine is first turned on.
-                </p>
-                <p className="service-benefit-column">
-                  <div className="tick-orange"></div>The second digit
-                  indicates how well the oil flows when the engine is at its
-                  regular operating temperature.
-                </p>
-                <p>
+                <li className="service-benefit-column">
+                  <div className="tick-orange"></div>The initial number with the
+                  letter 'W' indicates how the oil flows during cold weather or
+                  when the engine is first turned on.
+                </li>
+                <li className="service-benefit-column mb-3">
+                  <div className="tick-orange"></div>The second digit indicates
+                  how well the oil flows when the engine is at its regular
+                  operating temperature.
+                </li>
+                <li>
                   <strong>Engine oil certification standards:</strong>
                   Different organizations have different acronyms for engine oil
                   certification standards, such as API, ACEA, ILSAC, and JASO.
                   These standards indicate that the oil meets or exceeds the
                   necessary requirements and ensure the performance and quality
                   of the product.
-                </p>
+                </li>
               </div>
             </div>
           </div>

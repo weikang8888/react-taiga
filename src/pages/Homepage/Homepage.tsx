@@ -186,8 +186,7 @@ const Homepage = () => {
           <TitleSection
             subtitle="service"
             title="Our Services"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            description="We would like to present to you our exquisite range of products and the seamless process we have in place for repairs. For a more comprehensive understanding, we invite you to peruse the accompanying visuals."
           />
           <HomepageService />
         </div>
@@ -218,7 +217,7 @@ const Homepage = () => {
                 when it comes to delivering outstanding quality.
               </p>
             </div>
-            <ButtonMain text="Read More" />
+            <ButtonMain text="Read More" buttonUrl="/about" />
             <img src={ProcessTyre} alt="Quality" />
           </div>
         </div>

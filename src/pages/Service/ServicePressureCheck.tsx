@@ -84,7 +84,6 @@ const ServicePressureCheck = () => {
               </div>
 
               <div className="col-lg-6">
-                {" "}
                 <p>
                   The inflation pressure of the tires must be checked frequently
                   because it directly affects safety and proper upkeep can
@@ -103,71 +102,71 @@ const ServicePressureCheck = () => {
               <div className="col-lg-6">
                 <p>
                   <strong>
-                    Why is it important to check the tyre pressure? It is
-                    important to check the tyre pressure regularly for a number
+                    Why is it important to check the tire pressure? It is
+                    important to check the tire pressure regularly for a number
                     of reasons:
                   </strong>
                 </p>
-                <p>
+                <li>
                   <strong>Safety:</strong> Having properly inflated tires
                   enhances steering and driving while lowering the possibility
                   of blowouts and accidents.
-                </p>
-                <p>
-                  <strong>Tyre wear:</strong> Under-inflated tires can lead to
+                </li>
+                <li>
+                  <strong>Tire wear:</strong> Under-inflated tires can lead to
                   uneven wear and tear, shorter life, and other problems.
-                </p>
-                <p>
+                </li>
+                <li>
                   <strong>Comfort:</strong> Having properly inflated tires can
                   give the driver smoother rides, lower vibrations, and a more
                   comfortable driving experience.
-                </p>
-                <p>
+                </li>
+                <li>
                   <strong>Fuel economy:</strong> Low tire pressure can increase
-                  the rotating resistance, which lowers fuel economy and raises
+                  the rolling resistance, which lowers fuel economy and raises
                   fuel consumption.
-                </p>
-                <p>
-                  <strong>Cost-effective:</strong>Proper tire pressure
+                </li>
+                <li>
+                  <strong>Cost-effective:</strong> Proper tire pressure
                   maintenance can help extend tire life and reduce fuel costs.
-                </p>
+                </li>
               </div>
               <div className="col-lg-6">
                 <p>
                   <strong>
-                    To check the pressure of your tyres, you can use either an
-                    automatic air compressor or a tyre pressure gauge. To check
-                    the tyre pressure, you need to:
+                    To check the pressure of your tires, you can use either an
+                    automatic air compressor or a tire pressure gauge. To check
+                    the tire pressure, you need to:
                   </strong>
                 </p>
-                <p className="service-benefit-column">
-                  <div className="tick-orange"></div> Check the tyre placard or
-                  the owner's manual for the correct tyre pressures for your
+                <li className="service-benefit-column mb-2">
+                  <div className="tick-orange"></div> Check the tire placard or
+                  the owner's manual for the correct tire pressures for your
                   car.
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div> Unscrew the cap on the air
-                  valve of your tyre.
-                </p>
-                <p className="service-benefit-column">
-                  <div className="tick-orange"></div> Push your tyre pressure
-                  gauge firmly onto the tyre valve.
-                </p>
-                <p className="service-benefit-column">
+                  valve of your tire.
+                </li>
+                <li className="service-benefit-column mb-2">
+                  <div className="tick-orange"></div> Push your tire pressure
+                  gauge firmly onto the tire valve.
+                </li>
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div> Remove the valve cap from
                   one of your tires.
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div> Place the pressure gauge
                   on the valve stem and press down hard enough so the hiss sound
                   disappears and your gauge provides a reading.
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div> With a standard gauge, the
                   air pressure will push a small bar out from the bottom of the
                   gauge. Your vehicle handbook will tell you what pressure you
-                  should have in your tyres.
-                </p>
+                  should have in your tires.
+                </li>
               </div>
             </div>
           </div>

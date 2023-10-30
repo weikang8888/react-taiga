@@ -73,61 +73,65 @@ const ServicePressureCheck = () => {
               <div className="col-lg-6">
                 <p>
                   Wheel alignments are crucial because out-of-alignment wheels
-                  can result in problems like tyres that wear out quickly or
-                  unevenly and make driving or riding in your car less
-                  enjoyable.
+                  can result in problems like tires that wear out quickly or
+                  unevenly, making driving less enjoyable.
                 </p>
-                <p>Symptoms of a car out of alignment:</p>
-                <p className="service-benefit-column">
-                  <div className="tick-orange"></div>Your car pulling constantly
-                  to one side or the other on the straight is one indication
-                  that it may not be in alignment. Additionally, your steering
-                  wheel may give you hints that there is a problem with
-                  alignment, such as if it vibrates or seems off-center when you
-                  are driving straight. However, these issues might be happening
-                  for a number of different reasons, so keep reading for more
-                  warning signs of alignment problems.
+                <p>
+                  <strong>Symptoms of a car out of alignment:</strong>
                 </p>
-                <p className="service-benefit-column">
-                  <div className="tick-orange"></div>When your car is stopped,
-                  visually inspect the tread on your tires to look for alignment
-                  issues. Different alignment issues are indicated by different
-                  areas of the tire that are more "worn-down" than others or by
-                  a difference in tread depth from the inside to the outside
-                  edge of the tire.
-                </p>
-                <p className="service-benefit-column">
-                  <div className="tick-orange"></div>Because misaligned wheels
-                  can cause tyres to screech in circumstances where they
-                  normally wouldn't, you might even be able to hear an alignment
-                  problem.
-                </p>
+                <ul>
+                  <li className="service-benefit-column mb-2">
+                    <div className="tick-orange"></div>Your car may pull
+                    constantly to one side or the other, even when driving
+                    straight. Additionally, your steering wheel may vibrate or
+                    seem off-center when you are driving straight. However,
+                    these issues might be happening for a number of different
+                    reasons, so keep reading for more warning signs of alignment
+                    problems.
+                  </li>
+                  <li className="service-benefit-column mb-2">
+                    <div className="tick-orange"></div>When your car is stopped,
+                    visually inspect the tread on your tires to look for
+                    alignment issues. Different alignment issues are indicated
+                    by different areas of the tire that are more "worn-down"
+                    than others or by a difference in tread depth from the
+                    inside to the outside edge of the tire.
+                  </li>
+                  <li className="service-benefit-column mb-2">
+                    <div className="tick-orange"></div>Misaligned wheels can
+                    cause tires to screech in circumstances where they normally
+                    wouldn't, so you might even be able to hear an alignment
+                    problem.
+                  </li>
+                </ul>
               </div>
             </div>
             <div className="col-lg-12">
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div>How frequently you should
-                align your car's wheels isn't predetermined; it all depends on
-                your typical driving circumstances and routines. Many mechanics
-                advise having your car's alignment checked after every service,
-                but if you frequently drive on rough roads or log more miles
-                than average, you might want to think about getting an alignment
-                much more frequently. There is no such thing as too many
-                alignments in the mechanical sense.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div>Regardless of when your
-                last alignment was performed, you should realign your vehicle
-                after replacing the tires, any steering or suspension system
-                components, or after a driving incident like a collision or a
-                particularly hard blow to the steering wheel.
-              </p>
-              <p className="service-benefit-column">
-                <div className="tick-orange"></div>Wheel alignments are
-                crucial because misaligned wheels can negatively impact your
-                driving or riding experience and result in problems like tyres
-                that wear out too quickly or unevenly.
-              </p>
+              <ul>
+                <li className="service-benefit-column mb-2">
+                  <div className="tick-orange"></div>How frequently you should
+                  align your car's wheels isn't predetermined; it all depends on
+                  your typical driving circumstances and routines. Many
+                  mechanics advise having your car's alignment checked after
+                  every service. However, if you frequently drive on rough roads
+                  or log more miles than average, you might want to consider
+                  getting an alignment more frequently. There is no such thing
+                  as too many alignments in the mechanical sense.
+                </li>
+                <li className="service-benefit-column mb-2">
+                  <div className="tick-orange"></div>Regardless of when your
+                  last alignment was performed, you should realign your vehicle
+                  after replacing the tires, any steering or suspension system
+                  components, or after a driving incident like a collision or a
+                  particularly hard blow to the steering wheel.
+                </li>
+                <li className="service-benefit-column mb-2">
+                  <div className="tick-orange"></div>Wheel alignments are
+                  crucial because misaligned wheels can negatively impact your
+                  driving or riding experience and result in problems like tires
+                  that wear out too quickly or unevenly.
+                </li>
+              </ul>
             </div>
           </div>
         </div>

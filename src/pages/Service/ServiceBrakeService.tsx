@@ -72,49 +72,49 @@ const ServicePressureCheck = () => {
               </div>
 
               <div className="col-lg-6">
-                <p>
+                <li className="mb-2">
                   One of your car's most crucial systems is the braking system.
                   Everyone wants to feel secure in the knowledge that their
                   brakes won't malfunction and that they will be able to stop
                   their car safely.
-                </p>
-                <p>
+                </li>
+                <li className="mb-2">
                   The following are some signs that your brakes need to be
                   inspected by our official store nearby.
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   {" "}
                   <div className="tick-orange"></div>
                   When the brakes are applied, the vehicle pulls to one side or
                   the other
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   {" "}
                   <div className="tick-orange"></div>
                   Brakes feel grindingly rigid
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   {" "}
                   <div className="tick-orange"></div>
                   Brakes are reluctant to react
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   {" "}
                   <div className="tick-orange"></div>
                   The dashboard's brake light is flashing red.
-                </p>
+                </li>
               </div>
             </div>
             <div className="col-lg-12">
-              <p className="service-benefit-column">
+              <li className="service-benefit-column mb-2">
                 <div className="tick-orange"></div>Your brake fluid will be
                 checked for the proper level and moisture content during your
                 routine maintenance appointment. To prevent brake performance
                 from being affected by boiling brought on by water-saturated
                 brake fluid, the brake fluid needs to be changed every couple of
                 years.
-              </p>
-              <p className="service-benefit-column">
+              </li>
+              <li className="service-benefit-column mb-2">
                 <div className="tick-orange"></div>The vehicle slows down as a
                 result of friction between the brake pad and brake rotor caused
                 by the brake callipers pressing the brake pads against the
@@ -125,8 +125,8 @@ const ServicePressureCheck = () => {
                 susceptible to corrosion and rust. Regular maintenance will keep
                 them clean and functioning as intended, allowing you to brake
                 with confidence and enjoying a long brake pad life.
-              </p>
-              <p className="service-benefit-column">
+              </li>
+              <li className="service-benefit-column mb-2">
                 <div className="tick-orange"></div>The environment that brake
                 rotors live in is quite hostile. The brake pad squeezes the
                 rotor, causing friction that slows and ultimately stops the car.
@@ -134,7 +134,7 @@ const ServicePressureCheck = () => {
                 inadequate cooling, and dragging brake pads. Make sure your
                 car's brake system is regularly inspected and maintained to get
                 the most life and performance out of it.
-              </p>
+              </li>
             </div>
           </div>
         </div>

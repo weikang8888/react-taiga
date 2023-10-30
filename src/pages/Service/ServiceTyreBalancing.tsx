@@ -98,59 +98,59 @@ const ServicePressureCheck = () => {
             </div>
             <div className="row">
               <div className="col-lg-3">
-                <p className="service-benefit-column">
+                <li className="service-benefit-column mb-2">
                   <strong>Importance of tyre balancing:</strong>
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div>A smoother ride
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div>Less deterioration of the
                   tires
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div> Reduces the load on the
                   drivetrain
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div>Higher fuel efficiency
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div>Fewer vibrations and noises
-                </p>
+                </li>
               </div>
               <div className="col-lg-6">
-                <p className="service-benefit-column">
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div>You should schedule a visit
                   with a qualified technician as soon as you notice any
                   indications that your tires need to be balanced. However,
                   generally speaking, you ought to have your car's tires
                   balanced and rotated every 5,000
-                </p>
-                <p className="service-benefit-column">
+                </li>
+                <li className="service-benefit-column mb-2">
                   {" "}
                   <div className="tick-orange"></div>
                   As soon as you feel a vibration, you should have your vehicle
                   checked. Tires that are out of balance unfortunately can't be
                   fixed. The issue must be handled by a skilled technician.
-                </p>
+                </li>
               </div>
               <div className="col-lg-3">
-                <p className="service-benefit-column">
+                <li className="service-benefit-column mb-2">
                   <strong> Perfect time for tyre balancing:</strong>
-                </p>{" "}
-                <p className="service-benefit-column">
+                </li>{" "}
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div>During tire rotation
                   service
-                </p>{" "}
-                <p className="service-benefit-column">
+                </li>{" "}
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div>During flat tire repair
                   services
-                </p>{" "}
-                <p className="service-benefit-column">
+                </li>{" "}
+                <li className="service-benefit-column mb-2">
                   <div className="tick-orange"></div>During regularly scheduled
                   maintenance visits
-                </p>
+                </li>
               </div>
             </div>
           </div>

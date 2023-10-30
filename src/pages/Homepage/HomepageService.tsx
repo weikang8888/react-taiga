@@ -37,7 +37,7 @@ const HomepageService = () => {
       serviceIcon: PressureImage,
       serviceTitle: "Pressure Check",
       serviceDescription:
-        "Tyre pressure is a measurement of how much air is in your tyre, and ensures tyre wear evenly and maintain the correct level of grip with the surface.",
+        "Tire pressure measures the amount of air in your tire, ensuring even wear and proper grip on the road.",
       aosDelay: "200",
       serviceUrl: "/services/pressure-check",
     },
@@ -67,7 +67,7 @@ const HomepageService = () => {
       serviceIcon: BrakeImage,
       serviceTitle: "Brake Service",
       serviceDescription:
-        "It involves replacing the old brake fluid with fresh fluid, changing the brake pads, refinishing the rotors, and cleaning, adjusting, and lubricating additional braking systems.",
+        "Brake maintenance includes fluid replacement, pad and rotor changes, and adjustments to other braking systems.",
       aosDelay: "800",
       serviceUrl: "/services/brake-service",
     },

@@ -1,5 +1,6 @@
 import React from "react";
 import "./button.css";
+import { Link } from "react-router-dom";
 
 interface ButtonMainProps {
   text: string;
@@ -17,14 +18,14 @@ const ButtonMain: React.FC<ButtonMainProps> = ({
   onClick,
 }) => {
   return (
-    <a href={buttonUrl} className={`cmn-btn ${buttonDiv}`}>
+    <Link to={buttonUrl} className={`cmn-btn ${buttonDiv}`}>
       <button
         type="button"
         className={`banner-btn-left ${buttonA}`}
         onClick={onClick}>
         {text}
       </button>
-    </a>
+    </Link>
   );
 };
 

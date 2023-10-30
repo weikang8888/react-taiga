@@ -21,9 +21,9 @@ const Footer = () => {
                     <img src={Logo} alt="Logo" className="footer-logo-img" />
                   </Link>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Aliquam nobis et praesentium architecto ex laudantium
-                    voluptates in dolore
+                    We offer premium sports rims, branded tires, spare parts,
+                    and expert technicians for your vehicle. Experience our
+                    top-notch service today.
                   </p>
                   <ul>
                     <li>

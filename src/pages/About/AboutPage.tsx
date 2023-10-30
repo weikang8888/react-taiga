@@ -120,10 +120,9 @@ const About = () => {
                 <div className="section-title">
                   <h2>Quality Work is Our First Priority</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Quis ipsum suspendisse ultrices gravida. Risus
-                    commodo viverra maecenas accumsan lacus vel facilisis.
+                    Ensuring safety is our top priority, and maintaining high
+                    quality is our standard. Moreover, we prioritize our
+                    customers when it comes to delivering outstanding quality.
                   </p>
                 </div>
                 <div className="cmn-btn">

@@ -62,7 +62,7 @@ const PhoneNumber = () => {
           "OTP verification successful. You can now log in."
         ) {
           const authToken = response.data.authToken;
-          login(null, null, phoneNumber, authToken);
+          login(null, null, phoneNumber);
           navigate("/");
         } else {
           // Handle other cases if needed

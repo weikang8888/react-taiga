@@ -20,20 +20,6 @@ import axios from "axios";
 declare global {
   interface Window {
     FB: any;
-    google: {
-      accounts: {
-        id: {
-          initialize(options: {
-            client_id: string;
-            callback: Function;
-            redirect_uri: string;
-            response_type: string;
-            scope: string;
-          }): void;
-          prompt(): void;
-        };
-      };
-    };
   }
 }
 
@@ -122,10 +108,10 @@ const Register = () => {
           console.log("Registration Response:", response.data);
           const name = response.data.name;
           const email = response.data.email;
-          login(email, name, null, null);
+          login(email, name, null);
           Toast({ message: "Register Successful!" });
 
-          navigate("/");
+          navigate("/login");
           // Handle success
         })
         .catch((registrationError) => {
@@ -158,7 +144,7 @@ const Register = () => {
                 Toast({ message: "Facebook Login Successful!" });
                 setEmail(email);
                 navigate(`/register/moreInfo`);
-                login(email, name, null, null);
+                login(email, name, null);
 
                 if (emailExists) {
                   // Email exists, navigate to the homepage directly
@@ -177,7 +163,7 @@ const Register = () => {
             console.log("Facebook login canceled or not authorized.");
           }
         },
-        { scope: "email,public_profile" }
+        // { scope: "email,public_profile" }
       );
     } else {
       console.error("Facebook SDK not initialized.");
@@ -208,7 +194,7 @@ const Register = () => {
         });
 
         Toast({ message: "Google Login Successful!" });
-        login(email, name, null, null);
+        login(email, name, null);
 
         if (registrationResponse.data.emailExists) {
           // Email exists, navigate to the homepage directly

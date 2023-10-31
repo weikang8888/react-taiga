@@ -32,9 +32,10 @@ const Login = () => {
     loginWithEmail(userData)
       .then((response) => {
         // console.log(response.data);
-        const authToken = response.data.authToken;
         const name = response.data.name;
-        login(email, name, null, authToken);
+        const phoneNumber = response.data.phoneNumber;
+
+        login(email, name, phoneNumber);
         Toast({ message: "Login Successful!" });
         navigate("/");
       })
@@ -80,7 +81,7 @@ const Login = () => {
         });
 
         Toast({ message: "Google Login Successful!" });
-        login(email, name, null, null);
+        login(email, name, null);
 
         if (registrationResponse.data.emailExists) {
           // Email exists, navigate to the homepage directly

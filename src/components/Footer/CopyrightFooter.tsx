@@ -10,7 +10,7 @@ const CopyrightFooter = () => {
             <div className="copyright-item">
               <p>
                 Copyright @ 2023 Taiga. Designed By
-                <Link to="" target="_blank" className="px-1">
+                <Link to="https://www.kitarteliti.com.my/home/" target="_blank" className="px-1">
                   Kitar Teliti
                 </Link>
               </p>

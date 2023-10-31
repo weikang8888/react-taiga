@@ -15,7 +15,6 @@ interface AuthContextProps {
     email?: string,
     name?: string,
     phoneNumber?: string,
-    authToken?: string
   ) => void; // Update the type to match the implementation
   logout: () => void;
 }
@@ -50,20 +49,17 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     email: string,
     name: string,
     phoneNumber: string,
-    authToken: string
   ) => {
     setIsLoggedIn(true);
     setUserEmail(email);
     setUserName(name);
     setUserPhoneNumber(phoneNumber);
-    localStorage.setItem("authToken", authToken);
     localStorage.setItem("userEmail", email);
     localStorage.setItem("userName", name);
     localStorage.setItem("userPhoneNumber", phoneNumber);
   };
 
   const logout = () => {
-    localStorage.removeItem("authToken");
     localStorage.removeItem("userEmail");
     localStorage.removeItem("userName");
     localStorage.removeItem("userPhoneNumber");

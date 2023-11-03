@@ -40,12 +40,15 @@ const Homepage = () => {
                 <div className="container">
                   <div className="row align-items-center justify-content-center justify-content-lg-start">
                     <div className="col-10 col-lg-7 text-center text-lg-start">
-                      <h6 className="text-white text-uppercase mb-3 animated slideInDown">
-                        // Tyre Servicing //
+                      <h6 className="text-main text-uppercase mb-3 animated slideInDown">
+                        // Shop Tires Now //
                       </h6>
-                      <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">
-                        Qualified Tyre Repair Service Center
+                      <h1 className="display-3 text-white mb-sm-4 pb-sm-3 animated slideInDown">
+                        Discover Quality Tires for a Smooth and Safe Ride
                       </h1>
+                      {/* <h2 className="animated slideInDown">
+                        Find the Perfect Tires for Your Vehicle
+                      </h2> */}
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img
@@ -68,12 +71,15 @@ const Homepage = () => {
                 <div className="container">
                   <div className="row align-items-center justify-content-center justify-content-lg-start">
                     <div className="col-10 col-lg-7 text-center text-lg-start">
-                      <h6 className="text-white text-uppercase mb-3 animated slideInDown">
-                        // Tyre Servicing //
+                      <h6 className="text-main text-uppercase mb-3 animated slideInDown">
+                        // Expert Tire Services //
                       </h6>
-                      <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown">
-                        Qualified Tyre Maintenance Center
+                      <h1 className="display-3 text-white mb-sm-4 pb-sm-3 animated slideInDown">
+                        Comprehensive Tire Services for Your Vehicle
                       </h1>
+                      {/* <h2 className="animated slideInDown">
+                        Your Trusted Source for Tire Maintenance and Repairs
+                      </h2> */}
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img

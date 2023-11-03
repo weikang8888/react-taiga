@@ -237,7 +237,7 @@ const Header = ({ props }) => {
                     to="/pages/term-conditions"
                     className="nav-link"
                     onClick={() => setIsMeanNavVisible(false)}>
-                    Tern & Conditions
+                    Term & Conditions
                   </Link>
                 </li>
               </ul>
@@ -355,7 +355,7 @@ const Header = ({ props }) => {
                     </li>
                     <li className="nav-item">
                       <Link to="/pages/term-conditions" className="nav-link">
-                        Tern & Conditions
+                        Term & Conditions
                       </Link>
                     </li>
                   </ul>

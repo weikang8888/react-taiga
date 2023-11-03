@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 import InputRange from "react-input-range";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../static/assets/about/about-taiga.png";
@@ -8,20 +7,38 @@ import "react-input-range/lib/css/index.css";
 import "./product.css";
 import Loader from "../../components/Loader/Loader";
 import PriceRangeDisplay from "./PriceRangeDisplay";
-import { getProductList } from "src/apiEndpoints";
+import { getProductList, getCarList } from "src/apiEndpoints";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
+  const [cars, setCars] = useState([]); // Initialize cars as an empty array
   const [priceRange, setPriceRange] = useState({ min: 0, max: 2000 });
   const [selectedTyreBrands, setSelectedTyreBrands] = useState([]);
   const [selectedCarBrand, setSelectedCarBrand] = useState([]);
+
   const navigate = useNavigate();
   const { carBrand } = useParams();
+
+  const filterCarsByBrand = (carBrandId) => {
+    // Filter cars that match the selected car brand
+    return cars.filter((car) => car.carType === carBrandId);
+  };
+  const filteredCars = filterCarsByBrand(selectedCarBrand[0]);
 
   useEffect(() => {
     getProductList()
       .then((registrationResponse) => {
         setProducts(registrationResponse.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    getCarList()
+      .then((registrationResponse) => {
+        setCars(registrationResponse.data);
       })
       .catch((error) => {
         console.log(error);
@@ -61,6 +78,8 @@ const Product = () => {
     }
   };
 
+  const handleCarClick = () => {};
+
   const filteredProducts = products
     .filter((product) => {
       // Check if the product's tire brand is selected (selectedTyreBrands)
@@ -90,6 +109,8 @@ const Product = () => {
   useEffect(() => {
     setSelectedCarBrand(carBrand ? [carBrand] : []);
   }, [carBrand]);
+
+  // Inside your component's return statement, use the filtered cars
 
   return (
     <>
@@ -170,6 +191,13 @@ const Product = () => {
                     { id: "bentley", label: "Bentley" },
                     { id: "chevrolet", label: "Chevrolet" },
                     { id: "ferrari", label: "Ferrari" },
+                    { id: "haval", label: "Haval" },
+                    { id: "honda", label: "Honda" },
+                    { id: "hyundai", label: "Hyundai" },
+                    { id: "mers", label: "Mercedes-Benz" },
+                    { id: "mini", label: "Mini" },
+                    { id: "lexus", label: "Lexus" },
+                    { id: "madza", label: "Madza" },
                   ].map((carBrand) => (
                     <li className="cat-item" key={carBrand.id}>
                       <a
@@ -189,10 +217,10 @@ const Product = () => {
                 id="mf-catalog-toolbar"
                 className="shop-toolbar multiple mb-4">
                 <div className="products-found">
-                  <strong>{filteredProducts.length}</strong>
+                  {/* <strong>{filteredProducts.length}</strong>
                   {filteredProducts.length === 1
                     ? "Product found"
-                    : "Products found"}
+                    : "Products found"} */}
                 </div>
 
                 <div className="shop-view"></div>
@@ -244,32 +272,53 @@ const Product = () => {
                 <ul className="shop-content-column px-0 mx-0">
                   <div className="shop-content">
                     <ul className="shop-content-column px-0 mx-0">
-                      {filteredProducts.map((product) => (
-                        <li key={product.id} className="px-0 col-lg-4">
-                          <div className="product-inner">
-                            <div className="product-thumbnail">
-                              <a href={product.products_url}>
-                                <img
-                                  src={require(`../../static/assets/picture/${product.products_image}`)}
-                                  alt={product.products_title}
-                                />
-                              </a>
-                            </div>
-                            <div className="product-details">
-                              <div className="product-content">
-                                <div className="product_title">
-                                  <a href="#">{product.products_title}</a>
-                                </div>
-                                <div className="product-price-box">
-                                  <div className="price">
-                                    RM{product.products_price}.00
+                      {selectedCarBrand.length > 0 &&
+                        filteredCars.map((car) => (
+                          <li
+                            key={car.id}
+                            className="product-car col-xs-6 col-sm-4 col-md-4 un-3-cols"
+                            onClick={handleCarClick}>
+                            <a
+                              aria-label={`Visit product category ${car.carName}`}
+                              href="">
+                              <img
+                                src={require(`../../static/assets/picture/${car.carImage}`)}
+                                alt={car.carName}
+                              />
+                              <p className="woocommerce-loop-category__title">
+                                {car.carName} <mark className="count">(2)</mark>{" "}
+                              </p>
+                            </a>
+                          </li>
+                        ))}
+
+                      {selectedCarBrand.length === 0 &&
+                        filteredProducts.map((product) => (
+                          <li key={product.id} className="px-0 col-lg-4">
+                            <div className="product-inner">
+                              <div className="product-thumbnail">
+                                <a href={product.products_url}>
+                                  <img
+                                    src={require(`../../static/assets/picture/${product.products_image}`)}
+                                    alt={product.products_title}
+                                  />
+                                </a>
+                              </div>
+                              <div className="product-details">
+                                <div className="product-content">
+                                  <div className="product_title">
+                                    <a href="#">{product.products_title}</a>
+                                  </div>
+                                  <div className="product-price-box">
+                                    <div className="price">
+                                      RM{product.products_price}.00
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </li>
-                      ))}
+                          </li>
+                        ))}
                     </ul>
                   </div>
                 </ul>

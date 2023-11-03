@@ -9,7 +9,7 @@ import Phone from "../../static/assets/contact/telephone-call.png";
 import Email from "../../static/assets/contact/email.png";
 import LiveChat from "../../static/assets/contact/live-chat.png";
 
-import TaigaGoogleMap from "../../components/GoogleMap/TaigaGoogleMap";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -102,7 +102,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row mb-4">
             <div className="col-lg-6">
               <div className="contact-item contact-left">
                 <h3>Our Located Place</h3>
@@ -211,8 +211,8 @@ const Contact = () => {
                         <div className="help-block with-errors"></div>
                       </div>
                     </div>
-                    <div className="col-lg-12 col-md-12">
-                      <div className="form-group">
+                    <div className="col-lg-12 col-md-12 mb-2">
+                      <div className="form-group-contact">
                         <div className="form-check agree-label">
                           <input
                             name="gridCheck"
@@ -225,13 +225,13 @@ const Contact = () => {
                           />
                           <label className="form-check-label">
                             Accept
-                            <a href="terms-condition.html" className="px-2">
+                            <Link to="/pages/term-conditions" className="px-2">
                               Terms & Conditions
-                            </a>
+                            </Link>
                             And
-                            <a href="privacy-policy.html" className="px-2">
+                            <Link to="/pages/privacy-policy" className="px-2">
                               Privacy Policy.
-                            </a>
+                            </Link>
                           </label>
                           <div className="help-block with-errors gridCheck-error"></div>
                         </div>
@@ -253,8 +253,11 @@ const Contact = () => {
               </div>
             </div>
           </div>
-
-          <TaigaGoogleMap />
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4621641307144!2d103.65452087461594!3d1.4939230610965555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da730047f94737%3A0xf5c0b618213d532b!2sTaiga%20Auto%20Service%20Sdn%20Bhd!5e0!3m2!1sen!2smy!4v1698981065331!5m2!1sen!2smy"
+            width="100%"
+            height="450"
+            loading="lazy"></iframe>
         </div>
       </section>
     </>

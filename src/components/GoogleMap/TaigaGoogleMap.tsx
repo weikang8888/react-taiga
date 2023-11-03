@@ -6,7 +6,7 @@ import {
   useLoadScript,
 } from "@react-google-maps/api";
 import "./googlemap.css";
-import customerMarker from "../../static/assets/contact/map-marker_orange.svg";
+import customerMarker from "../../static/assets/image/favicon.png";
 
 const TaigaGoogleMap = () => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
@@ -20,7 +20,7 @@ const TaigaGoogleMap = () => {
   const markers = [
     {
       id: 1,
-      labelText: "Taiga",
+      // labelText: "Taiga",
       position: { lat: 1.494405696049873, lng: 103.6571709018517 },
       icon: customerMarker,
     },
@@ -40,7 +40,9 @@ const TaigaGoogleMap = () => {
 
   return (
     <div>
-      <GoogleMap
+      
+
+      {/* <GoogleMap
         zoom={13}
         center={{ lat: 1.494405696049873, lng: 103.6571709018517 }}
         mapContainerClassName="map">
@@ -53,13 +55,13 @@ const TaigaGoogleMap = () => {
               scaledSize: new window.google.maps.Size(60, 60), // Adjust the size of the icon if needed
             }}
             onClick={() => handleMarkerClick(marker)}
-            label={{
-              text: marker.labelText, // Use the labelText property as the label text
-              className: "marker-label", // Add a class name for styling
-            }}
+            // label={{
+            //   // text: marker.labelText, // Use the labelText property as the label text
+            //   className: "marker-label", // Add a class name for styling
+            // }}
           />
         ))}
-      </GoogleMap>
+      </GoogleMap> */}
     </div>
   );
 };

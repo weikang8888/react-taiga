@@ -8,6 +8,7 @@ import "./product.css";
 import Loader from "../../components/Loader/Loader";
 import PriceRangeDisplay from "./PriceRangeDisplay";
 import { getProductList, getCarList } from "src/apiEndpoints";
+import CommingSoon from "../../static/assets/image/coming-soon-campaign.png";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -225,7 +226,7 @@ const Product = () => {
 
                 <div className="shop-view"></div>
                 <ul className="shop-ordering">
-                  <li className="current">
+                  {/* <li className="current">
                     <span> Sort by price: low to high</span>
                     <ul>
                       <li>
@@ -264,11 +265,11 @@ const Product = () => {
                         </a>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
 
-              <div className="">
+              {/*<div className="">
                 <ul className="shop-content-column px-0 mx-0">
                   <div className="shop-content">
                     <ul className="shop-content-column px-0 mx-0">
@@ -323,6 +324,10 @@ const Product = () => {
                   </div>
                 </ul>
               </div>
+            </div> 
+            <div>
+            */}
+              <img src={CommingSoon} />
             </div>
           </div>
         </div>

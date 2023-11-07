@@ -82,7 +82,10 @@ function AppWithHeaderAndFooter() {
           path="/services/engine-oil-service"
           element={<ServiceEngineOil />}
         />
-        <Route path="/products/:carBrand?" element={<Product />} />
+        <Route
+          path="/products/:carBrand?/:carTyreType?"
+          element={<Product />}
+        />
         <Route path="/contactUs" element={<Contact />} />
         <Route path="/pages" />
         <Route path="/pages/faq" element={<Faq />} />

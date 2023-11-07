@@ -16,6 +16,8 @@ const Product = () => {
   const [priceRange, setPriceRange] = useState({ min: 0, max: 2000 });
   const [selectedTyreBrands, setSelectedTyreBrands] = useState([]);
   const [selectedCarBrand, setSelectedCarBrand] = useState([]);
+  const [selectedCarBrandTyre, setSelectedCarBrandTyre] = useState([]);
+  const [activeCarBrand, setActiveCarBrand] = useState(""); // Track the active car brand
 
   const navigate = useNavigate();
   const { carBrand } = useParams();
@@ -24,8 +26,20 @@ const Product = () => {
     // Filter cars that match the selected car brand
     return cars.filter((car) => car.carType === carBrandId);
   };
-  const filteredCars = filterCarsByBrand(selectedCarBrand[0]);
-
+  const carBrandsList = [
+    { id: "audi", label: "Audi" },
+    { id: "bmw", label: "BMW" },
+    { id: "bentley", label: "Bentley" },
+    { id: "chevrolet", label: "Chevrolet" },
+    { id: "ferrari", label: "Ferrari" },
+    { id: "haval", label: "Haval" },
+    { id: "honda", label: "Honda" },
+    { id: "hyundai", label: "Hyundai" },
+    { id: "mers", label: "Mercedes-Benz" },
+    { id: "mini", label: "Mini" },
+    { id: "lexus", label: "Lexus" },
+    { id: "madza", label: "Madza" },
+  ];
   useEffect(() => {
     getProductList()
       .then((registrationResponse) => {
@@ -71,15 +85,24 @@ const Product = () => {
     if (carBrand === "all") {
       // If "All Categories" is clicked, clear the selected car brands and tire brands, and navigate
       setSelectedCarBrand([]);
+      setActiveCarBrand(""); // Clear the active car brand
       setSelectedTyreBrands([]);
+      setSelectedCarBrandTyre([]);
       navigate("/products");
     } else {
-      setSelectedCarBrand([carBrand]); // Select the clicked car brand and deselect others
+      setSelectedCarBrand([carBrand]);
+      setActiveCarBrand(carBrand); // Set the active car brand
       navigate(`/products/${carBrand}`);
     }
   };
 
-  const handleCarClick = () => {};
+  const handleCarClick = (carTypeTyre) => {
+    setSelectedCarBrandTyre([carTypeTyre]);
+    setSelectedCarBrand([]);
+    navigate(`/products/${carBrand}/${carTypeTyre}`);
+  };
+
+  const filteredCars = filterCarsByBrand(selectedCarBrand[0]);
 
   const filteredProducts = products
     .filter((product) => {
@@ -88,30 +111,31 @@ const Product = () => {
         selectedTyreBrands.length === 0 ||
         selectedTyreBrands.includes(product.products_tyre_brand);
 
-      // Split the product's car brands into an array
-      const carBrandsArray = product.products_car_type_tyre
-        .split(",")
-        .map((carBrand) => carBrand.trim());
-
-      // Check if at least one of the selected car brands is present in the product's car brands
-      const isCarBrandSelected =
-        selectedCarBrand.length === 0 ||
-        selectedCarBrand.some((selectedBrand) =>
-          carBrandsArray.includes(selectedBrand)
-        );
-      // Combine both conditions with logical AND (&&)
-      return isTireBrandSelected && isCarBrandSelected;
+      return isTireBrandSelected;
     })
     .filter((product) => {
       const productPrice = parseFloat(product.products_price);
       return productPrice >= priceRange.min && productPrice <= priceRange.max;
+    })
+    .filter((product) => {
+      // Check if the product's car type tire matches the selected car type tire
+      if (selectedCarBrandTyre.length === 0) {
+        return true; // No car type tire selected, so all products are included
+      } else {
+        // Use some to check if any selected car type tire matches the product's car type tire
+        return selectedCarBrandTyre.some((carTypeTyre) => {
+          // Split the product's car type tire into an array
+          const productCarTypeTyres = product.products_car_type_tyre.split(",");
+
+          return productCarTypeTyres.includes(carTypeTyre);
+        });
+      }
     });
 
   useEffect(() => {
     setSelectedCarBrand(carBrand ? [carBrand] : []);
+    setActiveCarBrand(carBrand || ""); // Set the active car brand from the URL parameter
   }, [carBrand]);
-
-  // Inside your component's return statement, use the filtered cars
 
   return (
     <>
@@ -131,11 +155,11 @@ const Product = () => {
                 <h4 className="widget-title">Filter by price</h4>
                 <div className="price_slider_wrapper">
                   <InputRange
-                    maxValue={2000} // Set your desired max value
-                    minValue={0} // Set your desired min value
+                    maxValue={2000}
+                    minValue={0}
                     value={priceRange}
                     onChange={handlePriceChange}
-                    formatLabel={(value) => `RM${value}`} // Optional: Format label as desired
+                    formatLabel={(value) => `RM${value}`}
                   />
                   <PriceRangeDisplay
                     minValue={priceRange.min}
@@ -150,10 +174,9 @@ const Product = () => {
                     className="widget-layered-nav-list mf-widget-layered-nav-scroll"
                     data-height="130">
                     {[
-                      { id: "ToyoTires", label: "Toyo Tires" },
-                      { id: "Michelin", label: "Michelin" },
-                      { id: "Continental", label: "Continental" },
-                      { id: "BridgeStone", label: "BridgeStone" },
+                      { id: "Arisun", label: "Arisun" },
+                      { id: "Apollo", label: "Apollo" },
+                      { id: "Vredestein", label: "Vredestein" },
                     ].map((tyreBrand) => (
                       <li
                         className="widget-layered-nav-list__item"
@@ -177,34 +200,19 @@ const Product = () => {
               <div className="widget">
                 <h4 className="widget-title">Categories</h4>
                 <ul className="product-categories p-0">
-                  {selectedCarBrand.length > 0 && (
-                    <li className="cat-item">
-                      <a
-                        onClick={() => handleCarBrandClick("all")}
-                        className="fw-bolder">
-                        All Categories
-                      </a>
-                    </li>
-                  )}
-                  {[
-                    { id: "audi", label: "Audi" },
-                    { id: "bmw", label: "BMW" },
-                    { id: "bentley", label: "Bentley" },
-                    { id: "chevrolet", label: "Chevrolet" },
-                    { id: "ferrari", label: "Ferrari" },
-                    { id: "haval", label: "Haval" },
-                    { id: "honda", label: "Honda" },
-                    { id: "hyundai", label: "Hyundai" },
-                    { id: "mers", label: "Mercedes-Benz" },
-                    { id: "mini", label: "Mini" },
-                    { id: "lexus", label: "Lexus" },
-                    { id: "madza", label: "Madza" },
-                  ].map((carBrand) => (
+                  <li className="cat-item">
+                    <a
+                      onClick={() => handleCarBrandClick("all")}
+                      className="fw-bolder">
+                      All Categories
+                    </a>
+                  </li>
+                  {carBrandsList.map((carBrand) => (
                     <li className="cat-item" key={carBrand.id}>
                       <a
                         onClick={() => handleCarBrandClick(carBrand.id)}
                         className={`${
-                          selectedCarBrand.includes(carBrand.id) ? "active" : ""
+                          activeCarBrand === carBrand.id ? "active" : ""
                         }`}>
                         {carBrand.label}
                       </a>
@@ -217,16 +225,10 @@ const Product = () => {
               <div
                 id="mf-catalog-toolbar"
                 className="shop-toolbar multiple mb-4">
-                <div className="products-found">
-                  {/* <strong>{filteredProducts.length}</strong>
-                  {filteredProducts.length === 1
-                    ? "Product found"
-                    : "Products found"} */}
-                </div>
-
+                <div className="products-found"></div>
                 <div className="shop-view"></div>
                 <ul className="shop-ordering">
-                  {/* <li className="current">
+                  <li className="current">
                     <span> Sort by price: low to high</span>
                     <ul>
                       <li>
@@ -265,33 +267,31 @@ const Product = () => {
                         </a>
                       </li>
                     </ul>
-                  </li> */}
+                  </li>
                 </ul>
               </div>
-
-              {/*<div className="">
+              <div className="">
                 <ul className="shop-content-column px-0 mx-0">
                   <div className="shop-content">
                     <ul className="shop-content-column px-0 mx-0">
-                      {selectedCarBrand.length > 0 &&
-                        filteredCars.map((car) => (
-                          <li
-                            key={car.id}
-                            className="product-car col-xs-6 col-sm-4 col-md-4 un-3-cols"
-                            onClick={handleCarClick}>
-                            <a
-                              aria-label={`Visit product category ${car.carName}`}
-                              href="">
-                              <img
-                                src={require(`../../static/assets/picture/${car.carImage}`)}
-                                alt={car.carName}
-                              />
-                              <p className="woocommerce-loop-category__title">
-                                {car.carName} <mark className="count">(2)</mark>{" "}
-                              </p>
-                            </a>
-                          </li>
-                        ))}
+                      {filteredCars.map((car) => (
+                        <li
+                          key={car.id}
+                          className="product-car col-xs-6 col-sm-4 col-md-4 un-3-cols text-center"
+                          onClick={() => handleCarClick(car.carTypeTyre)}>
+                          <a
+                            aria-label={`Visit product category ${car.carName}`}>
+                            <img
+                              src={require(`../../static/assets/picture/${car.carImage}`)}
+                              alt={car.carName}
+                            />
+                            <p className="woocommerce-loop-category__title mb-0 mt-3">
+                              {car.carName}
+                              {/* <mark className="count">(2)</mark> */}
+                            </p>
+                          </a>
+                        </li>
+                      ))}
 
                       {selectedCarBrand.length === 0 &&
                         filteredProducts.map((product) => (
@@ -324,11 +324,8 @@ const Product = () => {
                   </div>
                 </ul>
               </div>
-            </div> 
-            <div>
-            */}
-              <img src={CommingSoon} />
             </div>
+            <div>{/* <img src={CommingSoon} /> */}</div>
           </div>
         </div>
       </section>

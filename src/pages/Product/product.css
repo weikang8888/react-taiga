@@ -99,7 +99,7 @@
 
 .custom-checkbox .checkbox-label {
   position: relative;
-  padding-left: 25px; /* Adjust label padding */
+  padding-left: 20px; /* Adjust label padding */
   cursor: pointer;
 }
 

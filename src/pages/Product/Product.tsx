@@ -11,6 +11,8 @@ import { getProductList, getCarList } from "src/apiEndpoints";
 import CommingSoon from "../../static/assets/image/coming-soon-campaign.png";
 
 const Product = () => {
+  const navigate = useNavigate();
+  const { carBrand } = useParams();
   const [products, setProducts] = useState([]);
   const [cars, setCars] = useState([]); // Initialize cars as an empty array
   const [priceRange, setPriceRange] = useState({ min: 0, max: 2000 });
@@ -18,9 +20,9 @@ const Product = () => {
   const [selectedCarBrand, setSelectedCarBrand] = useState([]);
   const [selectedCarBrandTyre, setSelectedCarBrandTyre] = useState([]);
   const [activeCarBrand, setActiveCarBrand] = useState(""); // Track the active car brand
-
-  const navigate = useNavigate();
-  const { carBrand } = useParams();
+  const itemsPerPage = 15;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [showPagination, setShowPagination] = useState(true);
 
   const filterCarsByBrand = (carBrandId) => {
     // Filter cars that match the selected car brand
@@ -32,13 +34,24 @@ const Product = () => {
     { id: "bentley", label: "Bentley" },
     { id: "chevrolet", label: "Chevrolet" },
     { id: "ferrari", label: "Ferrari" },
-    { id: "haval", label: "Haval" },
     { id: "honda", label: "Honda" },
     { id: "hyundai", label: "Hyundai" },
     { id: "mers", label: "Mercedes-Benz" },
     { id: "mini", label: "Mini" },
     { id: "lexus", label: "Lexus" },
     { id: "madza", label: "Madza" },
+    { id: "nissan", label: "Nissan" },
+    { id: "perodua", label: "Perodua" },
+    { id: "porsche", label: "Prosche" },
+    { id: "proton", label: "Proton" },
+    { id: "landRover", label: "Land Rover" },
+    { id: "subaru", label: "Subaru" },
+    { id: "kia", label: "Kia" },
+    { id: "toyota", label: "Toyota" },
+    { id: "ford", label: "Ford" },
+    { id: "peugeot", label: "Peugeot" },
+    { id: "volkswagen", label: "Volkswagen" },
+    { id: "volvo", label: "Volvo" },
   ];
   useEffect(() => {
     getProductList()
@@ -87,23 +100,27 @@ const Product = () => {
       setSelectedCarBrand([]);
       setActiveCarBrand(""); // Clear the active car brand
       setSelectedTyreBrands([]);
+      setShowPagination(false);
       setSelectedCarBrandTyre([]);
       navigate("/products");
+      setCurrentPage(1);
     } else {
       setSelectedCarBrand([carBrand]);
       setActiveCarBrand(carBrand); // Set the active car brand
+      setShowPagination(true);
       navigate(`/products/${carBrand}`);
+      setCurrentPage(1);
     }
   };
 
   const handleCarClick = (carTypeTyre) => {
     setSelectedCarBrandTyre([carTypeTyre]);
     setSelectedCarBrand([]);
+    setCurrentPage(1);
     navigate(`/products/${carBrand}/${carTypeTyre}`);
   };
 
   const filteredCars = filterCarsByBrand(selectedCarBrand[0]);
-
   const filteredProducts = products
     .filter((product) => {
       // Check if the product's tire brand is selected (selectedTyreBrands)
@@ -131,6 +148,22 @@ const Product = () => {
         });
       }
     });
+
+  const carsPerPage = itemsPerPage; // Number of cars to display per page
+  const productsPerPage = itemsPerPage; // Number of products to display per page
+
+  const startIndex = (currentPage - 1) * carsPerPage;
+  const endIndex = startIndex + carsPerPage;
+
+  const carsToDisplay = filteredCars.slice(startIndex, endIndex);
+
+  const productStartIndex = (currentPage - 1) * productsPerPage;
+  const productEndIndex = productStartIndex + productsPerPage;
+
+  const productsToDisplay = filteredProducts.slice(
+    productStartIndex,
+    productEndIndex
+  );
 
   useEffect(() => {
     setSelectedCarBrand(carBrand ? [carBrand] : []);
@@ -270,61 +303,86 @@ const Product = () => {
                   </li>
                 </ul>
               </div>
-              <div className="">
-                <ul className="shop-content-column px-0 mx-0">
-                  <div className="shop-content">
-                    <ul className="shop-content-column px-0 mx-0">
-                      {filteredCars.map((car) => (
+              <ul className="shop-content-column px-0 mx-0">
+                <div className="shop-content">
+                  <div className="shop-content-column px-0 mx-0">
+                    {carsToDisplay.map((item) => {
+                      return (
                         <li
-                          key={car.id}
+                          key={item.id}
                           className="product-car col-xs-6 col-sm-4 col-md-4 un-3-cols text-center"
-                          onClick={() => handleCarClick(car.carTypeTyre)}>
+                          onClick={() => handleCarClick(item.carTypeTyre)}>
                           <a
-                            aria-label={`Visit product category ${car.carName}`}>
-                            <img
-                              src={require(`../../static/assets/picture/${car.carImage}`)}
-                              alt={car.carName}
-                            />
+                            aria-label={`Visit product category ${item.carName}`}>
+                            {item.carImage && (
+                              <img
+                                src={require(`../../static/assets/picture/${item.carImage}`)}
+                                alt={item.carName}
+                              />
+                            )}
                             <p className="woocommerce-loop-category__title mb-0 mt-3">
-                              {car.carName}
-                              {/* <mark className="count">(2)</mark> */}
+                              {item.carName}
                             </p>
                           </a>
                         </li>
-                      ))}
+                      );
+                    })}
 
-                      {selectedCarBrand.length === 0 &&
-                        filteredProducts.map((product) => (
-                          <li key={product.id} className="px-0 col-lg-4">
+                    {selectedCarBrand.length === 0 &&
+                      productsToDisplay.map((item) => {
+                        return (
+                          <li key={item.id} className="px-0 col-lg-4">
                             <div className="product-inner">
                               <div className="product-thumbnail">
-                                <a href={product.products_url}>
+                                <a href={item.products_url}>
                                   <img
-                                    src={require(`../../static/assets/picture/${product.products_image}`)}
-                                    alt={product.products_title}
+                                    src={require(`../../static/assets/picture/${item.products_image}`)}
+                                    alt={item.products_title}
                                   />
                                 </a>
                               </div>
                               <div className="product-details">
                                 <div className="product-content">
                                   <div className="product_title">
-                                    <a href="#">{product.products_title}</a>
+                                    <a href="#">{item.products_title}</a>
                                   </div>
                                   <div className="product-price-box">
                                     <div className="price">
-                                      RM{product.products_price}.00
+                                      RM{item.products_price}.00
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </li>
-                        ))}
-                    </ul>
+                        );
+                      })}
                   </div>
-                </ul>
-              </div>
+                </div>
+              </ul>
+              {showPagination && (
+                <div className="pagination" id="pages">
+                  {Array.from({
+                    length: Math.ceil(filteredCars.length / carsPerPage),
+                  }).map((_, index) => {
+                    const pageNumber = index + 1;
+                    const isCurrentPage = currentPage === pageNumber;
+
+                    return (
+                      <button
+                        key={index}
+                        className={isCurrentPage ? "active" : ""}
+                        onClick={() => {
+                          setCurrentPage(pageNumber);
+                        }}>
+                        {pageNumber}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
+
             <div>{/* <img src={CommingSoon} /> */}</div>
           </div>
         </div>

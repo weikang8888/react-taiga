@@ -749,10 +749,61 @@
     padding: 0;
   }
   .css-956pwy-MuiPickersToolbar-root-MuiDateTimePickerToolbar-root {
-    padding: 0 16px 0 16px!important;
+    padding: 0 16px 0 16px !important;
   }
-  .css-nk89i7-MuiPickersCalendarHeader-root{
-    margin:0!important;
+  .css-nk89i7-MuiPickersCalendarHeader-root {
+    margin: 0 !important;
+  }
+  .content-area .shop-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .widgets-area{
+    width: 70%!important;
+    background-color: #fff;
+    position: fixed;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 100000;
+    transition: transform .25s ease;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    display: block;
+    animation: unset;
+    height: 100%;
+    overflow-y: auto;
+  }
+  .content-area .shop-toolbar .products-found {
+    width: 100%;
+  }
+  .content-area .shop-toolbar .filter-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 30%;
+    order: 4;
+    text-align: right;
+    font-size: 18px;
+    color: #000;
+    font-weight: 700;
+  }
+  .content-area .shop-toolbar .filter-mobile span{
+    padding-left: 8px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .content-area .shop-toolbar .shop-ordering {
+    order: 3;
+    padding: 0;
+    width: 70%;
+  }
+  .content-area .shop-toolbar .shop-ordering .current {
+    min-width: 100%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {

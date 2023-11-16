@@ -514,11 +514,6 @@ img {
   width: 64px;
   height: 64px;
 }
-
-.item{
-  padding:20px;
-}
-
 .animated {
   animation-duration: 1.5s;
   animation-fill-mode: both;

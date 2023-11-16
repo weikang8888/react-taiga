@@ -4571,6 +4571,7 @@ fieldset:disabled .btn {
   display: flex;
   padding-left: 0;
   list-style: none;
+  justify-content: end;
 }
 .page-link {
   position: relative;

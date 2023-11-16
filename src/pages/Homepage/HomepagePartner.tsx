@@ -7,6 +7,7 @@ import Carousel from "../../components/Carousel/Carousel";
 import CarouselImage1 from "../../static/assets/partner/apollo.png";
 import CarouselImage2 from "../../static/assets/partner/arisun.png";
 import CarouselImage3 from "../../static/assets/partner/vredestein.png";
+import CarouselImage4 from "../../static/assets/partner/roadone.png";
 
 const HomepagePartner = () => {
   const settings = {
@@ -20,11 +21,16 @@ const HomepagePartner = () => {
     autoplaySpeed: 500, // Set autoplay speed in milliseconds
   };
 
-  const carouselImages = [CarouselImage1, CarouselImage2, CarouselImage3];
+  const carouselImages = [
+    CarouselImage1,
+    CarouselImage2,
+    CarouselImage3,
+    CarouselImage4,
+  ];
 
   return (
     <>
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between align-items-center">
         {carouselImages.map((carouselImage, index) => (
           <Carousel
             key={index}

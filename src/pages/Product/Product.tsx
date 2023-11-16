@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import InputRange from "react-input-range";
 import Banner from "../../components/Banner/Banner";
@@ -9,6 +9,7 @@ import Loader from "../../components/Loader/Loader";
 import PriceRangeDisplay from "./PriceRangeDisplay";
 import { getProductList, getCarList } from "src/apiEndpoints";
 import CommingSoon from "../../static/assets/image/coming-soon-campaign.png";
+import FilterIcon from "../../static/assets/products/edit.png";
 
 const Product = () => {
   const navigate = useNavigate();
@@ -22,8 +23,43 @@ const Product = () => {
   const [activeCarBrand, setActiveCarBrand] = useState(""); // Track the active car brand
   const itemsPerPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
-  const [showPagination, setShowPagination] = useState(true);
+  const [showCarPagination, setShowCarPagination] = useState(true);
+  const [showProductPagination, setShowProductPagination] = useState(false);
+  const [activeSortOption, setActiveSortOption] = useState("popularity");
+  const [isFilterSidebarVisible, setFilterSidebarVisible] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      // Close the filter sidebar when resizing beyond 750px
+      if (window.innerWidth > 750) {
+        setFilterSidebarVisible(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const sortOptions = [
+    { id: "popularity", label: "Sort by popularity" },
+    { id: "latest", label: "Sort by latest" },
+    { id: "lowToHigh", label: "Sort by price: low to high" },
+    { id: "highToLow", label: "Sort by price: high to low" },
+    { id: "outOfStock", label: "Out of stock at the bottom" },
+  ];
+
+  const toggleFilterSidebar = () => {
+    setFilterSidebarVisible((prevVisibility) => !prevVisibility);
+  };
+
+  const handleClickSortOption = (optionId) => {
+    setActiveSortOption(optionId);
+  };
   const filterCarsByBrand = (carBrandId) => {
     // Filter cars that match the selected car brand
     return cars.filter((car) => car.carType === carBrandId);
@@ -72,7 +108,6 @@ const Product = () => {
         console.log(error);
       });
   }, []);
-
   // Handle changes in the price range
   const handlePriceChange = (newPriceRange) => {
     setPriceRange(newPriceRange);
@@ -80,6 +115,7 @@ const Product = () => {
 
   const handleTyreBrandChange = (event) => {
     const tyreBrand = event.target.value;
+    setCurrentPage(1);
 
     if (selectedTyreBrands.includes(tyreBrand)) {
       // Brand is already selected, remove it
@@ -100,14 +136,16 @@ const Product = () => {
       setSelectedCarBrand([]);
       setActiveCarBrand(""); // Clear the active car brand
       setSelectedTyreBrands([]);
-      setShowPagination(false);
+      setShowCarPagination(false);
+      setShowProductPagination(true);
       setSelectedCarBrandTyre([]);
       navigate("/products");
       setCurrentPage(1);
     } else {
       setSelectedCarBrand([carBrand]);
       setActiveCarBrand(carBrand); // Set the active car brand
-      setShowPagination(true);
+      setShowCarPagination(true);
+      setShowProductPagination(false);
       navigate(`/products/${carBrand}`);
       setCurrentPage(1);
     }
@@ -116,6 +154,7 @@ const Product = () => {
   const handleCarClick = (carTypeTyre) => {
     setSelectedCarBrandTyre([carTypeTyre]);
     setSelectedCarBrand([]);
+    setShowProductPagination(true);
     setCurrentPage(1);
     navigate(`/products/${carBrand}/${carTypeTyre}`);
   };
@@ -183,7 +222,10 @@ const Product = () => {
       <section className="products-area pt-100 pb-70">
         <div className="container">
           <div className="row">
-            <div className="widgets-area col-md-3 col-sm-12 col-xs-12">
+            <div
+              className={`widgets-area col-md-3 col-sm-12 col-xs-12 ${
+                isFilterSidebarVisible ? "filter-sidebar-visible" : ""
+              }`}>
               <div className="widget">
                 <h4 className="widget-title">Filter by price</h4>
                 <div className="price_slider_wrapper">
@@ -258,47 +300,42 @@ const Product = () => {
               <div
                 id="mf-catalog-toolbar"
                 className="shop-toolbar multiple mb-4">
-                <div className="products-found"></div>
+                <div className="products-found">
+                  <strong>{filteredProducts.length}</strong>
+                  {filteredProducts.length === 1
+                    ? "Product found"
+                    : "Products found"}
+                </div>
                 <div className="shop-view"></div>
+                <a
+                  href="#"
+                  className="filter-mobile"
+                  onClick={toggleFilterSidebar}>
+                  <img src={FilterIcon} />
+                  <span>Filter</span>
+                </a>
+
                 <ul className="shop-ordering">
                   <li className="current">
-                    <span> Sort by price: low to high</span>
+                    <span>
+                      {
+                        sortOptions.find(
+                          (option) => option.id === activeSortOption
+                        )?.label
+                      }
+                    </span>
                     <ul>
-                      <li>
-                        <a
-                          href="https://klinikar.com/shop/?orderby=popularity&amp;min_price=0&amp;max_price=2400"
-                          className="">
-                          Sort by popularity
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://klinikar.com/shop/?orderby=date&amp;min_price=0&amp;max_price=2400"
-                          className="">
-                          Sort by latest
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://klinikar.com/shop/?orderby=price&amp;min_price=0&amp;max_price=2400"
-                          className="active">
-                          Sort by price: low to high
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://klinikar.com/shop/?orderby=price-desc&amp;min_price=0&amp;max_price=2400"
-                          className="">
-                          Sort by price: high to low
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://klinikar.com/shop/?orderby=outofstock&amp;min_price=0&amp;max_price=2400"
-                          className="">
-                          Out of stock at the bottom
-                        </a>
-                      </li>
+                      {sortOptions.map((option) => (
+                        <li key={option.id}>
+                          <a
+                            className={
+                              activeSortOption === option.id ? "active" : ""
+                            }
+                            onClick={() => handleClickSortOption(option.id)}>
+                            {option.label}
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </li>
                 </ul>
@@ -310,7 +347,7 @@ const Product = () => {
                       return (
                         <li
                           key={item.id}
-                          className="product-car col-xs-6 col-sm-4 col-md-4 un-3-cols text-center"
+                          className="product-car col-xs-6 col-sm-4 col-md-4 un-3-cols col-6 text-center"
                           onClick={() => handleCarClick(item.carTypeTyre)}>
                           <a
                             aria-label={`Visit product category ${item.carName}`}>
@@ -331,7 +368,7 @@ const Product = () => {
                     {selectedCarBrand.length === 0 &&
                       productsToDisplay.map((item) => {
                         return (
-                          <li key={item.id} className="px-0 col-lg-4">
+                          <li key={item.id} className="px-0 col-lg-4 col-6">
                             <div className="product-inner">
                               <div className="product-thumbnail">
                                 <a href={item.products_url}>
@@ -348,7 +385,16 @@ const Product = () => {
                                   </div>
                                   <div className="product-price-box">
                                     <div className="price">
-                                      RM{item.products_price}.00
+                                      <span>RM{item.products_price}</span>
+                                      <del className="ps-2">
+                                        <span>
+                                          <bdi>
+                                            <span>
+                                              {item.products_oriPrice}
+                                            </span>
+                                          </bdi>
+                                        </span>
+                                      </del>
                                     </div>
                                   </div>
                                 </div>
@@ -360,32 +406,59 @@ const Product = () => {
                   </div>
                 </div>
               </ul>
-              {showPagination && (
-                <div className="pagination" id="pages">
-                  {Array.from({
-                    length: Math.ceil(filteredCars.length / carsPerPage),
-                  }).map((_, index) => {
-                    const pageNumber = index + 1;
-                    const isCurrentPage = currentPage === pageNumber;
-
-                    return (
-                      <button
-                        key={index}
-                        className={isCurrentPage ? "active" : ""}
-                        onClick={() => {
-                          setCurrentPage(pageNumber);
-                        }}>
-                        {pageNumber}
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
             </div>
+            {showCarPagination && (
+              <div className="pagination" id="pages">
+                {Array.from({
+                  length: Math.ceil(filteredCars.length / carsPerPage),
+                }).map((_, index) => {
+                  const pageNumber = index + 1;
+                  const isCurrentPage = currentPage === pageNumber;
 
+                  return (
+                    <button
+                      key={index}
+                      className={`pagination-button px-3 py-2 ${
+                        isCurrentPage ? "active" : ""
+                      } `}
+                      onClick={() => {
+                        setCurrentPage(pageNumber);
+                      }}>
+                      {pageNumber}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+            {showProductPagination && (
+              <div className="pagination" id="pages">
+                {Array.from({
+                  length: Math.ceil(filteredProducts.length / productsPerPage),
+                }).map((_, index) => {
+                  const pageNumber = index + 1;
+                  const isCurrentPage = currentPage === pageNumber;
+
+                  return (
+                    <button
+                      key={index}
+                      className={`pagination-button px-3 py-2 ${
+                        isCurrentPage ? "active" : ""
+                      } `}
+                      onClick={() => {
+                        setCurrentPage(pageNumber);
+                      }}>
+                      {pageNumber}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
             <div>{/* <img src={CommingSoon} /> */}</div>
           </div>
         </div>
+        {windowWidth <= 750 && isFilterSidebarVisible && (
+          <div className="overlap" onClick={toggleFilterSidebar}></div>
+        )}
       </section>
     </>
   );

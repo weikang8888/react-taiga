@@ -24,7 +24,7 @@ const Product = () => {
   const itemsPerPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
   const [showCarPagination, setShowCarPagination] = useState(true);
-  const [showProductPagination, setShowProductPagination] = useState(false);
+  const [showProductPagination, setShowProductPagination] = useState(true);
   const [activeSortOption, setActiveSortOption] = useState("popularity");
   const [isFilterSidebarVisible, setFilterSidebarVisible] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

@@ -11,11 +11,7 @@ interface AuthContextProps {
   userEmail: string | null;
   userName: string | null;
   userPhoneNumber: string | null;
-  login: (
-    email?: string,
-    name?: string,
-    phoneNumber?: string,
-  ) => void; // Update the type to match the implementation
+  login: (email?: string, name?: string, phoneNumber?: string) => void; // Update the type to match the implementation
   logout: () => void;
 }
 
@@ -37,19 +33,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     return localStorage.getItem("userPhoneNumber") || null;
   });
 
-  useEffect(() => {
-    const storedAuthToken = localStorage.getItem("authToken");
-
-    if (storedAuthToken) {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
-  const login = (
-    email: string,
-    name: string,
-    phoneNumber: string,
-  ) => {
+  const login = (email: string, name: string, phoneNumber: string) => {
     setIsLoggedIn(true);
     setUserEmail(email);
     setUserName(name);

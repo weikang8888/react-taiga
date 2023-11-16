@@ -760,8 +760,8 @@
     flex-wrap: wrap;
     width: 100%;
   }
-  .widgets-area{
-    width: 70%!important;
+  .widgets-area {
+    width: 70% !important;
     background-color: #fff;
     position: fixed;
     right: 100%;
@@ -769,7 +769,7 @@
     bottom: 0;
     overflow: hidden;
     z-index: 100000;
-    transition: transform .25s ease;
+    transition: transform 0.25s ease;
     margin: 0;
     padding: 0;
     opacity: 1;
@@ -792,7 +792,7 @@
     color: #000;
     font-weight: 700;
   }
-  .content-area .shop-toolbar .filter-mobile span{
+  .content-area .shop-toolbar .filter-mobile span {
     padding-left: 8px;
     font-size: 14px;
     font-weight: 400;
@@ -1558,6 +1558,15 @@
   }
   .parts-item h3 {
     font-size: 18px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .item {
+    width: 50%;
+    text-align: center;
+  }
+  .item img {
+    width: 120px;
   }
 }
 @media only screen and (min-width: 1800px) {

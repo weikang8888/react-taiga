@@ -64,6 +64,20 @@ const Header = ({ props }) => {
 
   const dropdownMenuClassName = isScrolled ? "bg-black" : "";
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 990) {
+        setIsMeanNavVisible(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <div
@@ -394,8 +408,6 @@ const Header = ({ props }) => {
             </nav>
           </div>
         </div>
-
-        {/* <div className="px-4"></div> */}
       </nav>
     </>
   );

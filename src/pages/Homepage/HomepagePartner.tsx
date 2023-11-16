@@ -30,7 +30,7 @@ const HomepagePartner = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-between align-items-center">
+      <div className="d-flex justify-content-between align-items-center flex-sm-nowrap flex-wrap ">
         {carouselImages.map((carouselImage, index) => (
           <Carousel
             key={index}

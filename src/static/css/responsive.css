@@ -1561,11 +1561,11 @@
   }
 }
 @media only screen and (max-width: 576px) {
-  .item {
+  .partner-column div {
     width: 50%;
     text-align: center;
   }
-  .item img {
+  .partner-column div img {
     width: 120px;
   }
 }

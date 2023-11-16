@@ -30,11 +30,10 @@ const HomepagePartner = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-between align-items-center flex-sm-nowrap flex-wrap ">
+      <div className="d-flex justify-content-between align-items-center flex-sm-nowrap flex-wrap partner-column">
         {carouselImages.map((carouselImage, index) => (
           <Carousel
             key={index}
-            classNameDiv="item"
             carouselImages={[carouselImage]}
           />
         ))}

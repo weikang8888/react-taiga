@@ -33,6 +33,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     return localStorage.getItem("userPhoneNumber") || null;
   });
 
+  useEffect(() => {
+    setIsLoggedIn(true);
+  }, []);
+
   const login = (email: string, name: string, phoneNumber: string) => {
     setIsLoggedIn(true);
     setUserEmail(email);

@@ -1,13 +1,12 @@
 import React from "react";
 
 interface CarouselOption {
-  classNameDiv: string;
   carouselImages: string[];
 }
 
-const Carousel = ({ classNameDiv, carouselImages }: CarouselOption) => {
+const Carousel = ({ carouselImages }: CarouselOption) => {
   return (
-    <div className={classNameDiv}>
+    <div>
       {carouselImages.map((image, index) => (
         <img key={index} src={image} alt={`Carousel ${index}`} />
       ))}

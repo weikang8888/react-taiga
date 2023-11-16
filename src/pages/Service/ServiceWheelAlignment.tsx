@@ -14,11 +14,11 @@ import MultiStepModal from "../../components/Modal/MultiStepModal";
 const ServicePressureCheck = () => {
   const settings = {
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1, // Adjust this value as needed
     slidesToScroll: 1, // Adjust this value as needed
     autoplay: true, // Enable autoplay
-    autoplaySpeed: 1000, // Set autoplay speed in milliseconds
+    autoplaySpeed: 2000, // Set autoplay speed in milliseconds
     arrows: false,
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,7 +60,6 @@ const ServicePressureCheck = () => {
                         {serviceDetail.map((serviceDetails, index) => (
                           <Carousel
                             key={index}
-                            classNameDiv="item"
                             carouselImages={[serviceDetails]}
                           />
                         ))}

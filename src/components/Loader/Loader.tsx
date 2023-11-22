@@ -8,7 +8,7 @@ const Loader = () => {
     // Simulate a 2-second delay
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);

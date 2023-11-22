@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import InputRange from "react-input-range";
 import Banner from "../../components/Banner/Banner";
 import BannerImage from "../../static/assets/about/about-taiga.png";
@@ -8,7 +8,6 @@ import "./product.css";
 import Loader from "../../components/Loader/Loader";
 import PriceRangeDisplay from "./PriceRangeDisplay";
 import { getProductList, getCarList } from "src/apiEndpoints";
-import CommingSoon from "../../static/assets/image/coming-soon-campaign.png";
 import FilterIcon from "../../static/assets/products/edit.png";
 
 const Product = () => {
@@ -205,6 +204,9 @@ const Product = () => {
   );
 
   useEffect(() => {
+    const hasCarBrandParameter = !!carBrand;
+    setShowCarPagination(hasCarBrandParameter);
+    setShowProductPagination(!hasCarBrandParameter);
     setSelectedCarBrand(carBrand ? [carBrand] : []);
     setActiveCarBrand(carBrand || ""); // Set the active car brand from the URL parameter
   }, [carBrand]);
@@ -371,17 +373,18 @@ const Product = () => {
                           <li key={item.id} className="px-0 col-lg-4 col-6">
                             <div className="product-inner">
                               <div className="product-thumbnail">
-                                <a href={item.products_url}>
+                                <Link
+                                  to={`/products/details/${item.products_url}`}>
                                   <img
                                     src={require(`../../static/assets/picture/${item.products_image}`)}
                                     alt={item.products_title}
                                   />
-                                </a>
+                                </Link>
                               </div>
                               <div className="product-details">
                                 <div className="product-content">
                                   <div className="product_title">
-                                    <a href="#">{item.products_title}</a>
+                                    <a>{item.products_title}</a>
                                   </div>
                                   <div className="product-price-box">
                                     <div className="price">
@@ -453,7 +456,6 @@ const Product = () => {
                 })}
               </div>
             )}
-            <div>{/* <img src={CommingSoon} /> */}</div>
           </div>
         </div>
         {windowWidth <= 750 && isFilterSidebarVisible && (

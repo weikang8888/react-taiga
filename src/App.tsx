@@ -28,6 +28,7 @@ import Login from "./pages/LoginRegister/Login";
 import Register from "./pages/LoginRegister/Register";
 import Verify from "./pages/LoginRegister/Verify";
 import PhoneNumber from "./pages/LoginRegister/PhoneNumber";
+import ProductDetails from "./pages/Product/ProductDetails";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export * from "./components";
@@ -41,7 +42,7 @@ function App() {
         <Route path="/register/:step" element={<Register />} />
         <Route path="/register/verifyEmail" element={<Verify />} />
         <Route path="/*" element={<AppWithHeaderAndFooter />} />
-      </Routes>{" "}
+      </Routes>
       <ToastContainer />
       <ButtonScrollTop />
     </Router>
@@ -55,7 +56,7 @@ function AppWithHeaderAndFooter() {
       <HeaderWrapper />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<AboutPage />} />{" "}
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" />
         <Route
@@ -82,10 +83,9 @@ function AppWithHeaderAndFooter() {
           path="/services/engine-oil-service"
           element={<ServiceEngineOil />}
         />
-        <Route
-          path="/products/:carBrand?/:carTyreType?"
-          element={<Product />}
-        />
+        <Route path="/products/:carBrand?/:carTypeTyre?" element={<Product />} />
+        <Route path="/products/details/:products_url" element={<ProductDetails />} />
+
         <Route path="/contactUs" element={<Contact />} />
         <Route path="/pages" />
         <Route path="/pages/faq" element={<Faq />} />

@@ -57,127 +57,127 @@ const HomepageProducts = () => {
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/bmw">
                 <img src={BMW} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/bentley">
                 <img src={Bentley} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/chevrolet">
                 <img src={Chevrolet} />
               </Link>
             </div>
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/ferrari">
                 <img src={Ferrari} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/haval">
                 <img src={Haval} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/honda">
                 <img src={Honda} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/hyundai">
                 <img src={Hyundai} />
               </Link>
             </div>
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/benz">
                 <img src={Benz} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/mini">
                 <img src={Mini} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/lexus">
                 <img src={Lexus} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/madza">
                 <img src={Madza} />
               </Link>
             </div>
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/nissan">
                 <img src={Nissan} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/perodua">
                 <img src={Perodua} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/porsche">
                 <img src={Porsche} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/proton">
                 <img src={Proton} />
               </Link>
             </div>
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/landRover">
                 <img src={LandRover} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/subaru">
                 <img src={Subaru} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/kia">
                 <img src={KIA} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/toyota">
                 <img src={Toyota} />
               </Link>
             </div>
           </div>
           <div className="products-column-brand">
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/ford">
                 <img src={Ford} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/peugeot">
                 <img src={Peugeot} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/volkswagen">
                 <img src={Volkswagen} />
               </Link>
             </div>
             <div className="products-brand">
-              <Link to="">
+              <Link to="/products/volvo">
                 <img src={Volvo} />
               </Link>
             </div>
@@ -200,121 +200,121 @@ const HomepageProducts = () => {
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/bmw">
                   <img src={BMW} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/bentley">
                   <img src={Bentley} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/chevrolet">
                   <img src={Chevrolet} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/ferrari">
                   <img src={Ferrari} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/haval">
                   <img src={Haval} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/honda">
                   <img src={Honda} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/hyundai">
                   <img src={Hyundai} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/mers">
                   <img src={Benz} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/mini">
                   <img src={Mini} />
                 </Link>
               </div>
             </div>
             <div className="products-column-brand">
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/lexus">
                   <img src={Lexus} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/madza">
                   <img src={Madza} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/nissan">
                   <img src={Nissan} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/perodua">
                   <img src={Perodua} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/porsche">
                   <img src={Porsche} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/proton">
                   <img src={Proton} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/landRover">
                   <img src={LandRover} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/subaru">
                   <img src={Subaru} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/kia">
                   <img src={KIA} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/toyota">
                   <img src={Toyota} />
                 </Link>
               </div>
             </div>
             <div className="products-column-brand">
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/ford">
                   <img src={Ford} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/peugeot">
                   <img src={Peugeot} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/volkswagen">
                   <img src={Volkswagen} />
                 </Link>
               </div>
               <div className="products-brand">
-                <Link to="">
+                <Link to="/products/volvo">
                   <img src={Volvo} />
                 </Link>
               </div>

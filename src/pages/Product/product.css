@@ -311,3 +311,85 @@
 .pagination .pagination-button.active {
   background: #fd5f16;
 }
+.product-details-area {
+  display: flex;
+}
+.entry-product-header {
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #000;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.entry-price {
+  color: #000;
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.entry-price span {
+  color: #f30;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.summary-meta p label {
+  color: #000;
+  padding-right: 5px;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.summary-meta p {
+  color: #8bc500;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.notice {
+  background-color: #ffffff;
+  color: #4594f6;
+  border-color: #cecece;
+  border-radius: 24px;
+  border: 1px solid #ddd;
+  padding: 1em;
+  margin: 1em 0;
+}
+.quantity {
+  position: relative;
+  max-width: 120px;
+}
+.quantity label {
+  font-size: 12px;
+  display: block;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.qty-box {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 0 20px;
+  transition: 0.5s;
+  position: relative;
+}
+
+.qty-box input {
+  width: 100%;
+  border-width: 0;
+  width: 60px;
+  padding: 10px 0;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  -webkit-appearance: textfield;
+  text-align: center;
+  font-weight: 600;
+  color: #000;
+  display: inline-block;
+  background-color: transparent;
+}

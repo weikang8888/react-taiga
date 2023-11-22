@@ -34,7 +34,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   });
 
   useEffect(() => {
-    setIsLoggedIn(true);
+    const storedEmail = localStorage.getItem("userEmail");
+
+    if (storedEmail) {
+      setIsLoggedIn(true);
+    }
   }, []);
 
   const login = (email: string, name: string, phoneNumber: string) => {

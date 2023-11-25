@@ -58,10 +58,10 @@ const ServicePressureCheck = () => {
           <div className="row">
             <div className="service-details-header">
               <h3>Pressure Check</h3>
-              <Button text="Book Appointment" onClick={handleOpenModal} />
+              {/* <Button text="Book Appointment" onClick={handleOpenModal} />
               {isModalOpen && (
                 <MultiStepModal handleCloseModal={handleCloseModal} />
-              )}
+              )} */}
             </div>
 
             <div className="row">

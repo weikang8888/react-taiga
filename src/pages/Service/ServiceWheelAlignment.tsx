@@ -46,10 +46,10 @@ const ServicePressureCheck = () => {
           <div className="row">
             <div className="service-details-header">
               <h3>Wheel Alignment</h3>
-              <Button text="Book Appointment" onClick={handleOpenModal} />
+              {/* <Button text="Book Appointment" onClick={handleOpenModal} />
               {isModalOpen && (
                 <MultiStepModal handleCloseModal={handleCloseModal} />
-              )}
+              )} */}
             </div>
             <div className="row">
               <div className="col-lg-6">
